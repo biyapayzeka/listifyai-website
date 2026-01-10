@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ListifyAI Kullanım Şartları ve Koşulları">
+    <title>Kullanım Şartları - ListifyAI</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0A0E1A;
+            --secondary-bg: #141922;
+            --accent-start: #6C5CE7;
+            --accent-end: #A29BFE;
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        .gradient-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(162, 155, 254, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .back-link:hover { color: var(--text-primary); }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .last-updated {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--accent-end);
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        ul, ol {
+            margin: 1rem 0 1rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        li { margin-bottom: 0.5rem; }
+        .highlight-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .warning-box {
+            background: rgba(238, 90, 111, 0.1);
+            border: 1px solid rgba(238, 90, 111, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        a { color: var(--accent-end); }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 6rem 1.5rem 3rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <nav>
+        <a href="index.html" class="logo">ListifyAI</a>
+        <a href="index.html" class="back-link">← Ana Sayfa</a>
+    </nav>
+
+    <div class="container">
+        <h1>Kullanım Şartları</h1>
+        <p class="last-updated">Son güncelleme: 10 Ocak 2025</p>
+
+        <p>
+            ListifyAI uygulamasını ("Uygulama") kullanarak bu Kullanım Şartları'nı ("Şartlar")
+            kabul etmiş sayılırsınız. Lütfen bu şartları dikkatlice okuyunuz.
+        </p>
+
+        <h2>1. Tanımlar</h2>
+        <ul>
+            <li><strong>"Uygulama":</strong> ListifyAI mobil uygulaması ve ilişkili hizmetler</li>
+            <li><strong>"Kullanıcı":</strong> Uygulamayı indiren ve kullanan gerçek veya tüzel kişi</li>
+            <li><strong>"Hizmet":</strong> AI destekli ürün fotoğrafı işleme ve video oluşturma hizmeti</li>
+            <li><strong>"İçerik":</strong> Kullanıcı tarafından yüklenen fotoğraflar ve oluşturulan görseller</li>
+            <li><strong>"Kredi":</strong> Hizmet kullanımı için gerekli sanal birim</li>
+        </ul>
+
+        <h2>2. Hizmetin Kapsamı</h2>
+        <p>ListifyAI aşağıdaki hizmetleri sunmaktadır:</p>
+        <ul>
+            <li>Yapay zeka destekli ürün fotoğrafı arka plan değiştirme</li>
+            <li>Profesyonel sahne ve arka plan seçenekleri</li>
+            <li>Ürün tanıtım videosu oluşturma</li>
+            <li>Görsel düzenleme ve optimizasyon araçları</li>
+        </ul>
+
+        <h2>3. Hesap Oluşturma ve Güvenlik</h2>
+        <h3>3.1 Kayıt</h3>
+        <ul>
+            <li>Uygulamayı kullanmak için hesap oluşturmanız gerekmektedir</li>
+            <li>Kayıt için 18 yaşından büyük olmalısınız</li>
+            <li>Doğru ve güncel bilgiler vermelisiniz</li>
+        </ul>
+
+        <h3>3.2 Hesap Güvenliği</h3>
+        <ul>
+            <li>Hesap bilgilerinizin gizliliğinden siz sorumlusunuz</li>
+            <li>Hesabınızda gerçekleşen tüm işlemlerden siz sorumlusunuz</li>
+            <li>Yetkisiz erişim şüphesinde derhal bizi bilgilendirmelisiniz</li>
+        </ul>
+
+        <h2>4. Kredi Sistemi ve Ödemeler</h2>
+        <h3>4.1 Kredi Kullanımı</h3>
+        <ul>
+            <li>AI işlemleri kredi karşılığında gerçekleştirilir</li>
+            <li>Krediler ön ödemeli olarak satın alınır</li>
+            <li>Kredi miktarları işlem türüne göre değişir</li>
+        </ul>
+
+        <h3>4.2 Ödeme Koşulları</h3>
+        <ul>
+            <li>Ödemeler Stripe altyapısı üzerinden güvenli şekilde işlenir</li>
+            <li>Fiyatlar KDV dahildir</li>
+            <li>Satın alınan krediler iade edilmez</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ İade Politikası:</strong> Satın alınan krediler, teknik bir hata olmadığı sürece
+            iade edilmez. Kullanılmamış krediler hesabınızda süresiz olarak saklanır.
+        </div>
+
+        <h2>5. Kullanıcı İçeriği</h2>
+        <h3>5.1 İçerik Sahipliği</h3>
+        <p>
+            Yüklediğiniz fotoğrafların ve AI tarafından oluşturulan görsellerin fikri mülkiyet
+            hakları size aittir. ListifyAI, bu içerikler üzerinde yalnızca hizmet sunmak için
+            gerekli lisansa sahiptir.
+        </p>
+
+        <h3>5.2 İçerik Kuralları</h3>
+        <p>Aşağıdaki içeriklerin yüklenmesi yasaktır:</p>
+        <ul>
+            <li>Yasadışı ürün veya hizmetlere ait görseller</li>
+            <li>Telif hakkı ihlali içeren içerikler</li>
+            <li>Müstehcen veya uygunsuz görseller</li>
+            <li>Üçüncü şahısların izinsiz fotoğrafları</li>
+            <li>Zararlı yazılım içeren dosyalar</li>
+        </ul>
+
+        <h3>5.3 İçerik Moderasyonu</h3>
+        <p>
+            Uygun olmayan içerikleri tespit etme ve kaldırma hakkımız saklıdır.
+            Kural ihlali durumunda hesabınız askıya alınabilir veya kapatılabilir.
+        </p>
+
+        <h2>6. Yasaklanan Kullanımlar</h2>
+        <p>Aşağıdaki eylemler kesinlikle yasaktır:</p>
+        <ul>
+            <li>Uygulamanın tersine mühendislik yapılması</li>
+            <li>API'lerin izinsiz kullanımı</li>
+            <li>Otomatik/bot erişimi</li>
+            <li>Hizmeti kötüye kullanma veya aşırı yükleme</li>
+            <li>Diğer kullanıcıların hesaplarına erişim</li>
+            <li>Hizmeti yeniden satma veya alt lisanslama</li>
+        </ul>
+
+        <h2>7. Fikri Mülkiyet</h2>
+        <p>
+            ListifyAI markası, logosu, uygulama tasarımı ve AI modelleri ListifyAI'a aittir
+            ve telif hakları ile korunmaktadır. Bu materyallerin izinsiz kullanımı yasaktır.
+        </p>
+
+        <h2>8. Sorumluluk Sınırlamaları</h2>
+        <div class="highlight-box">
+            <p>
+                Hizmet "olduğu gibi" sunulmaktadır. Aşağıdaki durumlardan dolayı
+                sorumluluk kabul etmiyoruz:
+            </p>
+            <ul>
+                <li>AI sonuçlarının kalitesi veya uygunluğu</li>
+                <li>Hizmet kesintileri veya teknik aksaklıklar</li>
+                <li>Veri kaybı (kullanıcı yedeği önerilir)</li>
+                <li>Üçüncü taraf hizmetlerinin (Stripe, Firebase vb.) kesintileri</li>
+                <li>Kullanıcı hatalarından kaynaklanan zararlar</li>
+            </ul>
+        </div>
+
+        <h2>9. Tazminat</h2>
+        <p>
+            Bu şartların ihlalinden veya uygulamayı kullanımınızdan kaynaklanan tüm talep,
+            zarar ve masraflardan ListifyAI'ı muaf tutmayı kabul edersiniz.
+        </p>
+
+        <h2>10. Hizmet Değişiklikleri</h2>
+        <ul>
+            <li>Hizmetleri önceden bildirmeksizin değiştirme hakkımız saklıdır</li>
+            <li>Fiyatlandırma değişiklikleri mevcut kredileri etkilemez</li>
+            <li>Önemli değişiklikler e-posta veya uygulama içi bildirim ile duyurulur</li>
+        </ul>
+
+        <h2>11. Hesap Sonlandırma</h2>
+        <h3>11.1 Kullanıcı Tarafından</h3>
+        <p>
+            Hesabınızı istediğiniz zaman uygulama içinden silebilirsiniz.
+            Silme işlemi 30 gün içinde tamamlanır.
+        </p>
+
+        <h3>11.2 ListifyAI Tarafından</h3>
+        <p>
+            Aşağıdaki durumlarda hesabınızı askıya alabilir veya sonlandırabiliriz:
+        </p>
+        <ul>
+            <li>Kullanım şartlarının ihlali</li>
+            <li>Yasadışı faaliyet şüphesi</li>
+            <li>Ödeme sorunları</li>
+            <li>Uzun süreli hareketsizlik (12 ay+)</li>
+        </ul>
+
+        <h2>12. Uyuşmazlık Çözümü</h2>
+        <p>
+            Bu şartlardan doğan uyuşmazlıklarda Türkiye Cumhuriyeti kanunları uygulanır.
+            Uyuşmazlıkların çözümünde İstanbul Mahkemeleri ve İcra Daireleri yetkilidir.
+        </p>
+
+        <h2>13. Genel Hükümler</h2>
+        <ul>
+            <li>Bu şartlar, sizinle aramızdaki tüm anlaşmayı oluşturur</li>
+            <li>Herhangi bir hükmün geçersizliği diğer hükümleri etkilemez</li>
+            <li>Haklarımızdan feragat etmememiz, bu haklardan vazgeçtiğimiz anlamına gelmez</li>
+        </ul>
+
+        <h2>14. İletişim</h2>
+        <div class="highlight-box">
+            <p>Sorularınız için:</p>
+            <p><strong>E-posta:</strong> <a href="mailto:legal@listifyai.com.tr">legal@listifyai.com.tr</a></p>
+            <p><strong>Destek:</strong> <a href="mailto:support@listifyai.com.tr">support@listifyai.com.tr</a></p>
+            <p><strong>Web:</strong> <a href="https://listifyai.com.tr">https://listifyai.com.tr</a></p>
+        </div>
+
+        <p style="margin-top: 2rem; text-align: center;">
+            <a href="privacy-policy.html">Gizlilik Politikası</a> |
+            <a href="kvkk.html">KVKK Aydınlatma</a>
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ListifyAI. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
