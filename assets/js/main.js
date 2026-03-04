@@ -102,8 +102,13 @@
             var isActive = item.classList.contains('active');
             document.querySelectorAll('.faq-item').forEach(function (i) {
                 i.classList.remove('active');
+                var btn = i.querySelector('.faq-question');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
             });
-            if (!isActive) item.classList.add('active');
+            if (!isActive) {
+                item.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 
@@ -118,6 +123,22 @@
         }, { threshold: 0.1 });
         stickyObs.observe(heroSection);
     }
+
+    /* ---------- Carousel arrow buttons ---------- */
+    document.querySelectorAll('.carousel-wrap').forEach(function (wrap) {
+        var track = wrap.querySelector('.carousel-track');
+        var leftBtn = wrap.querySelector('.carousel-btn--left');
+        var rightBtn = wrap.querySelector('.carousel-btn--right');
+        if (track && leftBtn && rightBtn) {
+            var scrollAmount = 220;
+            leftBtn.addEventListener('click', function () {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            rightBtn.addEventListener('click', function () {
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+        }
+    });
 
     /* ---------- Video carousel drag-to-scroll ---------- */
     document.querySelectorAll('.carousel-track').forEach(function (track) {

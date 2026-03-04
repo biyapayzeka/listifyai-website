@@ -25,33 +25,15 @@
         <h1>Destek Merkezi</h1>
         <p class="subtitle">Size nasıl yardımcı olabiliriz?</p>
 
-        <!-- Contact Cards -->
-        <div class="contact-grid">
-            <div class="contact-card">
+        <!-- Contact -->
+        <div class="contact-grid" style="grid-template-columns: 1fr; max-width: 480px; margin: 0 auto var(--space-3xl);">
+            <div class="contact-card" style="text-align: center;">
                 <div class="contact-icon">&#128231;</div>
-                <h3>E-posta Destek</h3>
-                <p>Genel sorularınız için</p>
-                <a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a>
+                <h3>Bize Ulaşın</h3>
+                <p>Tüm soru, öneri ve destek talepleriniz için</p>
+                <a href="mailto:info@listifyai.com.tr" style="font-size: 1.125rem; font-weight: 600;">info@listifyai.com.tr</a>
+                <p style="margin-top: 12px; font-size: 0.8125rem; color: var(--text-tertiary);">Genellikle 24-48 saat içinde yanıt veriyoruz.</p>
             </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">&#128274;</div>
-                <h3>Gizlilik Talepleri</h3>
-                <p>KVKK ve GDPR başvuruları</p>
-                <a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">&#128179;</div>
-                <h3>Ödeme Sorunları</h3>
-                <p>Kredi ve fatura konuları</p>
-                <a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a>
-            </div>
-        </div>
-
-        <div class="response-info">
-            <h4>Ortalama Yanıt Süresi</h4>
-            <p>E-postalara genellikle 24-48 saat içinde yanıt veriyoruz.</p>
         </div>
 
         <!-- FAQ Section -->
@@ -59,10 +41,10 @@
             <h2>Sıkça Sorulan Sorular</h2>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Nasıl hesap oluşturabilirim?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Uygulamayı indirdikten sonra "Kayıt Ol" butonuna tıklayın. E-posta adresiniz veya
@@ -72,24 +54,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
-                    Kredi sistemi nasıl çalışır?
-                    <span class="faq-chevron">&#9660;</span>
-                </div>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Her AI işlemi belirli miktarda kredi harcar. Örneğin, arka plan değiştirme 1 kredi,
-                        video oluşturma ise daha fazla kredi gerektirir. Kredi paketlerini uygulama içinden
-                        satın alabilirsiniz. Satın alınan krediler süresiz olarak hesabınızda kalır.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Fotoğraflarım güvende mi?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Evet, güvenliğiniz bizim için en önemli önceliktir. Tüm veriler şifrelenmiş olarak
@@ -100,10 +68,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     İade alabilir miyim?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Satın alınan krediler, teknik bir sorun olmadığı sürece iade edilmez. Ancak,
@@ -114,10 +82,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Hesabımı nasıl silebilirim?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Uygulama içinde Hesap &rarr; Ayarlar &rarr; Hesabı Sil yolunu takip edebilirsiniz.
@@ -128,10 +96,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Hangi dosya formatları destekleniyor?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Fotoğraflar için JPG, JPEG, PNG ve HEIC formatları desteklenmektedir.
@@ -142,10 +110,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     İşlenmiş fotoğraflarımı ticari olarak kullanabilir miyim?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Evet, ListifyAI ile oluşturduğunuz görsellerin tüm hakları size aittir.
@@ -156,10 +124,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Sanal kıyafet deneme nasıl çalışır?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Fashion Try-On özelliği FASHN.ai teknolojisini kullanır. Kıyafet fotoğrafınızı
@@ -170,10 +138,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Excel/CSV export nasıl kullanılır?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Ürünler sayfasında dışa aktarmak istediğiniz ürünleri seçin, platform
@@ -185,10 +153,10 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">
+                <button class="faq-question" aria-expanded="false">
                     Video oluşturma ne kadar sürüyor?
                     <span class="faq-chevron">&#9660;</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
                         Video oluşturma süre stil ve kaliteye göre değişir. 480p videolar genellikle
