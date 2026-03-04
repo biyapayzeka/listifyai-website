@@ -3,649 +3,1689 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ListifyAI - Yapay zeka ile profesyonel ürün fotoğrafları oluşturun. E-ticaret satışlarınızı artırın.">
-    <meta name="keywords" content="AI, yapay zeka, ürün fotoğrafı, e-ticaret, product photography, ListifyAI">
+    <meta name="description" content="ListifyAI - Yapay zeka ile profesyonel e-ticaret görselleri, moda videoları ve ürün fotoğrafları oluşturun. 600+ sahne, 11 video stili, 7 platform export.">
+    <meta name="keywords" content="AI, yapay zeka, ürün fotoğrafı, e-ticaret, product photography, ListifyAI, moda, video, arkaplan değiştirme, fashion try-on">
     <meta name="author" content="ListifyAI">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://listifyai.com.tr/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="ListifyAI - AI Powered Product Photography">
-    <meta property="og:description" content="Yapay zeka ile profesyonel ürün fotoğrafları oluşturun.">
+    <meta property="og:title" content="ListifyAI - AI Destekli E-Ticaret Stüdyosu">
+    <meta property="og:description" content="Yapay zeka ile profesyonel e-ticaret görselleri, moda videoları ve ürün fotoğrafları oluşturun.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://listifyai.com.tr">
     <meta property="og:image" content="https://listifyai.com.tr/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="tr_TR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ListifyAI - AI Powered Product Photography">
-    <meta name="twitter:description" content="Yapay zeka ile profesyonel ürün fotoğrafları oluşturun.">
+    <meta name="twitter:title" content="ListifyAI - AI Destekli E-Ticaret Stüdyosu">
+    <meta name="twitter:description" content="Yapay zeka ile profesyonel e-ticaret görselleri oluşturun.">
+    <meta name="twitter:image" content="https://listifyai.com.tr/assets/og-image.png">
 
-    <title>ListifyAI - AI Powered Product Photography</title>
+    <title>ListifyAI - AI Destekli E-Ticaret Stüdyosu</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="assets/css/shared.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "ListifyAI",
+        "operatingSystem": "Android",
+        "applicationCategory": "BusinessApplication",
+        "description": "AI destekli e-ticaret görsel üretim uygulaması. 600+ sahne, 11 video stili, 7 platform export.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 
     <style>
-        :root {
-            /* App Colors - Matching Flutter Theme */
-            --primary-bg: #0A0E1A;
-            --secondary-bg: #141922;
-            --accent-start: #6C5CE7;
-            --accent-end: #A29BFE;
-            --sage-green: #7C9D96;
-            --success: #00D9FF;
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-tertiary: rgba(255, 255, 255, 0.54);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
+    /* ============ HERO ============ */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px var(--space-xxl) var(--space-5xl);
+        position: relative;
+        overflow: hidden;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* Aurora gradient background */
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 25% 40%, rgba(124,136,112,0.25) 0%, transparent 55%),
+            radial-gradient(ellipse at 75% 25%, rgba(123,140,122,0.18) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 80%, rgba(91,107,90,0.12) 0%, transparent 55%),
+            radial-gradient(ellipse at 10% 90%, rgba(82,196,26,0.06) 0%, transparent 40%);
+        pointer-events: none;
+        z-index: 0;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    /* Noise texture overlay */
+    .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        pointer-events: none;
+        z-index: 0;
+    }
 
-        /* Gradient Background */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(162, 155, 254, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(124, 157, 150, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
+    .hero-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+    }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(10, 14, 26, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 20px;
+        background: rgba(124,136,112,0.15);
+        border: 1px solid rgba(124,136,112,0.25);
+        border-radius: var(--radius-pill);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--brand);
+        margin-bottom: var(--space-xxl);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .hero h1 {
+        margin-bottom: var(--space-xl);
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    .hero-sub {
+        font-size: clamp(1rem, 2vw, 1.1875rem);
+        color: var(--text-secondary);
+        max-width: 580px;
+        margin: 0 auto var(--space-3xl);
+        line-height: 1.6;
+    }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    .hero-btns {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: var(--space-3xl);
+    }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+    .hero-stores {
+        display: flex;
+        gap: var(--space-lg);
+        justify-content: center;
+        align-items: center;
+        margin-bottom: var(--space-4xl);
+    }
 
-        /* Hero Section */
+    .store-badge {
+        height: 46px;
+        border-radius: var(--radius-sm);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0.9;
+    }
+    .store-badge:hover {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    .hero-stats {
+        display: flex;
+        gap: var(--space-3xl);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-stat {
+        text-align: center;
+    }
+    .hero-stat-num {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+    .hero-stat-label {
+        font-size: 0.8125rem;
+        color: var(--text-tertiary);
+        margin-top: 2px;
+    }
+    .hero-stat-divider {
+        width: 1px;
+        height: 36px;
+        background: rgba(255,255,255,0.1);
+    }
+
+    /* ============ PLATFORM LOGOS ============ */
+    .platforms-bar {
+        padding: var(--space-3xl) var(--space-xxl);
+        background: var(--bg-card-dark);
+    }
+
+    .platforms-bar p {
+        text-align: center;
+        font-size: 0.8125rem;
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-xl);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+
+    .platform-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        flex-wrap: wrap;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .platform-logo {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--text-tertiary);
+        opacity: 0.5;
+        transition: opacity 0.3s ease, color 0.3s ease;
+        white-space: nowrap;
+    }
+    .platform-logo:hover {
+        opacity: 1;
+        color: var(--text-primary);
+    }
+
+    /* ============ BENTO FEATURES ============ */
+    .features-section {
+        padding: var(--space-6xl) var(--space-xxl);
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: var(--space-lg);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .bento-cell {
+        background: var(--bg-card);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: var(--radius-xxl);
+        padding: var(--space-3xl);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .bento-cell:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        border-color: rgba(124,136,112,0.2);
+    }
+
+    .bento-hero {
+        grid-column: span 2;
+        grid-row: span 2;
+        padding: var(--space-4xl);
+        background: linear-gradient(135deg, rgba(124,136,112,0.15), rgba(91,107,90,0.08));
+        border-color: rgba(124,136,112,0.15);
+    }
+
+    .bento-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: var(--space-xl);
+    }
+
+    .bento-icon-sage { background: rgba(124,136,112,0.2); }
+    .bento-icon-amber { background: rgba(255,169,64,0.15); }
+    .bento-icon-blue { background: rgba(64,169,255,0.15); }
+    .bento-icon-fuchsia { background: rgba(217,70,239,0.15); }
+    .bento-icon-green { background: rgba(82,196,26,0.15); }
+
+    .bento-cell h3 {
+        margin-bottom: var(--space-sm);
+    }
+
+    .bento-cell p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .bento-hero h3 {
+        font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+        margin-bottom: var(--space-md);
+    }
+
+    .bento-hero p {
+        font-size: 1rem;
+        max-width: 420px;
+    }
+
+    .bento-stat {
+        display: inline-block;
+        margin-top: var(--space-xl);
+        padding: 6px 16px;
+        background: rgba(124,136,112,0.2);
+        border-radius: var(--radius-pill);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--text-sage);
+    }
+
+    .bento-tags {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+        margin-top: var(--space-lg);
+    }
+
+    .bento-tag {
+        padding: 4px 12px;
+        background: rgba(255,255,255,0.06);
+        border-radius: var(--radius-pill);
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+    }
+
+    /* ============ FASHION SHOWCASE ============ */
+    .fashion-section {
+        padding: var(--space-6xl) var(--space-xxl);
+        background: var(--bg-deep);
+    }
+
+    .fashion-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .fashion-card {
+        border-radius: var(--radius-xxl);
+        padding: var(--space-3xl);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.06);
+        transition: all 0.4s ease;
+    }
+
+    .fashion-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .fashion-card-tryon {
+        background: linear-gradient(160deg, #1A2A26 0%, #0F1F1B 100%);
+        border-color: rgba(94,168,150,0.15);
+    }
+    .fashion-card-tryon:hover { border-color: rgba(94,168,150,0.3); }
+
+    .fashion-card-video {
+        background: linear-gradient(160deg, #2A2418 0%, #1F1A0F 100%);
+        border-color: rgba(255,169,64,0.12);
+    }
+    .fashion-card-video:hover { border-color: rgba(255,169,64,0.25); }
+
+    .fashion-card-fabric {
+        background: linear-gradient(160deg, #261A2A 0%, #1B0F20 100%);
+        border-color: rgba(217,70,239,0.12);
+    }
+    .fashion-card-fabric:hover { border-color: rgba(217,70,239,0.25); }
+
+    .fashion-card .bento-icon {
+        margin-bottom: var(--space-xl);
+    }
+
+    .fashion-card h3 {
+        margin-bottom: var(--space-sm);
+    }
+
+    .fashion-card p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .fashion-phases {
+        display: flex;
+        gap: 6px;
+        margin-top: var(--space-lg);
+        align-items: center;
+    }
+
+    .fashion-phase {
+        padding: 4px 10px;
+        background: rgba(255,169,64,0.12);
+        border-radius: var(--radius-sm);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--status-warning);
+        white-space: nowrap;
+    }
+
+    .fashion-phase-arrow {
+        color: var(--text-tertiary);
+        font-size: 0.75rem;
+    }
+
+    /* ============ E-COMMERCE EXPORT ============ */
+    .ecommerce-section {
+        padding: var(--space-6xl) var(--space-xxl);
+    }
+
+    .ecommerce-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .ecommerce-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .ecommerce-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .ecommerce-check {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(82,196,26,0.15);
+        color: var(--status-success);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        margin-top: 2px;
+    }
+
+    .ecommerce-item p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.5;
+    }
+
+    .export-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .export-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-xl);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .export-card:hover {
+        background: var(--glass-bg-hover);
+        transform: translateY(-2px);
+    }
+
+    .export-card-icon {
+        font-size: 1.75rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .export-card-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-bottom: 2px;
+    }
+
+    .export-card-type {
+        font-size: 0.75rem;
+        color: var(--text-tertiary);
+    }
+
+    /* ============ HOW IT WORKS ============ */
+    .how-section {
+        padding: var(--space-6xl) var(--space-xxl);
+        background: var(--bg-card-dark);
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3xl);
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .step-card {
+        text-align: center;
+        position: relative;
+    }
+
+    .step-num {
+        font-size: 5rem;
+        font-weight: 900;
+        color: rgba(124,136,112,0.08);
+        line-height: 1;
+        margin-bottom: -16px;
+        position: relative;
+        z-index: 0;
+    }
+
+    .step-icon-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.375rem;
+        margin: 0 auto var(--space-xl);
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-card h3 {
+        margin-bottom: var(--space-sm);
+    }
+
+    .step-card p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .step-detail {
+        display: inline-block;
+        margin-top: var(--space-md);
+        font-size: 0.8125rem;
+        color: var(--brand);
+        font-weight: 500;
+    }
+
+    /* ============ VIDEO STYLES ============ */
+    .videos-section {
+        padding: var(--space-6xl) var(--space-xxl);
+    }
+
+    .carousel-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: var(--space-lg);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: var(--space-sm) 0;
+        cursor: grab;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .video-card {
+        flex-shrink: 0;
+        width: 180px;
+        aspect-ratio: 9/16;
+        border-radius: var(--radius-xxl);
+        background: var(--bg-card);
+        border: 1px solid rgba(255,255,255,0.04);
+        position: relative;
+        overflow: hidden;
+        scroll-snap-align: start;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .video-card:hover {
+        transform: scale(1.03);
+        border-color: rgba(124,136,112,0.2);
+    }
+
+    .video-card-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+        z-index: 1;
+    }
+
+    .video-card-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1.5px solid rgba(255,255,255,0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        font-size: 1.125rem;
+        color: white;
+    }
+
+    .video-card-label {
+        position: relative;
+        z-index: 2;
+        padding: var(--space-lg);
+        width: 100%;
+    }
+
+    .video-card-label span {
+        font-size: 0.8125rem;
+        font-weight: 600;
+    }
+
+    /* ============ STATS ============ */
+    .stats-section {
+        padding: var(--space-4xl) var(--space-xxl);
+        background: linear-gradient(135deg, rgba(124,136,112,0.1), rgba(91,107,90,0.06));
+        border-top: 1px solid rgba(124,136,112,0.1);
+        border-bottom: 1px solid rgba(124,136,112,0.1);
+    }
+
+    .stats-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-4xl);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-num {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-weight: 900;
+        color: var(--text-primary);
+    }
+
+    .stat-label {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+        margin-top: 4px;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 48px;
+        background: rgba(255,255,255,0.1);
+        flex-shrink: 0;
+    }
+
+    /* ============ PRICING ============ */
+    .pricing-section {
+        padding: var(--space-6xl) var(--space-xxl);
+        background: var(--bg-deep);
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-lg);
+        max-width: 1100px;
+        margin: 0 auto var(--space-4xl);
+    }
+
+    .pricing-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: var(--radius-xxl);
+        padding: var(--space-3xl) var(--space-xxl);
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+
+    .pricing-card.featured {
+        border: 2px solid var(--brand);
+        transform: scale(1.04);
+        box-shadow: 0 8px 40px var(--brand-glow);
+    }
+
+    .pricing-card.featured:hover {
+        transform: scale(1.04) translateY(-4px);
+    }
+
+    .pricing-popular {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 4px 16px;
+        background: var(--brand);
+        color: white;
+        border-radius: var(--radius-pill);
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .pricing-name {
+        font-size: 0.875rem;
+        color: var(--text-tertiary);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: var(--space-lg);
+    }
+
+    .pricing-credits {
+        font-size: 2.25rem;
+        font-weight: 900;
+        margin-bottom: 2px;
+    }
+
+    .pricing-credits-label {
+        font-size: 0.8125rem;
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-md);
+    }
+
+    .pricing-bonus {
+        display: inline-block;
+        padding: 3px 12px;
+        background: rgba(82,196,26,0.12);
+        color: var(--status-success);
+        border-radius: var(--radius-pill);
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: var(--space-xl);
+    }
+
+    .pricing-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: var(--space-xxl);
+    }
+
+    .pricing-price small {
+        font-size: 0.8125rem;
+        font-weight: 400;
+        color: var(--text-tertiary);
+    }
+
+    /* Credit usage table */
+    .credit-usage {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-xxl);
+        padding: var(--space-3xl);
+    }
+
+    .credit-usage h4 {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .credit-usage-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+    }
+
+    .credit-usage-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-sm) var(--space-md);
+        background: rgba(255,255,255,0.03);
+        border-radius: var(--radius-sm);
+    }
+
+    .credit-usage-item span:first-child {
+        font-size: 0.8125rem;
+        color: var(--text-secondary);
+    }
+
+    .credit-usage-item span:last-child {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--text-sage);
+    }
+
+    /* ============ FAQ ============ */
+    .faq-section {
+        padding: var(--space-6xl) var(--space-xxl);
+    }
+
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .faq-question {
+        padding: var(--space-xl) 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.2s ease;
+        user-select: none;
+    }
+
+    .faq-question:hover { color: var(--brand); }
+
+    .faq-chevron {
+        font-size: 1.25rem;
+        color: var(--text-tertiary);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: var(--space-lg);
+    }
+
+    .faq-item.active .faq-chevron {
+        transform: rotate(180deg);
+        color: var(--brand);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 300px;
+    }
+
+    .faq-answer-inner {
+        padding: 0 0 var(--space-xl);
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.7;
+    }
+
+    /* ============ FINAL CTA ============ */
+    .final-cta {
+        padding: var(--space-6xl) var(--space-xxl);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-card-dark);
+    }
+
+    .final-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 50% 50%, rgba(124,136,112,0.15) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .final-cta > * { position: relative; z-index: 1; }
+
+    .final-cta h2 { margin-bottom: var(--space-md); }
+    .final-cta .sub { color: var(--text-secondary); margin-bottom: var(--space-3xl); font-size: 1.0625rem; }
+    .final-cta .hero-stores { margin-top: var(--space-xxl); }
+
+    /* ============ MOBILE STICKY CTA ============ */
+    .mobile-sticky-cta {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 998;
+        padding: var(--space-md) var(--space-lg);
+        padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+        background: rgba(38,38,36,0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid var(--glass-border);
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-sticky-cta.visible {
+        transform: translateY(0);
+    }
+
+    .mobile-sticky-cta .btn {
+        width: 100%;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+        .bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-hero {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .pricing-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .pricing-card.featured {
+            transform: scale(1);
+        }
+        .pricing-card.featured:hover {
+            transform: translateY(-4px);
+        }
+        .ecommerce-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 100px var(--space-lg) var(--space-4xl);
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-stats {
+            gap: var(--space-xl);
+        }
+        .hero-stat-num { font-size: 1.125rem; }
+
+        .bento-grid {
+            grid-template-columns: 1fr;
+        }
+        .bento-hero {
+            grid-column: span 1;
         }
 
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--sage-green);
-            margin-bottom: 2rem;
+        .fashion-grid {
+            grid-template-columns: 1fr;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+        .steps-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-4xl);
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end), var(--success));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .video-card { width: 150px; }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
+        .stats-row {
             flex-wrap: wrap;
+            gap: var(--space-xxl);
         }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            color: white;
-            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 30px rgba(108, 92, 231, 0.5);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: white;
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Store Badges */
-        .store-badges {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-
-        .store-badge {
-            height: 50px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .store-badge:hover {
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-        }
-
-        .features-grid {
+        .stat-divider { display: none; }
+        .stats-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
         }
 
-        .feature-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        .pricing-grid {
+            grid-template-columns: 1fr;
+            max-width: 360px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-start);
-            box-shadow: 0 10px 40px rgba(108, 92, 231, 0.2);
+        .credit-usage-grid {
+            grid-template-columns: 1fr;
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            border-radius: 16px;
-            display: flex;
+        .export-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mobile-sticky-cta { display: block; }
+    }
+
+    @media (max-width: 480px) {
+        .hero-btns {
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        }
+        .hero-btns .btn { width: 100%; max-width: 300px; }
+
+        .hero-stores {
+            flex-direction: column;
         }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+        .export-grid {
+            grid-template-columns: 1fr;
         }
-
-        .feature-card p {
-            color: var(--text-secondary);
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 6rem 2rem;
-            background: var(--secondary-bg);
-        }
-
-        .steps {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .step {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-            max-width: 280px;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .step p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-end);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-bottom p {
-            color: var(--text-tertiary);
-            font-size: 0.875rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 8rem;
-            }
-
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .store-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    }
     </style>
 </head>
 <body>
-    <div class="gradient-bg"></div>
 
     <!-- Navigation -->
-    <nav>
-        <div class="logo">ListifyAI</div>
-        <ul class="nav-links">
-            <li><a href="#features">Özellikler</a></li>
-            <li><a href="#how-it-works">Nasıl Çalışır</a></li>
-            <li><a href="privacy-policy.html">Gizlilik</a></li>
-            <li><a href="terms.html">Kullanım Şartları</a></li>
-            <li><a href="support.html">Destek</a></li>
-        </ul>
-        <button class="mobile-menu-btn">☰</button>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">ListifyAI<span class="nav-logo-dot"></span></a>
+            <div class="nav-links">
+                <a href="#features">Özellikler</a>
+                <a href="#fashion">Moda</a>
+                <a href="#how-it-works">Nasıl Çalışır</a>
+                <a href="#pricing">Fiyatlar</a>
+                <a href="support.html">Destek</a>
+                <a href="#download" class="nav-cta">Uygulamayı İndir</a>
+            </div>
+            <button class="nav-menu-btn" aria-label="Menü">&#9776;</button>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Mobile menu overlay -->
+    <div class="nav-mobile-overlay">
+        <a href="#features">Özellikler</a>
+        <a href="#fashion">Moda</a>
+        <a href="#how-it-works">Nasıl Çalışır</a>
+        <a href="#pricing">Fiyatlar</a>
+        <a href="support.html">Destek</a>
+        <a href="#download" class="nav-cta">Uygulamayı İndir</a>
+    </div>
+
+    <!-- ==================== HERO ==================== -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-badge">✨ AI Destekli Ürün Fotoğrafçılığı</span>
-            <h1>
-                Ürünlerinizi<br>
-                <span class="gradient-text">Profesyonel Fotoğraflara</span><br>
-                Dönüştürün
-            </h1>
-            <p>
-                Yapay zeka teknolojisi ile saniyeler içinde stüdyo kalitesinde ürün fotoğrafları oluşturun.
-                E-ticaret satışlarınızı artırın.
-            </p>
-            <div class="btn-group">
-                <a href="#download" class="btn btn-primary">
-                    <span>📱</span> Uygulamayı İndir
-                </a>
-                <a href="#features" class="btn btn-secondary">
-                    <span>→</span> Daha Fazla Bilgi
-                </a>
+            <div class="hero-badge reveal">
+                <span>&#10024;</span> AI Destekli E-Ticaret Stüdyosu
             </div>
 
-            <div class="store-badges" id="download">
-                <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank">
+            <h1 class="reveal reveal-d1">
+                Ürünlerinizi Profesyonel<br>Görsellere Dönüştürün
+            </h1>
+
+            <p class="hero-sub reveal reveal-d2">
+                Yapay zeka ile ürün fotoğrafı, moda videosu, e-ticaret görselleri &mdash; saniyeler içinde.
+                600+ sahne, 11 video stili, 7 platform export.
+            </p>
+
+            <div class="hero-btns reveal reveal-d3">
+                <a href="#download" class="btn btn-primary">Ücretsiz Dene &rarr;</a>
+                <a href="#features" class="btn btn-glass">&#9654;&ensp;Keşfet</a>
+            </div>
+
+            <div class="hero-stores reveal reveal-d4" id="download">
+                <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                         alt="Google Play'den İndir" class="store-badge">
+                         alt="Google Play'den İndir" class="store-badge" width="162" height="48">
                 </a>
-                <!-- App Store badge - yakında eklenecek -->
-                <!--
-                <a href="#" target="_blank">
+                <!-- App Store badge - yakında
+                <a href="#" target="_blank" rel="noopener">
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                         alt="App Store'dan İndir" class="store-badge">
+                         alt="App Store'dan İndir" class="store-badge" width="143" height="48">
                 </a>
                 -->
             </div>
+
+            <div class="hero-stats reveal reveal-d5">
+                <div class="hero-stat">
+                    <div class="hero-stat-num">600+</div>
+                    <div class="hero-stat-label">Sahne</div>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">11</div>
+                    <div class="hero-stat-label">Video Stili</div>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">7+</div>
+                    <div class="hero-stat-label">Platform</div>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">&lt;5s</div>
+                    <div class="hero-stat-label">İşlem Süresi</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-title">
-            <h2>Neden <span class="gradient-text">ListifyAI</span>?</h2>
-            <p>E-ticaret fotoğrafçılığını yeniden tanımlıyoruz</p>
+    <!-- ==================== PLATFORM LOGOS ==================== -->
+    <section class="platforms-bar reveal">
+        <p>Tüm büyük platformlarla uyumlu</p>
+        <div class="platform-logos">
+            <span class="platform-logo">Trendyol</span>
+            <span class="platform-logo">Hepsiburada</span>
+            <span class="platform-logo">Amazon</span>
+            <span class="platform-logo">Shopify</span>
+            <span class="platform-logo">WooCommerce</span>
+            <span class="platform-logo">Etsy</span>
+            <span class="platform-logo">N11</span>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES BENTO GRID ==================== -->
+    <section class="features-section" id="features">
+        <div class="section-header reveal">
+            <div class="badge">Özellikler</div>
+            <h2>Tek Uygulamada Her Şey</h2>
+            <p>E-ticaret görsel üretiminin tüm ihtiyaçları tek çatı altında</p>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>AI Arka Plan Değiştirme</h3>
-                <p>Ürün fotoğraflarınızın arka planını yapay zeka ile profesyonel stüdyo ortamlarına dönüştürün.</p>
+        <div class="bento-grid">
+            <!-- Hero cell: AI Background -->
+            <div class="bento-cell bento-hero reveal">
+                <div class="bento-icon bento-icon-sage">&#127912;</div>
+                <h3>AI Arkaplan Değiştirme</h3>
+                <p>Ürün fotoğraflarınızın arka planını yapay zeka ile 600+ profesyonel sahneye dönüştürün. Kategori bazlı sahneler, AI önerileri ve toplu otomatik oluşturma.</p>
+                <div class="bento-stat">600+ Profesyonel Sahne</div>
+                <div class="bento-tags">
+                    <span class="bento-tag">Giyim</span>
+                    <span class="bento-tag">Ayakkabı</span>
+                    <span class="bento-tag">Aksesuar</span>
+                    <span class="bento-tag">Elektronik</span>
+                    <span class="bento-tag">Kozmetik</span>
+                    <span class="bento-tag">+20 kategori</span>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Saniyeler İçinde Sonuç</h3>
-                <p>Saatlerce süren fotoğraf çekimi ve düzenleme işlemlerini saniyeler içinde tamamlayın.</p>
+            <!-- AI Photoshoot -->
+            <div class="bento-cell reveal reveal-d1">
+                <div class="bento-icon bento-icon-green">&#128248;</div>
+                <h3>AI Photoshoot</h3>
+                <p>1 ürün fotoğrafından 10 farklı profesyonel sahnede görsel oluşturun. Marka profili ve tema seçimi ile kişiselleştirin.</p>
+                <div class="bento-stat">1 Foto &rarr; 10 Sahne</div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h3>Stüdyo Kalitesi</h3>
-                <p>Profesyonel stüdyo ekipmanı gerektirmeden yüksek kaliteli ürün görselleri elde edin.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎬</div>
+            <!-- Video Generation -->
+            <div class="bento-cell reveal reveal-d2">
+                <div class="bento-icon bento-icon-amber">&#127916;</div>
                 <h3>Video Oluşturma</h3>
-                <p>Statik ürün fotoğraflarından etkileyici tanıtım videoları oluşturun.</p>
+                <p>Ürün fotoğraflarınızdan 11 farklı stilde profesyonel tanıtım videoları oluşturun. Kling 3.0 ve VEO3 desteği.</p>
+                <div class="bento-tags">
+                    <span class="bento-tag">Fashion</span>
+                    <span class="bento-tag">Cinematic</span>
+                    <span class="bento-tag">Minimal</span>
+                    <span class="bento-tag">+8 stil</span>
+                </div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Maliyet Tasarrufu</h3>
-                <p>Profesyonel fotoğrafçı ve stüdyo masraflarından tasarruf edin.</p>
+            <!-- E-Commerce Package -->
+            <div class="bento-cell reveal reveal-d3">
+                <div class="bento-icon bento-icon-blue">&#128230;</div>
+                <h3>E-Ticaret Paketi</h3>
+                <p>1 fotoğraftan tüm e-ticaret platformları için optimize edilmiş 8 farklı görsel. Platform bazlı boyut ve format ayarları.</p>
+                <div class="bento-stat">1 Foto &rarr; 8 Platform</div>
             </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>Satışları Artırın</h3>
-                <p>Kaliteli görseller ile dönüşüm oranlarınızı %40'a kadar artırın.</p>
+            <!-- Export -->
+            <div class="bento-cell reveal reveal-d4" style="grid-column: span 2;">
+                <div class="bento-icon bento-icon-fuchsia">&#128196;</div>
+                <h3>Excel/CSV Export &mdash; Tüm Platformlar</h3>
+                <p>Ürünlerinizi Trendyol, Hepsiburada, N11 Excel formatında, Shopify ve WooCommerce CSV formatında, Etsy ve Amazon uyumlu olarak dışa aktarın. Toplu export ve platform bazlı formatlama.</p>
+                <div class="bento-tags">
+                    <span class="bento-tag">Trendyol Excel</span>
+                    <span class="bento-tag">Hepsiburada Excel</span>
+                    <span class="bento-tag">N11 XML</span>
+                    <span class="bento-tag">Shopify CSV</span>
+                    <span class="bento-tag">WooCommerce CSV</span>
+                    <span class="bento-tag">Etsy</span>
+                    <span class="bento-tag">Amazon</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-title">
-            <h2>Nasıl <span class="gradient-text">Çalışır</span>?</h2>
-            <p>3 basit adımda profesyonel sonuçlar</p>
+    <!-- ==================== FASHION MODULE ==================== -->
+    <section class="fashion-section" id="fashion">
+        <div class="section-header reveal">
+            <div class="badge">Moda Stüdyosu</div>
+            <h2>AI Moda Stüdyosu</h2>
+            <p>Kıyafetlerinizi sanal olarak deneyin, otomatik video oluşturun, kumaştan tasarım yapın</p>
         </div>
 
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Fotoğraf Çekin</h3>
-                <p>Ürününüzü telefonunuzla herhangi bir arka planda fotoğraflayın.</p>
+        <div class="fashion-grid">
+            <!-- Try-On -->
+            <div class="fashion-card fashion-card-tryon reveal">
+                <div class="bento-icon" style="background: rgba(94,168,150,0.2);">&#128087;</div>
+                <h3>Sanal Kıyafet Deneme</h3>
+                <p>Kıyafetlerinizi AI model üzerinde gerçekçi şekilde deneyin. FASHN.ai teknolojisi ile saniyeler içinde sonuç.</p>
+                <div class="bento-tags">
+                    <span class="bento-tag">Kadın</span>
+                    <span class="bento-tag">Erkek</span>
+                    <span class="bento-tag">Custom Model</span>
+                </div>
             </div>
 
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Sahne Seçin</h3>
-                <p>100+ profesyonel arka plan ve sahne arasından seçim yapın.</p>
+            <!-- Auto Video -->
+            <div class="fashion-card fashion-card-video reveal reveal-d1">
+                <div class="bento-icon" style="background: rgba(255,169,64,0.15);">&#127910;</div>
+                <h3>Otomatik Moda Videosu</h3>
+                <p>Kıyafet fotoğrafından 5 fazda otomatik profesyonel moda videosu oluşturun.</p>
+                <div class="fashion-phases">
+                    <span class="fashion-phase">Analiz</span>
+                    <span class="fashion-phase-arrow">&rarr;</span>
+                    <span class="fashion-phase">Try-On</span>
+                    <span class="fashion-phase-arrow">&rarr;</span>
+                    <span class="fashion-phase">Edit</span>
+                    <span class="fashion-phase-arrow">&rarr;</span>
+                    <span class="fashion-phase">Video</span>
+                    <span class="fashion-phase-arrow">&rarr;</span>
+                    <span class="fashion-phase">Sonuç</span>
+                </div>
             </div>
 
-            <div class="step">
-                <div class="step-number">3</div>
+            <!-- Fabric Vision -->
+            <div class="fashion-card fashion-card-fabric reveal reveal-d2">
+                <div class="bento-icon" style="background: rgba(217,70,239,0.15);">&#129525;</div>
+                <h3>Kumaş Vizyonu</h3>
+                <p>Kumaş fotoğrafından AI destekli kıyafet tasarımı yapın. Gemini analizi ile kumaş özelliklerini belirleyin, Imagen ile tasarlayın.</p>
+                <div class="bento-tags">
+                    <span class="bento-tag">Elbise</span>
+                    <span class="bento-tag">Gömlek</span>
+                    <span class="bento-tag">Pantolon</span>
+                    <span class="bento-tag">Ceket</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== E-COMMERCE EXPORT ==================== -->
+    <section class="ecommerce-section" id="export">
+        <div class="ecommerce-layout">
+            <div class="reveal">
+                <div class="badge" style="display:inline-block; padding:6px 16px; background:rgba(124,136,112,0.15); border:1px solid rgba(124,136,112,0.25); border-radius:50px; font-size:0.8125rem; font-weight:500; color:var(--brand); margin-bottom:var(--space-lg);">E-Ticaret</div>
+                <h2 style="margin-bottom: var(--space-xl);">Tüm Platformlara Hazır Görseller ve Export</h2>
+                <div class="ecommerce-list">
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>1 fotoğraftan 8 farklı platform boyutunda optimize görsel</p>
+                    </div>
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>Trendyol, Hepsiburada, N11 uyumlu Excel export</p>
+                    </div>
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>Shopify ve WooCommerce uyumlu CSV export</p>
+                    </div>
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>Etsy ve Amazon formatında dışa aktarma</p>
+                    </div>
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>Toplu işlem ile paralel AI oluşturma</p>
+                    </div>
+                    <div class="ecommerce-item">
+                        <div class="ecommerce-check">&#10003;</div>
+                        <p>AI ürün açıklaması oluşturma (SEO optimize)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal reveal-d2">
+                <div class="export-grid">
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128722;</div>
+                        <div class="export-card-name">Trendyol</div>
+                        <div class="export-card-type">Excel (.xlsx)</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128722;</div>
+                        <div class="export-card-name">Hepsiburada</div>
+                        <div class="export-card-type">Excel (.xlsx)</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128196;</div>
+                        <div class="export-card-name">N11</div>
+                        <div class="export-card-type">XML</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128722;</div>
+                        <div class="export-card-name">Shopify</div>
+                        <div class="export-card-type">CSV</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128722;</div>
+                        <div class="export-card-name">WooCommerce</div>
+                        <div class="export-card-type">CSV</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#127912;</div>
+                        <div class="export-card-name">Etsy</div>
+                        <div class="export-card-type">Excel (.xlsx)</div>
+                    </div>
+                    <div class="export-card">
+                        <div class="export-card-icon">&#128230;</div>
+                        <div class="export-card-name">Amazon</div>
+                        <div class="export-card-type">Excel (.xlsx)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="how-section" id="how-it-works">
+        <div class="section-header reveal">
+            <div class="badge">Nasıl Çalışır</div>
+            <h2>3 Adımda Profesyonel Görseller</h2>
+            <p>Karmaşık stüdyo ekipmanlarına ihtiyaç duymadan</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <div class="step-num">01</div>
+                <div class="step-icon-wrap">&#128247;</div>
+                <h3>Fotoğraf Çekin veya Yükleyin</h3>
+                <p>Uygulamanın profesyonel kamerasıyla çekin veya galerinizden yükleyin. Flash, zoom, odaklama ve zamanlayıcı desteği.</p>
+            </div>
+
+            <div class="step-card reveal reveal-d1">
+                <div class="step-num">02</div>
+                <div class="step-icon-wrap">&#127912;</div>
+                <h3>AI Sahne veya Stil Seçin</h3>
+                <p>600+ sahne, 11 video stili, 10+ photoshoot teması arasından seçin. Ya da AI'ın önerdiği sahneleri kullanın.</p>
+                <span class="step-detail">600+ sahne &middot; AI önerisi</span>
+            </div>
+
+            <div class="step-card reveal reveal-d2">
+                <div class="step-num">03</div>
+                <div class="step-icon-wrap">&#10024;</div>
                 <h3>AI Sihirini İzleyin</h3>
-                <p>Yapay zeka saniyeler içinde profesyonel sonucu oluştursun.</p>
+                <p>Saniyeler içinde profesyonel görseller ve videolar. İndirin, paylaşın veya direkt e-ticaret platformlarına export edin.</p>
+                <span class="step-detail">İndir &middot; Paylaş &middot; Export</span>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>ListifyAI</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">
-                    Yapay zeka ile e-ticaret fotoğrafçılığını demokratikleştiriyoruz.
-                </p>
+    <!-- ==================== VIDEO STYLES ==================== -->
+    <section class="videos-section" id="videos">
+        <div class="section-header reveal">
+            <div class="badge">Video</div>
+            <h2>11 Profesyonel Video Stili</h2>
+            <p>Ürünleriniz için etkileyici tanıtım videoları oluşturun</p>
+        </div>
+
+        <div class="carousel-wrap reveal">
+            <div class="carousel-track">
+                <div class="video-card" style="background: linear-gradient(135deg, #2D1F3D, #1A1225);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Fashion</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #1A2530, #0F1820);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Cinematic</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #2A2A2A, #1A1A1A);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Minimal</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #3D2A1A, #251A0F);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Energetic</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #2D2518, #1A1610);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Vintage</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #1A2D25, #0F1A18);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Modern</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #1F1A2D, #120F1A);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Dreamy</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #1A2025, #0F1518);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Corporate</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #2D1A2A, #1A0F18);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Artistic</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #252D1A, #181A0F);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Casual</span></div>
+                </div>
+                <div class="video-card" style="background: linear-gradient(135deg, #2A2018, #1A1510);">
+                    <div class="video-card-gradient"></div>
+                    <div class="video-card-play">&#9654;</div>
+                    <div class="video-card-label"><span>Premium</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATS ==================== -->
+    <section class="stats-section">
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-num" data-count="600" data-suffix="+">0+</div>
+                <div class="stat-label">Sahne Seçeneği</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-num" data-count="11">0</div>
+                <div class="stat-label">Video Stili</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-num" data-count="7" data-suffix="+">0+</div>
+                <div class="stat-label">Platform Export</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-num" data-prefix="<" data-count="5" data-suffix="s">0s</div>
+                <div class="stat-label">İşlem Süresi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-header reveal">
+            <div class="badge">Fiyatlandırma</div>
+            <h2>Esnek Kredi Sistemi</h2>
+            <p>Kullandığın kadar öde. Krediler süresiz olarak hesabınızda kalır.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="pricing-card reveal">
+                <div class="pricing-name">Starter</div>
+                <div class="pricing-credits">21</div>
+                <div class="pricing-credits-label">Kredi</div>
+                <div class="pricing-price">$2.99 <small>/ paket</small></div>
+                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
             </div>
 
-            <div class="footer-section">
+            <!-- Pro (Featured) -->
+            <div class="pricing-card featured reveal reveal-d1">
+                <div class="pricing-popular">En Popüler</div>
+                <div class="pricing-name">Pro</div>
+                <div class="pricing-credits">79</div>
+                <div class="pricing-credits-label">Kredi</div>
+                <div class="pricing-bonus">+8 Bonus Kredi</div>
+                <div class="pricing-price">$9.99 <small>/ paket</small></div>
+                <a href="#download" class="btn btn-primary btn-sm" style="width:100%;">Başla</a>
+            </div>
+
+            <!-- Creator -->
+            <div class="pricing-card reveal reveal-d2">
+                <div class="pricing-name">Creator</div>
+                <div class="pricing-credits">135</div>
+                <div class="pricing-credits-label">Kredi</div>
+                <div class="pricing-bonus">+18 Bonus Kredi</div>
+                <div class="pricing-price">$19.99 <small>/ paket</small></div>
+                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="pricing-card reveal reveal-d3">
+                <div class="pricing-name">Enterprise</div>
+                <div class="pricing-credits">280</div>
+                <div class="pricing-credits-label">Kredi</div>
+                <div class="pricing-bonus">+48 Bonus Kredi</div>
+                <div class="pricing-price">$49.99 <small>/ paket</small></div>
+                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
+            </div>
+        </div>
+
+        <!-- Credit usage -->
+        <div class="credit-usage reveal">
+            <h4>Kredi Kullanım Tablosu</h4>
+            <div class="credit-usage-grid">
+                <div class="credit-usage-item">
+                    <span>Arkaplan Değiştirme</span>
+                    <span>0.62 kr</span>
+                </div>
+                <div class="credit-usage-item">
+                    <span>AI Photoshoot</span>
+                    <span>0.94 kr</span>
+                </div>
+                <div class="credit-usage-item">
+                    <span>Video (5s 480p)</span>
+                    <span>1.63 kr</span>
+                </div>
+                <div class="credit-usage-item">
+                    <span>Fashion Try-On</span>
+                    <span>0.47 kr</span>
+                </div>
+                <div class="credit-usage-item">
+                    <span>Fabric Vision</span>
+                    <span>0.27 kr</span>
+                </div>
+                <div class="credit-usage-item">
+                    <span>E-Ticaret Paketi</span>
+                    <span>0.05 kr</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq-section" id="faq">
+        <div class="section-header reveal">
+            <div class="badge">SSS</div>
+            <h2>Sıkça Sorulan Sorular</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <div class="faq-question">
+                    ListifyAI nedir?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        ListifyAI, yapay zeka teknolojisi ile e-ticaret ürünleriniz için profesyonel görseller, videolar ve açıklamalar oluşturmanızı sağlayan bir mobil uygulamadır. Arkaplan değiştirme, AI photoshoot, video oluşturma, moda sanal deneme ve platform bazlı export gibi kapsamlı özellikler sunar.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d1">
+                <div class="faq-question">
+                    Hangi e-ticaret platformlarını destekliyor?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Trendyol, Hepsiburada ve N11 için Excel export, Shopify ve WooCommerce için CSV export, Etsy ve Amazon için uyumlu format desteği sunuyoruz. Platform bazlı görsel boyut optimizasyonu ve toplu export özellikleri mevcuttur.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d1">
+                <div class="faq-question">
+                    Kredi sistemi nasıl çalışır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Her AI işlemi belirli miktarda kredi harcar. Arkaplan değiştirme 0.62, video oluşturma 1.63, fashion try-on 0.47 kredi gerektirir. Kredi paketlerini uygulama içinden satın alabilirsiniz. Satın alınan krediler süresiz olarak hesabınızda kalır.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d2">
+                <div class="faq-question">
+                    Fotoğraflarım güvende mi?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Evet. Tüm veriler SSL/TLS ile şifrelenmiş olarak iletilir. Firebase Authentication, Secret Manager ve App Check ile güvenlik sağlanır. Fotoğraflarınız işlendikten sonra belirli süre içinde otomatik silinir.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d2">
+                <div class="faq-question">
+                    Sanal kıyafet deneme nasıl çalışır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Fashion Try-On özelliği FASHN.ai teknolojisini kullanır. Kıyafet fotoğrafınızı yükleyin, kadın/erkek veya custom model seçin. AI, kıyafeti model üzerinde gerçekçi şekilde gösterir. Sonuçları indirebilir veya paylaşabilirsiniz.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d3">
+                <div class="faq-question">
+                    Video oluşturma ne kadar sürüyor?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Video oluşturma süresi stil ve kaliteye göre değişir. 480p videolar genellikle 30-60 saniye, 720p ve 1080p videolar 1-3 dakika sürer. İşlem arka planda devam eder ve tamamlandığında bildirim alırsınız.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d3">
+                <div class="faq-question">
+                    Excel/CSV export nasıl kullanılır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Ürünler sayfasında dışa aktarmak istediğiniz ürünleri seçin, platform filtrelerinden hedef platformunuzu belirleyin ve export butonuna tıklayın. Dosya, seçtiğiniz platformun gerektirdiği formatta (Excel, CSV veya XML) oluşturulur.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-d4">
+                <div class="faq-question">
+                    İade politikası nedir?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Satın alınan krediler, teknik bir sorun olmadığı sürece iade edilmez. AI işlemi başarısız olursa krediniz otomatik olarak iade edilir. Teknik sorunlar için support@listifyai.com.tr adresinden destek ekibimizle iletişime geçebilirsiniz.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="final-cta">
+        <h2 class="reveal">Ürünlerinizi Dönüştürmeye Başlayın</h2>
+        <p class="sub reveal reveal-d1">Profesyonel görseller oluşturmak hiç bu kadar kolay olmamıştı.</p>
+        <div class="reveal reveal-d2">
+            <a href="#download" class="btn btn-primary">Ücretsiz Dene &rarr;</a>
+        </div>
+        <div class="hero-stores reveal reveal-d3">
+            <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                     alt="Google Play'den İndir" class="store-badge" width="162" height="48">
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo" style="margin-bottom: 8px; display: inline-flex;">ListifyAI<span class="nav-logo-dot"></span></a>
+                <p>AI destekli e-ticaret stüdyosu. Profesyonel görseller, videolar ve export &mdash; tek uygulamada.</p>
+            </div>
+
+            <div class="footer-col">
                 <h4>Ürün</h4>
-                <ul>
-                    <li><a href="#features">Özellikler</a></li>
-                    <li><a href="#how-it-works">Nasıl Çalışır</a></li>
-                    <li><a href="#download">İndir</a></li>
-                </ul>
+                <a href="#features">Özellikler</a>
+                <a href="#fashion">Moda Stüdyosu</a>
+                <a href="#pricing">Fiyatlar</a>
+                <a href="#download">Uygulamayı İndir</a>
             </div>
 
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Yasal</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Gizlilik Politikası</a></li>
-                    <li><a href="terms.html">Kullanım Şartları</a></li>
-                    <li><a href="kvkk.html">KVKK Aydınlatma</a></li>
-                </ul>
+                <a href="privacy-policy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Şartları</a>
+                <a href="kvkk.html">KVKK Aydınlatma</a>
             </div>
 
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Destek</h4>
-                <ul>
-                    <li><a href="support.html">Yardım Merkezi</a></li>
-                    <li><a href="mailto:support@listifyai.com.tr">support@listifyai.com.tr</a></li>
-                </ul>
+                <a href="support.html">Yardım Merkezi</a>
+                <a href="mailto:support@listifyai.com.tr">support@listifyai.com.tr</a>
+                <a href="#faq">SSS</a>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 ListifyAI. Tüm hakları saklıdır.</p>
-            <p>Made with ❤️ in Turkey</p>
+            <p>&copy; 2026 ListifyAI. Tüm hakları saklıdır.</p>
+            <p>Made with &#10084;&#65039; in Turkey</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener" class="btn btn-primary">
+            &#11015; Uygulamayı İndir
+        </a>
+    </div>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(10, 14, 26, 0.95)';
-            } else {
-                nav.style.background = 'rgba(10, 14, 26, 0.8)';
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

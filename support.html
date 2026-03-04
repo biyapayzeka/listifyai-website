@@ -8,233 +8,41 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-bg: #0A0E1A;
-            --secondary-bg: #141922;
-            --accent-start: #6C5CE7;
-            --accent-end: #A29BFE;
-            --sage-green: #7C9D96;
-            --success: #00D9FF;
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.8;
-        }
-        .gradient-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(162, 155, 254, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .back-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-        .back-link:hover { color: var(--text-primary); }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 8rem 2rem 4rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-        }
-        .subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1.5rem;
-            color: var(--accent-end);
-        }
-        p { margin-bottom: 1rem; color: var(--text-secondary); }
-
-        /* Contact Cards */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .contact-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-start);
-        }
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
-        }
-        .contact-card h3 {
-            margin-bottom: 0.5rem;
-        }
-        .contact-card a {
-            color: var(--accent-end);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin-top: 3rem;
-        }
-        .faq-item {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--accent-end);
-            transition: transform 0.3s ease;
-        }
-        .faq-item.active .faq-question::after {
-            transform: rotate(45deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-        .faq-answer-content {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--text-secondary);
-        }
-
-        /* Response Time */
-        .response-info {
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        .response-info h4 {
-            color: var(--accent-end);
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 6rem 1.5rem 3rem; }
-            h1 { font-size: 2rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link rel="stylesheet" href="assets/css/legal.css">
 </head>
 <body>
-    <div class="gradient-bg"></div>
 
-    <nav>
-        <a href="index.html" class="logo">ListifyAI</a>
-        <a href="index.html" class="back-link">← Ana Sayfa</a>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">ListifyAI<span class="nav-logo-dot"></span></a>
+            <a href="index.html" style="color: var(--text-secondary); font-size: 0.875rem; transition: color 0.3s;">&larr; Ana Sayfa</a>
+        </div>
     </nav>
 
-    <div class="container">
+    <div class="legal-container">
         <h1>Destek Merkezi</h1>
         <p class="subtitle">Size nasıl yardımcı olabiliriz?</p>
 
         <!-- Contact Cards -->
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="contact-icon">📧</div>
+                <div class="contact-icon">&#128231;</div>
                 <h3>E-posta Destek</h3>
                 <p>Genel sorularınız için</p>
                 <a href="mailto:support@listifyai.com.tr">support@listifyai.com.tr</a>
             </div>
 
             <div class="contact-card">
-                <div class="contact-icon">🔒</div>
+                <div class="contact-icon">&#128274;</div>
                 <h3>Gizlilik Talepleri</h3>
                 <p>KVKK ve GDPR başvuruları</p>
                 <a href="mailto:privacy@listifyai.com.tr">privacy@listifyai.com.tr</a>
             </div>
 
             <div class="contact-card">
-                <div class="contact-icon">💳</div>
+                <div class="contact-icon">&#128179;</div>
                 <h3>Ödeme Sorunları</h3>
                 <p>Kredi ve fatura konuları</p>
                 <a href="mailto:billing@listifyai.com.tr">billing@listifyai.com.tr</a>
@@ -242,7 +50,7 @@
         </div>
 
         <div class="response-info">
-            <h4>⏱️ Ortalama Yanıt Süresi</h4>
+            <h4>Ortalama Yanıt Süresi</h4>
             <p>E-postalara genellikle 24-48 saat içinde yanıt veriyoruz.</p>
         </div>
 
@@ -251,9 +59,12 @@
             <h2>Sıkça Sorulan Sorular</h2>
 
             <div class="faq-item">
-                <div class="faq-question">Nasıl hesap oluşturabilirim?</div>
+                <div class="faq-question">
+                    Nasıl hesap oluşturabilirim?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Uygulamayı indirdikten sonra "Kayıt Ol" butonuna tıklayın. E-posta adresiniz veya
                         Google hesabınızla hızlıca kayıt olabilirsiniz. Kayıt işlemi tamamen ücretsizdir.
                     </div>
@@ -261,9 +72,12 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Kredi sistemi nasıl çalışır?</div>
+                <div class="faq-question">
+                    Kredi sistemi nasıl çalışır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Her AI işlemi belirli miktarda kredi harcar. Örneğin, arka plan değiştirme 1 kredi,
                         video oluşturma ise daha fazla kredi gerektirir. Kredi paketlerini uygulama içinden
                         satın alabilirsiniz. Satın alınan krediler süresiz olarak hesabınızda kalır.
@@ -272,9 +86,12 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Fotoğraflarım güvende mi?</div>
+                <div class="faq-question">
+                    Fotoğraflarım güvende mi?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Evet, güvenliğiniz bizim için en önemli önceliktir. Tüm veriler şifrelenmiş olarak
                         iletilir ve saklanır. Fotoğraflarınız işlendikten sonra 30 gün içinde otomatik olarak
                         silinir. Daha fazla bilgi için Gizlilik Politikamızı inceleyebilirsiniz.
@@ -283,9 +100,12 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">İade alabilir miyim?</div>
+                <div class="faq-question">
+                    İade alabilir miyim?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Satın alınan krediler, teknik bir sorun olmadığı sürece iade edilmez. Ancak,
                         AI işlemi başarısız olursa krediniz otomatik olarak iade edilir. Teknik sorunlar
                         için destek ekibimizle iletişime geçebilirsiniz.
@@ -294,10 +114,13 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Hesabımı nasıl silebilirim?</div>
+                <div class="faq-question">
+                    Hesabımı nasıl silebilirim?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
-                        Uygulama içinde Hesap → Ayarlar → Hesabı Sil yolunu takip edebilirsiniz.
+                    <div class="faq-answer-inner">
+                        Uygulama içinde Hesap &rarr; Ayarlar &rarr; Hesabı Sil yolunu takip edebilirsiniz.
                         Silme işlemi 30 gün içinde tamamlanır. Bu süre içinde hesabınızı geri
                         yükleyebilirsiniz. Silme sonrası tüm verileriniz kalıcı olarak silinir.
                     </div>
@@ -305,9 +128,12 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Hangi dosya formatları destekleniyor?</div>
+                <div class="faq-question">
+                    Hangi dosya formatları destekleniyor?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Fotoğraflar için JPG, JPEG, PNG ve HEIC formatları desteklenmektedir.
                         Maksimum dosya boyutu 20MB'dir. En iyi sonuçlar için yüksek çözünürlüklü
                         ve net fotoğraflar kullanmanızı öneririz.
@@ -316,12 +142,58 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">İşlenmiş fotoğraflarımı ticari olarak kullanabilir miyim?</div>
+                <div class="faq-question">
+                    İşlenmiş fotoğraflarımı ticari olarak kullanabilir miyim?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-content">
+                    <div class="faq-answer-inner">
                         Evet, ListifyAI ile oluşturduğunuz görsellerin tüm hakları size aittir.
                         E-ticaret sitelerinizde, sosyal medyada ve pazarlama materyallerinizde
                         özgürce kullanabilirsiniz.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Sanal kıyafet deneme nasıl çalışır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Fashion Try-On özelliği FASHN.ai teknolojisini kullanır. Kıyafet fotoğrafınızı
+                        yükleyin, kadın/erkek veya custom model seçin. AI, kıyafeti model üzerinde
+                        gerçekçi şekilde gösterir.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Excel/CSV export nasıl kullanılır?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Ürünler sayfasında dışa aktarmak istediğiniz ürünleri seçin, platform
+                        filtrelerinden hedef platformunuzu belirleyin. Trendyol, Hepsiburada, N11
+                        için Excel, Shopify ve WooCommerce için CSV, N11 için XML formatında
+                        export yapabilirsiniz.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Video oluşturma ne kadar sürüyor?
+                    <span class="faq-chevron">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Video oluşturma süre stil ve kaliteye göre değişir. 480p videolar genellikle
+                        30-60 saniye, 720p ve 1080p videolar 1-3 dakika sürer. İşlem arka planda
+                        devam eder ve tamamlandığında bildirim alırsınız.
                     </div>
                 </div>
             </div>
@@ -333,42 +205,24 @@
             birlikte <a href="mailto:support@listifyai.com.tr">support@listifyai.com.tr</a> adresine
             e-posta gönderin:
         </p>
-        <ul style="margin: 1rem 0 2rem 1.5rem; color: var(--text-secondary);">
+        <ul>
             <li>Cihaz modeli ve işletim sistemi versiyonu</li>
             <li>Uygulama versiyonu</li>
             <li>Sorunun detaylı açıklaması</li>
             <li>Varsa ekran görüntüsü</li>
         </ul>
 
-        <p style="text-align: center; margin-top: 3rem;">
-            <a href="privacy-policy.html">Gizlilik Politikası</a> |
-            <a href="terms.html">Kullanım Şartları</a> |
+        <div class="legal-links-row">
+            <a href="privacy-policy.html">Gizlilik Politikası</a>
+            <a href="terms.html">Kullanım Şartları</a>
             <a href="kvkk.html">KVKK</a>
-        </p>
+        </div>
     </div>
 
-    <footer>
+    <footer class="legal-footer">
         <p>&copy; 2026 ListifyAI. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-
-                // Close all other items
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-
-                // Toggle current item
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://listifyai.com.tr/sitemap.xml
