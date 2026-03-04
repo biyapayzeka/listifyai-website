@@ -835,14 +835,8 @@
             grid-column: span 2;
             grid-row: span 1;
         }
-        .pricing-grid {
+        .why-grid {
             grid-template-columns: repeat(2, 1fr);
-        }
-        .pricing-card.featured {
-            transform: scale(1);
-        }
-        .pricing-card.featured:hover {
-            transform: translateY(-4px);
         }
         .ecommerce-layout {
             grid-template-columns: 1fr;
@@ -887,12 +881,7 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        .pricing-grid {
-            grid-template-columns: 1fr;
-            max-width: 360px;
-        }
-
-        .credit-usage-grid {
+        .why-grid {
             grid-template-columns: 1fr;
         }
 
@@ -930,7 +919,7 @@
                 <a href="#features">Özellikler</a>
                 <a href="#fashion">Moda</a>
                 <a href="#how-it-works">Nasıl Çalışır</a>
-                <a href="#pricing">Fiyatlar</a>
+                <a href="#pricing">Avantajlar</a>
                 <a href="support.html">Destek</a>
                 <a href="#download" class="nav-cta">Uygulamayı İndir</a>
             </div>
@@ -943,7 +932,7 @@
         <a href="#features">Özellikler</a>
         <a href="#fashion">Moda</a>
         <a href="#how-it-works">Nasıl Çalışır</a>
-        <a href="#pricing">Fiyatlar</a>
+        <a href="#pricing">Avantajlar</a>
         <a href="support.html">Destek</a>
         <a href="#download" class="nav-cta">Uygulamayı İndir</a>
     </div>
@@ -1381,56 +1370,51 @@
         </div>
     </section>
 
-    <!-- ==================== PRICING ==================== -->
-    <section class="pricing-section" id="pricing">
+    <!-- ==================== WHY LISTIFYAI ==================== -->
+    <section class="why-section" id="pricing">
         <div class="section-header reveal">
-            <div class="badge">Fiyatlandırma</div>
-            <h2>Esnek Kredi Sistemi</h2>
-            <p>Kullandığın kadar öde. Krediler süresiz olarak hesabınızda kalır.</p>
+            <div class="badge">Avantajlar</div>
+            <h2>Neden ListifyAI?</h2>
+            <p>E-ticaret gorsel uretiminde ihtiyacınız olan her sey tek uygulamada</p>
         </div>
 
-        <div class="pricing-grid">
-            <!-- Starter -->
-            <div class="pricing-card reveal">
-                <div class="pricing-name">Starter</div>
-                <div class="pricing-credits">21</div>
-                <div class="pricing-credits-label">Kredi</div>
-                <div class="pricing-price">$2.99 <small>/ paket</small></div>
-                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-card-icon" style="background: rgba(124,136,112,0.2);">&#9889;</div>
+                <h3>Saniyeler Icinde Sonuc</h3>
+                <p>Saatlerce surecek studyo cekimlerine son. AI ile profesyonel gorseller saniyeler icinde hazır.</p>
             </div>
 
-            <!-- Pro (Featured) -->
-            <div class="pricing-card featured reveal reveal-d1">
-                <div class="pricing-popular">En Popüler</div>
-                <div class="pricing-name">Pro</div>
-                <div class="pricing-credits">79</div>
-                <div class="pricing-credits-label">Kredi</div>
-                <div class="pricing-bonus">+8 Bonus Kredi</div>
-                <div class="pricing-price">$9.99 <small>/ paket</small></div>
-                <a href="#download" class="btn btn-primary btn-sm" style="width:100%;">Başla</a>
+            <div class="why-card reveal reveal-d1">
+                <div class="why-card-icon" style="background: rgba(82,196,26,0.15);">&#128176;</div>
+                <h3>Maliyet Avantajı</h3>
+                <p>Profesyonel fotografcı ve studyo maliyetinin kesri kadar harcayarak ayni kalitede sonuclar elde edin.</p>
             </div>
 
-            <!-- Creator -->
-            <div class="pricing-card reveal reveal-d2">
-                <div class="pricing-name">Creator</div>
-                <div class="pricing-credits">135</div>
-                <div class="pricing-credits-label">Kredi</div>
-                <div class="pricing-bonus">+18 Bonus Kredi</div>
-                <div class="pricing-price">$19.99 <small>/ paket</small></div>
-                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
+            <div class="why-card reveal reveal-d2">
+                <div class="why-card-icon" style="background: rgba(64,169,255,0.15);">&#127760;</div>
+                <h3>7+ Platform Desteği</h3>
+                <p>Trendyol, Hepsiburada, Amazon, Shopify, WooCommerce, Etsy, N11 — tek tıkla export.</p>
             </div>
 
-            <!-- Enterprise -->
-            <div class="pricing-card reveal reveal-d3">
-                <div class="pricing-name">Enterprise</div>
-                <div class="pricing-credits">280</div>
-                <div class="pricing-credits-label">Kredi</div>
-                <div class="pricing-bonus">+48 Bonus Kredi</div>
-                <div class="pricing-price">$49.99 <small>/ paket</small></div>
-                <a href="#download" class="btn btn-glass btn-sm" style="width:100%;">Başla</a>
+            <div class="why-card reveal reveal-d3">
+                <div class="why-card-icon" style="background: rgba(255,169,64,0.15);">&#127916;</div>
+                <h3>Gorsel + Video + Export</h3>
+                <p>Arkaplan degistirme, video olusturma, moda deneme ve platform export hepsi tek uygulamada.</p>
+            </div>
+
+            <div class="why-card reveal reveal-d4">
+                <div class="why-card-icon" style="background: rgba(217,70,239,0.15);">&#128274;</div>
+                <h3>Guvende Kalın</h3>
+                <p>SSL/TLS sifreleme, Firebase App Check ve Secret Manager ile verileriniz her zaman guvende.</p>
+            </div>
+
+            <div class="why-card reveal reveal-d5">
+                <div class="why-card-icon" style="background: rgba(94,168,150,0.15);">&#128640;</div>
+                <h3>Surekli Guncelleme</h3>
+                <p>Yeni AI modelleri, yeni sahneler ve yeni ozellikler duzenli olarak ekleniyor.</p>
             </div>
         </div>
-
     </section>
 
     <!-- ==================== FAQ ==================== -->
@@ -1558,7 +1542,7 @@
                 <h4>Ürün</h4>
                 <a href="#features">Özellikler</a>
                 <a href="#fashion">Moda Stüdyosu</a>
-                <a href="#pricing">Fiyatlar</a>
+                <a href="#pricing">Avantajlar</a>
                 <a href="#download">Uygulamayı İndir</a>
             </div>
 
