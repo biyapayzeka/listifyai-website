@@ -199,6 +199,7 @@
 .bento-icon-blue { background: rgba(64,169,255,0.15); }
 .bento-icon-fuchsia { background: rgba(217,70,239,0.15); }
 .bento-icon-green { background: rgba(82,196,26,0.15); }
+.bento-icon-orange { background: rgba(249,115,22,0.15); }
 
 .bento-cell h3 { margin-bottom: var(--space-sm); }
 .bento-cell p { color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; }
@@ -232,7 +233,7 @@
 
 .fashion-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
     max-width: 1100px;
     margin: 0 auto;
@@ -251,6 +252,9 @@
 
 .fashion-card-tryon { background: linear-gradient(160deg, #1A2A26 0%, #0F1F1B 100%); border-color: rgba(94,168,150,0.15); }
 .fashion-card-tryon:hover { border-color: rgba(94,168,150,0.3); }
+
+.fashion-card-lookbook { background: linear-gradient(160deg, #1A1E30 0%, #111422 100%); border-color: rgba(99,102,241,0.12); }
+.fashion-card-lookbook:hover { border-color: rgba(99,102,241,0.28); }
 
 .fashion-card-video { background: linear-gradient(160deg, #2A2418 0%, #1F1A0F 100%); border-color: rgba(255,169,64,0.12); }
 .fashion-card-video:hover { border-color: rgba(255,169,64,0.25); }
@@ -275,6 +279,32 @@
 }
 
 .fashion-phase-arrow { color: var(--text-tertiary); font-size: 0.75rem; }
+
+.fashion-speed-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.fashion-speed-badge {
+    padding: 3px 10px;
+    background: rgba(255,169,64,0.08);
+    border: 1px solid rgba(255,169,64,0.2);
+    border-radius: var(--radius-pill);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--status-warning);
+    white-space: nowrap;
+}
+
+.fashion-speed-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1.4;
+}
 
 /* ============ HOW IT WORKS ============ */
 .how-section { padding: var(--space-6xl) var(--space-xxl); background: var(--bg-card-dark); }
@@ -538,6 +568,7 @@
 @media (max-width: 1024px) {
     .bento-grid { grid-template-columns: repeat(2, 1fr); }
     .bento-hero { grid-column: span 2; grid-row: span 1; }
+    .bento-export { grid-column: span 2; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -547,6 +578,7 @@
     .hero-stat-num { font-size: 1.125rem; }
     .bento-grid { grid-template-columns: 1fr; }
     .bento-hero { grid-column: span 1; }
+    .bento-export { grid-column: span 1; }
     .fashion-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: 1fr; gap: var(--space-4xl); }
     .video-card { width: 170px; padding: var(--space-xl) var(--space-md) var(--space-lg); }
