@@ -156,13 +156,13 @@
     }
     .hero-stage {
       position: relative;
-      width: min(78vh, 78vw);
+      width: min(96vh, 96vw);
       aspect-ratio: 1;
       display: grid; place-items: center;
     }
     .hero-circle {
       position: absolute;
-      inset: 6% 6%;
+      inset: 14% 14%;
       border-radius: 50%;
       background: var(--dark-grey);
       border: 0.5px solid var(--stroke);
@@ -621,7 +621,7 @@
 
                 <!-- orbit ring (Stryds-colored arcs) -->
                 <svg class="hero-ring" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" stroke-width="44" stroke-linecap="round" transform="rotate(-90 300 300)">
+                    <g fill="none" stroke-width="86" stroke-linecap="round" transform="rotate(-90 300 300)">
                         <circle cx="300" cy="300" r="280" stroke="#a6ff00"
                                 stroke-dasharray="1020 740" stroke-dashoffset="-180"/>
                         <circle cx="300" cy="300" r="280" stroke="#ff2bd6"
@@ -634,7 +634,7 @@
                 </svg>
                 <!-- inner counter-rotating thin ring -->
                 <svg class="hero-ring-2" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(45 300 300)">
+                    <g fill="none" stroke-width="14" stroke-linecap="round" transform="rotate(45 300 300)">
                         <circle cx="300" cy="300" r="232" stroke="#fdfdfd" stroke-opacity="0.55"
                                 stroke-dasharray="60 1400"/>
                         <circle cx="300" cy="300" r="232" stroke="#a6ff00"
