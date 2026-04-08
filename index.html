@@ -7,12 +7,11 @@
     <meta name="keywords" content="AI, yapay zeka, ürün fotoğrafı, e-ticaret, product photography, ListifyAI, moda, video, arkaplan değiştirme, fashion try-on">
     <meta name="author" content="ListifyAI">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#B8C5B8">
+    <meta name="theme-color" content="#A8C49B">
     <meta name="facebook-domain-verification" content="rof70sbcbzs1w87o1ro89tbrtiq5le" />
     <meta name="google-site-verification" content="JpQeO1SkG53elbc8UT6LBn3dcokGjeDOORuuv8QUzBg" />
     <link rel="canonical" href="https://listifyai.com.tr/">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="ListifyAI - AI Destekli E-Ticaret Stüdyosu">
     <meta property="og:description" content="Yapay zeka ile profesyonel e-ticaret görselleri, moda videoları ve ürün fotoğrafları oluşturun.">
     <meta property="og:type" content="website">
@@ -32,7 +31,6 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;500;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -54,7 +52,6 @@
     src="https://www.facebook.com/tr?id=2354152708410362&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -68,34 +65,31 @@
     </script>
 
     <style>
-    /* ===== TOKENS — ListifyAI brand sage ===== */
+    /* ===== TOKENS — canlı brand sage ===== */
     :root {
-      --lime:        #B8C5B8;  /* brand sage light — page bg */
-      --lime-deep:   #A2B2A2;
-      --ink:         #0A0A0A;
-      --ink-soft:    #14140F;
-      --paper:       #EDEFE8;
-      --sage:        #9EB098;
-      --sage-deep:   #7C8870;
-      --sand:        #C9B88A;
-      --coral:       #E89B7B;
-      --sky:         #7BB8D6;
-      --text:        #FDFDFD;
-      --text-mute:   rgba(253,253,253,0.42);
-      --radius-pill: 64px;
+      --bg:        #A8C49B;   /* canlı brand sage */
+      --bg-deep:   #8FB082;
+      --ink:       #0A0A0A;
+      --text:      #FDFDFD;
+      --text-mute: rgba(253,253,253,0.35);
+      --sage:      #9EB098;
+      --sand:      #C9B88A;
+      --coral:     #E89B7B;
+      --sky:       #7BB8D6;
+      --radius-pill: 56px;
     }
-    *, *::before, *::after { cursor: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
-      background: var(--lime);
+      background: var(--bg);
       color: var(--ink);
       font-family: 'Inter', system-ui, sans-serif;
       overflow-x: hidden;
     }
-    h1, h2, h3 { font-family: 'Manrope', sans-serif; letter-spacing: -0.04em; line-height: 0.95; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; letter-spacing: -0.04em; line-height: 0.92; font-weight: 800; }
     .mono { font-family: 'Space Grotesk', monospace; }
+    .mute { font-weight: 200; opacity: 0.4; }
 
     /* ===== NAV ===== */
     .nav {
@@ -113,13 +107,13 @@
       background: #fff; color: #000; text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
     }
-    .nav-cta::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+    .nav-cta::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--bg); }
 
-    /* ===== HERO (sticky pinned) ===== */
+    /* ===== HERO PINNED ===== */
     .hero-pin {
       position: relative;
-      height: 400vh; /* 4 panel × 100vh */
-      background: var(--lime);
+      height: 400vh;
+      background: var(--bg);
     }
     .hero-stage {
       position: sticky; top: 0;
@@ -127,246 +121,240 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
+    .hero-circle-wrap {
+      position: relative;
+      width: min(70vh, 70vw);
+      aspect-ratio: 1;
+      display: grid; place-items: center;
+    }
     .hero-circle {
       position: relative;
-      width: min(82vh, 82vw);
-      aspect-ratio: 1;
+      width: 100%; height: 100%;
       border-radius: 50%;
       background: var(--ink);
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 40px 120px -20px rgba(0,0,0,0.35);
+      box-shadow: 0 40px 120px -20px rgba(0,0,0,0.4);
+      z-index: 2;
     }
-    /* decorative orbit ring petals */
-    .hero-orbit {
-      position: absolute; inset: -8%;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
-        var(--sand) 0deg 60deg,
-        transparent 60deg 120deg,
-        var(--coral) 120deg 180deg,
-        transparent 180deg 240deg,
-        var(--sky) 240deg 300deg,
-        transparent 300deg 360deg);
-      filter: blur(2px);
-      opacity: 0.85;
-      z-index: -1;
-      animation: spin 40s linear infinite;
+    /* Stryds-style asymmetric petal orbit (SVG paths) */
+    .hero-petals {
+      position: absolute; inset: -14%;
+      z-index: 1;
+      animation: spin 60s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .hero-panel {
       position: absolute;
-      inset: 0;
+      inset: 8% 10%;
       display: flex; align-items: center; justify-content: center;
       text-align: center;
-      padding: 0 8%;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
     }
     .hero-panel.active { opacity: 1; }
     .hero-panel h1 {
       color: var(--text);
-      font-weight: 800;
-      font-size: clamp(3rem, 5vw + 4vh, 9rem);
+      font-size: clamp(2.4rem, 3.5vw + 2.5vh, 6rem);
+      line-height: 0.95;
     }
-    .hero-panel h1 .mute { font-weight: 200; color: var(--text-mute); }
     .hero-panel .tag {
       display: block;
       font-family: 'Space Grotesk', monospace;
-      font-size: 14px; font-weight: 500;
-      color: var(--text-mute);
-      margin-top: 24px;
-      letter-spacing: 0.05em;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      margin-top: 20px;
+      letter-spacing: 0.12em;
     }
+    .hero-panel h1 .hi { color: #fff; }
+    .hero-panel h1 .lo { color: rgba(255,255,255,0.32); font-weight: 200; }
 
     /* ===== MANIFESTO ===== */
     .manifesto {
-      background: var(--lime);
-      padding: 0 8% 200px;
+      background: var(--bg);
+      padding: 40px 8% 200px;
       text-align: center;
     }
     .manifesto h2 {
-      font-size: clamp(2.5rem, 4vw + 3vh, 6rem);
-      font-weight: 800;
-      max-width: 1200px;
+      font-size: clamp(2.2rem, 3.5vw + 2.5vh, 5rem);
+      max-width: 1100px;
       margin: 0 auto;
       color: var(--ink);
     }
-    .manifesto h2 .mute { font-weight: 200; opacity: 0.45; }
+    .manifesto h2 .lo { font-weight: 200; opacity: 0.4; }
 
-    /* ===== STACKED PILL CARDS (aggressive overlap) ===== */
+    /* ===== PILL CARDS — sticky stack, no shrink ===== */
     .pill-stack {
-      background: var(--lime);
+      background: var(--bg);
       padding: 0 4% 240px;
     }
     .pill {
       position: sticky;
-      top: 60px;
+      top: 80px;
       max-width: 1280px;
-      margin: 0 auto -160px;  /* aggressive overlap */
+      margin: 0 auto 30px;
       background: var(--ink);
       border-radius: var(--radius-pill);
-      padding: 80px 80px 90px;
+      padding: 70px 80px 80px;
       color: var(--text);
-      box-shadow: 0 -20px 80px -10px rgba(0,0,0,0.45), 0 60px 120px -40px rgba(0,0,0,0.5);
+      box-shadow: 0 -10px 60px -10px rgba(0,0,0,0.3), 0 50px 100px -30px rgba(0,0,0,0.45);
       overflow: hidden;
-      min-height: 560px;
+      min-height: 520px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
       align-items: center;
-      transform-origin: center top;
-      transition: transform 0.3s ease;
     }
-    .pill:nth-child(odd)  { transform: translateY(0) scale(1); }
-    .pill:last-child      { margin-bottom: 0; }
     .pill-content h3 {
-      font-size: clamp(2.5rem, 3vw + 2vh, 5rem);
-      font-weight: 800;
-      margin-bottom: 24px;
+      font-size: clamp(2.6rem, 3.2vw + 2vh, 5rem);
+      margin-bottom: 28px;
     }
     .pill-content p {
-      font-size: 18px;
+      font-size: 17px;
       color: rgba(255,255,255,0.55);
-      max-width: 440px;
-      line-height: 1.5;
-      margin-bottom: 32px;
+      max-width: 460px;
+      line-height: 1.55;
     }
     .pill-num {
       position: absolute;
-      top: 40px; right: 56px;
+      top: 36px; left: 80px;
       font-family: 'Space Grotesk', monospace;
-      font-size: 14px;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.1em;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.18em;
     }
-    .pill-badges { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 14px;
-      padding: 14px 26px 14px 14px;
-      border-radius: 999px;
-      font-family: 'Space Grotesk', monospace;
-      font-size: 15px; font-weight: 500;
-      color: #fff;
-      backdrop-filter: blur(8px);
-    }
-    .badge .dot {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      display: grid; place-items: center;
-      font-size: 18px;
-    }
-    .badge .num { font-weight: 700; font-size: 20px; }
-    .badge .lbl { opacity: 0.7; font-size: 12px; margin-left: -6px; }
-    .badge.b-sage  { background: linear-gradient(90deg, #5a7050, #9EB098); }
-    .badge.b-sand  { background: linear-gradient(90deg, #8a7a3a, #C9B88A); }
-    .badge.b-coral { background: linear-gradient(90deg, #a85c3a, #E89B7B); }
-    .badge.b-sky   { background: linear-gradient(90deg, #3a6a85, #7BB8D6); }
-    .badge.b-ink   { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
 
-    /* ===== POLAROID COLLAGE inside pills ===== */
-    .collage {
+    /* ===== PHONE MOCKUP (CSS only) ===== */
+    .phone {
       position: relative;
-      height: 380px;
-      width: 100%;
+      width: 240px; height: 480px;
+      margin: 0 auto;
+      border-radius: 44px;
+      background: #1a1a1a;
+      padding: 10px;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.06),
+        0 30px 80px -10px rgba(0,0,0,0.6);
+      transform: rotate(-4deg);
     }
-    .polaroid {
-      position: absolute;
-      width: 180px; height: 220px;
-      border-radius: 26px;
-      box-shadow: 0 24px 60px -12px rgba(0,0,0,0.6), inset 0 0 0 6px rgba(255,255,255,0.06);
-      background-size: cover; background-position: center;
+    .phone::before {
+      content: ''; position: absolute;
+      top: 14px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 22px;
+      background: #000; border-radius: 14px;
+      z-index: 2;
+    }
+    .phone-screen {
+      width: 100%; height: 100%;
+      border-radius: 34px;
       overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column;
     }
-    .polaroid::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.45));
+    .phone-screen .top-bar {
+      flex: 0 0 50px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
     }
-    .polaroid.p1 { top: 10px;  left: 20%;  transform: rotate(-8deg); background: linear-gradient(135deg, #9EB098, #5a7050); }
-    .polaroid.p2 { top: 60px;  right: 8%;  transform: rotate(7deg);  background: linear-gradient(135deg, #C9B88A, #8a7a3a); }
-    .polaroid.p3 { bottom: 0;  left: 32%;  transform: rotate(-3deg); background: linear-gradient(135deg, #E89B7B, #a85c3a); }
-    .polaroid.p4 { bottom: 30px; right: 22%; transform: rotate(11deg); background: linear-gradient(135deg, #7BB8D6, #3a6a85); }
-    .polaroid .ring {
-      position: absolute; top: 14px; right: 14px;
-      width: 26px; height: 26px; border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.8);
-      border-top-color: transparent;
-      animation: spin 4s linear infinite;
+    .phone-screen .hero-img {
+      flex: 1.2;
+      background-size: cover; background-position: center;
+    }
+    .phone-screen .body {
+      flex: 1;
+      padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+      background: #0f0f0f;
+    }
+    .phone-screen .line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.08); }
+    .phone-screen .line.s { width: 60%; }
+    .phone-screen .line.m { width: 85%; }
+    .phone-screen .pill-btn {
+      margin-top: auto;
+      height: 38px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--sage), var(--sand));
     }
 
-    /* ===== BLOB FRAME ===== */
+    /* per-pill phone screen variants */
+    .phone.v1 .hero-img { background: linear-gradient(135deg, #C9B88A, #5a4a20); }
+    .phone.v2 .hero-img { background: linear-gradient(135deg, #E89B7B, #6a2a10); }
+    .phone.v3 .hero-img { background: linear-gradient(135deg, #7BB8D6, #1a3a55); }
+    .phone.v4 .hero-img { background: linear-gradient(135deg, #9EB098, #2a3a25); }
+    .phone.v5 .hero-img { background: linear-gradient(135deg, #C9B88A, #E89B7B); }
+    .phone.v6 .hero-img { background: linear-gradient(135deg, #7BB8D6, #9EB098); }
+    .phone.v7 .hero-img { background: linear-gradient(135deg, #E89B7B, #C9B88A, #9EB098); }
+
+    /* ===== BLOB FRAME (proper goo) ===== */
     .blob-frame {
-      background: var(--lime);
-      padding: 80px 0 120px;
+      background: var(--bg);
+      padding: 60px 0 100px;
       display: grid;
       place-items: center;
+      position: relative;
     }
-    .blob-frame svg { width: min(92vw, 1200px); height: auto; display: block; }
-    .blob-frame text { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 140px; fill: var(--ink); opacity: 0.18; letter-spacing: -0.05em; }
-
-    /* ===== CUSTOM GRADIENT CURSOR ===== */
-    .cursor {
-      position: fixed; top: 0; left: 0;
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, var(--coral), var(--sage) 40%, var(--sky) 80%);
-      pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: difference;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s;
+    .blob-frame svg.goo { width: min(92vw, 1100px); height: 280px; display: block; }
+    .blob-frame .label {
+      position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
+      font-family: 'Space Grotesk', monospace; font-size: 13px; letter-spacing: 0.2em;
+      color: rgba(10,10,10,0.5);
     }
-    .cursor.hover { width: 56px; height: 56px; }
-    @media (hover: none) { .cursor { display: none; } *, *::before, *::after { cursor: auto !important; } }
 
     /* ===== TILE PATTERN ===== */
     .tile-pattern {
-      background: var(--lime);
-      padding: 100px 0;
+      background: var(--bg);
+      padding: 60px 0 100px;
       overflow: hidden;
     }
     .tile-row {
-      display: flex; gap: 16px;
+      display: flex; gap: 14px;
       white-space: nowrap;
-      margin-bottom: 16px;
-      animation: marquee 40s linear infinite;
+      margin-bottom: 14px;
+      animation: marquee 50s linear infinite;
+      will-change: transform;
     }
     .tile-row.reverse { animation-direction: reverse; }
     .tile-pill {
       flex-shrink: 0;
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 28px;
+      padding: 14px 26px;
       border-radius: 999px;
       background: var(--ink);
-      color: var(--lime);
+      color: var(--bg);
       font-family: 'Space Grotesk', monospace;
-      font-weight: 500; font-size: 16px;
+      font-weight: 500; font-size: 15px;
     }
-    .tile-pill::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+    .tile-pill::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); }
     @keyframes marquee {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
 
-    /* ===== FINAL CTA ===== */
+    /* ===== FINAL CTA — dark island, no abrupt cut ===== */
+    .final-wrap {
+      background: var(--bg);
+      padding: 60px 4% 60px;
+    }
     .final {
-      background: var(--lime);
-      padding: 160px 8% 200px;
+      max-width: 1280px;
+      margin: 0 auto;
+      background: var(--ink);
+      border-radius: var(--radius-pill);
+      padding: 140px 8% 120px;
       text-align: center;
-      position: relative;
+      box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
     }
     .final h2 {
-      font-size: clamp(3rem, 7vw + 4vh, 12rem);
-      font-weight: 800;
-      color: var(--ink);
+      font-size: clamp(3rem, 6vw + 3vh, 10rem);
+      color: var(--text);
       margin-bottom: 48px;
     }
+    .final h2 .lo { font-weight: 200; opacity: 0.35; }
     .stores {
       display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
     }
     .store-btn {
       display: inline-flex; align-items: center; gap: 12px;
-      background: var(--ink); color: #fff;
+      background: #fff; color: #000;
       padding: 18px 32px;
       border-radius: 999px;
       text-decoration: none;
@@ -375,51 +363,67 @@
       transition: transform 0.2s;
     }
     .store-btn:hover { transform: translateY(-2px); }
-    .store-btn .icon { font-size: 22px; }
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.5);
-      padding: 60px 8% 40px;
+      background: var(--bg);
+      color: rgba(10,10,10,0.6);
+      padding: 50px 8% 60px;
       font-family: 'Space Grotesk', monospace;
-      font-size: 13px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
     }
     .foot-grid {
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 24px;
+      flex-wrap: wrap; gap: 20px;
       max-width: 1280px; margin: 0 auto;
     }
-    .foot-grid a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 24px; }
-    .foot-grid a:hover { color: var(--lime); }
+    .foot-grid a { color: rgba(10,10,10,0.7); text-decoration: none; margin-left: 22px; }
+    .foot-grid a:hover { color: var(--ink); }
+
+    /* ===== CURSOR (desktop only, additive) ===== */
+    @media (hover: hover) and (pointer: fine) {
+      .cursor {
+        position: fixed; top: 0; left: 0;
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, var(--coral), var(--sage) 50%, var(--sky) 90%);
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s;
+      }
+      .cursor.hover { width: 50px; height: 50px; }
+    }
+    @media not (hover: hover) { .cursor { display: none; } }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .nav { padding: 18px 20px; }
-      .hero-pin { height: 380vh; }
-      .hero-circle { width: 86vw; }
+      .hero-pin { height: 360vh; }
+      .hero-circle-wrap { width: 84vw; }
       .pill {
         grid-template-columns: 1fr;
-        padding: 56px 36px 64px;
-        border-radius: 44px;
+        padding: 56px 32px 64px;
+        border-radius: 40px;
         min-height: auto;
         position: relative;
         top: auto;
+        gap: 32px;
       }
-      .pill-num { top: 24px; right: 28px; font-size: 12px; }
-      .pill-badges { align-items: flex-start; }
-      .manifesto, .pill-stack, .final { padding-left: 6%; padding-right: 6%; }
+      .pill-num { left: 32px; top: 24px; }
+      .phone { width: 200px; height: 400px; transform: rotate(0); }
+      .manifesto, .pill-stack, .blob-frame, .tile-pattern, .final-wrap { padding-left: 5%; padding-right: 5%; }
       .manifesto { padding-bottom: 120px; }
-      .final { padding: 100px 6% 140px; }
+      .final { padding: 90px 6% 80px; border-radius: 36px; }
     }
     </style>
 </head>
 <body>
 
-    <!-- ==================== CURSOR ==================== -->
     <div class="cursor" id="cursor"></div>
 
-    <!-- ==================== NAV ==================== -->
     <nav class="nav">
         <a href="/" class="nav-logo">ListifyAI</a>
         <a href="#download" class="nav-cta">İndir</a>
@@ -428,26 +432,42 @@
     <!-- ==================== HERO PINNED ==================== -->
     <section class="hero-pin" id="hero">
         <div class="hero-stage">
-            <div class="hero-circle">
-                <div class="hero-orbit"></div>
+            <div class="hero-circle-wrap">
+                <!-- petals: 4 asymmetric arc petals around the circle -->
+                <svg class="hero-petals" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="ring">
+                            <path d="M300 60 A240 240 0 1 1 299 60 Z M300 130 A170 170 0 1 0 301 130 Z" fill-rule="evenodd"/>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#ring)">
+                        <!-- top-right sand -->
+                        <path d="M300 60 A240 240 0 0 1 510 240 L300 240 Z" fill="#C9B88A"/>
+                        <!-- right sky -->
+                        <path d="M540 300 A240 240 0 0 1 460 470 L300 300 Z" fill="#7BB8D6"/>
+                        <!-- bottom coral -->
+                        <path d="M380 540 A240 240 0 0 1 200 540 L300 380 Z" fill="#E89B7B"/>
+                        <!-- left sage -->
+                        <path d="M60 280 A240 240 0 0 1 130 130 L300 280 Z" fill="#9EB098"/>
+                    </g>
+                </svg>
 
-                <div class="hero-panel" data-panel="0">
-                    <div>
-                        <h1>ListifyAI</h1>
-                        <span class="tag">/// E-TİCARET İÇERİK STÜDYON</span>
+                <div class="hero-circle">
+                    <div class="hero-panel" data-panel="0">
+                        <div>
+                            <h1>ListifyAI</h1>
+                            <span class="tag">/// E-TİCARET İÇERİK STÜDYON</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="hero-panel" data-panel="1">
-                    <h1>Stüdyo kiralamak <br><span class="mute">artık</span> pahalı.</h1>
-                </div>
-
-                <div class="hero-panel" data-panel="2">
-                    <h1>Photoshop <br><span class="mute">çok</span> yavaş.</h1>
-                </div>
-
-                <div class="hero-panel" data-panel="3">
-                    <h1>Tek tek listelemek <br><span class="mute">asla</span> bitmiyor.</h1>
+                    <div class="hero-panel" data-panel="1">
+                        <h1><span class="lo">Stüdyo kiralamak</span><br><span class="hi">pahalı.</span></h1>
+                    </div>
+                    <div class="hero-panel" data-panel="2">
+                        <h1><span class="lo">Photoshop</span> <span class="hi">yavaş.</span></h1>
+                    </div>
+                    <div class="hero-panel" data-panel="3">
+                        <h1><span class="lo">Tek tek listelemek</span><br><span class="hi">bitmiyor.</span></h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,220 +475,135 @@
 
     <!-- ==================== MANIFESTO ==================== -->
     <section class="manifesto">
-        <h2>
-            ListifyAI ile <span style="font-weight:800">AI</span> ürün stüdyon
-            <span class="mute">artık</span> cebine sığar.
-            <span class="mute">Sonunda.</span>
-        </h2>
+        <h2>ListifyAI ile <span class="lo">AI ürün</span> stüdyon <span class="lo">cebine</span> sığar.</h2>
     </section>
 
-    <!-- ==================== STACKED PILL CARDS ==================== -->
+    <!-- ==================== PILL STACK ==================== -->
     <section class="pill-stack" id="features">
 
-        <!-- 1 -->
         <article class="pill">
             <span class="pill-num">/// 01 — PHOTOGRAPHY</span>
             <div class="pill-content">
                 <h3>AI Ürün<br>Fotoğrafçılığı</h3>
                 <p>600+ profesyonel arka plan sahnesiyle stüdyo kalitesinde ürün fotoğrafları üret. Stüdyo kiralama maliyetini sıfırla.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-sage"><span class="dot">📸</span><span class="num">600+</span><span class="lbl">Sahne</span></span>
-                <span class="badge b-sand"><span class="dot">⚡</span><span class="num">&lt;10s</span><span class="lbl">Üretim</span></span>
-                <span class="badge b-coral"><span class="dot">🎨</span><span class="num">4K</span><span class="lbl">Kalite</span></span>
-            </div>
+            <div class="phone v1"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 2 -->
         <article class="pill">
             <span class="pill-num">/// 02 — FASHION TRY-ON</span>
             <div class="pill-content">
                 <h3>Sanal Manken<br>&amp; Try-On</h3>
                 <p>AI modeller üzerinde kıyafetlerini giydirerek gerçekçi moda fotoğrafları oluştur. Çekim, manken, lokasyon — hiçbiri gerekmiyor.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-coral"><span class="dot">👤</span><span class="num">12+</span><span class="lbl">Model</span></span>
-                <span class="badge b-sky"><span class="dot">👗</span><span class="num">∞</span><span class="lbl">Kombin</span></span>
-                <span class="badge b-sage"><span class="dot">📐</span><span class="num">HD</span><span class="lbl">Gerçekçilik</span></span>
-            </div>
+            <div class="phone v2"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 3 -->
         <article class="pill">
             <span class="pill-num">/// 03 — VIDEO</span>
             <div class="pill-content">
                 <h3>Sinematik<br>Ürün Videoları</h3>
                 <p>Hazır video şablonlarıyla dikkat çekici ürün tanıtım videoları üret. Reels, TikTok, Shorts — tek tıkla.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-sky"><span class="dot">🎬</span><span class="num">11</span><span class="lbl">Şablon</span></span>
-                <span class="badge b-sand"><span class="dot">🎵</span><span class="num">9:16</span><span class="lbl">Format</span></span>
-                <span class="badge b-coral"><span class="dot">✨</span><span class="num">Auto</span><span class="lbl">Müzik</span></span>
-            </div>
+            <div class="phone v3"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 4 -->
         <article class="pill">
             <span class="pill-num">/// 04 — FASHION VIDEO</span>
             <div class="pill-content">
                 <h3>Moda Video<br>Stüdyosu</h3>
                 <p>AI modellerle profesyonel moda videoları üret. Catwalk, lookbook, sosyal medya teaser'ları — saniyeler içinde.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-sage"><span class="dot">🎞️</span><span class="num">4K</span><span class="lbl">Render</span></span>
-                <span class="badge b-coral"><span class="dot">💃</span><span class="num">Live</span><span class="lbl">Hareket</span></span>
-                <span class="badge b-sky"><span class="dot">🌐</span><span class="num">Sosyal</span><span class="lbl">Hazır</span></span>
-            </div>
+            <div class="phone v4"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 5 -->
         <article class="pill">
             <span class="pill-num">/// 05 — DESIGN</span>
             <div class="pill-content">
                 <h3>Kumaştan<br>Tasarım Üretimi</h3>
                 <p>Bir kumaş fotoğrafından yepyeni kıyafet tasarımları oluştur. Koleksiyonun limitsiz, üretim öncesi prototipin anında.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-sand"><span class="dot">🧵</span><span class="num">∞</span><span class="lbl">Varyasyon</span></span>
-                <span class="badge b-sage"><span class="dot">🪡</span><span class="num">Smart</span><span class="lbl">Drape</span></span>
-            </div>
+            <div class="phone v5"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 6 -->
         <article class="pill">
             <span class="pill-num">/// 06 — SEO COPY</span>
             <div class="pill-content">
                 <h3>SEO İçerik<br>Yazımı</h3>
                 <p>Ürün başlıkları, açıklamaları ve anahtar kelimelerini AI ile optimize et. Trendyol, Amazon, Etsy — hepsi için tek tıkla.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-sky"><span class="dot">📝</span><span class="num">GEO</span><span class="lbl">Optimize</span></span>
-                <span class="badge b-sage"><span class="dot">🔑</span><span class="num">SEO</span><span class="lbl">Anahtar</span></span>
-                <span class="badge b-sand"><span class="dot">🌍</span><span class="num">TR/EN</span><span class="lbl">Çoklu Dil</span></span>
-            </div>
+            <div class="phone v6"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
-        <!-- 7 -->
         <article class="pill">
             <span class="pill-num">/// 07 — EXPORT</span>
             <div class="pill-content">
                 <h3>Çoklu Platform<br>Toplu Export</h3>
                 <p>Trendyol, Hepsiburada, Shopify, Amazon, Etsy, WooCommerce, N11 — hepsinin formatına tek tıkla dışa aktar.</p>
             </div>
-            <div class="collage" aria-hidden="true">
-                <div class="polaroid p1"><div class="ring"></div></div>
-                <div class="polaroid p2"><div class="ring"></div></div>
-                <div class="polaroid p3"><div class="ring"></div></div>
-                <div class="polaroid p4"><div class="ring"></div></div>
-            </div>
-            <div class="pill-badges" style="position:absolute; bottom:48px; right:64px;">
-                <span class="badge b-coral"><span class="dot">📦</span><span class="num">7+</span><span class="lbl">Platform</span></span>
-                <span class="badge b-sage"><span class="dot">⚡</span><span class="num">Bulk</span><span class="lbl">Export</span></span>
-                <span class="badge b-sand"><span class="dot">🔁</span><span class="num">CSV</span><span class="lbl">Otomatik</span></span>
-            </div>
+            <div class="phone v7"><div class="phone-screen"><div class="top-bar"></div><div class="hero-img"></div><div class="body"><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="pill-btn"></div></div></div></div>
         </article>
 
     </section>
 
     <!-- ==================== BLOB FRAME ==================== -->
     <section class="blob-frame" aria-hidden="true">
-        <svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg">
+        <svg class="goo" viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur"/>
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -12" result="goo"/>
-                    <feBlend in="SourceGraphic" in2="goo"/>
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="goo"/>
                 </filter>
             </defs>
-            <g filter="url(#goo)" fill="none" stroke="#0A0A0A" stroke-width="6">
-                <ellipse cx="220" cy="240" rx="200" ry="160"/>
-                <ellipse cx="450" cy="240" rx="200" ry="160"/>
-                <ellipse cx="680" cy="240" rx="200" ry="160"/>
-                <ellipse cx="910" cy="240" rx="200" ry="160"/>
+            <g filter="url(#goo)" fill="#0A0A0A">
+                <circle cx="180" cy="140" r="90"/>
+                <circle cx="340" cy="140" r="90"/>
+                <circle cx="500" cy="140" r="90"/>
+                <circle cx="660" cy="140" r="90"/>
+                <circle cx="820" cy="140" r="90"/>
             </g>
-            <text x="50%" y="58%" text-anchor="middle">ListifyAI</text>
         </svg>
+        <span class="label">/// LISTIFYAI ECOSYSTEM</span>
     </section>
 
     <!-- ==================== TILE PATTERN ==================== -->
     <section class="tile-pattern" aria-hidden="true">
-        <!-- Row 1 -->
         <div class="tile-row">
             <span class="tile-pill">ListifyAI</span><span class="tile-pill">Fotoğraf</span>
             <span class="tile-pill">Video</span><span class="tile-pill">Manken</span>
             <span class="tile-pill">SEO</span><span class="tile-pill">Export</span>
-            <span class="tile-pill">ListifyAI</span><span class="tile-pill">600+ Sahne</span>
-            <span class="tile-pill">Trendyol</span><span class="tile-pill">Shopify</span>
-            <span class="tile-pill">Amazon</span><span class="tile-pill">Etsy</span>
-            <!-- duplicate for seamless loop -->
+            <span class="tile-pill">600+ Sahne</span><span class="tile-pill">Trendyol</span>
+            <span class="tile-pill">Shopify</span><span class="tile-pill">Amazon</span>
+            <span class="tile-pill">Etsy</span><span class="tile-pill">11 Stil</span>
             <span class="tile-pill">ListifyAI</span><span class="tile-pill">Fotoğraf</span>
             <span class="tile-pill">Video</span><span class="tile-pill">Manken</span>
             <span class="tile-pill">SEO</span><span class="tile-pill">Export</span>
-            <span class="tile-pill">ListifyAI</span><span class="tile-pill">600+ Sahne</span>
-            <span class="tile-pill">Trendyol</span><span class="tile-pill">Shopify</span>
-            <span class="tile-pill">Amazon</span><span class="tile-pill">Etsy</span>
+            <span class="tile-pill">600+ Sahne</span><span class="tile-pill">Trendyol</span>
+            <span class="tile-pill">Shopify</span><span class="tile-pill">Amazon</span>
+            <span class="tile-pill">Etsy</span><span class="tile-pill">11 Stil</span>
         </div>
-        <!-- Row 2 reverse -->
         <div class="tile-row reverse">
             <span class="tile-pill">AI Stüdyo</span><span class="tile-pill">Kumaş Tasarım</span>
-            <span class="tile-pill">Try-On</span><span class="tile-pill">11 Video Stili</span>
-            <span class="tile-pill">Cebinde</span><span class="tile-pill">ListifyAI</span>
-            <span class="tile-pill">Hepsiburada</span><span class="tile-pill">N11</span>
+            <span class="tile-pill">Try-On</span><span class="tile-pill">Hepsiburada</span>
+            <span class="tile-pill">Cebinde</span><span class="tile-pill">N11</span>
             <span class="tile-pill">WooCommerce</span><span class="tile-pill">Bulk Export</span>
+            <span class="tile-pill">4K Render</span><span class="tile-pill">ListifyAI</span>
             <span class="tile-pill">AI Stüdyo</span><span class="tile-pill">Kumaş Tasarım</span>
-            <span class="tile-pill">Try-On</span><span class="tile-pill">11 Video Stili</span>
-            <span class="tile-pill">Cebinde</span><span class="tile-pill">ListifyAI</span>
-            <span class="tile-pill">Hepsiburada</span><span class="tile-pill">N11</span>
+            <span class="tile-pill">Try-On</span><span class="tile-pill">Hepsiburada</span>
+            <span class="tile-pill">Cebinde</span><span class="tile-pill">N11</span>
             <span class="tile-pill">WooCommerce</span><span class="tile-pill">Bulk Export</span>
+            <span class="tile-pill">4K Render</span><span class="tile-pill">ListifyAI</span>
         </div>
     </section>
 
     <!-- ==================== FINAL CTA ==================== -->
-    <section class="final" id="download">
-        <h2>Stüdyonu<br>bugün aç.</h2>
-        <div class="stores">
-            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">
-                <span class="icon">▶</span> Google Play
-            </a>
-            <a class="store-btn" href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener">
-                <span class="icon"></span> App Store
-            </a>
+    <section class="final-wrap" id="download">
+        <div class="final">
+            <h2>Stüdyonu<br><span class="lo">bugün</span> aç.</h2>
+            <div class="stores">
+                <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">▶ Google Play</a>
+                <a class="store-btn" href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener"> App Store</a>
+            </div>
         </div>
     </section>
 
@@ -685,38 +620,32 @@
         </div>
     </footer>
 
-    <!-- ==================== SCRIPT: hero panel swap ==================== -->
     <script>
-    /* ----- pinned hero panel scrub ----- */
+    /* hero pinned panel scrub */
     (function () {
       const pin = document.getElementById('hero');
+      if (!pin) return;
       const panels = pin.querySelectorAll('.hero-panel');
-      const circle = pin.querySelector('.hero-circle');
       const total = panels.length;
       panels[0].classList.add('active');
-
       function update() {
         const rect = pin.getBoundingClientRect();
         const scrolled = -rect.top;
         const range = pin.offsetHeight - window.innerHeight;
-        const progress = Math.max(0, Math.min(1, scrolled / range));
-        const idx = Math.min(total - 1, Math.floor(progress * total));
+        const progress = Math.max(0, Math.min(0.999, scrolled / range));
+        const idx = Math.floor(progress * total);
         panels.forEach((p, i) => p.classList.toggle('active', i === idx));
-        // subtle scale on the circle as you scroll
-        if (circle) {
-          const s = 1 + progress * 0.08;
-          circle.style.transform = `scale(${s})`;
-        }
       }
       window.addEventListener('scroll', update, { passive: true });
       window.addEventListener('resize', update);
       update();
     })();
 
-    /* ----- custom gradient cursor ----- */
+    /* custom cursor — desktop only, native cursor preserved */
     (function () {
+      if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
       const c = document.getElementById('cursor');
-      if (!c || matchMedia('(hover: none)').matches) return;
+      if (!c) return;
       let tx = 0, ty = 0, x = 0, y = 0;
       window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
       function loop() {
@@ -730,27 +659,6 @@
         el.addEventListener('mouseenter', () => c.classList.add('hover'));
         el.addEventListener('mouseleave', () => c.classList.remove('hover'));
       });
-    })();
-
-    /* ----- pill scale on stack ----- */
-    (function () {
-      const pills = document.querySelectorAll('.pill');
-      function update() {
-        pills.forEach((p, i) => {
-          const r = p.getBoundingClientRect();
-          const top = r.top;
-          if (top < 100 && i < pills.length - 1) {
-            const over = Math.min(1, (100 - top) / 400);
-            p.style.transform = `scale(${1 - over * 0.06}) translateY(${-over * 10}px)`;
-            p.style.opacity = `${1 - over * 0.15}`;
-          } else {
-            p.style.transform = '';
-            p.style.opacity = '';
-          }
-        });
-      }
-      window.addEventListener('scroll', update, { passive: true });
-      update();
     })();
     </script>
 </body>
