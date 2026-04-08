@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ListifyAI - Yapay zeka ile profesyonel e-ticaret görselleri, moda videoları ve ürün fotoğrafları oluşturun. 600+ sahne, 11 video stili, 7 platform export.">
+    <meta name="keywords" content="AI, yapay zeka, ürün fotoğrafı, e-ticaret, product photography, ListifyAI, moda, video, arkaplan değiştirme, fashion try-on">
+    <meta name="author" content="ListifyAI">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#C8E66B">
+    <meta name="facebook-domain-verification" content="rof70sbcbzs1w87o1ro89tbrtiq5le" />
+    <meta name="google-site-verification" content="JpQeO1SkG53elbc8UT6LBn3dcokGjeDOORuuv8QUzBg" />
+    <link rel="canonical" href="https://listifyai.com.tr/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ListifyAI - AI Destekli E-Ticaret Stüdyosu">
+    <meta property="og:description" content="Yapay zeka ile profesyonel e-ticaret görselleri, moda videoları ve ürün fotoğrafları oluşturun.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://listifyai.com.tr">
+    <meta property="og:image" content="https://listifyai.com.tr/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="tr_TR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ListifyAI - AI Destekli E-Ticaret Stüdyosu">
+    <meta name="twitter:description" content="Yapay zeka ile profesyonel e-ticaret görselleri oluşturun.">
+    <meta name="twitter:image" content="https://listifyai.com.tr/assets/og-image.png">
+
+    <title>ListifyAI - AI Destekli E-Ticaret Stüdyosu</title>
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;500;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2354152708410362');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2354152708410362&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "ListifyAI",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "BusinessApplication",
+        "description": "AI destekli e-ticaret görsel üretim uygulaması. 600+ sahne, 11 video stili, 7 platform export.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --lime:        #C8E66B;
+      --lime-deep:   #B5D652;
+      --ink:         #0A0A0A;
+      --ink-soft:    #14140F;
+      --paper:       #F4F1E8;
+      --sage:        #9EB098;
+      --sage-deep:   #7C8870;
+      --sand:        #C9B88A;
+      --coral:       #E89B7B;
+      --sky:         #7BB8D6;
+      --text:        #FDFDFD;
+      --text-mute:   rgba(253,253,253,0.42);
+      --radius-pill: 64px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--lime);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif; letter-spacing: -0.04em; line-height: 0.95; }
+    .mono { font-family: 'Space Grotesk', monospace; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 40px;
+      mix-blend-mode: difference;
+      color: #fff;
+    }
+    .nav-logo { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.03em; text-decoration: none; color: #fff; }
+    .nav-cta {
+      font-family: 'Space Grotesk', monospace; font-size: 13px; font-weight: 500;
+      padding: 12px 22px; border-radius: 999px;
+      background: #fff; color: #000; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .nav-cta::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+
+    /* ===== HERO (sticky pinned) ===== */
+    .hero-pin {
+      position: relative;
+      height: 400vh; /* 4 panel × 100vh */
+      background: var(--lime);
+    }
+    .hero-stage {
+      position: sticky; top: 0;
+      height: 100vh; width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-circle {
+      position: relative;
+      width: min(82vh, 82vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 40px 120px -20px rgba(0,0,0,0.35);
+    }
+    /* decorative orbit ring petals */
+    .hero-orbit {
+      position: absolute; inset: -8%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        var(--sand) 0deg 60deg,
+        transparent 60deg 120deg,
+        var(--coral) 120deg 180deg,
+        transparent 180deg 240deg,
+        var(--sky) 240deg 300deg,
+        transparent 300deg 360deg);
+      filter: blur(2px);
+      opacity: 0.85;
+      z-index: -1;
+      animation: spin 40s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-panel {
+      position: absolute;
+      inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 0 8%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .hero-panel.active { opacity: 1; }
+    .hero-panel h1 {
+      color: var(--text);
+      font-weight: 800;
+      font-size: clamp(3rem, 5vw + 4vh, 9rem);
+    }
+    .hero-panel h1 .mute { font-weight: 200; color: var(--text-mute); }
+    .hero-panel .tag {
+      display: block;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 14px; font-weight: 500;
+      color: var(--text-mute);
+      margin-top: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== MANIFESTO ===== */
+    .manifesto {
+      background: var(--lime);
+      padding: 0 8% 200px;
+      text-align: center;
+    }
+    .manifesto h2 {
+      font-size: clamp(2.5rem, 4vw + 3vh, 6rem);
+      font-weight: 800;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: var(--ink);
+    }
+    .manifesto h2 .mute { font-weight: 200; opacity: 0.45; }
+
+    /* ===== STACKED PILL CARDS ===== */
+    .pill-stack {
+      background: var(--lime);
+      padding: 0 4% 200px;
+    }
+    .pill {
+      position: sticky;
+      top: 80px;
+      max-width: 1280px;
+      margin: 0 auto 40px;
+      background: var(--ink);
+      border-radius: var(--radius-pill);
+      padding: 80px 80px 90px;
+      color: var(--text);
+      box-shadow: 0 60px 120px -40px rgba(0,0,0,0.5);
+      overflow: hidden;
+      min-height: 540px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .pill-content h3 {
+      font-size: clamp(2.5rem, 3vw + 2vh, 5rem);
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .pill-content p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.55);
+      max-width: 440px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    .pill-num {
+      position: absolute;
+      top: 40px; right: 56px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+    }
+    .pill-badges { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 14px 26px 14px 14px;
+      border-radius: 999px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 15px; font-weight: 500;
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .badge .dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      display: grid; place-items: center;
+      font-size: 18px;
+    }
+    .badge .num { font-weight: 700; font-size: 20px; }
+    .badge .lbl { opacity: 0.7; font-size: 12px; margin-left: -6px; }
+    .badge.b-sage  { background: linear-gradient(90deg, #5a7050, #9EB098); }
+    .badge.b-sand  { background: linear-gradient(90deg, #8a7a3a, #C9B88A); }
+    .badge.b-coral { background: linear-gradient(90deg, #a85c3a, #E89B7B); }
+    .badge.b-sky   { background: linear-gradient(90deg, #3a6a85, #7BB8D6); }
+    .badge.b-ink   { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+
+    /* ===== TILE PATTERN ===== */
+    .tile-pattern {
+      background: var(--lime);
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .tile-row {
+      display: flex; gap: 16px;
+      white-space: nowrap;
+      margin-bottom: 16px;
+      animation: marquee 40s linear infinite;
+    }
+    .tile-row.reverse { animation-direction: reverse; }
+    .tile-pill {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--lime);
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 500; font-size: 16px;
+    }
+    .tile-pill::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final {
+      background: var(--lime);
+      padding: 160px 8% 200px;
+      text-align: center;
+      position: relative;
+    }
+    .final h2 {
+      font-size: clamp(3rem, 7vw + 4vh, 12rem);
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 48px;
+    }
+    .stores {
+      display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .store-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--ink); color: #fff;
+      padding: 18px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: 'Space Grotesk', monospace;
+      font-weight: 500;
+      transition: transform 0.2s;
+    }
+    .store-btn:hover { transform: translateY(-2px); }
+    .store-btn .icon { font-size: 22px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 60px 8% 40px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 13px;
+    }
+    .foot-grid {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 24px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .foot-grid a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 24px; }
+    .foot-grid a:hover { color: var(--lime); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav { padding: 18px 20px; }
+      .hero-pin { height: 380vh; }
+      .hero-circle { width: 86vw; }
+      .pill {
+        grid-template-columns: 1fr;
+        padding: 56px 36px 64px;
+        border-radius: 44px;
+        min-height: auto;
+        position: relative;
+        top: auto;
+      }
+      .pill-num { top: 24px; right: 28px; font-size: 12px; }
+      .pill-badges { align-items: flex-start; }
+      .manifesto, .pill-stack, .final { padding-left: 6%; padding-right: 6%; }
+      .manifesto { padding-bottom: 120px; }
+      .final { padding: 100px 6% 140px; }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="nav">
+        <a href="/" class="nav-logo">ListifyAI</a>
+        <a href="#download" class="nav-cta">İndir</a>
+    </nav>
+
+    <!-- ==================== HERO PINNED ==================== -->
+    <section class="hero-pin" id="hero">
+        <div class="hero-stage">
+            <div class="hero-circle">
+                <div class="hero-orbit"></div>
+
+                <div class="hero-panel" data-panel="0">
+                    <div>
+                        <h1>ListifyAI</h1>
+                        <span class="tag">/// E-TİCARET İÇERİK STÜDYON</span>
+                    </div>
+                </div>
+
+                <div class="hero-panel" data-panel="1">
+                    <h1>Stüdyo kiralamak <br><span class="mute">artık</span> pahalı.</h1>
+                </div>
+
+                <div class="hero-panel" data-panel="2">
+                    <h1>Photoshop <br><span class="mute">çok</span> yavaş.</h1>
+                </div>
+
+                <div class="hero-panel" data-panel="3">
+                    <h1>Tek tek listelemek <br><span class="mute">asla</span> bitmiyor.</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MANIFESTO ==================== -->
+    <section class="manifesto">
+        <h2>
+            ListifyAI ile <span style="font-weight:800">AI</span> ürün stüdyon
+            <span class="mute">artık</span> cebine sığar.
+            <span class="mute">Sonunda.</span>
+        </h2>
+    </section>
+
+    <!-- ==================== STACKED PILL CARDS ==================== -->
+    <section class="pill-stack" id="features">
+
+        <!-- 1 -->
+        <article class="pill">
+            <span class="pill-num">/// 01 — PHOTOGRAPHY</span>
+            <div class="pill-content">
+                <h3>AI Ürün<br>Fotoğrafçılığı</h3>
+                <p>600+ profesyonel arka plan sahnesiyle stüdyo kalitesinde ürün fotoğrafları üret. Stüdyo kiralama maliyetini sıfırla.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-sage"><span class="dot">📸</span><span class="num">600+</span><span class="lbl">Sahne</span></span>
+                <span class="badge b-sand"><span class="dot">⚡</span><span class="num">&lt;10s</span><span class="lbl">Üretim</span></span>
+                <span class="badge b-coral"><span class="dot">🎨</span><span class="num">4K</span><span class="lbl">Kalite</span></span>
+            </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="pill">
+            <span class="pill-num">/// 02 — FASHION TRY-ON</span>
+            <div class="pill-content">
+                <h3>Sanal Manken<br>&amp; Try-On</h3>
+                <p>AI modeller üzerinde kıyafetlerini giydirerek gerçekçi moda fotoğrafları oluştur. Çekim, manken, lokasyon — hiçbiri gerekmiyor.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-coral"><span class="dot">👤</span><span class="num">12+</span><span class="lbl">Model</span></span>
+                <span class="badge b-sky"><span class="dot">👗</span><span class="num">∞</span><span class="lbl">Kombin</span></span>
+                <span class="badge b-sage"><span class="dot">📐</span><span class="num">HD</span><span class="lbl">Gerçekçilik</span></span>
+            </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="pill">
+            <span class="pill-num">/// 03 — VIDEO</span>
+            <div class="pill-content">
+                <h3>Sinematik<br>Ürün Videoları</h3>
+                <p>Hazır video şablonlarıyla dikkat çekici ürün tanıtım videoları üret. Reels, TikTok, Shorts — tek tıkla.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-sky"><span class="dot">🎬</span><span class="num">11</span><span class="lbl">Şablon</span></span>
+                <span class="badge b-sand"><span class="dot">🎵</span><span class="num">9:16</span><span class="lbl">Format</span></span>
+                <span class="badge b-coral"><span class="dot">✨</span><span class="num">Auto</span><span class="lbl">Müzik</span></span>
+            </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="pill">
+            <span class="pill-num">/// 04 — FASHION VIDEO</span>
+            <div class="pill-content">
+                <h3>Moda Video<br>Stüdyosu</h3>
+                <p>AI modellerle profesyonel moda videoları üret. Catwalk, lookbook, sosyal medya teaser'ları — saniyeler içinde.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-sage"><span class="dot">🎞️</span><span class="num">4K</span><span class="lbl">Render</span></span>
+                <span class="badge b-coral"><span class="dot">💃</span><span class="num">Live</span><span class="lbl">Hareket</span></span>
+                <span class="badge b-sky"><span class="dot">🌐</span><span class="num">Sosyal</span><span class="lbl">Hazır</span></span>
+            </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="pill">
+            <span class="pill-num">/// 05 — DESIGN</span>
+            <div class="pill-content">
+                <h3>Kumaştan<br>Tasarım Üretimi</h3>
+                <p>Bir kumaş fotoğrafından yepyeni kıyafet tasarımları oluştur. Koleksiyonun limitsiz, üretim öncesi prototipin anında.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-sand"><span class="dot">🧵</span><span class="num">∞</span><span class="lbl">Varyasyon</span></span>
+                <span class="badge b-sage"><span class="dot">🪡</span><span class="num">Smart</span><span class="lbl">Drape</span></span>
+            </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="pill">
+            <span class="pill-num">/// 06 — SEO COPY</span>
+            <div class="pill-content">
+                <h3>SEO İçerik<br>Yazımı</h3>
+                <p>Ürün başlıkları, açıklamaları ve anahtar kelimelerini AI ile optimize et. Trendyol, Amazon, Etsy — hepsi için tek tıkla.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-sky"><span class="dot">📝</span><span class="num">GEO</span><span class="lbl">Optimize</span></span>
+                <span class="badge b-sage"><span class="dot">🔑</span><span class="num">SEO</span><span class="lbl">Anahtar</span></span>
+                <span class="badge b-sand"><span class="dot">🌍</span><span class="num">TR/EN</span><span class="lbl">Çoklu Dil</span></span>
+            </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="pill">
+            <span class="pill-num">/// 07 — EXPORT</span>
+            <div class="pill-content">
+                <h3>Çoklu Platform<br>Toplu Export</h3>
+                <p>Trendyol, Hepsiburada, Shopify, Amazon, Etsy, WooCommerce, N11 — hepsinin formatına tek tıkla dışa aktar.</p>
+            </div>
+            <div class="pill-badges">
+                <span class="badge b-coral"><span class="dot">📦</span><span class="num">7+</span><span class="lbl">Platform</span></span>
+                <span class="badge b-sage"><span class="dot">⚡</span><span class="num">Bulk</span><span class="lbl">Export</span></span>
+                <span class="badge b-sand"><span class="dot">🔁</span><span class="num">CSV</span><span class="lbl">Otomatik</span></span>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- ==================== TILE PATTERN ==================== -->
+    <section class="tile-pattern" aria-hidden="true">
+        <!-- Row 1 -->
+        <div class="tile-row">
+            <span class="tile-pill">ListifyAI</span><span class="tile-pill">Fotoğraf</span>
+            <span class="tile-pill">Video</span><span class="tile-pill">Manken</span>
+            <span class="tile-pill">SEO</span><span class="tile-pill">Export</span>
+            <span class="tile-pill">ListifyAI</span><span class="tile-pill">600+ Sahne</span>
+            <span class="tile-pill">Trendyol</span><span class="tile-pill">Shopify</span>
+            <span class="tile-pill">Amazon</span><span class="tile-pill">Etsy</span>
+            <!-- duplicate for seamless loop -->
+            <span class="tile-pill">ListifyAI</span><span class="tile-pill">Fotoğraf</span>
+            <span class="tile-pill">Video</span><span class="tile-pill">Manken</span>
+            <span class="tile-pill">SEO</span><span class="tile-pill">Export</span>
+            <span class="tile-pill">ListifyAI</span><span class="tile-pill">600+ Sahne</span>
+            <span class="tile-pill">Trendyol</span><span class="tile-pill">Shopify</span>
+            <span class="tile-pill">Amazon</span><span class="tile-pill">Etsy</span>
+        </div>
+        <!-- Row 2 reverse -->
+        <div class="tile-row reverse">
+            <span class="tile-pill">AI Stüdyo</span><span class="tile-pill">Kumaş Tasarım</span>
+            <span class="tile-pill">Try-On</span><span class="tile-pill">11 Video Stili</span>
+            <span class="tile-pill">Cebinde</span><span class="tile-pill">ListifyAI</span>
+            <span class="tile-pill">Hepsiburada</span><span class="tile-pill">N11</span>
+            <span class="tile-pill">WooCommerce</span><span class="tile-pill">Bulk Export</span>
+            <span class="tile-pill">AI Stüdyo</span><span class="tile-pill">Kumaş Tasarım</span>
+            <span class="tile-pill">Try-On</span><span class="tile-pill">11 Video Stili</span>
+            <span class="tile-pill">Cebinde</span><span class="tile-pill">ListifyAI</span>
+            <span class="tile-pill">Hepsiburada</span><span class="tile-pill">N11</span>
+            <span class="tile-pill">WooCommerce</span><span class="tile-pill">Bulk Export</span>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="final" id="download">
+        <h2>Stüdyonu<br>bugün aç.</h2>
+        <div class="stores">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">
+                <span class="icon">▶</span> Google Play
+            </a>
+            <a class="store-btn" href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener">
+                <span class="icon"></span> App Store
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="foot-grid">
+            <span>© 2026 ListifyAI · Yapay zekâ destekli e-ticaret stüdyosu</span>
+            <div>
+                <a href="privacy-policy.html">Gizlilik</a>
+                <a href="kvkk.html">KVKK</a>
+                <a href="terms.html">Şartlar</a>
+                <a href="support.html">Destek</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPT: hero panel swap ==================== -->
+    <script>
+    (function () {
+      const pin = document.getElementById('hero');
+      const panels = pin.querySelectorAll('.hero-panel');
+      const total = panels.length;
+      panels[0].classList.add('active');
+
+      function update() {
+        const rect = pin.getBoundingClientRect();
+        const scrolled = -rect.top;
+        const range = pin.offsetHeight - window.innerHeight;
+        if (scrolled < 0 || scrolled > range) return;
+        const progress = scrolled / range; // 0..1
+        const idx = Math.min(total - 1, Math.floor(progress * total));
+        panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+    </script>
+</body>
+</html>
