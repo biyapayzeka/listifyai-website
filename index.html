@@ -169,14 +169,53 @@
       display: flex; align-items: center; justify-content: center;
       z-index: 2;
     }
-    /* Stryds-colored orbit ring */
+    /* Stryds-colored orbit ring — dramatic intro + perpetual spin */
     .hero-ring {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       z-index: 1;
-      animation: ring-spin 60s linear infinite;
+      transform-origin: 50% 50%;
+      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) both,
+                 ring-spin 22s linear 1.6s infinite;
+      will-change: transform;
     }
-    @keyframes ring-spin { to { transform: rotate(360deg); } }
+    .hero-ring-2 {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      transform-origin: 50% 50%;
+      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) both,
+                 ring-spin-rev 38s linear 1.6s infinite;
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      will-change: transform;
+    }
+    .hero-ring circle, .hero-ring-2 circle {
+      animation: ring-draw 1.6s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes ring-intro {
+      0%   { transform: rotate(-180deg) scale(0.2); opacity: 0; }
+      60%  { opacity: 1; }
+      100% { transform: rotate(0) scale(1); opacity: 1; }
+    }
+    @keyframes ring-spin     { to { transform: rotate(360deg); } }
+    @keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes ring-draw {
+      from { stroke-dashoffset: 1760; }
+    }
+
+    .hero-circle {
+      animation: circle-pop 1.4s cubic-bezier(.2,.9,.2,1) 0.3s both;
+    }
+    @keyframes circle-pop {
+      from { transform: scale(0.4); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-ring, .hero-ring-2, .hero-ring circle, .hero-ring-2 circle, .hero-circle {
+        animation: none !important;
+      }
+    }
 
     .hero-panel {
       position: absolute;
@@ -547,18 +586,27 @@
                 <!-- orbit ring (Stryds-colored arcs) -->
                 <svg class="hero-ring" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none" stroke-width="44" stroke-linecap="round" transform="rotate(-90 300 300)">
-                        <!-- outer dominant lime ring (~58% circumference) -->
                         <circle cx="300" cy="300" r="280" stroke="#a6ff00"
                                 stroke-dasharray="1020 740" stroke-dashoffset="-180"/>
-                        <!-- magenta arc -->
                         <circle cx="300" cy="300" r="280" stroke="#ff2bd6"
                                 stroke-dasharray="180 1580" stroke-dashoffset="-1240"/>
-                        <!-- cyan arc -->
                         <circle cx="300" cy="300" r="280" stroke="#00d4ff"
                                 stroke-dasharray="220 1540" stroke-dashoffset="-1450"/>
-                        <!-- orange arc -->
                         <circle cx="300" cy="300" r="280" stroke="#ff7a2f"
                                 stroke-dasharray="160 1600" stroke-dashoffset="-60"/>
+                    </g>
+                </svg>
+                <!-- inner counter-rotating thin ring -->
+                <svg class="hero-ring-2" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(45 300 300)">
+                        <circle cx="300" cy="300" r="232" stroke="#fdfdfd" stroke-opacity="0.55"
+                                stroke-dasharray="60 1400"/>
+                        <circle cx="300" cy="300" r="232" stroke="#a6ff00"
+                                stroke-dasharray="180 1280" stroke-dashoffset="-360"/>
+                        <circle cx="300" cy="300" r="232" stroke="#ff2bd6"
+                                stroke-dasharray="40 1420" stroke-dashoffset="-820"/>
+                        <circle cx="300" cy="300" r="232" stroke="#00d4ff"
+                                stroke-dasharray="100 1360" stroke-dashoffset="-1100"/>
                     </g>
                 </svg>
 
