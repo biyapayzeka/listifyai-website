@@ -31,9 +31,33 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
 
+    <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+    @font-face {
+      font-family: "SF Pro Display";
+      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa27178_SF-Pro-Display-Regular.otf") format("opentype");
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "SF Pro Display";
+      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa27179_SF-Pro-Display-Medium.otf") format("opentype");
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "SF Pro Display";
+      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa2717b_SF-Pro-Display-Semibold.otf") format("opentype");
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "SF Pro Display";
+      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa2717a_SF-Pro-Display-Bold.otf") format("opentype");
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    </style>
 
     <!-- Meta Pixel -->
     <script>
@@ -82,7 +106,7 @@
     html { background: var(--black); }
     body {
       background: var(--black); color: var(--white);
-      font-family: -apple-system, "SF Pro Display", "Inter", system-ui, sans-serif;
+      font-family: "SF Pro Display", -apple-system, "Inter", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: clip;
     }
@@ -548,18 +572,21 @@
       color: var(--black);
     }
     .cta-btn {
-      display: inline-flex; align-items: center; gap: 0.6rem;
+      display: inline-flex; align-items: center; gap: 0.65rem;
       margin-top: 3.5rem;
-      padding: 1.1rem 2.2rem;
+      padding: 1.05rem 1.85rem;
       background: var(--black); color: var(--white);
       border-radius: 100px;
+      font-family: "SF Pro Display", -apple-system, "Inter", system-ui, sans-serif;
       font-weight: 500; font-size: 16px;
       letter-spacing: -0.3px;
+      transition: transform 0.25s ease;
     }
     .cta-btn::before {
       content: ''; width: 9px; height: 9px;
       border-radius: 50%; background: var(--green);
     }
+    .cta-btn:hover { transform: translateY(-2px); }
     .cta-stores {
       display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
       margin-top: 1rem;
