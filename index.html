@@ -433,22 +433,22 @@
     <section class="hero-pin" id="hero">
         <div class="hero-stage">
             <div class="hero-circle-wrap">
-                <!-- petals: 4 asymmetric arc petals around the circle -->
+                <!-- petals: 4 asymmetric arc segments orbiting the circle -->
                 <svg class="hero-petals" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <clipPath id="ring">
-                            <path d="M300 60 A240 240 0 1 1 299 60 Z M300 130 A170 170 0 1 0 301 130 Z" fill-rule="evenodd"/>
-                        </clipPath>
-                    </defs>
-                    <g clip-path="url(#ring)">
-                        <!-- top-right sand -->
-                        <path d="M300 60 A240 240 0 0 1 510 240 L300 240 Z" fill="#C9B88A"/>
-                        <!-- right sky -->
-                        <path d="M540 300 A240 240 0 0 1 460 470 L300 300 Z" fill="#7BB8D6"/>
-                        <!-- bottom coral -->
-                        <path d="M380 540 A240 240 0 0 1 200 540 L300 380 Z" fill="#E89B7B"/>
-                        <!-- left sage -->
-                        <path d="M60 280 A240 240 0 0 1 130 130 L300 280 Z" fill="#9EB098"/>
+                    <!-- circumference of r=270 ≈ 1696 -->
+                    <g fill="none" stroke-width="60" stroke-linecap="round" transform="rotate(-90 300 300)">
+                        <!-- sand: top-right wedge, ~14% arc -->
+                        <circle cx="300" cy="300" r="270" stroke="#C9B88A"
+                                stroke-dasharray="240 1456" stroke-dashoffset="-50"/>
+                        <!-- sky: right wedge -->
+                        <circle cx="300" cy="300" r="270" stroke="#7BB8D6"
+                                stroke-dasharray="180 1516" stroke-dashoffset="-380"/>
+                        <!-- coral: bottom wedge -->
+                        <circle cx="300" cy="300" r="270" stroke="#E89B7B"
+                                stroke-dasharray="280 1416" stroke-dashoffset="-720"/>
+                        <!-- sage: left wedge -->
+                        <circle cx="300" cy="300" r="270" stroke="#9EB098"
+                                stroke-dasharray="200 1496" stroke-dashoffset="-1180"/>
                     </g>
                 </svg>
 
