@@ -173,6 +173,7 @@
         </a>
         <div class="hidden md:flex items-center gap-10">
             <a href="#features" class="text-on-surface-variant font-medium hover:text-primary transition-colors">Özellikler</a>
+            <a href="#video"    class="text-on-surface-variant font-medium hover:text-primary transition-colors">Video</a>
             <a href="#seo-geo"  class="text-on-surface-variant font-medium hover:text-primary transition-colors">SEO + GEO</a>
             <a href="#fashion"  class="text-on-surface-variant font-medium hover:text-primary transition-colors">Moda Stüdyosu</a>
             <a href="#download" class="text-on-surface-variant font-medium hover:text-primary transition-colors">İndir</a>
@@ -273,8 +274,8 @@
                 <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Video Stili</p>
             </div>
             <div>
-                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">7</div>
-                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Platform Export</p>
+                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">100<span class="text-on-surface-variant">%</span></div>
+                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Mobil · PC Yok</p>
             </div>
         </div>
     </div>
@@ -303,8 +304,14 @@
             <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
             <div class="absolute top-7 right-7 mono text-[10px] text-primary uppercase tracking-[0.2em] glass-card px-3 py-1.5 rounded-full">PREMIUM</div>
             <div class="absolute bottom-0 left-0 right-0 p-9">
-                <h3 class="font-headline text-3xl md:text-4xl font-extrabold mb-3">AI Ürün Fotoğrafçılığı</h3>
-                <p class="text-on-surface-variant max-w-md font-light">600+ sahne arasından seç, ürünü bırak — saniyeler içinde stüdyo kalitesinde foto.</p>
+                <h3 class="font-headline text-3xl md:text-4xl font-extrabold mb-3">AI Ürün + Lifestyle Fotoğrafçılığı</h3>
+                <p class="text-on-surface-variant max-w-md font-light mb-4">600+ sahne arasından seç, ürünü bırak — stüdyodan editoryele saniyeler içinde foto.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full glass-card text-primary">Stüdyo</span>
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full glass-card text-primary">Lifestyle</span>
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full glass-card text-primary">Editorial</span>
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full glass-card text-secondary">Outdoor</span>
+                </div>
             </div>
         </div>
 
@@ -320,14 +327,20 @@
             </div>
         </div>
 
-        <!-- SEO İçerik -->
-        <div class="feature-card md:col-span-5 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5">
-            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
+        <!-- Cebinde Stüdyo (mobil-first) -->
+        <div class="feature-card md:col-span-5 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5 relative overflow-hidden">
+            <div class="absolute -right-12 -bottom-12 w-56 h-56 rounded-full bg-primary/8 blur-3xl"></div>
+            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center relative">
+                <span class="material-symbols-outlined text-primary text-3xl">smartphone</span>
             </div>
-            <div>
-                <h3 class="font-headline text-2xl font-extrabold mb-2">SEO Yazımı</h3>
-                <p class="text-on-surface-variant text-sm font-light">Başlık, açıklama ve GEO meta verileri — AI ile her ürün için optimize.</p>
+            <div class="relative">
+                <h3 class="font-headline text-2xl font-extrabold mb-2">Cebinde Stüdyo</h3>
+                <p class="text-on-surface-variant text-sm font-light mb-4">Ne kamera, ne stüdyo, <span class="text-primary">ne bilgisayar</span>. Sadece telefonun yeterli.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full bg-primary/15 text-primary">iOS</span>
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full bg-primary/15 text-primary">Android</span>
+                    <span class="mono text-[10px] px-2.5 py-1 rounded-full bg-secondary/15 text-secondary">0₺ stüdyo</span>
+                </div>
             </div>
         </div>
 
@@ -476,19 +489,176 @@
                     </div>
                 </div>
 
-                <!-- Export targets -->
+                <!-- Marketplace ready -->
                 <div class="pt-5 border-t" style="border-color: rgba(184,197,184,0.08);">
-                    <p class="mono text-[10px] text-on-surface-muted uppercase tracking-widest mb-3">export_to</p>
-                    <div class="flex flex-wrap gap-2 mono text-[10px]">
-                        <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary">Trendyol</span>
-                        <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary">Shopify</span>
-                        <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary">Amazon</span>
-                        <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary">Etsy</span>
-                        <span class="px-2.5 py-1 rounded-full bg-secondary/15 text-secondary">+ Hepsiburada · N11 · GittiGidiyor</span>
+                    <p class="mono text-[10px] text-on-surface-muted uppercase tracking-widest mb-3">marketplace_ready</p>
+                    <div class="space-y-2 mono text-[10px]">
+                        <div class="flex justify-between items-center px-3 py-1.5 rounded-lg bg-primary/10">
+                            <span class="text-primary font-bold">Trendyol</span>
+                            <span class="text-on-surface-muted">1080×1080 · JPG · sRGB</span>
+                        </div>
+                        <div class="flex justify-between items-center px-3 py-1.5 rounded-lg bg-primary/10">
+                            <span class="text-primary font-bold">Shopify</span>
+                            <span class="text-on-surface-muted">2048×2048 · WebP</span>
+                        </div>
+                        <div class="flex justify-between items-center px-3 py-1.5 rounded-lg bg-primary/10">
+                            <span class="text-primary font-bold">Amazon</span>
+                            <span class="text-on-surface-muted">2000×2000 · JPG</span>
+                        </div>
+                        <div class="flex justify-between items-center px-3 py-1.5 rounded-lg bg-primary/10">
+                            <span class="text-primary font-bold">Etsy</span>
+                            <span class="text-on-surface-muted">2700×2025 · JPG</span>
+                        </div>
+                        <div class="flex justify-between items-center px-3 py-1.5 rounded-lg bg-secondary/10">
+                            <span class="text-secondary font-bold">+ 3 platform</span>
+                            <span class="text-on-surface-muted">Hepsiburada · N11 · GittiGidiyor</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-on-surface-muted mt-3 font-light leading-relaxed">Auto-crop · sRGB · her marketplace'in boyut ve format kurallarına uygun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== VIDEO TEMPLATES + AI ASSISTANT ==================== -->
+<section id="video" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow -z-10"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+
+        <div class="text-center mb-20 space-y-5">
+            <p class="mono text-xs text-secondary uppercase tracking-[0.3em] font-bold">/// VIDEO ENGINE</p>
+            <h2 class="font-headline text-5xl md:text-6xl tracking-tight">
+                <span class="font-extralight text-on-surface-variant">11 Şablon.</span>
+                <span class="font-extrabold">Sınırsız Video<span class="text-primary">.</span></span>
+            </h2>
+            <p class="text-on-surface-variant text-lg max-w-2xl mx-auto font-light">
+                Reels, TikTok ve Shorts için hazır şablonlar — ya da kendi videoyu AI asistanla birlikte yaz.
+            </p>
+        </div>
+
+        <!-- Two-column: Ürün Videoları + Moda Videoları -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+
+            <!-- Ürün Videoları -->
+            <div class="glass-card rounded-3xl overflow-hidden relative group">
+                <div class="aspect-[16/10] relative overflow-hidden">
+                    <img src="assets/showcase/humidifier_montage_scene.webp"
+                         class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-[1.03] transition-transform duration-1000"
+                         loading="lazy" decoding="async" alt="">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent"></div>
+                    <div class="absolute top-6 left-6 mono text-[10px] text-primary uppercase tracking-[0.25em] glass-card px-3 py-1.5 rounded-full">PRODUCT VIDEO</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-headline text-3xl font-extrabold mb-3">Ürün Video Şablonları</h3>
+                    <p class="text-on-surface-variant text-sm font-light mb-6">Tek ürün, çoklu açı — her e-ticaret kategorisi için optimize.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">Unboxing</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">360° Showcase</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">Lifestyle Demo</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-secondary">Cinematic Reveal</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-secondary">Before/After</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-on-surface-variant">Hero Loop</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moda Videoları -->
+            <div class="glass-card rounded-3xl overflow-hidden relative group">
+                <div class="aspect-[16/10] relative overflow-hidden">
+                    <img src="assets/showcase/lipstick_tripanel_unbox_scene.webp"
+                         class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-[1.03] transition-transform duration-1000"
+                         loading="lazy" decoding="async" alt="">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent"></div>
+                    <div class="absolute top-6 left-6 mono text-[10px] text-secondary uppercase tracking-[0.25em] glass-card px-3 py-1.5 rounded-full">FASHION VIDEO</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-headline text-3xl font-extrabold mb-3">Moda Video Şablonları</h3>
+                    <p class="text-on-surface-variant text-sm font-light mb-6">Manken, kıyafet ve sahne — lookbook kalitesinde reels.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">Catwalk</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">Try-On Loop</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-primary">Fabric Close-Up</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-secondary">Lookbook Reel</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-secondary">Editorial Story</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full glass-card text-on-surface-variant">Street Walk</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- AI Asistan: serbest üretim -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-card rounded-3xl p-8 md:p-12">
+
+            <!-- Mock chat -->
+            <div class="space-y-4">
+                <p class="mono text-[10px] text-secondary uppercase tracking-[0.25em] font-bold mb-4">/// AI ASSISTANT · LIVE</p>
+
+                <!-- user msg -->
+                <div class="flex justify-end">
+                    <div class="bg-primary/15 ghost-border rounded-2xl rounded-br-md px-5 py-3 max-w-[85%]">
+                        <p class="text-sm">Parfümümü çiçek tarlasında dronla çekilmiş gibi göster, golden hour'da.</p>
+                    </div>
+                </div>
+
+                <!-- assistant msg -->
+                <div class="flex justify-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-secondary text-base">auto_awesome</span>
+                    </div>
+                    <div class="bg-surface-low ghost-border rounded-2xl rounded-bl-md px-5 py-3 max-w-[85%]">
+                        <p class="text-sm text-on-surface-variant font-light leading-relaxed">Anladım — golden hour, slow drone push-in, lavanta tarlası arkaplan, 8 saniye, 9:16 vertikal. Üretiliyor.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="mono text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">8s</span>
+                            <span class="mono text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">9:16</span>
+                            <span class="mono text-[10px] px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">drone</span>
+                            <span class="mono text-[10px] px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">golden_hour</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- typing -->
+                <div class="flex items-center gap-2 pl-11 pt-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    <span class="mono text-[10px] text-on-surface-muted uppercase tracking-widest">rendering · 6s remaining</span>
+                </div>
+            </div>
+
+            <!-- Copy -->
+            <div class="space-y-7">
+                <h3 class="font-headline text-3xl md:text-4xl font-extrabold leading-tight">
+                    <span class="font-extralight">Şablon Yetmezse</span><br>
+                    Kendi Videonu <span class="text-primary">Yarat</span>.
+                </h3>
+                <p class="text-on-surface-variant font-light leading-relaxed">
+                    AI asistanla konuşarak istediğin sahneyi tarif et — promptu birlikte yazın, sonucu beğenmediysen düzelt, yeniden üret. Şablonlara mahkum değilsin.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl mt-0.5" style="font-variation-settings:'FILL' 1;">all_inclusive</span>
+                        <div>
+                            <p class="font-bold text-sm">Sınırsız Stil</p>
+                            <p class="text-xs text-on-surface-variant font-light">Şablon değil, hayal gücün limit.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl mt-0.5" style="font-variation-settings:'FILL' 1;">forum</span>
+                        <div>
+                            <p class="font-bold text-sm">AI Asistan</p>
+                            <p class="text-xs text-on-surface-variant font-light">Promptu birlikte yaz, asistan ne istediğini anlasın.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl mt-0.5" style="font-variation-settings:'FILL' 1;">refresh</span>
+                        <div>
+                            <p class="font-bold text-sm">İterasyon</p>
+                            <p class="text-xs text-on-surface-variant font-light">Beğenmediğini düzelt, yeniden üret — kredi yakmadan.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 </section>
 
