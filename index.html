@@ -329,10 +329,84 @@
       background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5));
       border-radius: 24px;
     }
-    .polaroid.p1 { top: 6%;  left: 18%; transform: rotate(-7deg); background: linear-gradient(135deg, var(--orange), #4a1a08); }
-    .polaroid.p2 { top: 22%; right: 8%; transform: rotate(8deg);  background: linear-gradient(135deg, var(--cyan), #062a3a); }
-    .polaroid.p3 { bottom: 6%; left: 30%; transform: rotate(-3deg); background: linear-gradient(135deg, var(--magenta), #3a0a30); }
-    .polaroid.p4 { bottom: 16%; right: 18%; transform: rotate(11deg); background: linear-gradient(135deg, var(--green), #2a4408); }
+    .polaroid.p1 { top: 6%;  left: 18%; transform: rotate(-7deg); }
+    .polaroid.p2 { top: 22%; right: 8%; transform: rotate(8deg);  }
+    .polaroid.p3 { bottom: 6%; left: 30%; transform: rotate(-3deg); }
+    .polaroid.p4 { bottom: 16%; right: 18%; transform: rotate(11deg); }
+    .polaroid img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; border-radius: 24px;
+    }
+
+    /* product avatar pills (Card 1) — real cutout images */
+    .badge-pill .ico.img {
+      background: var(--white);
+      overflow: hidden;
+      padding: 0;
+    }
+    .badge-pill .ico.img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+
+    /* mockup phone (Card 3) */
+    .mockup-stage {
+      position: relative;
+      width: 100%; height: 100%;
+      display: grid; place-items: center;
+    }
+    .phone {
+      position: relative;
+      width: 17rem; height: 34rem;
+      border-radius: 44px;
+      background: #050505;
+      border: 0.5px solid var(--stroke);
+      box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7), inset 0 0 0 6px #1a1a1a;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .phone::before {
+      content: ''; position: absolute; top: 14px; left: 50%;
+      transform: translateX(-50%);
+      width: 6rem; height: 22px; border-radius: 100px;
+      background: #050505; z-index: 3;
+    }
+    .phone img {
+      position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px);
+      object-fit: cover; border-radius: 38px;
+    }
+    .phone-tag {
+      position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
+      background: rgba(255,255,255,0.92); color: var(--black);
+      backdrop-filter: blur(10px);
+      border-radius: 18px; padding: 0.85rem 1rem;
+      z-index: 4;
+      font-size: 13px; font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .phone-tag .price { color: #0a8a3a; font-weight: 700; }
+
+    .market-pill {
+      position: absolute;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 1.1rem 0.7rem 0.7rem;
+      border-radius: 100px;
+      background: rgba(23,23,23,0.85);
+      backdrop-filter: blur(10px);
+      border: 0.5px solid var(--stroke);
+      font-size: 13px; font-weight: 500; color: var(--white);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
+      z-index: 3;
+    }
+    .market-pill .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; color: #fff; font-weight: 700; }
+    .mp-trendyol { top: 12%; left: 0; }
+    .mp-trendyol .dot { background: #f27a1a; }
+    .mp-shopify  { top: 38%; right: -1rem; }
+    .mp-shopify .dot  { background: #95bf47; }
+    .mp-amazon   { bottom: 22%; left: -1rem; }
+    .mp-amazon .dot   { background: #ff9900; color: #111; }
+    .mp-etsy     { bottom: 6%; right: 0.5rem; }
+    .mp-etsy .dot     { background: #f1641e; }
 
     /* ===== TILE PATTERN (lime bg) ===== */
     .tile-pattern {
@@ -521,20 +595,20 @@
                 </div>
                 <div class="card-vis">
                     <div class="badge-pill b-lime offset-1">
-                        <div class="ico">📷</div>
+                        <div class="ico img"><img src="assets/showcase/product_perfume_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
                         <div class="meta"><div class="num">600+</div><div class="lbl">Sahne · Ürün Foto</div></div>
                     </div>
                     <div class="badge-pill b-magenta offset-2">
-                        <div class="ico">👗</div>
-                        <div class="meta"><div class="num">∞</div><div class="lbl">Sanal Manken & Try-On</div></div>
+                        <div class="ico img"><img src="assets/showcase/product_lipstick_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
+                        <div class="meta"><div class="num">Try-On</div><div class="lbl">Sanal Manken & Kıyafet</div></div>
                     </div>
                     <div class="badge-pill b-orange offset-3">
-                        <div class="ico">🧵</div>
-                        <div class="meta"><div class="num">Kumaş</div><div class="lbl">Tasarım Üretimi</div></div>
+                        <div class="ico img"><img src="assets/showcase/product_serum_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
+                        <div class="meta"><div class="num">28</div><div class="lbl">Kategori · Kumaş & Set</div></div>
                     </div>
                     <div class="badge-pill b-cyan offset-4">
-                        <div class="ico">⚡</div>
-                        <div class="meta"><div class="num">&lt;10s</div><div class="lbl">Üretim Süresi</div></div>
+                        <div class="ico img"><img src="assets/showcase/product_honeyjar_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
+                        <div class="meta"><div class="num">&lt;10s</div><div class="lbl">Üretim Süresi · 4K</div></div>
                     </div>
                 </div>
             </div>
@@ -549,10 +623,10 @@
                 </div>
                 <div class="card-vis">
                     <div class="polaroid-stack">
-                        <div class="polaroid p1"></div>
-                        <div class="polaroid p2"></div>
-                        <div class="polaroid p3"></div>
-                        <div class="polaroid p4"></div>
+                        <div class="polaroid p1"><img src="assets/showcase/lipstick_tripanel_unbox_scene.webp" loading="lazy" decoding="async" alt=""></div>
+                        <div class="polaroid p2"><img src="assets/showcase/perfume_cloche_scene.webp" loading="lazy" decoding="async" alt=""></div>
+                        <div class="polaroid p3"><img src="assets/showcase/cookie_keyhole_scene.webp" loading="lazy" decoding="async" alt=""></div>
+                        <div class="polaroid p4"><img src="assets/showcase/humidifier_montage_scene.webp" loading="lazy" decoding="async" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -566,21 +640,15 @@
                     <p class="global-headline-l">SEO yazımı + <span class="is-green">7 platforma</span> tek tıkla toplu export. Trendyol, Shopify, Amazon, Etsy.</p>
                 </div>
                 <div class="card-vis">
-                    <div class="badge-pill b-lime offset-1">
-                        <div class="ico">🛍️</div>
-                        <div class="meta"><div class="num">Trendyol</div><div class="lbl">Bulk Export</div></div>
-                    </div>
-                    <div class="badge-pill b-violet offset-2">
-                        <div class="ico">🛒</div>
-                        <div class="meta"><div class="num">Shopify</div><div class="lbl">CSV Otomatik</div></div>
-                    </div>
-                    <div class="badge-pill b-orange offset-3">
-                        <div class="ico">📦</div>
-                        <div class="meta"><div class="num">Amazon</div><div class="lbl">+ Etsy + N11</div></div>
-                    </div>
-                    <div class="badge-pill b-cyan offset-4">
-                        <div class="ico">📝</div>
-                        <div class="meta"><div class="num">SEO</div><div class="lbl">AI Başlık & Açıklama</div></div>
+                    <div class="mockup-stage">
+                        <div class="phone">
+                            <img src="assets/showcase/bottle_botanical_scene.webp" loading="lazy" decoding="async" alt="">
+                            <div class="phone-tag"><span>Botanik Şişe · 500ml</span><span class="price">₺349</span></div>
+                        </div>
+                        <div class="market-pill mp-trendyol"><span class="dot">T</span>Trendyol</div>
+                        <div class="market-pill mp-shopify"><span class="dot">S</span>Shopify</div>
+                        <div class="market-pill mp-amazon"><span class="dot">a</span>Amazon</div>
+                        <div class="market-pill mp-etsy"><span class="dot">E</span>Etsy</div>
                     </div>
                 </div>
             </div>
@@ -664,13 +732,16 @@
         </div>
     </footer>
 
-    <script>
-    /* ----- hero pinned panel scrub ----- */
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script defer>
+    /* ----- hero pinned panel scrub (vanilla — runs immediately, no GSAP needed) ----- */
     (function () {
       const pin = document.getElementById('hero');
       const panels = pin.querySelectorAll('.hero-panel');
       const total = panels.length;
       panels[0].classList.add('active');
+      let ticking = false;
       function update() {
         const rect = pin.getBoundingClientRect();
         const scrolled = -rect.top;
@@ -678,11 +749,58 @@
         const progress = Math.max(0, Math.min(0.999, scrolled / range));
         const idx = Math.floor(progress * total);
         panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+        ticking = false;
       }
-      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
       window.addEventListener('resize', update);
       update();
     })();
+
+    /* ----- GSAP smooth motion (loaded after) ----- */
+    window.addEventListener('load', function () {
+      if (!window.gsap || !window.ScrollTrigger) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.matchMedia().add('(min-width: 992px) and (prefers-reduced-motion: no-preference)', () => {
+
+        // Hero panel crossfade with smooth y motion
+        document.querySelectorAll('.hero-panel').forEach((panel) => {
+          gsap.set(panel, { y: 24 });
+          ScrollTrigger.create({
+            trigger: panel,
+            start: 'top center',
+            onEnter: () => gsap.to(panel, { y: 0, duration: 0.9, ease: 'power3.out' }),
+          });
+        });
+
+        // Card pin entrance: scale + stagger badges fade-up
+        ['.card-1', '.card-2', '.card-3'].forEach((sel) => {
+          const card = document.querySelector(sel);
+          if (!card) return;
+          const inner = card.querySelector('.card-inner');
+          const items = card.querySelectorAll('.badge-pill, .polaroid, .phone, .market-pill, .global-headline-xl, .global-headline-l');
+          gsap.set(inner, { scale: 0.96, transformOrigin: '50% 0%' });
+          gsap.set(items, { y: 30, opacity: 0 });
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 80%',
+            once: true,
+            onEnter: () => {
+              gsap.to(inner, { scale: 1, duration: 0.9, ease: 'power3.out' });
+              gsap.to(items, { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.1, onComplete: () => {
+                items.forEach(el => el.style.willChange = 'auto');
+              }});
+            },
+          });
+        });
+
+      });
+    });
+
+    /* (placeholder removed — old hero IIFE moved above) */
+    (function () { /* noop */ })();
 
     /* ----- 720px blur cursor leke + 20px nokta ----- */
     (function () {
