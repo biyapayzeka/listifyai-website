@@ -162,7 +162,7 @@
     }
     .hero-circle {
       position: absolute;
-      inset: 14% 14%;
+      inset: 22% 22%;
       border-radius: 50%;
       background: var(--dark-grey);
       border: 0.5px solid var(--stroke);
@@ -201,40 +201,45 @@
       .preloader { animation: none; display: none; }
     }
 
-    /* Stryds-colored orbit ring — dramatic intro + perpetual spin */
-    .hero-ring {
+    /* Stryds-style nested rainbow rings (conic-gradient + radial mask donut) */
+    .rings {
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      z-index: 1;
-      transform-origin: 50% 50%;
-      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) 1.6s both,
-                 ring-spin 22s linear 3.2s infinite;
+      pointer-events: none;
+      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) 1.05s both;
+    }
+    .rainbow-ring {
+      position: absolute;
+      border-radius: 50%;
+      background: conic-gradient(from var(--from, 0deg),
+        #ff2bd6, #a855f7, #3b82f6, #00d4ff, #10b981,
+        #a6ff00, #fde047, #ff7a2f, #ef4444, #ff2bd6);
+      -webkit-mask: radial-gradient(circle,
+        transparent 0,
+        transparent calc(50% - 9px),
+        #000 calc(50% - 8px),
+        #000 calc(50% - 2px),
+        transparent calc(50% - 1px));
+              mask: radial-gradient(circle,
+        transparent 0,
+        transparent calc(50% - 9px),
+        #000 calc(50% - 8px),
+        #000 calc(50% - 2px),
+        transparent calc(50% - 1px));
       will-change: transform;
     }
-    .hero-ring-2 {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      z-index: 1;
-      transform-origin: 50% 50%;
-      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) 1.6s both,
-                 ring-spin-rev 38s linear 3.2s infinite;
-      mix-blend-mode: screen;
-      opacity: 0.85;
-      will-change: transform;
-    }
-    .hero-ring circle, .hero-ring-2 circle {
-      animation: ring-draw 1.6s cubic-bezier(.2,.8,.2,1) 1.6s both;
-    }
+    .r1 { inset: 0;    --from:   0deg; animation: ring-spin 28s linear infinite; }
+    .r2 { inset: 2.6%; --from:  45deg; animation: ring-spin-rev 34s linear infinite; }
+    .r3 { inset: 5.2%; --from:  90deg; animation: ring-spin 22s linear infinite; }
+    .r4 { inset: 7.8%; --from: 135deg; animation: ring-spin-rev 40s linear infinite; }
+    .r5 { inset: 10.4%; --from: 180deg; animation: ring-spin 18s linear infinite; }
+    .r6 { inset: 13%;   --from: 225deg; animation: ring-spin-rev 30s linear infinite; }
     @keyframes ring-intro {
-      0%   { transform: rotate(-180deg) scale(0.2); opacity: 0; }
-      60%  { opacity: 1; }
+      0%   { transform: rotate(-180deg) scale(0.25); opacity: 0; }
+      55%  { opacity: 1; }
       100% { transform: rotate(0) scale(1); opacity: 1; }
     }
     @keyframes ring-spin     { to { transform: rotate(360deg); } }
     @keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
-    @keyframes ring-draw {
-      from { stroke-dashoffset: 1760; }
-    }
 
     .hero-circle {
       animation: circle-pop 1.4s cubic-bezier(.2,.9,.2,1) 1.9s both;
@@ -619,32 +624,15 @@
         <div class="hero-outer">
             <div class="hero-stage">
 
-                <!-- orbit ring (Stryds-colored arcs) -->
-                <svg class="hero-ring" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" stroke-width="86" stroke-linecap="round" transform="rotate(-90 300 300)">
-                        <circle cx="300" cy="300" r="280" stroke="#a6ff00"
-                                stroke-dasharray="1020 740" stroke-dashoffset="-180"/>
-                        <circle cx="300" cy="300" r="280" stroke="#ff2bd6"
-                                stroke-dasharray="180 1580" stroke-dashoffset="-1240"/>
-                        <circle cx="300" cy="300" r="280" stroke="#00d4ff"
-                                stroke-dasharray="220 1540" stroke-dashoffset="-1450"/>
-                        <circle cx="300" cy="300" r="280" stroke="#ff7a2f"
-                                stroke-dasharray="160 1600" stroke-dashoffset="-60"/>
-                    </g>
-                </svg>
-                <!-- inner counter-rotating thin ring -->
-                <svg class="hero-ring-2" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" stroke-width="14" stroke-linecap="round" transform="rotate(45 300 300)">
-                        <circle cx="300" cy="300" r="232" stroke="#fdfdfd" stroke-opacity="0.55"
-                                stroke-dasharray="60 1400"/>
-                        <circle cx="300" cy="300" r="232" stroke="#a6ff00"
-                                stroke-dasharray="180 1280" stroke-dashoffset="-360"/>
-                        <circle cx="300" cy="300" r="232" stroke="#ff2bd6"
-                                stroke-dasharray="40 1420" stroke-dashoffset="-820"/>
-                        <circle cx="300" cy="300" r="232" stroke="#00d4ff"
-                                stroke-dasharray="100 1360" stroke-dashoffset="-1100"/>
-                    </g>
-                </svg>
+                <!-- nested rainbow rings (5 layers, alternating spin) -->
+                <div class="rings" aria-hidden="true">
+                    <div class="rainbow-ring r1"></div>
+                    <div class="rainbow-ring r2"></div>
+                    <div class="rainbow-ring r3"></div>
+                    <div class="rainbow-ring r4"></div>
+                    <div class="rainbow-ring r5"></div>
+                    <div class="rainbow-ring r6"></div>
+                </div>
 
                 <div class="hero-circle">
                     <div class="hero-panel" data-i="0">
