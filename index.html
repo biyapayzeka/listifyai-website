@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html class="dark" lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <meta name="keywords" content="AI, yapay zeka, ürün fotoğrafı, e-ticaret, product photography, ListifyAI, moda, video, arkaplan değiştirme, fashion try-on">
     <meta name="author" content="ListifyAI">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#101010">
+    <meta name="theme-color" content="#262624">
     <meta name="facebook-domain-verification" content="rof70sbcbzs1w87o1ro89tbrtiq5le" />
     <meta name="google-site-verification" content="JpQeO1SkG53elbc8UT6LBn3dcokGjeDOORuuv8QUzBg" />
     <link rel="canonical" href="https://listifyai.com.tr/">
@@ -31,31 +31,104 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
 
-    <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300..500,0..1,0" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface':                    '#262624',
+            'surface-low':                '#2A2A2A',
+            'surface-container':          '#30302E',
+            'surface-high':               '#38382F',
+            'surface-highest':            '#42423A',
+            'on-surface':                 '#FFFFFF',
+            'on-surface-variant':         '#B8C5B8',
+            'on-surface-muted':           '#8A8F86',
+            'primary':                    '#9EB098',
+            'primary-dim':                '#7C8870',
+            'primary-bright':             '#B8CDB0',
+            'secondary':                  '#C9B88A',
+            'secondary-dim':              '#A89968',
+            'outline-ghost':              'rgba(184,197,184,0.12)',
+          },
+          fontFamily: {
+            headline: ['Manrope', 'system-ui', 'sans-serif'],
+            body:     ['Inter', 'system-ui', 'sans-serif'],
+            mono:     ['"Space Grotesk"', 'ui-monospace', 'monospace'],
+          },
+          borderRadius: {
+            DEFAULT: '1rem', lg: '2rem', xl: '3rem',
+          },
+        },
+      },
+    };
+    </script>
 
     <style>
-    @font-face {
-      font-family: "SF Pro Display";
-      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa27178_SF-Pro-Display-Regular.otf") format("opentype");
-      font-weight: 400; font-style: normal; font-display: swap;
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #262624; color: #fff; }
+    h1, h2, h3, h4 { font-family: 'Manrope', system-ui, sans-serif; }
+    .mono { font-family: 'Space Grotesk', ui-monospace, monospace; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    .glass-card {
+      background: rgba(48, 48, 46, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(184, 197, 184, 0.08);
     }
-    @font-face {
-      font-family: "SF Pro Display";
-      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa27179_SF-Pro-Display-Medium.otf") format("opentype");
-      font-weight: 500; font-style: normal; font-display: swap;
+    .ghost-border { border: 1px solid rgba(184, 197, 184, 0.12); }
+
+    .hero-glow {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(158, 176, 152, 0.18) 0%, transparent 55%),
+        radial-gradient(circle at 15% 75%, rgba(201, 184, 138, 0.10) 0%, transparent 55%);
     }
-    @font-face {
-      font-family: "SF Pro Display";
-      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa2717b_SF-Pro-Display-Semibold.otf") format("opentype");
-      font-weight: 600; font-style: normal; font-display: swap;
+    .light-leak {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(158, 176, 152, 0.07) 0%, transparent 45%);
+      pointer-events: none;
     }
-    @font-face {
-      font-family: "SF Pro Display";
-      src: url("https://cdn.prod.website-files.com/664eea9e5a26d00faaa2716e/664eea9e5a26d00faaa2717a_SF-Pro-Display-Bold.otf") format("opentype");
-      font-weight: 700; font-style: normal; font-display: swap;
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .scanline {
+      position: absolute; left: 0; height: 2px; width: 100%;
+      background: linear-gradient(to right, transparent, rgba(158, 176, 152, 0.45), transparent);
+      animation: scan 5s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #B8CDB0 0%, #7C8870 100%);
+      color: #1a1a18;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 50px -10px rgba(158, 176, 152, 0.35);
+    }
+    .btn-glass {
+      transition: transform .25s ease, background .25s ease;
+    }
+    .btn-glass:hover { transform: translateY(-2px); background: rgba(184, 197, 184, 0.08); }
+
+    .feature-card { transition: border-color .35s ease, transform .35s ease; }
+    .feature-card:hover { border-color: rgba(184, 197, 184, 0.32); transform: translateY(-3px); }
+
+    .editorial-italic { font-style: italic; font-weight: 200; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scanline { animation: none; }
+      .btn-primary:hover, .btn-glass:hover, .feature-card:hover { transform: none; }
     }
     </style>
 
@@ -73,8 +146,7 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2354152708410362&ev=PageView&noscript=1"
-    /></noscript>
+    src="https://www.facebook.com/tr?id=2354152708410362&ev=PageView&noscript=1" /></noscript>
 
     <script type="application/ld+json">
     {
@@ -87,839 +159,372 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
-
-    <style>
-    /* ===== STRYDS TOKENS (1:1) ===== */
-    :root {
-      --black:     #101010;
-      --green:     #a6ff00;
-      --dark-grey: #171717;
-      --stroke:    #3d3d3d;
-      --white:     #fdfdfd;
-      --grey:      #6f6f6f;
-      --magenta:   #ff2bd6;
-      --cyan:      #00d4ff;
-      --orange:    #ff7a2f;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
-    html { background: var(--black); }
-    body {
-      background: var(--black); color: var(--white);
-      font-family: "SF Pro Display", -apple-system, "Inter", system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: clip;
-    }
-    a { color: inherit; text-decoration: none; cursor: none; }
-    button { font: inherit; border: 0; background: 0; cursor: none; }
-
-    /* ===== CURSOR (720px blur leke + 20px nokta) ===== */
-    .cursor-glow {
-      position: fixed; top: 0; left: 0;
-      width: 720px; height: 720px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      filter: blur(150px);
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      will-change: transform;
-    }
-    .cursor-dot {
-      position: fixed; top: 0; left: 0;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: var(--white);
-      mix-blend-mode: difference;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      will-change: transform;
-    }
-    @media (hover: none) {
-      .cursor-glow, .cursor-dot { display: none; }
-      * { cursor: auto !important; }
-    }
-
-    /* ===== NAV ===== */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.75rem 2.5rem;
-    }
-    .nav-logo {
-      font-size: 21px; font-weight: 600; letter-spacing: -0.3px;
-      color: var(--white);
-    }
-    .nav-cta {
-      background: var(--green); color: var(--black);
-      padding: 0.75rem 1.5rem;
-      border-radius: 100px;
-      font-size: 15px; font-weight: 500;
-      letter-spacing: -0.3px;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .nav-cta::before {
-      content: ''; width: 8px; height: 8px;
-      border-radius: 50%; background: var(--black);
-    }
-
-    /* ===== HERO (sticky pin 350vh) ===== */
-    ._01-hero {
-      position: relative;
-      height: 350vh;
-      width: 100%;
-      z-index: 3;
-    }
-    .hero-outer {
-      position: sticky; top: 0;
-      width: 100%; height: 100vh;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-stage {
-      position: relative;
-      width: min(96vh, 96vw);
-      aspect-ratio: 1;
-      display: grid; place-items: center;
-    }
-    .hero-circle {
-      position: absolute;
-      inset: 22% 22%;
-      border-radius: 50%;
-      background: var(--dark-grey);
-      border: 0.5px solid var(--stroke);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 2;
-    }
-    /* ===== PRELOADER (lime full screen → contracts to reveal hero) ===== */
-    .preloader {
-      position: fixed; inset: 0;
-      background: var(--green);
-      z-index: 9000;
-      display: grid; place-items: center;
-      animation: pre-reveal 1.4s cubic-bezier(.76,0,.24,1) 1.05s forwards;
-      will-change: clip-path;
-    }
-    .preloader-mark {
-      width: 96px; height: 96px;
-      border-radius: 24px;
-      background: var(--black);
-      display: grid; place-items: center;
-      color: var(--green);
-      font-size: 46px; font-weight: 700;
-      letter-spacing: -2px;
-      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.25);
-      animation: pre-mark-in 0.7s cubic-bezier(.2,.9,.2,1) 0.1s both,
-                 pre-mark-out 0.55s cubic-bezier(.7,0,.84,0) 0.95s both;
-      will-change: transform, opacity;
-    }
-    @keyframes pre-mark-in  { from { transform: scale(0.3); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    @keyframes pre-mark-out { to   { transform: scale(0.4); opacity: 0; } }
-    @keyframes pre-reveal {
-      0%   { clip-path: circle(150% at 50% 50%); }
-      100% { clip-path: circle(0%   at 50% 50%); pointer-events: none; visibility: hidden; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .preloader { animation: none; display: none; }
-    }
-
-    /* Stryds-style nested rainbow rings (conic-gradient + radial mask donut) */
-    .rings {
-      position: absolute; inset: 0;
-      pointer-events: none;
-      animation: ring-intro 1.6s cubic-bezier(.2,.8,.2,1) 1.05s both;
-    }
-    .rainbow-ring {
-      position: absolute;
-      border-radius: 50%;
-      background: conic-gradient(from var(--from, 0deg),
-        #ff2bd6, #a855f7, #3b82f6, #00d4ff, #10b981,
-        #a6ff00, #fde047, #ff7a2f, #ef4444, #ff2bd6);
-      -webkit-mask: radial-gradient(circle,
-        transparent 0,
-        transparent calc(50% - 9px),
-        #000 calc(50% - 8px),
-        #000 calc(50% - 2px),
-        transparent calc(50% - 1px));
-              mask: radial-gradient(circle,
-        transparent 0,
-        transparent calc(50% - 9px),
-        #000 calc(50% - 8px),
-        #000 calc(50% - 2px),
-        transparent calc(50% - 1px));
-      will-change: transform;
-    }
-    .r1 { inset: 0;    --from:   0deg; animation: ring-spin 28s linear infinite; }
-    .r2 { inset: 2.6%; --from:  45deg; animation: ring-spin-rev 34s linear infinite; }
-    .r3 { inset: 5.2%; --from:  90deg; animation: ring-spin 22s linear infinite; }
-    .r4 { inset: 7.8%; --from: 135deg; animation: ring-spin-rev 40s linear infinite; }
-    .r5 { inset: 10.4%; --from: 180deg; animation: ring-spin 18s linear infinite; }
-    .r6 { inset: 13%;   --from: 225deg; animation: ring-spin-rev 30s linear infinite; }
-    @keyframes ring-intro {
-      0%   { transform: rotate(-180deg) scale(0.25); opacity: 0; }
-      55%  { opacity: 1; }
-      100% { transform: rotate(0) scale(1); opacity: 1; }
-    }
-    @keyframes ring-spin     { to { transform: rotate(360deg); } }
-    @keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
-
-    .hero-circle {
-      animation: circle-pop 1.4s cubic-bezier(.2,.9,.2,1) 1.9s both;
-    }
-    @keyframes circle-pop {
-      from { transform: scale(0.4); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-ring, .hero-ring-2, .hero-ring circle, .hero-ring-2 circle, .hero-circle {
-        animation: none !important;
-      }
-    }
-
-    .hero-panel {
-      position: absolute;
-      inset: 8% 8%;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    .hero-panel.active { opacity: 1; }
-
-    .hero-headline-l {
-      font-size: clamp(64px, 10vw, 148px);
-      font-weight: 600;
-      letter-spacing: -1px;
-      line-height: 1em;
-      color: var(--white);
-    }
-    .hero-headline-m {
-      font-size: clamp(36px, 5.5vw, 78px);
-      font-weight: 500;
-      letter-spacing: -2px;
-      line-height: 1em;
-      color: var(--grey);
-    }
-    .hero-headline-m .hi { color: var(--white); }
-    .hero-headline-s {
-      font-size: clamp(18px, 2.4vw, 36px);
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      line-height: 1em;
-      color: var(--grey);
-      margin-top: 1.25rem;
-    }
-
-    /* ===== CARDS SECTION (sticky stagger 3 / 4.5 / 6) ===== */
-    ._02-cards {
-      position: relative;
-      z-index: 4;
-      width: 100%;
-      padding: 0 5vw;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-1, .card-2, .card-3 {
-      width: 100%;
-      height: 100vh;
-      position: sticky;
-      transform-origin: 50% 0;
-    }
-    .card-1 { top: 3rem; }
-    .card-2 { top: 4.5rem; }
-    .card-3 { top: 6rem; }
-
-    .card-inner {
-      width: 100%; height: 100%;
-      background: var(--dark-grey);
-      border: 0.5px solid var(--stroke);
-      border-radius: 40px;
-      padding: 5rem;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .card-txt-div {
-      z-index: 2;
-      display: flex; flex-direction: column;
-      position: relative;
-    }
-    .global-headline-xl {
-      font-size: clamp(56px, 7.5vw, 108px);
-      font-weight: 600;
-      letter-spacing: -2.5px;
-      line-height: 1em;
-      color: var(--white);
-    }
-    .global-headline-l {
-      font-size: clamp(22px, 3vw, 48px);
-      font-weight: 500;
-      letter-spacing: -1px;
-      line-height: 1.1em;
-      color: var(--grey);
-      margin-top: 3.5vh;
-      max-width: 36rem;
-    }
-    .is-green { color: var(--green); }
-
-    /* ===== Card visual area: stylized "lottie" badges ===== */
-    .card-vis {
-      position: absolute;
-      inset: 0 0 0 auto;
-      width: 50%;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      justify-content: center;
-      gap: 1.25rem;
-      padding: 5rem 5rem 5rem 0;
-    }
-    .badge-pill {
-      align-self: flex-end;
-      display: inline-flex; align-items: center; gap: 1rem;
-      padding: 0.875rem 1.5rem 0.875rem 0.875rem;
-      border-radius: 100px;
-      color: var(--white);
-      font-weight: 500; letter-spacing: -0.3px;
-      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
-      min-width: 17rem;
-    }
-    .badge-pill .ico {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.35);
-      display: grid; place-items: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .badge-pill .num { font-size: 26px; font-weight: 700; line-height: 1; letter-spacing: -1px; }
-    .badge-pill .lbl { font-size: 13px; opacity: 0.85; margin-top: 2px; letter-spacing: -0.2px; }
-    .badge-pill .meta { display: flex; flex-direction: column; }
-
-    .b-lime    { background: linear-gradient(90deg, #6a8d10, var(--green)); color: var(--black); }
-    .b-magenta { background: linear-gradient(90deg, #6f0a5f, var(--magenta)); }
-    .b-cyan    { background: linear-gradient(90deg, #054a59, var(--cyan)); color: var(--black); }
-    .b-orange  { background: linear-gradient(90deg, #6a2a10, var(--orange)); }
-    .b-violet  { background: linear-gradient(90deg, #3a1a6e, #8b5cf6); }
-
-    .badge-pill.offset-1 { transform: translateX(-3rem) rotate(-2deg); }
-    .badge-pill.offset-2 { transform: translateX(-1rem) rotate(1deg); }
-    .badge-pill.offset-3 { transform: translateX(-4rem) rotate(-1deg); }
-    .badge-pill.offset-4 { transform: translateX(0)     rotate(2deg);  }
-
-    /* polaroid card visual variant */
-    .polaroid-stack {
-      position: relative;
-      width: 100%; height: 100%;
-    }
-    .polaroid {
-      position: absolute;
-      width: 12rem; height: 14.5rem;
-      border-radius: 24px;
-      box-shadow: 0 30px 60px -10px rgba(0,0,0,0.6), inset 0 0 0 4px rgba(255,255,255,0.06);
-      background-size: cover; background-position: center;
-    }
-    .polaroid::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.5));
-      border-radius: 24px;
-    }
-    .polaroid.p1 { top: 6%;  left: 18%; transform: rotate(-7deg); }
-    .polaroid.p2 { top: 22%; right: 8%; transform: rotate(8deg);  }
-    .polaroid.p3 { bottom: 6%; left: 30%; transform: rotate(-3deg); }
-    .polaroid.p4 { bottom: 16%; right: 18%; transform: rotate(11deg); }
-    .polaroid img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; border-radius: 24px;
-    }
-
-    /* product avatar pills (Card 1) — real cutout images */
-    .badge-pill .ico.img {
-      background: var(--white);
-      overflow: hidden;
-      padding: 0;
-    }
-    .badge-pill .ico.img img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: block;
-    }
-
-    /* mockup phone (Card 3) */
-    .mockup-stage {
-      position: relative;
-      width: 100%; height: 100%;
-      display: grid; place-items: center;
-    }
-    .phone {
-      position: relative;
-      width: 17rem; height: 34rem;
-      border-radius: 44px;
-      background: #050505;
-      border: 0.5px solid var(--stroke);
-      box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7), inset 0 0 0 6px #1a1a1a;
-      overflow: hidden;
-      z-index: 2;
-    }
-    .phone::before {
-      content: ''; position: absolute; top: 14px; left: 50%;
-      transform: translateX(-50%);
-      width: 6rem; height: 22px; border-radius: 100px;
-      background: #050505; z-index: 3;
-    }
-    .phone img {
-      position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px);
-      object-fit: cover; border-radius: 38px;
-    }
-    .phone-tag {
-      position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
-      background: rgba(255,255,255,0.92); color: var(--black);
-      backdrop-filter: blur(10px);
-      border-radius: 18px; padding: 0.85rem 1rem;
-      z-index: 4;
-      font-size: 13px; font-weight: 600;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .phone-tag .price { color: #0a8a3a; font-weight: 700; }
-
-    .market-pill {
-      position: absolute;
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.7rem 1.1rem 0.7rem 0.7rem;
-      border-radius: 100px;
-      background: rgba(23,23,23,0.85);
-      backdrop-filter: blur(10px);
-      border: 0.5px solid var(--stroke);
-      font-size: 13px; font-weight: 500; color: var(--white);
-      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
-      z-index: 3;
-    }
-    .market-pill .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; color: #fff; font-weight: 700; }
-    .mp-trendyol { top: 12%; left: 0; }
-    .mp-trendyol .dot { background: #f27a1a; }
-    .mp-shopify  { top: 38%; right: -1rem; }
-    .mp-shopify .dot  { background: #95bf47; }
-    .mp-amazon   { bottom: 22%; left: -1rem; }
-    .mp-amazon .dot   { background: #ff9900; color: #111; }
-    .mp-etsy     { bottom: 6%; right: 0.5rem; }
-    .mp-etsy .dot     { background: #f1641e; }
-
-    /* ===== TILE PATTERN (lime bg) ===== */
-    .tile-pattern {
-      background: var(--green);
-      padding: 6rem 0;
-      overflow: hidden;
-      position: relative;
-      z-index: 5;
-    }
-    .tile-row {
-      display: flex; gap: 0.75rem;
-      white-space: nowrap;
-      margin-bottom: 0.75rem;
-      animation: marquee 50s linear infinite;
-      will-change: transform;
-    }
-    .tile-row.r { animation-direction: reverse; }
-    .tile-pill {
-      flex-shrink: 0;
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.85rem 1.6rem;
-      border-radius: 100px;
-      background: var(--black);
-      color: var(--green);
-      font-weight: 500; font-size: 16px;
-      letter-spacing: -0.3px;
-      border: 0.5px solid #2a2a2a;
-    }
-    .tile-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ===== BLOB FRAME (lime bg) ===== */
-    .blob-frame {
-      background: var(--green);
-      padding: 4rem 0 6rem;
-      display: grid; place-items: center;
-      position: relative;
-      z-index: 5;
-    }
-    .blob-frame svg { width: min(94vw, 1200px); height: 320px; display: block; }
-    .blob-frame .label-mono {
-      position: absolute; bottom: 2.5rem;
-      font-size: 13px; letter-spacing: 0.18em;
-      color: rgba(0,0,0,0.55); font-weight: 500;
-    }
-
-    /* ===== FINAL CTA (lime bg, big headline) ===== */
-    ._03-cta {
-      background: var(--green);
-      padding: 8rem 5vw 10rem;
-      text-align: center;
-      position: relative;
-      z-index: 5;
-    }
-    .global-headline-xxl {
-      font-size: clamp(72px, 12vw, 200px);
-      font-weight: 600;
-      letter-spacing: -5px;
-      line-height: 1em;
-      color: var(--black);
-    }
-    .cta-btn {
-      display: inline-flex; align-items: center; gap: 0.65rem;
-      margin-top: 3.5rem;
-      padding: 1.05rem 1.85rem;
-      background: var(--black); color: var(--white);
-      border-radius: 100px;
-      font-family: "SF Pro Display", -apple-system, "Inter", system-ui, sans-serif;
-      font-weight: 500; font-size: 16px;
-      letter-spacing: -0.3px;
-      transition: transform 0.25s ease;
-    }
-    .cta-btn::before {
-      content: ''; width: 9px; height: 9px;
-      border-radius: 50%; background: var(--green);
-    }
-    .cta-btn:hover { transform: translateY(-2px); }
-    .cta-stores {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      margin-top: 1rem;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--green);
-      color: rgba(0,0,0,0.6);
-      padding: 3rem 5vw;
-      font-size: 13px; letter-spacing: -0.2px;
-      position: relative; z-index: 5;
-    }
-    .foot-grid {
-      max-width: 1280px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1.25rem;
-    }
-    .foot-grid a { color: rgba(0,0,0,0.75); margin-left: 1.5rem; }
-    .foot-grid a:hover { color: var(--black); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 991px) {
-      .nav { padding: 1rem 1.25rem; }
-      ._01-hero { height: 320vh; }
-      .hero-stage { width: 88vw; }
-      ._02-cards { padding: 0 4vw; }
-      .card-inner {
-        grid-template-columns: 1fr;
-        padding: 2.5rem 2rem;
-      }
-      .card-1 { top: 2rem; }
-      .card-2 { top: 3rem; }
-      .card-3 { top: 4rem; }
-      .card-vis {
-        position: relative;
-        width: 100%; padding: 2rem 0 0;
-        inset: auto;
-      }
-      .badge-pill { min-width: auto; }
-      .badge-pill.offset-1, .badge-pill.offset-2, .badge-pill.offset-3, .badge-pill.offset-4 { transform: none; }
-      ._03-cta { padding: 5rem 5vw 6rem; }
-    }
-    </style>
 </head>
-<body>
 
-    <div class="preloader" aria-hidden="true">
-        <div class="preloader-mark">L</div>
+<body class="bg-surface text-on-surface antialiased">
+
+<div class="grain"></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="fixed top-0 inset-x-0 z-50 glass-card !border-x-0 !border-t-0">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-extrabold tracking-tighter text-on-surface">
+            Listify<span class="text-primary">AI</span>
+        </a>
+        <div class="hidden md:flex items-center gap-10">
+            <a href="#features" class="text-on-surface-variant font-medium hover:text-primary transition-colors">Özellikler</a>
+            <a href="#fashion"  class="text-on-surface-variant font-medium hover:text-primary transition-colors">Moda Stüdyosu</a>
+            <a href="#download" class="text-on-surface-variant font-medium hover:text-primary transition-colors">İndir</a>
+        </div>
+        <a href="#download" class="btn-primary px-6 py-2.5 rounded-full font-semibold text-sm">Ücretsiz Dene</a>
+    </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="relative pt-36 pb-24 overflow-hidden min-h-screen flex items-center">
+    <div class="absolute inset-0 hero-glow -z-10"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+
+        <!-- LEFT — editorial headline -->
+        <div class="space-y-9">
+            <div class="inline-flex items-center px-4 py-2 rounded-full glass-card">
+                <span class="flex h-2 w-2 rounded-full bg-primary mr-3 animate-pulse"></span>
+                <span class="mono text-xs font-bold text-primary uppercase tracking-[0.22em]">AI · E-TİCARET STÜDYOSU</span>
+            </div>
+
+            <h1 class="font-headline text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.02]">
+                <span class="font-extralight text-on-surface-variant">Ürün</span><br>
+                <span class="font-extrabold">Fotoğrafların<span class="text-primary">.</span></span><br>
+                <span class="font-extralight editorial-italic text-secondary">Saniyeler</span>
+                <span class="font-extrabold">İçinde.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed font-light">
+                Stüdyo, manken, kumaş ve sinematik video — hepsi cebinden çıkar. 600+ sahne, 11 video stili, 7 marketplace export — tek uygulamada.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+                <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener"
+                   class="btn-primary px-8 py-4 rounded-full font-bold text-base inline-flex items-center gap-3">
+                    <span class="material-symbols-outlined">android</span>Google Play
+                </a>
+                <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener"
+                   class="btn-glass glass-card px-8 py-4 rounded-full font-bold text-base inline-flex items-center gap-3">
+                    <span class="material-symbols-outlined">apple</span>App Store
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT — product showcase mockup -->
+        <div class="relative group">
+            <div class="absolute -inset-12 bg-primary/15 blur-[140px] rounded-full"></div>
+            <div class="relative glass-card rounded-3xl overflow-hidden p-1.5 shadow-[0_40px_80px_-20px_rgba(158,176,152,0.18)]">
+                <div class="relative aspect-[4/5] overflow-hidden rounded-[1.4rem]">
+                    <img src="assets/showcase/perfume_cloche_scene.webp"
+                         class="w-full h-full object-cover" loading="eager" decoding="async"
+                         alt="ListifyAI ile üretilmiş parfüm sahnesi">
+                    <div class="scanline"></div>
+
+                    <!-- Mono data overlays -->
+                    <div class="absolute top-6 right-6 flex flex-col items-end gap-2">
+                        <div class="glass-card px-3 py-1.5 rounded-lg text-[10px] mono text-primary flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>SCENE_RENDERED
+                        </div>
+                        <div class="glass-card px-3 py-1.5 rounded-lg text-[10px] mono text-secondary flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>4K · 8s
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                            <div class="w-11 h-11 rounded-full bg-primary/15 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary">auto_awesome</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] mono text-on-surface-muted uppercase tracking-wider">AI Stüdyo</p>
+                                <p class="text-sm font-bold">Botanik · Premium Mood</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TRUST / STATS STRIP ==================== -->
+<section class="relative py-20 border-y" style="border-color: rgba(184,197,184,0.08);">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <p class="text-center mono text-[10px] text-on-surface-muted uppercase tracking-[0.45em] mb-12">/// LISTIFYAI ECOSYSTEM</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            <div>
+                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">600<span class="text-on-surface-variant">+</span></div>
+                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Sahne Prompt</p>
+            </div>
+            <div>
+                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">28</div>
+                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Kategori</p>
+            </div>
+            <div>
+                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">11</div>
+                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Video Stili</p>
+            </div>
+            <div>
+                <div class="font-headline text-5xl md:text-6xl font-extrabold text-primary">7</div>
+                <p class="mono text-xs text-on-surface-muted uppercase tracking-widest mt-3">Platform Export</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== BENTO FEATURES ==================== -->
+<section id="features" class="py-32 max-w-[1440px] mx-auto px-6 md:px-12">
+    <div class="text-center mb-20 space-y-5">
+        <p class="mono text-xs text-secondary uppercase tracking-[0.3em] font-bold">/// CAPABILITIES</p>
+        <h2 class="font-headline text-5xl md:text-6xl tracking-tight">
+            <span class="font-extralight text-on-surface-variant">Tek Uygulamada</span><br>
+            <span class="font-extrabold">Her Şey<span class="text-primary">.</span></span>
+        </h2>
+        <p class="text-on-surface-variant text-lg max-w-2xl mx-auto font-light">
+            Stüdyo, manken, video ve marketplace export — iş akışını uçtan uca otomatikleştiren AI modülleri.
+        </p>
     </div>
 
-    <div class="cursor-glow" id="cursorGlow"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:auto-rows-[280px]">
 
-    <nav class="nav">
-        <a href="/" class="nav-logo">ListifyAI</a>
-        <a href="#download" class="nav-cta">İndir</a>
-    </nav>
-
-    <!-- ==================== _01-HERO ==================== -->
-    <section class="_01-hero" id="hero">
-        <div class="hero-outer">
-            <div class="hero-stage">
-
-                <!-- nested rainbow rings (5 layers, alternating spin) -->
-                <div class="rings" aria-hidden="true">
-                    <div class="rainbow-ring r1"></div>
-                    <div class="rainbow-ring r2"></div>
-                    <div class="rainbow-ring r3"></div>
-                    <div class="rainbow-ring r4"></div>
-                    <div class="rainbow-ring r5"></div>
-                    <div class="rainbow-ring r6"></div>
-                </div>
-
-                <div class="hero-circle">
-                    <div class="hero-panel" data-i="0">
-                        <div>
-                            <h1 class="hero-headline-l">ListifyAI</h1>
-                            <div class="hero-headline-s">E-Ticaret İçerik Stüdyon</div>
-                        </div>
-                    </div>
-                    <div class="hero-panel" data-i="1">
-                        <div class="hero-headline-m">Stüdyolar<br><span class="hi">pahalı.</span></div>
-                    </div>
-                    <div class="hero-panel" data-i="2">
-                        <div class="hero-headline-m">Photoshop<br><span class="hi">sıkıcı.</span></div>
-                    </div>
-                    <div class="hero-panel" data-i="3">
-                        <div class="hero-headline-m">ListifyAI ile ürün stüdyon<br><span class="hi">cebine sığar. Sonunda.</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== _02-CARDS ==================== -->
-    <section class="_02-cards">
-
-        <!-- CARD 1 — ÜRET -->
-        <div class="card-1">
-            <div class="card-inner">
-                <div class="card-txt-div">
-                    <h2 class="global-headline-xl">Ürünlerini<br>Üret.</h2>
-                    <p class="global-headline-l">Stüdyo, manken, kumaş, koleksiyon — hepsi <span class="is-green">AI ile</span>, saniyeler içinde.</p>
-                </div>
-                <div class="card-vis">
-                    <div class="badge-pill b-lime offset-1">
-                        <div class="ico img"><img src="assets/showcase/product_perfume_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
-                        <div class="meta"><div class="num">600+</div><div class="lbl">Sahne · Ürün Foto</div></div>
-                    </div>
-                    <div class="badge-pill b-magenta offset-2">
-                        <div class="ico img"><img src="assets/showcase/product_lipstick_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
-                        <div class="meta"><div class="num">Try-On</div><div class="lbl">Sanal Manken & Kıyafet</div></div>
-                    </div>
-                    <div class="badge-pill b-orange offset-3">
-                        <div class="ico img"><img src="assets/showcase/product_serum_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
-                        <div class="meta"><div class="num">28</div><div class="lbl">Kategori · Kumaş & Set</div></div>
-                    </div>
-                    <div class="badge-pill b-cyan offset-4">
-                        <div class="ico img"><img src="assets/showcase/product_honeyjar_cut.webp" width="48" height="48" loading="lazy" decoding="async" alt=""></div>
-                        <div class="meta"><div class="num">&lt;10s</div><div class="lbl">Üretim Süresi · 4K</div></div>
-                    </div>
-                </div>
+        <!-- AI Ürün Fotoğrafçılığı (büyük) -->
+        <div class="feature-card md:col-span-7 md:row-span-2 glass-card rounded-3xl overflow-hidden relative group">
+            <img src="assets/showcase/bottle_botanical_scene.webp"
+                 class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:opacity-65 group-hover:scale-[1.03] transition-all duration-1000"
+                 loading="lazy" decoding="async" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+            <div class="absolute top-7 right-7 mono text-[10px] text-primary uppercase tracking-[0.2em] glass-card px-3 py-1.5 rounded-full">PREMIUM</div>
+            <div class="absolute bottom-0 left-0 right-0 p-9">
+                <h3 class="font-headline text-3xl md:text-4xl font-extrabold mb-3">AI Ürün Fotoğrafçılığı</h3>
+                <p class="text-on-surface-variant max-w-md font-light">600+ sahne arasından seç, ürünü bırak — saniyeler içinde stüdyo kalitesinde foto.</p>
             </div>
         </div>
 
-        <!-- CARD 2 — ÇEK -->
-        <div class="card-2">
-            <div class="card-inner">
-                <div class="card-txt-div">
-                    <h2 class="global-headline-xl">Videolarını<br>Çek.</h2>
-                    <p class="global-headline-l">Sinematik ürün ve <span class="is-green">moda videoları</span> — Reels, TikTok, Shorts için tek tıkla.</p>
-                </div>
-                <div class="card-vis">
-                    <div class="polaroid-stack">
-                        <div class="polaroid p1"><img src="assets/showcase/lipstick_tripanel_unbox_scene.webp" loading="lazy" decoding="async" alt=""></div>
-                        <div class="polaroid p2"><img src="assets/showcase/perfume_cloche_scene.webp" loading="lazy" decoding="async" alt=""></div>
-                        <div class="polaroid p3"><img src="assets/showcase/cookie_keyhole_scene.webp" loading="lazy" decoding="async" alt=""></div>
-                        <div class="polaroid p4"><img src="assets/showcase/humidifier_montage_scene.webp" loading="lazy" decoding="async" alt=""></div>
-                    </div>
-                </div>
+        <!-- Sanal Manken & Try-On -->
+        <div class="feature-card md:col-span-5 glass-card rounded-3xl overflow-hidden relative group">
+            <img src="assets/showcase/lipstick_tripanel_unbox_scene.webp"
+                 class="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:scale-[1.03] transition-transform duration-700"
+                 loading="lazy" decoding="async" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-7">
+                <h3 class="font-headline text-2xl font-extrabold mb-2">Sanal Manken & Try-On</h3>
+                <p class="text-sm text-on-surface-variant font-light">Kıyafetlerini farklı modellerde sergile.</p>
             </div>
         </div>
 
-        <!-- CARD 3 — SAT -->
-        <div class="card-3">
-            <div class="card-inner">
-                <div class="card-txt-div">
-                    <h2 class="global-headline-xl">Tüm Pazarda<br>Sat.</h2>
-                    <p class="global-headline-l">SEO yazımı + <span class="is-green">7 platforma</span> tek tıkla toplu export. Trendyol, Shopify, Amazon, Etsy.</p>
-                </div>
-                <div class="card-vis">
-                    <div class="mockup-stage">
-                        <div class="phone">
-                            <img src="assets/showcase/bottle_botanical_scene.webp" loading="lazy" decoding="async" alt="">
-                            <div class="phone-tag"><span>Botanik Şişe · 500ml</span><span class="price">₺349</span></div>
-                        </div>
-                        <div class="market-pill mp-trendyol"><span class="dot">T</span>Trendyol</div>
-                        <div class="market-pill mp-shopify"><span class="dot">S</span>Shopify</div>
-                        <div class="market-pill mp-amazon"><span class="dot">a</span>Amazon</div>
-                        <div class="market-pill mp-etsy"><span class="dot">E</span>Etsy</div>
-                    </div>
-                </div>
+        <!-- SEO İçerik -->
+        <div class="feature-card md:col-span-5 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-3xl">edit_note</span>
             </div>
-        </div>
-
-    </section>
-
-    <!-- ==================== TILE PATTERN ==================== -->
-    <section class="tile-pattern" aria-hidden="true">
-        <div class="tile-row">
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-        </div>
-        <div class="tile-row r">
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-            <span class="tile-pill">Yapalım</span><span class="tile-pill">Hadi ListifyAI</span>
-        </div>
-        <div class="tile-row">
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-            <span class="tile-pill">Hadi ListifyAI</span><span class="tile-pill">Yapalım</span>
-        </div>
-    </section>
-
-    <!-- ==================== BLOB FRAME ==================== -->
-    <section class="blob-frame" aria-hidden="true">
-        <svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="12"/>
-                    <feColorMatrix mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -11"/>
-                </filter>
-            </defs>
-            <g filter="url(#goo)" fill="#101010">
-                <circle cx="180" cy="160" r="100"/>
-                <circle cx="360" cy="160" r="100"/>
-                <circle cx="540" cy="160" r="100"/>
-                <circle cx="720" cy="160" r="100"/>
-                <circle cx="900" cy="160" r="100"/>
-                <circle cx="1020" cy="160" r="100"/>
-            </g>
-        </svg>
-        <span class="label-mono">/// LISTIFYAI ECOSYSTEM</span>
-    </section>
-
-    <!-- ==================== _03-CTA ==================== -->
-    <section class="_03-cta" id="download">
-        <h2 class="global-headline-xxl">ListifyAI'ı.<br>Birlikte.</h2>
-        <div class="cta-stores">
-            <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener">Google Play</a>
-            <a class="cta-btn" href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener">App Store</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="foot-grid">
-            <span>© 2026 ListifyAI · AI E-Ticaret Stüdyosu</span>
             <div>
-                <a href="privacy-policy.html">Gizlilik</a>
-                <a href="kvkk.html">KVKK</a>
-                <a href="terms.html">Şartlar</a>
-                <a href="support.html">Destek</a>
+                <h3 class="font-headline text-2xl font-extrabold mb-2">SEO Yazımı</h3>
+                <p class="text-on-surface-variant text-sm font-light">Başlık, açıklama ve GEO meta verileri — AI ile her ürün için optimize.</p>
             </div>
         </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-    <script defer>
-    /* ----- hero pinned panel scrub (vanilla — runs immediately, no GSAP needed) ----- */
-    (function () {
-      const pin = document.getElementById('hero');
-      const panels = pin.querySelectorAll('.hero-panel');
-      const total = panels.length;
-      panels[0].classList.add('active');
-      let ticking = false;
-      function update() {
-        const rect = pin.getBoundingClientRect();
-        const scrolled = -rect.top;
-        const range = pin.offsetHeight - window.innerHeight;
-        const progress = Math.max(0, Math.min(0.999, scrolled / range));
-        const idx = Math.floor(progress * total);
-        panels.forEach((p, i) => p.classList.toggle('active', i === idx));
-        ticking = false;
-      }
-      window.addEventListener('scroll', () => {
-        if (!ticking) { requestAnimationFrame(update); ticking = true; }
-      }, { passive: true });
-      window.addEventListener('resize', update);
-      update();
-    })();
+        <!-- Sinematik Video (büyük) -->
+        <div class="feature-card md:col-span-8 glass-card rounded-3xl overflow-hidden relative group">
+            <img src="assets/showcase/humidifier_montage_scene.webp"
+                 class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-[1.03] transition-transform duration-1000"
+                 loading="lazy" decoding="async" alt="">
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+            <div class="absolute inset-0 p-10 flex flex-col justify-center">
+                <p class="mono text-[10px] text-secondary uppercase tracking-[0.25em] mb-3 font-bold">VIDEO ENGINE</p>
+                <h3 class="font-headline text-3xl md:text-4xl font-extrabold mb-3 max-w-md">Sinematik Ürün Videoları</h3>
+                <p class="text-on-surface-variant max-w-sm font-light">11 video stili — Reels, TikTok ve Shorts için tek tıkla hazır.</p>
+            </div>
+        </div>
 
-    /* ----- GSAP smooth motion (loaded after) ----- */
-    window.addEventListener('load', function () {
-      if (!window.gsap || !window.ScrollTrigger) return;
-      gsap.registerPlugin(ScrollTrigger);
+        <!-- Kumaş Tasarımı -->
+        <div class="feature-card md:col-span-4 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary text-3xl">texture</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-2xl font-extrabold mb-2">Kumaş & Set</h3>
+                <p class="text-on-surface-variant text-sm font-light">28 kategori — kumaştan tasarıma, koleksiyondan setlere.</p>
+            </div>
+        </div>
 
-      gsap.matchMedia().add('(min-width: 992px) and (prefers-reduced-motion: no-preference)', () => {
+        <!-- Marketplace Export -->
+        <div class="feature-card md:col-span-4 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-3xl">storefront</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-2xl font-extrabold mb-2">Marketplace Export</h3>
+                <p class="text-on-surface-variant text-sm font-light">Trendyol, Shopify, Amazon, Etsy + 3 — tek tıkla bulk export.</p>
+            </div>
+        </div>
 
-        // Hero panel crossfade with smooth y motion
-        document.querySelectorAll('.hero-panel').forEach((panel) => {
-          gsap.set(panel, { y: 24 });
-          ScrollTrigger.create({
-            trigger: panel,
-            start: 'top center',
-            onEnter: () => gsap.to(panel, { y: 0, duration: 0.9, ease: 'power3.out' }),
-          });
-        });
+        <!-- 4K çıktı -->
+        <div class="feature-card md:col-span-4 glass-card rounded-3xl p-8 flex flex-col justify-between gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-secondary/15 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary text-3xl">hd</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-2xl font-extrabold mb-2">4K Çıktı</h3>
+                <p class="text-on-surface-variant text-sm font-light">Print-ready çözünürlük, &lt;10 saniyede üretim.</p>
+            </div>
+        </div>
 
-        // Card pin entrance: scale + stagger badges fade-up
-        ['.card-1', '.card-2', '.card-3'].forEach((sel) => {
-          const card = document.querySelector(sel);
-          if (!card) return;
-          const inner = card.querySelector('.card-inner');
-          const items = card.querySelectorAll('.badge-pill, .polaroid, .phone, .market-pill, .global-headline-xl, .global-headline-l');
-          gsap.set(inner, { scale: 0.96, transformOrigin: '50% 0%' });
-          gsap.set(items, { y: 30, opacity: 0 });
-          ScrollTrigger.create({
-            trigger: card,
-            start: 'top 80%',
-            once: true,
-            onEnter: () => {
-              gsap.to(inner, { scale: 1, duration: 0.9, ease: 'power3.out' });
-              gsap.to(items, { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.1, onComplete: () => {
-                items.forEach(el => el.style.willChange = 'auto');
-              }});
-            },
-          });
-        });
+    </div>
+</section>
 
-      });
-    });
+<!-- ==================== EDITORIAL: AI MODA STÜDYOSU ==================== -->
+<section id="fashion" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow -z-10"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-    /* (placeholder removed — old hero IIFE moved above) */
-    (function () { /* noop */ })();
+        <!-- LEFT: collage -->
+        <div class="relative">
+            <div class="grid grid-cols-2 gap-5">
+                <div class="space-y-5 pt-14">
+                    <img src="assets/showcase/perfume_studio_showcase_scene.webp"
+                         class="rounded-2xl w-full aspect-[3/4] object-cover ghost-border"
+                         loading="lazy" decoding="async" alt="">
+                    <img src="assets/showcase/cookie_keyhole_scene.webp"
+                         class="rounded-2xl w-full aspect-square object-cover ghost-border"
+                         loading="lazy" decoding="async" alt="">
+                </div>
+                <div class="space-y-5">
+                    <img src="assets/showcase/serum_skincare_scene.webp"
+                         class="rounded-2xl w-full aspect-square object-cover ghost-border"
+                         loading="lazy" decoding="async" alt="">
+                    <img src="assets/showcase/watchbox_billboard_scene.webp"
+                         class="rounded-2xl w-full aspect-[3/4] object-cover ghost-border"
+                         loading="lazy" decoding="async" alt="">
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-card p-5 rounded-3xl shadow-[0_0_80px_rgba(158,176,152,0.22)]">
+                    <p class="mono text-[10px] text-primary font-bold text-center mb-3 tracking-[0.25em]">RENDERING LIVE</p>
+                    <div class="flex -space-x-3">
+                        <div class="w-12 h-12 rounded-full border-4 border-surface bg-primary/30 overflow-hidden"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-surface bg-secondary/30 overflow-hidden"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-surface bg-primary text-surface flex items-center justify-center font-extrabold text-xs">+12k</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    /* ----- 720px blur cursor leke + 20px nokta ----- */
-    (function () {
-      if (matchMedia('(hover: none)').matches) return;
-      const glow = document.getElementById('cursorGlow');
-      const dot  = document.getElementById('cursorDot');
-      let tx = innerWidth/2, ty = innerHeight/2;
-      let gx = tx, gy = ty, dx = tx, dy = ty;
-      window.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-      function loop() {
-        gx += (tx - gx) * 0.08;
-        gy += (ty - gy) * 0.08;
-        dx += (tx - dx) * 0.35;
-        dy += (ty - dy) * 0.35;
-        glow.style.transform = `translate(${gx}px, ${gy}px) translate(-50%, -50%)`;
-        dot.style.transform  = `translate(${dx}px, ${dy}px) translate(-50%, -50%)`;
-        requestAnimationFrame(loop);
-      }
-      loop();
-    })();
-    </script>
+        <!-- RIGHT: copy -->
+        <div class="space-y-9">
+            <p class="mono text-xs text-secondary font-bold tracking-[0.3em] uppercase">/// FASHION ENGINE</p>
+            <h2 class="font-headline text-5xl md:text-6xl leading-[1.05]">
+                <span class="font-extralight">AI Moda</span><br>
+                <span class="font-extrabold">Stüdyon<span class="text-primary">.</span></span>
+            </h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed font-light max-w-lg">
+                Lookbook çekimlerini fiziksel kısıtlamalardan kurtar. Kıyafetlerini farklı modeller üzerinde, istediğin ambiyansta sergile.
+            </p>
+            <ul class="space-y-5 pt-2">
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    <div>
+                        <p class="font-bold">Try-On 2.0</p>
+                        <p class="text-sm text-on-surface-variant font-light">Kumaş dokusunu ve kıvrımları koruyan hiper-gerçekçi entegrasyon.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    <div>
+                        <p class="font-bold">Global Cast</p>
+                        <p class="text-sm text-on-surface-variant font-light">Sınırsız model ve etnisite kombinasyonu — global pazarlara uyumlu.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                    </div>
+                    <div>
+                        <p class="font-bold">Sahne Kütüphanesi</p>
+                        <p class="text-sm text-on-surface-variant font-light">600+ profesyonel mood — minimalist stüdyodan editorial sokağa.</p>
+                    </div>
+                </li>
+            </ul>
+            <a href="#download" class="btn-primary inline-block px-10 py-4 rounded-full font-bold mt-4">Stüdyoya Giriş Yap</a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section id="download" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 hero-glow"></div>
+    <div class="max-w-[1100px] mx-auto px-6 md:px-12 relative">
+        <div class="glass-card rounded-[2.5rem] p-12 md:p-20 text-center space-y-9 shadow-[0_40px_100px_-30px_rgba(158,176,152,0.25)]">
+            <p class="mono text-xs text-secondary uppercase tracking-[0.3em] font-bold">/// READY · SET · SHIP</p>
+            <h2 class="font-headline text-5xl md:text-7xl leading-[1.05]">
+                <span class="font-extralight">Ürün Stüdyon</span><br>
+                <span class="font-extrabold">Cebine Sığar<span class="text-primary">.</span></span>
+            </h2>
+            <p class="text-lg text-on-surface-variant max-w-xl mx-auto font-light">
+                Ücretsiz dene, kredi kartı yok. İlk 5 görsel hediye.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-3">
+                <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener"
+                   class="btn-primary px-9 py-4 rounded-full font-bold inline-flex items-center gap-3">
+                    <span class="material-symbols-outlined">android</span>Google Play
+                </a>
+                <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener"
+                   class="btn-glass glass-card px-9 py-4 rounded-full font-bold inline-flex items-center gap-3">
+                    <span class="material-symbols-outlined">apple</span>App Store
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="relative py-16 border-t" style="border-color: rgba(184,197,184,0.08);">
+    <div class="light-leak"></div>
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 relative">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-5">
+                <div class="text-2xl font-extrabold tracking-tighter">Listify<span class="text-primary">AI</span></div>
+                <p class="text-on-surface-variant font-light leading-relaxed text-sm">Yeni nesil AI araçlarıyla e-ticaret markalarının görsel dünyasını yeniden tasarlıyoruz.</p>
+            </div>
+            <div>
+                <h4 class="mono text-xs font-bold uppercase tracking-[0.2em] mb-6">Ürün</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#features" class="text-on-surface-variant hover:text-primary transition-colors">Özellikler</a></li>
+                    <li><a href="#fashion" class="text-on-surface-variant hover:text-primary transition-colors">Moda Stüdyosu</a></li>
+                    <li><a href="#download" class="text-on-surface-variant hover:text-primary transition-colors">İndir</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mono text-xs font-bold uppercase tracking-[0.2em] mb-6">Kurumsal</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="privacy-policy.html" class="text-on-surface-variant hover:text-primary transition-colors">Gizlilik</a></li>
+                    <li><a href="kvkk.html" class="text-on-surface-variant hover:text-primary transition-colors">KVKK</a></li>
+                    <li><a href="terms.html" class="text-on-surface-variant hover:text-primary transition-colors">Şartlar</a></li>
+                    <li><a href="support.html" class="text-on-surface-variant hover:text-primary transition-colors">Destek</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mono text-xs font-bold uppercase tracking-[0.2em] mb-6">İletişim</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="mailto:listifyaiapp@gmail.com" class="text-on-surface-variant hover:text-primary transition-colors">listifyaiapp@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color: rgba(184,197,184,0.08);">
+            <p class="mono text-xs text-on-surface-muted">© 2026 LISTIFYAI — NEXT-GEN VISUALS</p>
+            <div class="flex items-center gap-6 mono text-[10px] text-on-surface-muted uppercase tracking-widest">
+                <span>SYSTEM · OPERATIONAL</span>
+                <span>V2.0</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
