@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.listifyai.listifyai",
+      "sha256_cert_fingerprints": [
+        "37:3D:65:A4:9E:2F:19:CA:30:40:E2:F7:A7:7B:A8:00:B8:2E:FA:BB:C0:72:D3:35:91:75:AB:00:08:71:D9:93",
+        "E2:0C:2D:3D:B5:C1:02:A8:C3:87:C6:68:4B:EC:28:BA:FF:77:2C:13:3B:81:69:F7:A7:66:22:0E:EB:AD:20:C9"
+      ]
+    }
+  }
+]
