@@ -211,21 +211,23 @@
     .bento-b { grid-column: 2; grid-row: 1; }
     .bento-c { grid-column: 2; grid-row: 2; }
     .bento-d { grid-column: 1 / span 2; grid-row: 3; }
+    /* Mobile: asymmetric bento korunuyor (1 büyük üst + 2 yan yana + 1 geniş alt) */
     @media (max-width: 1023px) {
       .hero-bento-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        aspect-ratio: 1 / 1;
-        max-height: 520px;
+        grid-template-rows: auto auto auto;
+        aspect-ratio: auto;
+        max-height: none;
+        gap: 10px;
       }
-      .bento-a { grid-column: 1; grid-row: 1; }
-      .bento-b { grid-column: 2; grid-row: 1; }
-      .bento-c { grid-column: 1; grid-row: 2; }
-      .bento-d { grid-column: 2; grid-row: 2; }
+      .bento-a { grid-column: 1 / span 2; grid-row: 1; aspect-ratio: 4/5; }
+      .bento-b { grid-column: 1; grid-row: 2; aspect-ratio: 1/1; }
+      .bento-c { grid-column: 2; grid-row: 2; aspect-ratio: 1/1; }
+      .bento-d { grid-column: 1 / span 2; grid-row: 3; aspect-ratio: 16/10; }
     }
     @media (max-width: 480px) {
-      .hero-bento-grid { gap: 8px; border-radius: 0.875rem; }
-      .bento-tile { border-radius: 0.875rem; }
+      .hero-bento-grid { gap: 8px; }
+      .bento-tile { border-radius: 1rem; }
     }
 
     /* ================= MARQUEE ================= */
