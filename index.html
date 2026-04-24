@@ -347,23 +347,30 @@
     /* ================= GALLERY TILES ================= */
     .gallery-tile {
       position: relative;
-      border-radius: 0.875rem;
+      border-radius: 1.5rem;
       overflow: hidden;
       background: #15151A;
       aspect-ratio: 3/4;
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .gallery-tile:hover { transform: translateY(-3px); }
+    .gallery-tile:hover { transform: translateY(-4px); }
     .gallery-tile img, .gallery-tile video {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .gallery-tile:hover img, .gallery-tile:hover video { transform: scale(1.03); }
-    /* Mocky-style: zero chrome — görseller kendi konuşuyor, overlay + label gizli */
-    .gallery-tile .tile-overlay,
-    .gallery-tile .tile-label { display: none; }
+    .gallery-tile:hover img, .gallery-tile:hover video { transform: scale(1.04); }
+    .gallery-tile .tile-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,14,17,0.85) 0%, rgba(14,14,17,0.1) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .gallery-tile .tile-label {
+      position: absolute; bottom: 20px; left: 20px; right: 20px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      color: #F5F5F0;
+    }
 
     /* ================= TESTIMONIAL SLIDER ================= */
     .testimonial-slider {
@@ -648,8 +655,8 @@
         </p>
     </div>
 
-    <!-- Gallery grid: 2 col mobile, 4 col desktop, 12 tiles = 3 rows — mocky-style minimal -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal">
+    <!-- Gallery grid: 2 col mobile, 4 col desktop, 12 tiles = 3 rows -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 reveal">
 
         <a class="gallery-tile" href="#tryon" aria-label="Virtual Try-On">
             <img src="assets/fashion/gallery/01_tryon_sage_wall.webp" loading="lazy" decoding="async" alt="Virtual try-on — sage plaster">
