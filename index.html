@@ -365,6 +365,36 @@
     .gallery-tile .tile-overlay,
     .gallery-tile .tile-label { display: none; }
 
+    /* ================= TESTIMONIAL SLIDER ================= */
+    .testimonial-slider {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 4px 0 12px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+      mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+    }
+    .testimonial-slider::-webkit-scrollbar { display: none; }
+    .testimonial-slider:active { cursor: grabbing; }
+    .testimonial-slider > figure.card {
+      flex: 0 0 85%;
+      max-width: 340px;
+      scroll-snap-align: start;
+    }
+    @media (min-width: 640px) {
+      .testimonial-slider > figure.card { flex-basis: 46%; }
+    }
+    @media (min-width: 1024px) {
+      .testimonial-slider > figure.card { flex-basis: 330px; max-width: 340px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testimonial-slider { scroll-behavior: auto; }
+    }
+
     /* ================= FAQ ================= */
     .faq-item { border-bottom: 1px solid rgba(245, 245, 240, 0.06); }
     .faq-item summary {
@@ -1031,7 +1061,8 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <!-- Horizontal scroll-snap slider: 8 kart tek satırda, desktop'ta ~3 görünür, mobile'da ~1.2 peek -->
+        <div class="testimonial-slider carousel-track" role="region" aria-label="Kullanıcı yorumları">
 
             <figure class="card p-6 flex flex-col gap-4 reveal">
                 <div class="stars text-lg" aria-label="5 yıldız">★★★★★</div>
