@@ -171,6 +171,63 @@
       .store-badge-google { height: 64px; margin: -10px -13px; }
     }
 
+    /* ================= HERO BENTO ================= */
+    .hero-bento-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      grid-template-rows: 1.1fr 1fr 0.85fr;
+      gap: 12px;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      max-height: 720px;
+    }
+    .bento-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      background: #15151A;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: block;
+    }
+    .bento-tile:hover { transform: translateY(-3px); }
+    .bento-tile img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bento-tile:hover img { transform: scale(1.04); }
+    .bento-tile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,14,17,0.82) 0%, rgba(14,14,17,0.15) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .bento-label {
+      position: absolute; bottom: 14px; left: 16px; right: 16px;
+      z-index: 2; pointer-events: none;
+    }
+    .bento-a { grid-column: 1; grid-row: 1 / span 2; }
+    .bento-b { grid-column: 2; grid-row: 1; }
+    .bento-c { grid-column: 2; grid-row: 2; }
+    .bento-d { grid-column: 1 / span 2; grid-row: 3; }
+    @media (max-width: 1023px) {
+      .hero-bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        aspect-ratio: 1 / 1;
+        max-height: 520px;
+      }
+      .bento-a { grid-column: 1; grid-row: 1; }
+      .bento-b { grid-column: 2; grid-row: 1; }
+      .bento-c { grid-column: 1; grid-row: 2; }
+      .bento-d { grid-column: 2; grid-row: 2; }
+    }
+    @media (max-width: 480px) {
+      .hero-bento-grid { gap: 8px; border-radius: 0.875rem; }
+      .bento-tile { border-radius: 0.875rem; }
+    }
+
     /* ================= MARQUEE ================= */
     .marquee {
       display: flex;
@@ -415,40 +472,71 @@
     </div>
 </nav>
 
-<!-- ==================== HERO (merkezi, mocky-style büyük tipografi) ==================== -->
-<section class="relative pt-36 md:pt-40 pb-20 md:pb-28 overflow-hidden" id="hero">
+<!-- ==================== HERO — split asymmetric bento ==================== -->
+<section class="relative pt-28 md:pt-32 pb-16 md:pb-24 overflow-hidden" id="hero">
     <div class="absolute inset-0 glow-primary -z-10"></div>
 
-    <div class="max-w-[1280px] mx-auto px-6 md:px-12 text-center">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 xl:gap-16 items-center">
 
-        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-line mb-10 md:mb-14 reveal">
-            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-            <span class="t-eyebrow text-primary">AI · MODA STÜDYOSU</span>
+            <!-- LEFT — text block -->
+            <div class="text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-line mb-7 md:mb-9 reveal">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    <span class="t-eyebrow text-primary">AI · MODA STÜDYOSU</span>
+                </div>
+
+                <h1 class="t-display reveal">
+                    <span class="emph-thin block">Mankenini seç.</span>
+                    <span class="block">Kıyafetini giydir<span class="text-primary">.</span></span>
+                    <span class="emph-thin block">Saniyeler içinde çekim.</span>
+                </h1>
+
+                <p class="t-lead text-on-surface-variant max-w-xl mx-auto lg:mx-0 mt-7 md:mt-9 reveal">
+                    Virtual try-on, AI manken, aksesuar denemesi ve editoryal lookbook — stüdyosuz.
+                </p>
+
+                <div class="flex flex-wrap justify-center lg:justify-start items-center gap-3 mt-8 reveal">
+                    <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener"
+                       class="inline-block transition-transform hover:-translate-y-1" data-store="ios" data-pixel-event="download_click_hero">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?releaseDate=1717718400"
+                             alt="App Store'dan indir" class="store-badge-img store-badge-apple">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener"
+                       class="inline-block transition-transform hover:-translate-y-1" data-store="android" data-pixel-event="download_click_hero">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                             alt="Google Play'den indir" class="store-badge-img store-badge-google">
+                    </a>
+                </div>
+                <p class="t-eyebrow text-on-surface-muted mt-5 text-center lg:text-left reveal">Hediye Kredi · iOS &amp; Android</p>
+            </div>
+
+            <!-- RIGHT — asymmetric bento (4 tile) -->
+            <div class="reveal">
+                <div class="hero-bento-grid">
+                    <a class="bento-tile bento-a" href="#tryon" aria-label="Virtual Try-On">
+                        <img src="assets/fashion/gallery/01_tryon_sage_wall.webp"
+                             alt="Virtual try-on örneği" loading="eager" decoding="async" fetchpriority="high">
+                        <div class="bento-label"><p class="t-eyebrow text-primary">/// TRY-ON</p></div>
+                    </a>
+                    <a class="bento-tile bento-b" href="#tryon" aria-label="Lookbook">
+                        <img src="assets/fashion/gallery/07_lookbook_plaster_wall.webp"
+                             alt="Editoryal lookbook" loading="eager" decoding="async">
+                        <div class="bento-label"><p class="t-eyebrow text-secondary">/// LOOKBOOK</p></div>
+                    </a>
+                    <a class="bento-tile bento-c" href="#tryon" aria-label="Editoryal portre">
+                        <img src="assets/fashion/gallery/11_editorial_portrait_mature.webp"
+                             alt="Editoryal portre" loading="eager" decoding="async">
+                        <div class="bento-label"><p class="t-eyebrow text-primary">/// PORTRE</p></div>
+                    </a>
+                    <a class="bento-tile bento-d" href="#tryon" aria-label="Outdoor editorial">
+                        <img src="assets/fashion/gallery/12_outdoor_golden_hour.webp"
+                             alt="Outdoor golden hour" loading="eager" decoding="async">
+                        <div class="bento-label"><p class="t-eyebrow text-accent-rose">/// GOLDEN HOUR</p></div>
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <h1 class="t-display reveal">
-            <span class="emph-thin block">Mankenini seç.</span>
-            <span class="block">Kıyafetini giydir<span class="text-primary">.</span></span>
-            <span class="emph-thin block">Saniyeler içinde çekim.</span>
-        </h1>
-
-        <p class="t-lead text-on-surface-variant max-w-2xl mx-auto mt-10 md:mt-14 reveal">
-            Virtual try-on, AI manken, aksesuar denemesi ve editoryal lookbook — stüdyosuz. 500+ KOBİ moda satıcısı ve bağımsız tasarımcı tarafından kullanılıyor.
-        </p>
-
-        <div class="flex flex-wrap justify-center items-center gap-3 mt-10 reveal">
-            <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener"
-               class="inline-block transition-transform hover:-translate-y-1" data-store="ios" data-pixel-event="download_click_hero">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?releaseDate=1717718400"
-                     alt="App Store'dan indir" class="store-badge-img store-badge-apple">
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener"
-               class="inline-block transition-transform hover:-translate-y-1" data-store="android" data-pixel-event="download_click_hero">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                     alt="Google Play'den indir" class="store-badge-img store-badge-google">
-            </a>
-        </div>
-        <p class="t-eyebrow text-on-surface-muted mt-6 reveal">Hediye Kredi · Kart Yok · iOS &amp; Android</p>
     </div>
 </section>
 
@@ -767,11 +855,11 @@
     <div class="text-center mb-14 md:mb-20 reveal">
         <p class="t-eyebrow text-on-surface-muted mb-4">/// KOMBİN MODU · FASHION STUDIO</p>
         <h2 class="t-h1 max-w-3xl mx-auto">
-            <span class="emph-thin">4 ürünü,</span>
+            <span class="emph-thin">9 ürüne kadar,</span>
             tek sahnede<span class="text-primary">.</span>
         </h2>
         <p class="t-lead text-on-surface-variant max-w-xl mx-auto mt-8">
-            Üstüne, altına, ayağına, aksesuarına — kombin bütünlüğünü AI otomatik kurgular.
+            Üstten ayakkabıya, çantadan aksesuara — 9 ürünü tek kombinde birleştir, AI bütünlüğü otomatik kurgular.
         </p>
     </div>
 
@@ -782,7 +870,7 @@
                 <div class="font-bold text-3xl text-on-surface-muted shrink-0 w-12" style="letter-spacing:-0.03em">01</div>
                 <div>
                     <h3 class="t-h3 font-semibold mb-2">Ürünleri Ekle</h3>
-                    <p class="text-on-surface-variant">Üst, alt, ayakkabı, aksesuar — 4 slot'a kadar ürünü sırayla seç.</p>
+                    <p class="text-on-surface-variant">Üst, alt, ayakkabı, çanta, aksesuar — 9 slot'a kadar ürünü sırayla ekle.</p>
                 </div>
             </li>
             <li class="card p-6 md:p-7 flex items-start gap-5">
@@ -818,14 +906,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent pointer-events-none"></div>
 
                     <div class="absolute top-5 right-5 t-eyebrow text-primary px-3 py-1.5 rounded-full bg-ink/80 border border-line">
-                        4 ÜRÜN · 1 SAHNE
+                        9 ÜRÜN · 1 SAHNE
                     </div>
 
                     <div class="absolute bottom-5 left-5 right-5">
                         <div class="bg-ink/75 backdrop-blur-xl border border-line p-4 rounded-2xl">
                             <div class="flex items-center justify-between mb-3">
                                 <p class="t-eyebrow text-on-surface-muted">Pipeline · Hazır</p>
-                                <span class="t-eyebrow text-primary">4/4</span>
+                                <span class="t-eyebrow text-primary">9/9</span>
                             </div>
                             <div class="grid grid-cols-4 gap-1.5">
                                 <div class="h-1.5 rounded-full bg-primary"></div>
@@ -923,16 +1011,25 @@
                 <span>4.7 yıldız<span class="text-secondary">.</span></span>
             </h2>
             <div class="flex items-center justify-center gap-8 md:gap-12 flex-wrap mt-10">
+                <!-- App Store — resmi Apple logo (silhouette, public-domain Wikimedia) -->
                 <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-on-surface text-3xl">apple</span>
+                    <svg width="28" height="34" viewBox="0 0 24 30" fill="currentColor" class="text-on-surface" aria-hidden="true">
+                        <path d="M19.28 10.88c-.14.11-2.57 1.45-2.57 4.5 0 3.53 3.1 4.78 3.19 4.81-.01.07-.49 1.73-1.66 3.41-1.04 1.48-2.12 2.96-3.77 2.96-1.65 0-2.07-.95-3.97-.95-1.86 0-2.52.98-4.03.98S3.91 25.21 2.71 23.5C1.32 21.5 0 18.4 0 15.45c0-4.73 3.08-7.24 6.11-7.24 1.61 0 2.95.97 3.97.97.97 0 2.47-1.03 4.3-1.03.69 0 3.12.06 4.9 2.73zM13.5 6.14c.76-.9 1.29-2.15 1.29-3.4 0-.17-.01-.35-.04-.49-1.24.05-2.71.83-3.6 1.87-.69.78-1.34 2.03-1.34 3.3 0 .19.03.38.04.44.08.01.21.03.34.03 1.11 0 2.51-.75 3.31-1.75z"/>
+                    </svg>
                     <div class="text-left">
                         <p class="t-eyebrow text-on-surface-muted">App Store</p>
                         <p class="font-bold text-2xl leading-none mt-1" style="letter-spacing:-0.03em">4.7 <span class="stars text-base align-middle">★★★★★</span></p>
                     </div>
                 </div>
                 <div class="h-8 w-px hairline" aria-hidden="true"></div>
+                <!-- Google Play — resmi üçgen, 4 renk (Google brand: yeşil/sarı/kırmızı/mavi) -->
                 <div class="flex items-center gap-3">
-                    <span class="material-symbols-outlined text-on-surface text-3xl">shop</span>
+                    <svg width="28" height="32" viewBox="0 0 28 32" aria-hidden="true">
+                        <path d="M.9.76c-.43.46-.69 1.17-.69 2.1V29.14c0 .93.26 1.64.69 2.1l.09.08L15.74 16.4v-.36L.99.68z" fill="#00C3F9"/>
+                        <path d="M20.65 21.44l-4.91-4.92v-.34l4.91-4.92.11.06 5.82 3.31c1.66.94 1.66 2.49 0 3.44l-5.82 3.31z" fill="#FFD200"/>
+                        <path d="M20.76 21.38L15.74 16.22.9 31.24c.55.58 1.45.65 2.47.07l17.39-9.93" fill="#FF4C58"/>
+                        <path d="M20.76 10.82L3.37.9C2.35.32 1.45.39.9.97L15.74 16.22" fill="#00E976"/>
+                    </svg>
                     <div class="text-left">
                         <p class="t-eyebrow text-on-surface-muted">Google Play</p>
                         <p class="font-bold text-2xl leading-none mt-1" style="letter-spacing:-0.03em">4.7 <span class="stars text-base align-middle">★★★★★</span></p>
@@ -960,7 +1057,7 @@
             <figure class="card p-6 flex flex-col gap-4 reveal">
                 <div class="stars text-lg" aria-label="5 yıldız">★★★★★</div>
                 <blockquote class="text-on-surface leading-relaxed">
-                    "Kombin modu oyun değiştirici. 4 ürünü tek sahnede birleştiriyorum, müşteri uyumsuz bulmasın diye. İade oranımız düştü."
+                    "Kombin modu oyun değiştirici. 9 ürünü tek sahnede birleştiriyorum, müşteri uyumsuz bulmasın diye. İade oranımız düştü."
                 </blockquote>
                 <figcaption class="flex items-center gap-3 mt-auto pt-4 border-t divider">
                     <div class="w-9 h-9 rounded-full bg-secondary/20 flex items-center justify-center font-bold text-secondary text-sm">MK</div>
@@ -1063,62 +1160,73 @@
 <section id="pricing" class="relative py-24 md:py-32 max-w-[1280px] mx-auto px-6 md:px-12">
 
     <div class="text-center mb-14 md:mb-16 reveal">
-        <p class="t-eyebrow text-on-surface-muted mb-4">/// KREDİ PAKETLERİ</p>
+        <p class="t-eyebrow text-on-surface-muted mb-4">/// ABONELİK AVANTAJLARI</p>
         <h2 class="t-h1 max-w-2xl mx-auto">
-            <span class="emph-thin">Kredi bazlı.</span>
-            Aboneliksiz<span class="text-primary">.</span>
+            <span class="emph-thin">Her seviye için</span>
+            bir plan<span class="text-primary">.</span>
         </h2>
         <p class="t-lead text-on-surface-variant max-w-xl mx-auto mt-8">
-            Kullandığın kadar öde — hediye kredilerle başla, detaylı paketler uygulamada.
+            Aylık abonelik — seviyene göre seç, her ay yenilenen kredi ile üret. Detaylı fiyatlandırma uygulamada.
         </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
 
+        <!-- Başlangıç -->
         <div class="card p-8 flex flex-col gap-5">
             <div>
-                <p class="t-eyebrow text-on-surface-muted mb-3">Hediye</p>
-                <h3 class="t-h2 font-bold mb-2">Ücretsiz</h3>
-                <p class="t-body text-on-surface-variant">Kayıt ol, hediye kredinle hemen üret.</p>
+                <p class="t-eyebrow text-on-surface-muted mb-3">Başlangıç</p>
+                <h3 class="t-h2 font-bold mb-2">Starter</h3>
+                <p class="t-body text-on-surface-variant">Yeni başlayan KOBİ satıcıları için.</p>
             </div>
             <ul class="space-y-2.5 text-on-surface-variant">
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Hediye kredi</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Her ay yenilenen kredi</li>
                 <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Tüm moda modülleri</li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>1K / 2K çıktı</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>1K / 2K çıktı kalitesi</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Marketplace export</li>
             </ul>
             <a href="#download" class="btn-ghost mt-auto justify-center">Başla</a>
         </div>
 
-        <div class="card p-8 flex flex-col gap-5 relative" style="border-color: rgba(158, 176, 152, 0.35);">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 t-eyebrow bg-primary text-ink font-bold px-3 py-1 rounded-full">Önerilen</span>
+        <!-- Pro (önerilen) -->
+        <div class="card p-8 flex flex-col gap-5 relative" style="border-color: rgba(158, 176, 152, 0.45);">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 t-eyebrow bg-primary text-ink font-bold px-3 py-1 rounded-full">En Popüler</span>
             <div>
-                <p class="t-eyebrow text-primary mb-3">Kredi Paketi</p>
-                <h3 class="t-h2 font-bold mb-2">Esnek</h3>
-                <p class="t-body text-on-surface-variant">Kredi satın al — süresiz kullan.</p>
+                <p class="t-eyebrow text-primary mb-3">Profesyonel</p>
+                <h3 class="t-h2 font-bold mb-2">Pro</h3>
+                <p class="t-body text-on-surface-variant">Düzenli üretim yapan satıcılar ve tasarımcılar için.</p>
             </div>
             <ul class="space-y-2.5 text-on-surface-variant">
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Daha yüksek aylık kredi</li>
                 <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>4K çıktı + upscale</li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Kalite modu (premium)</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Kalite modu (premium render)</li>
                 <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Auto video + yüz referansı</li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Bulk export</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Öncelikli üretim kuyruğu</li>
             </ul>
-            <a href="#download" class="btn-primary primary-green mt-auto justify-center">Uygulamada Gör</a>
+            <a href="#download" class="btn-primary primary-green mt-auto justify-center">Detayları Gör</a>
         </div>
 
+        <!-- Creator -->
         <div class="card p-8 flex flex-col gap-5">
             <div>
-                <p class="t-eyebrow text-on-surface-muted mb-3">Stüdyo</p>
-                <h3 class="t-h2 font-bold mb-2">Ekip</h3>
-                <p class="t-body text-on-surface-variant">Yüksek hacim ve ekip hesabı.</p>
+                <p class="t-eyebrow text-on-surface-muted mb-3">Yoğun Kullanım</p>
+                <h3 class="t-h2 font-bold mb-2">Creator</h3>
+                <p class="t-body text-on-surface-variant">Yüksek hacimli içerik üreticileri ve ekipler için.</p>
             </div>
             <ul class="space-y-2.5 text-on-surface-variant">
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Toplu kredi paketi</li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Öncelikli kuyruk</li>
-                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Özel destek</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Maksimum aylık kredi</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Tüm premium özellikler</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>En yüksek öncelik</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>Bulk marketplace export</li>
+                <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings:'FILL' 1;">check_circle</span>İsteğe bağlı kredi top-up</li>
             </ul>
-            <a href="mailto:info@listifyai.com.tr?subject=Ekip%20Plan%C4%B1" class="btn-ghost mt-auto justify-center">İletişime Geç</a>
+            <a href="#download" class="btn-ghost mt-auto justify-center">Detayları Gör</a>
         </div>
     </div>
+
+    <p class="text-center t-caption text-on-surface-muted mt-10 max-w-2xl mx-auto">
+        Hediye kredi ile ücretsiz dene · Fiyatlandırma ve ekip planı için uygulamayı indir · Yüksek hacim için <a href="mailto:info@listifyai.com.tr?subject=Ekip%20Plan%C4%B1" class="text-primary hover:underline">info@listifyai.com.tr</a>
+    </p>
 </section>
 
 <!-- ==================== SECTION — FAQ ==================== -->
@@ -1271,8 +1379,8 @@
   },
   "fashion_studio": {
     "eyebrow": "/// KOMBİN MODU",
-    "title": "4 ürünü tek sahnede birleştir.",
-    "body": "Üst, alt, ayakkabı, aksesuar — 4 slot'a kadar ürünü sırayla ekle. AI kombin bütünlüğünü otomatik yakalar, tek editoryel sahnede birleştirir.",
+    "title": "9 ürüne kadar tek sahnede birleştir.",
+    "body": "Üst, alt, ayakkabı, çanta, aksesuar — 9 slot'a kadar ürünü sırayla ekle. AI kombin bütünlüğünü otomatik yakalar, tek editoryel sahnede birleştirir.",
     "bullets": ["Manken seçimi (hazır galeri veya AI)", "Sahne seçimi (stüdyo, iç, outdoor)", "1K / 2K / 4K çıktı"],
     "before": "assets/fashion/fashion_studio/before_product.webp",
     "after":  "assets/fashion/fashion_studio/after_product.webp"
