@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-04-24T20:03:57",
+  "total_seconds": 1106,
+  "model": "nano-banana-pro",
+  "resolution": "2K",
+  "aspect": "3:4",
+  "results": [
+    {
+      "idx": 1,
+      "name": "tryon_sage_wall",
+      "ok": true,
+      "info": "5965KB in 76s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/01_tryon_sage_wall.png"
+    },
+    {
+      "idx": 2,
+      "name": "accessory_jewelry_flatlay",
+      "ok": true,
+      "info": "6109KB in 109s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/02_accessory_jewelry_flatlay.png"
+    },
+    {
+      "idx": 3,
+      "name": "accessory_bag_cafe",
+      "ok": true,
+      "info": "6600KB in 126s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/03_accessory_bag_cafe.png"
+    },
+    {
+      "idx": 4,
+      "name": "studio_kombin_4piece",
+      "ok": true,
+      "info": "4943KB in 63s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/04_studio_kombin_4piece.png"
+    },
+    {
+      "idx": 5,
+      "name": "pose_change_triptych",
+      "ok": true,
+      "info": "6666KB in 75s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/05_pose_change_triptych.png"
+    },
+    {
+      "idx": 6,
+      "name": "model_diversity_row",
+      "ok": true,
+      "info": "6535KB in 75s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/06_model_diversity_row.png"
+    },
+    {
+      "idx": 7,
+      "name": "lookbook_plaster_wall",
+      "ok": true,
+      "info": "7667KB in 63s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/07_lookbook_plaster_wall.png"
+    },
+    {
+      "idx": 8,
+      "name": "fabric_vision_texture",
+      "ok": true,
+      "info": "6590KB in 97s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/08_fabric_vision_texture.png"
+    },
+    {
+      "idx": 9,
+      "name": "street_motion_editorial",
+      "ok": true,
+      "info": "6350KB in 75s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/09_street_motion_editorial.png"
+    },
+    {
+      "idx": 10,
+      "name": "accessory_watch_wrist",
+      "ok": true,
+      "info": "5781KB in 76s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/10_accessory_watch_wrist.png"
+    },
+    {
+      "idx": 11,
+      "name": "editorial_portrait_mature",
+      "ok": true,
+      "info": "6568KB in 81s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/11_editorial_portrait_mature.png"
+    },
+    {
+      "idx": 12,
+      "name": "outdoor_golden_hour",
+      "ok": true,
+      "info": "5677KB in 126s",
+      "path": "/home/ekremcyc/projects/listifyai-website/assets/fashion/gallery/12_outdoor_golden_hour.png"
+    }
+  ]
+}
