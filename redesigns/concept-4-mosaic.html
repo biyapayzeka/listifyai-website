@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ListifyAI — Bir uygulama. Yüzlerce sonuç.</title>
+<meta name="description" content="ListifyAI — tek fotoğraftan bir stüdyo dolusu AI moda ve e-ticaret görseli. Yüzlerce sonucun yaşayan duvarı." />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --base:#08080B;
+    --text:#F5F5F0;
+    --sage:#9EB098;
+    --gold:#C9B88A;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:var(--base); color:var(--text); overflow-x:hidden; }
+  body{ font-family:'Alexandria',system-ui,sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  ::selection{ background:var(--sage); color:#08080B; }
+
+  .wordmark{ font-weight:600; letter-spacing:-0.03em; }
+  .wordmark .ai{ color:var(--sage); }
+
+  /* ---------- MOSAIC WALL ---------- */
+  #wall{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; justify-content:center;
+    gap:clamp(8px,1.1vw,16px);
+    transform:rotate(-4deg) scale(1.22);
+    transform-origin:center center;
+    will-change:transform;
+  }
+  .row{
+    display:flex; flex-wrap:nowrap; width:max-content;
+    gap:clamp(8px,1.1vw,16px);
+    will-change:transform;
+  }
+  .tile{
+    position:relative; flex:0 0 auto;
+    width:clamp(110px,11vw,210px);
+    aspect-ratio:3/4;
+    border-radius:10px; overflow:hidden;
+    background:#141418;
+    transform:translateZ(0);
+    transition:transform .55s cubic-bezier(.16,1,.3,1),
+               filter .55s ease,
+               opacity .45s ease,
+               box-shadow .55s ease;
+    cursor:pointer;
+    box-shadow:0 6px 22px rgba(0,0,0,.45);
+  }
+  .tile.wide{ aspect-ratio:4/3; width:clamp(150px,15vw,280px); }
+  .tile img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .8s cubic-bezier(.16,1,.3,1);
+  }
+  .tile .label{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:10px 12px 11px;
+    font-size:11px; letter-spacing:.02em; font-weight:400;
+    color:var(--text);
+    background:linear-gradient(0deg, rgba(8,8,11,.92) 0%, rgba(8,8,11,.4) 60%, transparent 100%);
+    opacity:0; transform:translateY(8px);
+    transition:opacity .4s ease, transform .5s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;
+  }
+  .tile .label b{ color:var(--gold); font-weight:600; }
+
+  /* hover bloom — neighbors dim via wall state */
+  .tile:hover{
+    transform:scale(1.34);
+    z-index:40;
+    box-shadow:0 24px 70px rgba(0,0,0,.7), 0 0 0 1px rgba(158,176,152,.35);
+    filter:saturate(1.08);
+  }
+  .tile:hover img{ transform:scale(1.06); }
+  .tile:hover .label{ opacity:1; transform:translateY(0); }
+  .tile.dimmed{ opacity:.32; filter:saturate(.55) brightness(.7); }
+
+  /* pause marquee while interacting */
+  #wall.paused .row{ animation-play-state:paused; }
+
+  /* ---------- SCRIM + HERO TEXT ---------- */
+  #scrim{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(120% 90% at 50% 48%, rgba(8,8,11,.84) 0%, rgba(8,8,11,.58) 34%, rgba(8,8,11,.22) 62%, rgba(8,8,11,.45) 100%),
+      linear-gradient(180deg, rgba(8,8,11,.7) 0%, transparent 22%, transparent 76%, rgba(8,8,11,.9) 100%);
+    pointer-events:none;
+  }
+  .vignette{
+    position:absolute; inset:0; pointer-events:none;
+    box-shadow:inset 0 0 220px 60px rgba(8,8,11,.9);
+  }
+  .hero-grain{
+    position:absolute; inset:0; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .reveal{ opacity:0; transform:translateY(22px); }
+
+  /* curated grid */
+  .curated{ content-visibility:auto; contain-intrinsic-size:1px 900px; }
+  .cgrid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-auto-rows:130px;
+    gap:12px;
+  }
+  .cgrid .cell{
+    position:relative; overflow:hidden; border-radius:12px; background:#141418;
+    box-shadow:0 8px 28px rgba(0,0,0,.4);
+  }
+  .cgrid .cell img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .7s cubic-bezier(.16,1,.3,1); }
+  .cgrid .cell:hover img{ transform:scale(1.07); }
+  .cgrid .cell .cap{
+    position:absolute; left:0; right:0; bottom:0; padding:14px;
+    font-size:12px; color:var(--text);
+    background:linear-gradient(0deg, rgba(8,8,11,.9), transparent);
+    opacity:0; transition:opacity .4s ease;
+  }
+  .cgrid .cell:hover .cap{ opacity:1; }
+  .cgrid .cell.tall{ grid-row:span 2; }
+  .cgrid .cell.feat{ grid-column:span 2; grid-row:span 2; }
+
+  .btn-gold{
+    background:var(--gold); color:#08080B; font-weight:600; letter-spacing:.01em;
+    transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease, background .3s ease;
+  }
+  .btn-gold:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(201,184,138,.34); background:#d8c79c; }
+
+  @media (max-width:768px){
+    #wall{ transform:rotate(-3deg) scale(1.35); gap:8px; }
+    .row{ gap:8px; }
+    .tile{ width:32vw; border-radius:8px; }
+    .tile.wide{ width:42vw; }
+    .tile:hover{ transform:scale(1.18); }
+    .cgrid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:120px; }
+    .cgrid .cell.feat{ grid-column:span 2; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    #wall{ transform:rotate(0deg) scale(1); justify-content:flex-start;
+           flex-direction:row; flex-wrap:wrap; align-content:flex-start;
+           overflow:hidden; padding:14px; }
+    .row{ width:100%; flex-wrap:wrap; animation:none !important; }
+    .tile{ transition:none; }
+    .tile:hover{ transform:scale(1.05); }
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO: LIVING WALL ============ -->
+<section id="hero" class="relative w-full" style="height:100svh; min-height:640px;">
+  <div id="wall" aria-hidden="false"><!-- rows injected by JS --></div>
+  <div id="scrim"></div>
+  <div class="vignette"></div>
+  <div class="hero-grain"></div>
+
+  <!-- top bar -->
+  <header class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-6">
+    <div class="wordmark text-xl md:text-2xl">listify<span class="ai">ai</span></div>
+    <a href="#cta" class="hidden md:inline-block text-sm tracking-wide text-[color:var(--text)]/80 hover:text-[color:var(--gold)] transition">Stüdyoyu aç →</a>
+  </header>
+
+  <!-- centered headline -->
+  <div class="absolute inset-0 z-40 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+    <div class="reveal" id="h-eyebrow">
+      <span class="inline-block text-[11px] md:text-xs tracking-[0.32em] uppercase text-[color:var(--sage)] mb-5 md:mb-7">AI Moda &amp; E-ticaret Stüdyosu</span>
+    </div>
+    <h1 class="reveal font-light leading-[0.98] tracking-[-0.03em]" id="h-title"
+        style="font-size:clamp(2.4rem,7vw,6rem); max-width:14ch;">
+      Bir uygulama.<br /><span style="color:var(--gold);font-weight:500;">Yüzlerce sonuç.</span>
+    </h1>
+    <p class="reveal mt-6 md:mt-8 text-sm md:text-lg text-[color:var(--text)]/75 font-light" id="h-sub"
+       style="max-width:38ch;">
+      Tek fotoğraf yükle. Saniyeler içinde bir stüdyo dolusu görsel.
+    </p>
+    <div class="reveal mt-9 md:mt-11 pointer-events-auto" id="h-cta">
+      <a href="#cta" class="btn-gold inline-flex items-center gap-2 rounded-full px-7 md:px-9 py-3.5 md:py-4 text-sm md:text-base">
+        Kendi duvarını yarat
+      </a>
+    </div>
+  </div>
+
+  <!-- counter ribbon -->
+  <div class="absolute bottom-5 left-0 right-0 z-40 flex items-center justify-center gap-6 md:gap-10 text-[11px] md:text-xs tracking-wide text-[color:var(--text)]/55 pointer-events-none">
+    <span><b class="text-[color:var(--sage)]">168+</b> hazır sahne</span>
+    <span class="hidden sm:inline"><b class="text-[color:var(--sage)]">56</b> şablon</span>
+    <span><b class="text-[color:var(--sage)]">∞</b> kombinasyon</span>
+  </div>
+</section>
+
+<!-- ============ CURATED SECTION ============ -->
+<section id="cta" class="curated relative w-full px-6 md:px-10 py-20 md:py-28 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
+      <div>
+        <span class="text-[11px] tracking-[0.3em] uppercase text-[color:var(--sage)]">Seçilmiş Çıktılar</span>
+        <h2 class="mt-4 font-light leading-tight tracking-[-0.02em]" style="font-size:clamp(1.8rem,4vw,3.2rem);max-width:18ch;">
+          Tek fotoğraf. <span style="color:var(--gold)">Bir stüdyo dolusu</span> sonuç.
+        </h2>
+      </div>
+      <p class="text-sm md:text-base text-[color:var(--text)]/70 font-light" style="max-width:34ch;">
+        Lookbook, ürün sahnesi, model denemesi ve editoryal kareler — hepsi tek bir yüklemeden.
+      </p>
+    </div>
+
+    <div class="cgrid" id="curatedGrid"><!-- injected --></div>
+
+    <div class="mt-14 md:mt-20 flex flex-col items-center text-center">
+      <p class="font-light text-[color:var(--text)]/80 mb-7" style="font-size:clamp(1.3rem,3vw,2rem);max-width:22ch;">
+        Markanın yüzlerce görseli, dakikalar içinde.
+      </p>
+      <a href="#hero" class="btn-gold inline-flex items-center gap-2 rounded-full px-9 py-4 text-base">
+        ListifyAI'yi dene
+      </a>
+      <div class="wordmark mt-12 text-lg text-[color:var(--text)]/40">listify<span class="ai" style="color:rgba(158,176,152,.6)">ai</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- ASSET MANIFEST (only files verified via ls) ----
+  var P = {
+    tpl:"../assets/app-showcase/templates/",
+    scn:"../assets/app-showcase/scenes/",
+    gal:"../assets/fashion/gallery/",
+    shw:"../assets/showcase/"
+  };
+
+  var templates = ["A01","A02","A03","A04","A05","A06","A07","A08","A09","A10",
+    "B01","B02","B03","B04","B05",
+    "M01","M02","M03","M04","M05","M06","M07","M08","M09","M10","M11","M12","M13","M15","M20","M24","M28","M32","M34","M38",
+    "W01","W02","W03","W04","W05","W06","W07","W08","W09","W10","W11","W12","W13","W14","W18","W20","W24","W28","W32","W37","W41"]
+    .map(function(n){ return {src:P.tpl+n+".webp", label:"Şablon", sub:n}; });
+
+  var scenes = ["artdram_background_0003","artdram_background_0007","artdram_background_0020","artdram_background_0022",
+    "artstudio_background_0016","artstudio_background_0035","artstudio_background_0037","artstudio_background_0071",
+    "artvivid_background_0010","artvivid_background_0021","artvivid_background_0023","artvivid_background_0047",
+    "beach_background_0001","beach_background_0030","beach_background_0034","beach_background_0057",
+    "bedroom_background_hi_bed_001","bedroom_background_hi_bed_002","bedroom_background_hi_bed_003","bedroom_background_hi_bed_004",
+    "forest_background_0005","forest_background_0011","forest_background_0024","forest_background_0064",
+    "garden_background_0015","garden_background_0017","garden_background_0027","garden_background_0052",
+    "living_background_0040","living_background_0091","living_background_0098","living_background_0214",
+    "luxhotel_background_0113","luxhotel_background_0156","luxhotel_background_0203","luxhotel_background_0240",
+    "luxmarble_background_0002","luxmarble_background_0004","luxmarble_background_0006","luxmarble_background_0009",
+    "mountain_background_0008","mountain_background_0014","mountain_background_0058","mountain_background_0070",
+    "studio_background_studio_white_001","studio_background_studio_white_002","studio_background_studio_white_003","studio_background_studio_white_004"]
+    .map(function(n){ return {src:P.scn+n+".webp", label:"Sahne", sub:n.split("_")[0]}; });
+
+  var gallery = ["01_tryon_sage_wall","02_accessory_jewelry_flatlay","03_accessory_bag_cafe","04_studio_kombin_4piece",
+    "05_pose_change_triptych","06_model_diversity_row","07_lookbook_plaster_wall","08_fabric_vision_texture",
+    "09_street_motion_editorial","10_accessory_watch_wrist","11_editorial_portrait_mature","12_outdoor_golden_hour"]
+    .map(function(n){ return {src:P.gal+n+".webp", label:"Editoryal", sub:n.replace(/^\d+_/,"").replace(/_/g," ")}; });
+
+  var showcase = ["bottle_botanical_cut","bottle_botanical_scene","canneddrink_giant_cut","canneddrink_giant_scene",
+    "cookie_keyhole_cut","cookie_keyhole_scene","cream_bedroom_demo_cut","cream_bedroom_demo_scene",
+    "faceoil_cloud_cut","faceoil_cloud_scene","food_flatlay_tray_cut","food_flatlay_tray_scene",
+    "humidifier_montage_cut","humidifier_montage_scene","lipstick_tripanel_unbox_cut","lipstick_tripanel_unbox_scene",
+    "nycil_transform_veo3_cut","perfume_cloche_cut","perfume_cloche_scene","perfume_drone_cut","perfume_drone_scene",
+    "perfume_rose_wreath_cut","perfume_rose_wreath_scene","perfume_studio_showcase_cut","perfume_studio_showcase_scene",
+    "pizza_unboxing_veo3_cut","product_bottle_cut","product_canneddrink_cut","product_cookie_box_cut",
+    "product_facecream_cut","product_faceoil_cut","product_honeyjar_cut","product_humidifier_cut",
+    "product_lipstick_cut","product_milk_bottle_cut","product_perfume_cloche_cut","product_perfume_cut",
+    "product_perfume_rose_cut","product_serum_cut","product_serum_rose_cut","product_teabox_cut",
+    "product_watchbox_cut","refrigerator_milk_cut","refrigerator_milk_scene","serum_bedroom_demo_cut",
+    "serum_bedroom_demo_scene","serum_skincare_cut","serum_skincare_scene","serum_tripanel_cut",
+    "serum_tripanel_scene","watchbox_billboard_cut","watchbox_billboard_scene"]
+    .map(function(n){ var scene=/_scene$/.test(n); return {src:P.shw+n+".webp", label:scene?"Ürün Sahnesi":"Ürün", sub:n.replace(/_(cut|scene)$/,"").replace(/_/g," ")}; });
+
+  var ALL = templates.concat(scenes).concat(gallery).concat(showcase); // 168 tiles
+
+  // shuffle (deterministic-ish) for visual variety
+  function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+
+  // build rows
+  var ROWS = REDUCED ? 1 : 6;
+  var pool = shuffle(ALL);
+  var perRow = Math.ceil(pool.length / (REDUCED?1:ROWS));
+  var wall = document.getElementById("wall");
+  var allTiles = [];
+
+  function makeTile(item, wide){
+    var t = document.createElement("div");
+    t.className = "tile" + (wide ? " wide" : "");
+    var img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = item.src;
+    img.alt = item.label + " — " + item.sub;
+    var lab = document.createElement("div");
+    lab.className = "label";
+    lab.innerHTML = "<b>"+item.label+"</b> · "+item.sub;
+    t.appendChild(img); t.appendChild(lab);
+    allTiles.push(t);
+    return t;
+  }
+
+  if(REDUCED){
+    // static dense grid: single wrapping row
+    var row = document.createElement("div");
+    row.className = "row";
+    pool.forEach(function(it,i){ row.appendChild(makeTile(it, i%9===0)); });
+    wall.appendChild(row);
+  } else {
+    for(var r=0; r<ROWS; r++){
+      var slice = pool.slice(r*perRow, (r+1)*perRow);
+      if(slice.length < 8){ slice = slice.concat(pool.slice(0, 8-slice.length)); }
+      var row = document.createElement("div");
+      row.className = "row";
+      row.dataset.dir = (r%2===0) ? "left" : "right";
+      // duplicate the slice once for seamless loop
+      var seq = slice.concat(slice);
+      seq.forEach(function(it,i){ row.appendChild(makeTile(it, i%7===0)); });
+      wall.appendChild(row);
+    }
+  }
+
+  // ---- MARQUEE (transform-only, opposing directions) ----
+  if(!REDUCED && window.gsap){
+    var rows = wall.querySelectorAll(".row");
+    rows.forEach(function(row, idx){
+      // width of one half (original slice) for seamless wrap
+      var half = row.scrollWidth / 2;
+      var dir = row.dataset.dir === "right" ? 1 : -1;
+      var speed = 26 + idx*6; // px/sec-ish via duration
+      var dur = half / (16 + idx*2);
+      var startX = dir === 1 ? -half : 0;
+      gsap.set(row, { x: startX });
+      var to = dir === 1 ? 0 : -half;
+      gsap.to(row, {
+        x: to,
+        duration: dur,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: function(x){
+            var v = parseFloat(x);
+            // wrap within [-half, 0]
+            v = ((v % half) + half) % half - half;
+            return v + "px";
+          }
+        }
+      });
+    });
+
+    // pause on interaction
+    var hero = document.getElementById("hero");
+    hero.addEventListener("mouseenter", function(){ wall.classList.add("paused"); gsap.globalTimeline.pause(); });
+    hero.addEventListener("mouseleave", function(){ wall.classList.remove("paused"); gsap.globalTimeline.resume(); });
+  }
+
+  // ---- HOVER: grow + dim neighbors ----
+  wall.addEventListener("mouseover", function(e){
+    var tile = e.target.closest(".tile");
+    if(!tile) return;
+    for(var i=0;i<allTiles.length;i++){ if(allTiles[i]!==tile) allTiles[i].classList.add("dimmed"); }
+  });
+  wall.addEventListener("mouseout", function(e){
+    if(e.target.closest(".tile")){
+      for(var i=0;i<allTiles.length;i++){ allTiles[i].classList.remove("dimmed"); }
+    }
+  });
+
+  // ---- TAP (mobile): grow forward + dim, tap-out to reset ----
+  var activeTile = null;
+  if(matchMedia("(hover: none)").matches){
+    wall.addEventListener("click", function(e){
+      var tile = e.target.closest(".tile");
+      if(!tile){ return; }
+      if(activeTile === tile){
+        tile.style.transform=""; tile.style.zIndex="";
+        clearDim(); activeTile=null; return;
+      }
+      clearDim();
+      activeTile = tile;
+      for(var i=0;i<allTiles.length;i++){ if(allTiles[i]!==tile) allTiles[i].classList.add("dimmed"); }
+      tile.style.transform = "scale(1.22)";
+      tile.style.zIndex = "60";
+      var lab = tile.querySelector(".label"); if(lab){ lab.style.opacity="1"; lab.style.transform="translateY(0)"; }
+    });
+    document.addEventListener("click", function(e){
+      if(activeTile && !e.target.closest(".tile")){ resetActive(); }
+    });
+  }
+  function clearDim(){ for(var i=0;i<allTiles.length;i++){ allTiles[i].classList.remove("dimmed"); } }
+  function resetActive(){
+    if(!activeTile) return;
+    activeTile.style.transform=""; activeTile.style.zIndex="";
+    var lab=activeTile.querySelector(".label"); if(lab){ lab.style.opacity=""; lab.style.transform=""; }
+    clearDim(); activeTile=null;
+  }
+
+  // ---- HERO TEXT REVEAL ----
+  if(!REDUCED && window.gsap){
+    var els = ["#h-eyebrow","#h-title","#h-sub","#h-cta"];
+    gsap.to(els, { opacity:1, y:0, duration:1.1, ease:"power3.out", stagger:0.13, delay:0.25 });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.style.opacity="1"; el.style.transform="none"; });
+  }
+
+  // ============ CURATED GRID (tighter, hand-picked, mixed sizes) ============
+  var curatedPick = [
+    {item:gallery[6], cls:"feat"},          // lookbook plaster wall — hero cell
+    {item:gallery[0], cls:"tall"},          // tryon sage wall
+    {item:templates[37], cls:""},           // W-series model
+    {item:showcase[17], cls:""},            // perfume cloche cut
+    {item:gallery[3], cls:"tall"},          // studio kombin
+    {item:templates[5], cls:""},            // A06
+    {item:showcase[49], cls:""},            // watchbox billboard cut
+    {item:gallery[8], cls:"tall"},          // street motion editorial
+    {item:scenes[36], cls:""},              // luxmarble
+    {item:templates[20], cls:""},           // M-series
+    {item:showcase[37], cls:""},            // product serum
+    {item:gallery[11], cls:""},             // outdoor golden hour
+    {item:scenes[33], cls:""},              // luxhotel
+    {item:templates[44], cls:""}            // W-series
+  ];
+  var grid = document.getElementById("curatedGrid");
+  curatedPick.forEach(function(p){
+    if(!p.item) return;
+    var cell = document.createElement("div");
+    cell.className = "cell " + p.cls;
+    var img = document.createElement("img");
+    img.loading="lazy"; img.decoding="async"; img.src=p.item.src;
+    img.alt = p.item.label + " — " + p.item.sub;
+    var cap = document.createElement("div");
+    cap.className="cap";
+    cap.innerHTML = "<span style='color:var(--gold);font-weight:600'>"+p.item.label+"</span> · "+p.item.sub;
+    cell.appendChild(img); cell.appendChild(cap);
+    grid.appendChild(cell);
+  });
+})();
+</script>
+</body>
+</html>

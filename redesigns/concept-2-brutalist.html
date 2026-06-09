@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>listifyai — BRUTALIST DEV</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts: Alexandria (variable weight) + JetBrains Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- GSAP for kinetic type -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+  :root{
+    --ink:#111110;
+    --paper:#F4F1EA;
+    --sage:#9EB098;
+    --gold:#C9B88A;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ max-width:100%; overflow-x:hidden; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Alexandria',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{ font-family:'JetBrains Mono',monospace; }
+
+  /* Kinetic headline */
+  .kin{
+    font-weight:200;
+    line-height:0.82;
+    letter-spacing:-0.03em;
+    text-transform:uppercase;
+    font-size:clamp(2.7rem, 15.5vw, 13rem);
+    transition:font-weight .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .kin .word{ display:block; }
+  .kin .word.mid{ font-weight:900; }
+  /* hover weight-morph per line on desktop */
+  @media (hover:hover){
+    .kin .word:hover{ font-weight:900; }
+    .kin .word.mid:hover{ font-weight:200; }
+  }
+
+  .thickrule{ border-top:6px solid var(--ink); }
+
+  /* Marquee */
+  .marquee{ display:flex; width:max-content; will-change:transform; }
+  .marquee span{
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.02em;
+    font-size:clamp(2.2rem, 7vw, 6rem);
+    padding:0 0.35em;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .marquee .sep{ color:var(--gold); font-weight:200; }
+
+  .tile-label{
+    font-size:0.62rem;
+    letter-spacing:0.18em;
+  }
+
+  /* image tile reveal */
+  .reveal{ opacity:0; transform:translateY(28px); }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+    .marquee{ transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP TECHNICAL BAR ===== -->
+<header class="border-b-[6px] border-[var(--ink)]">
+  <div class="flex items-stretch justify-between">
+    <div class="px-4 py-3 mono text-[0.62rem] tracking-[0.2em] flex items-center border-r-[6px] border-[var(--ink)]">
+      EST. 2025 — IST/TR
+    </div>
+    <div class="px-4 py-3 mono text-[0.62rem] tracking-[0.2em] flex items-center font-bold uppercase">
+      listifyai™ / AI MODA STÜDYOSU
+    </div>
+    <div class="px-4 py-3 mono text-[0.62rem] tracking-[0.2em] hidden sm:flex items-center border-l-[6px] border-[var(--ink)]">
+      v.0.2 / DEMO
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="relative">
+  <div class="grid grid-cols-12">
+
+    <!-- Left meta column -->
+    <div class="col-span-12 lg:col-span-3 border-b-[6px] lg:border-b-0 lg:border-r-[6px] border-[var(--ink)] p-5 lg:p-6 flex flex-col justify-between bg-[var(--sage)]">
+      <div class="mono text-[0.65rem] tracking-[0.18em] leading-relaxed uppercase">
+        [ INDEX_01 ]<br/>
+        Tek fotoğraf gir.<br/>
+        Bir stüdyo çıkar.<br/>
+        Çekim yok. Set yok.<br/>
+        Bekleme yok.
+      </div>
+      <div class="mono text-[0.65rem] tracking-[0.18em] mt-8 uppercase">
+        ↓ KAYDIR / SCROLL
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <div class="col-span-12 lg:col-span-9 p-5 lg:p-10 flex flex-col justify-center">
+      <h1 class="kin select-none" aria-label="Tek fotoğraf, bir stüdyo, dolusu sonuç">
+        <span class="word">Tek</span>
+        <span class="word">Fotoğraf</span>
+        <span class="word mid">Bir Stüdyo</span>
+        <span class="word">Dolusu</span>
+        <span class="word mid">Sonuç</span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Hero image strip -->
+  <div class="grid grid-cols-2 md:grid-cols-4 thickrule border-b-[6px] border-[var(--ink)]">
+    <div class="relative aspect-[3/4] border-r-[6px] border-[var(--ink)] overflow-hidden">
+      <img src="../assets/fashion/gallery/01_tryon_sage_wall.webp" alt="Adaçayı yeşili duvar önünde sanal deneme çekimi" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute bottom-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-1">001 / TRY-ON</span>
+    </div>
+    <div class="relative aspect-[3/4] border-r-[6px] border-[var(--ink)] overflow-hidden bg-[var(--gold)]">
+      <img src="../assets/fashion/gallery/04_studio_kombin_4piece.webp" alt="Dört parçalı stüdyo kombin görseli" class="w-full h-full object-cover mix-blend-multiply" loading="lazy" />
+      <span class="absolute bottom-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-1">002 / KOMBİN</span>
+    </div>
+    <div class="relative aspect-[3/4] border-r-[6px] border-[var(--ink)] overflow-hidden">
+      <img src="../assets/fashion/gallery/09_street_motion_editorial.webp" alt="Sokak hareketli editoryal moda çekimi" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute bottom-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-1">003 / EDİTORYAL</span>
+    </div>
+    <div class="relative aspect-[3/4] overflow-hidden">
+      <img src="../assets/fashion/gallery/02_accessory_jewelry_flatlay.webp" alt="Takı aksesuar flatlay görseli" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute bottom-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-1">004 / AKSESUAR</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE OF FEATURE WORDS ===== -->
+<section class="bg-[var(--ink)] text-[var(--paper)] py-6 md:py-9 border-b-[6px] border-[var(--ink)] overflow-hidden">
+  <div class="mono text-[0.62rem] tracking-[0.3em] px-4 mb-4 text-[var(--gold)]">// YETENEKLER — NE YAPIYOR?</div>
+  <div class="marquee" id="marquee">
+    <span>SANAL DENEME</span><span class="sep">·</span>
+    <span>AKSESUAR</span><span class="sep">·</span>
+    <span>KOMBİN</span><span class="sep">·</span>
+    <span>LOOKBOOK</span><span class="sep">·</span>
+    <span>KUMAŞ→KIYAFET</span><span class="sep">·</span>
+    <span>MODA VİDEO</span><span class="sep">·</span>
+    <span>99+ ŞABLON</span><span class="sep">·</span>
+    <span>MARKETPLACE EXPORT</span><span class="sep">·</span>
+    <!-- duplicate for seamless loop -->
+    <span>SANAL DENEME</span><span class="sep">·</span>
+    <span>AKSESUAR</span><span class="sep">·</span>
+    <span>KOMBİN</span><span class="sep">·</span>
+    <span>LOOKBOOK</span><span class="sep">·</span>
+    <span>KUMAŞ→KIYAFET</span><span class="sep">·</span>
+    <span>MODA VİDEO</span><span class="sep">·</span>
+    <span>99+ ŞABLON</span><span class="sep">·</span>
+    <span>MARKETPLACE EXPORT</span><span class="sep">·</span>
+  </div>
+</section>
+
+<!-- ===== COLOR-BLOCK STATEMENT ===== -->
+<section class="grid grid-cols-12 border-b-[6px] border-[var(--ink)]">
+  <div class="col-span-12 md:col-span-7 bg-[var(--sage)] p-5 md:p-12 flex items-center border-b-[6px] md:border-b-0 md:border-r-[6px] border-[var(--ink)]">
+    <p class="font-thin uppercase leading-[0.95] tracking-tight" style="font-size:clamp(1.7rem,5.2vw,3.6rem)">
+      Modeli, seti, ışığı <span class="font-black">yapay zekâ</span> kurar. Sen sadece <span class="font-black">ürünü</span> ver.
+    </p>
+  </div>
+  <div class="col-span-12 md:col-span-5 bg-[var(--ink)] text-[var(--paper)] p-5 md:p-12 flex flex-col justify-between gap-8">
+    <div class="mono text-[0.7rem] tracking-[0.2em] leading-relaxed uppercase text-[var(--gold)]">
+      [ ÇIKTI_FORMATI ]<br/>
+      <span class="text-[var(--paper)]">— Vitrin fotoğrafı</span><br/>
+      <span class="text-[var(--paper)]">— Dikey moda video</span><br/>
+      <span class="text-[var(--paper)]">— Marketplace hazır</span>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="border-[3px] border-[var(--paper)] p-2 text-center"><div class="font-black text-2xl md:text-4xl">99+</div><div class="mono text-[0.55rem] tracking-widest mt-1">ŞABLON</div></div>
+      <div class="border-[3px] border-[var(--paper)] p-2 text-center"><div class="font-black text-2xl md:text-4xl">1</div><div class="mono text-[0.55rem] tracking-widest mt-1">FOTOĞRAF</div></div>
+      <div class="border-[3px] border-[var(--paper)] p-2 text-center"><div class="font-black text-2xl md:text-4xl">∞</div><div class="mono text-[0.55rem] tracking-widest mt-1">VARYANT</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOLD TILE GRID ===== -->
+<section class="border-b-[6px] border-[var(--ink)]">
+  <div class="flex items-center justify-between px-4 py-3 border-b-[6px] border-[var(--ink)]">
+    <div class="mono text-[0.62rem] tracking-[0.3em] uppercase">// GALERİ — ŞABLON ÇIKTILARI</div>
+    <div class="mono text-[0.62rem] tracking-[0.3em] uppercase hidden sm:block">N=08</div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4">
+    <!-- row 1 -->
+    <div class="reveal relative aspect-square border-r-[6px] border-b-[6px] border-[var(--ink)] overflow-hidden">
+      <img src="../assets/app-showcase/templates/W03.webp" alt="Kadın editoryal moda şablonu çıktısı" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--paper)] text-[var(--ink)] px-2 py-0.5">W03</span>
+    </div>
+    <div class="reveal relative aspect-square border-r-[6px] border-b-[6px] border-[var(--ink)] overflow-hidden bg-[var(--sage)]">
+      <img src="../assets/app-showcase/templates/A02.webp" alt="Moda video şablonu A02 karesi" class="w-full h-full object-cover mix-blend-multiply" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-0.5">A02</span>
+    </div>
+    <div class="reveal relative aspect-square border-r-[6px] md:border-r-[6px] border-b-[6px] border-[var(--ink)] overflow-hidden">
+      <img src="../assets/app-showcase/templates/M08.webp" alt="Erkek moda şablonu M08 çıktısı" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--paper)] text-[var(--ink)] px-2 py-0.5">M08</span>
+    </div>
+    <div class="reveal relative aspect-square border-b-[6px] border-[var(--ink)] overflow-hidden bg-[var(--gold)]">
+      <img src="../assets/app-showcase/templates/W11.webp" alt="Kadın lookbook şablonu W11 çıktısı" class="w-full h-full object-cover mix-blend-multiply" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-0.5">W11</span>
+    </div>
+
+    <!-- row 2 -->
+    <div class="reveal relative aspect-square border-r-[6px] border-b-[6px] md:border-b-0 border-[var(--ink)] overflow-hidden bg-[var(--ink)]">
+      <img src="../assets/fashion/gallery/08_fabric_vision_texture.webp" alt="Kumaştan kıyafet kumaş dokusu görseli" class="w-full h-full object-cover opacity-90" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--gold)] text-[var(--ink)] px-2 py-0.5 font-bold">KUMAŞ→KIYAFET</span>
+    </div>
+    <div class="reveal relative aspect-square border-r-[6px] border-b-[6px] md:border-b-0 border-[var(--ink)] overflow-hidden">
+      <img src="../assets/app-showcase/templates/B02.webp" alt="Moda video şablonu B02 karesi" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--paper)] text-[var(--ink)] px-2 py-0.5">B02</span>
+    </div>
+    <div class="reveal relative aspect-square border-r-[6px] border-b-[6px] md:border-b-0 border-[var(--ink)] overflow-hidden">
+      <img src="../assets/fashion/gallery/07_lookbook_plaster_wall.webp" alt="Sıva duvar önünde lookbook çekimi" class="w-full h-full object-cover" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--paper)] text-[var(--ink)] px-2 py-0.5">LOOKBOOK</span>
+    </div>
+    <div class="reveal relative aspect-square overflow-hidden bg-[var(--sage)]">
+      <img src="../assets/fashion/gallery/10_accessory_watch_wrist.webp" alt="Bilekte saat aksesuar çekimi" class="w-full h-full object-cover mix-blend-multiply" loading="lazy" />
+      <span class="absolute top-2 left-2 mono tile-label bg-[var(--ink)] text-[var(--paper)] px-2 py-0.5">AKSESUAR</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BLOCK ===== -->
+<section class="grid grid-cols-12">
+  <div class="col-span-12 md:col-span-4 bg-[var(--gold)] p-5 md:p-10 border-b-[6px] md:border-b-0 md:border-r-[6px] border-[var(--ink)] flex items-end">
+    <div class="mono text-[0.7rem] tracking-[0.2em] uppercase leading-relaxed">
+      [ BAŞLAT ]<br/>
+      İlk çekim ücretsiz.<br/>
+      Kart yok.
+    </div>
+  </div>
+  <a href="#" class="group col-span-12 md:col-span-8 bg-[var(--ink)] text-[var(--paper)] p-5 md:p-10 flex items-center justify-between gap-4 hover:bg-[var(--sage)] hover:text-[var(--ink)] transition-colors duration-300">
+    <span class="font-black uppercase leading-[0.85] tracking-tight" style="font-size:clamp(2.1rem,8vw,6rem)">
+      STÜDYOYU<br/>AÇ
+    </span>
+    <span class="mono text-3xl md:text-6xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+  </a>
+</section>
+
+<!-- ===== FOOTER TECH BAR ===== -->
+<footer class="border-t-[6px] border-[var(--ink)] flex flex-wrap items-stretch justify-between">
+  <div class="px-4 py-3 mono text-[0.6rem] tracking-[0.2em] uppercase">© 2026 listifyai™</div>
+  <div class="px-4 py-3 mono text-[0.6rem] tracking-[0.2em] uppercase">CONCEPT DEMO / BRUTALIST DEV</div>
+  <div class="px-4 py-3 mono text-[0.6rem] tracking-[0.2em] uppercase border-l-[6px] border-[var(--ink)]">iOS · ANDROID</div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || typeof gsap === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1) Hero headline lines slide + fade in, staggered
+  gsap.from('.kin .word', {
+    yPercent: 115,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power4.out',
+    stagger: 0.09
+  });
+
+  // 2) Weight-morph pulse on load: thin lines briefly go black, bold lines briefly go thin
+  gsap.delayedCall(1.05, function(){
+    var words = document.querySelectorAll('.kin .word');
+    words.forEach(function(w, i){
+      var isMid = w.classList.contains('mid');
+      gsap.fromTo(w,
+        { fontWeight: isMid ? 200 : 900 },
+        { fontWeight: isMid ? 900 : 200, duration: 0.7, ease: 'power2.inOut', delay: i * 0.05 }
+      );
+    });
+  });
+
+  // 3) Marquee continuous scroll (translate by half — list is duplicated)
+  var mq = document.getElementById('marquee');
+  if (mq) {
+    var half = mq.scrollWidth / 2;
+    gsap.to(mq, {
+      x: -half,
+      duration: 22,
+      ease: 'none',
+      repeat: -1
+    });
+  }
+
+  // 4) Tile reveal on scroll
+  gsap.utils.toArray('.reveal').forEach(function(el, i){
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%' },
+      delay: (i % 4) * 0.06
+    });
+  });
+
+  // 5) Subtle headline weight shift on scroll (kinetic continuity)
+  ScrollTrigger.create({
+    trigger: '.kin',
+    start: 'top top',
+    end: 'bottom top',
+    onUpdate: function(self){
+      var w = 200 + Math.round(self.progress * 700);
+      document.querySelectorAll('.kin .word:not(.mid)').forEach(function(el){
+        el.style.fontWeight = w;
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

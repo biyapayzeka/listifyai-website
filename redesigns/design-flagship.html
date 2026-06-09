@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ListifyAI — Tek fotoğraftan stüdyo dolusu içerik | Moda & e-ticaret AI stüdyosu</title>
+<meta name="description" content="ListifyAI, tek ürün ya da kıyafet fotoğrafından profesyonel görsel, video ve pazaryeri içeriği üreten mobil AI stüdyosu. 28 araç, 99+ video şablonu, 600+ sahne, 7 pazaryeri için CSV/XLSX export. iOS ve Android." />
+<link rel="canonical" href="https://listifyai.com.tr/" />
+<meta name="theme-color" content="#08080B" />
+<link rel="icon" type="image/png" href="../assets/favicon.png" />
+<link rel="apple-touch-icon" href="../assets/favicon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ListifyAI" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:title" content="ListifyAI — Tek fotoğraftan stüdyo dolusu içerik" />
+<meta property="og:description" content="Moda ve e-ticaret satıcıları için mobil AI stüdyosu. Tek fotoğraftan profesyonel görsel, video ve pazaryeri içeriği." />
+<meta property="og:url" content="https://listifyai.com.tr/" />
+<meta property="og:image" content="../assets/fashion/gallery/01_tryon_sage_wall.webp" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ListifyAI — Tek fotoğraftan stüdyo dolusu içerik" />
+<meta name="twitter:description" content="Moda ve e-ticaret satıcıları için mobil AI stüdyosu. Tek fotoğraftan profesyonel görsel, video ve pazaryeri içeriği." />
+<meta name="twitter:image" content="../assets/fashion/gallery/01_tryon_sage_wall.webp" />
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "ListifyAI",
+  "operatingSystem": "Android, iOS",
+  "applicationCategory": "PhotographyApplication",
+  "description": "Moda ve e-ticaret satıcıları için tek fotoğraftan profesyonel görsel, video ve pazaryeri içeriği üreten mobil AI stüdyosu.",
+  "url": "https://listifyai.com.tr/",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "ratingCount": "45",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "installUrl": "https://apps.apple.com/us/app/listify-ai/id6758052017"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Alexandria', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        colors: {
+          base: '#08080B',
+          base2: '#0C0C10',
+          surf: '#15151A',
+          surf2: '#1C1D22',
+          ink: '#F5F5F0',
+          inkv: '#9CA39C',
+          inkm: '#8B918B',
+          sage: '#9EB098',
+          sageb: '#B8CDB0',
+          gold: '#C9B88A',
+          rose: '#E0A3A8',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --hair: rgba(245, 245, 240, 0.08);
+    --hair-strong: rgba(245, 245, 240, 0.14);
+  }
+
+  * { -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    background: #08080B;
+    color: #F5F5F0;
+    font-family: 'Alexandria', system-ui, sans-serif;
+    overflow-x: clip;
+    max-width: 100vw;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Lenis */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: clip; }
+
+  ::selection { background: rgba(158, 176, 152, 0.32); color: #F5F5F0; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .balance { text-wrap: balance; }
+  .pretty { text-wrap: pretty; }
+
+  /* film grain */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glow-sage { background: radial-gradient(closest-side, rgba(158,176,152,0.20), rgba(158,176,152,0) 72%); }
+  .glow-gold { background: radial-gradient(closest-side, rgba(201,184,138,0.16), rgba(201,184,138,0) 72%); }
+
+  .hairline { border: 1px solid var(--hair); }
+  .hairline-t { border-top: 1px solid var(--hair); }
+  .hairline-b { border-bottom: 1px solid var(--hair); }
+
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-visible {
+    outline: 2px solid #B8CDB0;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* skip link */
+  .skip {
+    position: absolute; left: 1rem; top: -120px; z-index: 200;
+    background: #15151A; color: #F5F5F0; padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem; border: 1px solid var(--hair-strong);
+    transition: top 0.2s var(--ease-out-quart);
+  }
+  .skip:focus { top: 1rem; }
+
+  /* Kinetic headline weight */
+  .kinetic { font-variation-settings: 'wght' var(--w, 700); }
+
+  /* Hero content wall */
+  .wall-track { display: flex; gap: 14px; width: max-content; will-change: transform; }
+  .wall-track img {
+    width: clamp(120px, 22vw, 230px);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--hair);
+  }
+
+  /* mobile hero collage strip (real imagery in first viewport) */
+  .hero-strip { display: flex; gap: 10px; }
+  .hero-strip img {
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--hair-strong);
+  }
+
+  /* marquee rows (video universe) */
+  .marquee { display: flex; gap: 12px; width: max-content; will-change: transform; }
+  .marquee img {
+    height: clamp(150px, 26vw, 240px);
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--hair);
+  }
+  @media (max-width: 767px) {
+    .marquee img { height: 120px; }
+  }
+
+  /* Hub cards */
+  .hub-media { transition: transform 0.7s var(--ease-out-quart); }
+  .hub-card:hover .hub-media { transform: scale(1.045); }
+
+  /* Tool track (desktop horizontal pin) */
+  .tool-card { scroll-snap-align: center; }
+
+  /* before/after slider */
+  .ba-wrap { position: relative; overflow: hidden; border-radius: 1.5rem; touch-action: pan-y; }
+  .ba-after { position: absolute; inset: 0; }
+  .ba-after-clip { position: absolute; inset: 0; clip-path: inset(0 0 0 50%); will-change: clip-path; }
+  .ba-handle {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+    background: rgba(245,245,240,0.9); transform: translateX(-1px); z-index: 5;
+  }
+  .ba-knob {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 48px; height: 48px; border-radius: 999px;
+    background: rgba(8,8,11,0.66); border: 1.5px solid rgba(245,245,240,0.9);
+    backdrop-filter: blur(6px);
+    display: grid; place-items: center; z-index: 6; cursor: ew-resize;
+  }
+
+  /* scene parallax wall */
+  .scene-item { will-change: transform; }
+
+  /* counter tabular */
+  .tnum { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
+
+  /* reveal default-visible, JS enhances */
+  .reveal { opacity: 1; }
+  html.gsap-ready .reveal { opacity: 0; }
+
+  /* pipeline connector */
+  .pipe-line { background: linear-gradient(90deg, rgba(158,176,152,0), rgba(158,176,152,0.5), rgba(158,176,152,0)); }
+
+  /* accordion */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.3s var(--ease-out-quart); }
+  details .faq-body {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s var(--ease-out-quart);
+  }
+  details[open] .faq-body { grid-template-rows: 1fr; }
+  .faq-body > div { overflow: hidden; }
+
+  .cv-auto { content-visibility: auto; contain-intrinsic-size: 1px 900px; }
+
+  /* sticky mobile bar spacing — clear the fixed download bar so footer isn't overlapped */
+  @media (max-width: 767px) {
+    body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  }
+
+  /* horizontal scroll snap carousels on mobile */
+  .snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .snap-y { scroll-snap-type: y mandatory; }
+  .no-bar::-webkit-scrollbar { display: none; }
+  .no-bar { scrollbar-width: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .grain::after { display: none; }
+    .wall-track, .marquee { transform: none !important; }
+  }
+</style>
+</head>
+
+<body class="grain antialiased">
+<a href="#main" class="skip">İçeriğe geç</a>
+
+<!-- ===================== NAV ===================== -->
+<header class="fixed top-0 inset-x-0 z-50" id="nav">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="mt-3 md:mt-4 flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 hairline backdrop-blur-xl transition-colors duration-500" id="navbar" style="background:rgba(12,12,16,0.55)">
+      <a href="#main" class="text-xl md:text-2xl font-semibold tracking-tight" aria-label="ListifyAI ana sayfa">
+        <span class="text-ink">listify</span><span class="text-sage">ai</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-inkv" aria-label="Ana menü">
+        <a href="#hub" class="hover:text-ink transition-colors">Stüdyolar</a>
+        <a href="#moda" class="hover:text-ink transition-colors">Moda</a>
+        <a href="#video" class="hover:text-ink transition-colors">Video</a>
+        <a href="#eticaret" class="hover:text-ink transition-colors">E-ticaret</a>
+        <a href="#fiyat" class="hover:text-ink transition-colors">Planlar</a>
+      </nav>
+      <a href="#indir" class="inline-flex items-center gap-2 rounded-full bg-ink text-base px-3.5 md:px-5 py-2.5 text-[13px] md:text-sm font-medium hover:bg-sageb transition-colors whitespace-nowrap shrink-0" style="min-height:44px">
+        Ücretsiz dene
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== 1. HERO ===================== -->
+<section class="relative md:min-h-[100svh] flex flex-col md:justify-center overflow-hidden pt-24 md:pt-28 pb-12 md:pb-16" aria-label="Tanıtım">
+  <!-- canvas mesh (desktop only, perf-gated in JS) -->
+  <canvas id="mesh" class="absolute inset-0 w-full h-full -z-10" aria-hidden="true"></canvas>
+  <div class="pointer-events-none absolute -top-32 -left-24 w-[60vw] h-[60vw] glow-sage -z-10" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -bottom-40 -right-24 w-[55vw] h-[55vw] glow-gold -z-10" aria-hidden="true"></div>
+
+  <!-- drifting content wall behind headline (desktop only) -->
+  <div class="hidden md:flex absolute inset-0 -z-10 flex-col justify-center gap-3 opacity-[0.18]" aria-hidden="true" id="hero-walls">
+    <div class="wall-track" data-wall="0"></div>
+    <div class="wall-track" data-wall="1"></div>
+    <div class="wall-track" data-wall="2"></div>
+  </div>
+  <div class="hidden md:block absolute inset-0 -z-10 bg-gradient-to-b from-base/70 via-base/55 to-base" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-[1400px] w-full px-5 md:px-10">
+    <p class="mono text-[10px] md:text-xs text-sage tracking-[0.16em] md:tracking-[0.18em] mb-4 md:mb-5 reveal" data-rv="up">MODA &amp; E-TİCARET AI STÜDYOSU · iOS + ANDROID</p>
+    <h1 class="font-sans leading-[0.95] md:leading-[0.92] tracking-[-0.04em] md:tracking-[-0.045em] balance" style="font-size:clamp(1.95rem,8.2vw,6rem)">
+      <span class="block kinetic reveal" data-rv="up" style="--w:300">Tek fotoğraf.</span>
+      <span class="block kinetic reveal" data-rv="up" style="--w:800">Bir stüdyo dolusu</span>
+      <span class="block reveal" data-rv="up"><span class="kinetic" style="--w:800">sonuç</span><span class="text-sage">.</span></span>
+    </h1>
+    <p class="mt-5 md:mt-7 max-w-[46ch] text-base md:text-xl text-ink/90 leading-relaxed pretty reveal" data-rv="up">
+      Ürün ya da kıyafetinin tek karesinden profesyonel görsel, video ve pazaryeri içeriğini cebinde üret. Stüdyo, ekip, çekim günü gerektirmeden.
+    </p>
+
+    <!-- mobile-only real imagery strip so the first viewport says "wow" not "void" -->
+    <div class="md:hidden mt-6 hero-strip reveal" data-rv="up" id="hero-strip" aria-hidden="true"></div>
+
+    <div class="mt-7 md:mt-9 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 reveal" data-rv="up">
+      <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener" aria-label="App Store'dan indir">
+        <img src="../assets/img/app-store-badge.svg" alt="App Store'dan indir" width="160" height="48" class="h-12 w-auto" decoding="async" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener" aria-label="Google Play'den indir">
+        <img src="../assets/img/google-play-badge.svg" alt="Google Play'den indir" width="160" height="48" class="h-12 w-auto" decoding="async" />
+      </a>
+    </div>
+    <p class="mt-4 text-sm text-inkv reveal" data-rv="up">
+      <span class="text-sageb">Hediye kredi ile ücretsiz dene</span> · Kart gerekmez · 500+ aktif satıcı
+    </p>
+  </div>
+
+  <a href="#kanit" class="hidden md:flex absolute left-1/2 -translate-x-1/2 bottom-7 text-inkv flex-col items-center gap-2 group" aria-label="Aşağı kaydır">
+    <span class="mono text-[10px] tracking-[0.2em]">KAYDIR</span>
+    <span class="block w-px h-9 bg-gradient-to-b from-inkv to-transparent group-hover:from-sage transition-colors" id="scroll-cue"></span>
+  </a>
+</section>
+
+<!-- ===================== 2. THE DROP (kanıt) ===================== -->
+<section id="kanit" class="relative cv-auto py-20 md:py-32" aria-label="Önce ve sonra kanıtı">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="max-w-[34ch] mb-12 md:mb-16">
+      <p class="mono text-xs text-gold tracking-[0.18em] mb-4 reveal" data-rv="up">HAM KARE → AI SONUÇ</p>
+      <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5.5vw,3.4rem)">
+        Telefonla çektiğin kareyi sürükle, sonucu gör.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+      <!-- e-com beat -->
+      <figure class="reveal" data-rv="up">
+        <div class="ba-wrap aspect-[4/5] hairline" data-ba role="group" aria-label="E-ticaret önce/sonra karşılaştırması, sürükleyerek değiştir">
+          <img class="absolute inset-0 w-full h-full object-cover" src="../assets/app-showcase/onboarding/ecom_before.webp" alt="Ürünün düz, ham telefon fotoğrafı" loading="lazy" decoding="async" />
+          <div class="ba-after-clip">
+            <img class="absolute inset-0 w-full h-full object-cover" src="../assets/app-showcase/onboarding/ecom_after.webp" alt="Aynı ürünün ListifyAI ile profesyonel sahnede üretilmiş hali" loading="lazy" decoding="async" />
+          </div>
+          <span class="absolute left-3 top-3 mono text-[10px] tracking-widest bg-base/70 text-ink px-2.5 py-1 rounded-full" aria-hidden="true">ÖNCE</span>
+          <span class="absolute right-3 top-3 mono text-[10px] tracking-widest bg-sage/85 text-base px-2.5 py-1 rounded-full" aria-hidden="true">SONRA</span>
+          <div class="ba-handle"></div>
+          <input type="range" min="0" max="100" value="50" class="ba-range absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10" aria-label="E-ticaret görseli önce/sonra oranı" />
+          <div class="ba-knob" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F5F0" stroke-width="2"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+        <figcaption class="mt-4 text-inkv text-sm">Ürün Stüdyo · ham ürün karesinden satışa hazır sahneli görsel.</figcaption>
+      </figure>
+
+      <!-- fashion beat -->
+      <figure class="reveal" data-rv="up">
+        <div class="ba-wrap aspect-[4/5] hairline" data-ba role="group" aria-label="Moda önce/sonra karşılaştırması, sürükleyerek değiştir">
+          <img class="absolute inset-0 w-full h-full object-cover" src="../assets/app-showcase/onboarding/fashion_before.webp" alt="Kıyafetin manken olmadan düz çekilmiş ham fotoğrafı" loading="lazy" decoding="async" />
+          <div class="ba-after-clip">
+            <img class="absolute inset-0 w-full h-full object-cover" src="../assets/app-showcase/onboarding/fashion_after.webp" alt="Aynı kıyafetin AI manken üzerinde editöryal sahnedeki hali" loading="lazy" decoding="async" />
+          </div>
+          <span class="absolute left-3 top-3 mono text-[10px] tracking-widest bg-base/70 text-ink px-2.5 py-1 rounded-full" aria-hidden="true">ÖNCE</span>
+          <span class="absolute right-3 top-3 mono text-[10px] tracking-widest bg-sage/85 text-base px-2.5 py-1 rounded-full" aria-hidden="true">SONRA</span>
+          <div class="ba-handle"></div>
+          <input type="range" min="0" max="100" value="50" class="ba-range absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10" aria-label="Moda görseli önce/sonra oranı" />
+          <div class="ba-knob" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F5F0" stroke-width="2"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+        <figcaption class="mt-4 text-inkv text-sm">AI Lookbook · düz kıyafet karesinden gerçekçi mankenli editöryal.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. 4 HUB ===================== -->
+<section id="hub" class="relative cv-auto py-20 md:py-32" aria-label="Dört stüdyo">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
+      <div class="max-w-[24ch]">
+        <p class="mono text-xs text-sage tracking-[0.18em] mb-4 reveal" data-rv="up">ÜRETİM ÇEKİRDEĞİ</p>
+        <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5.5vw,3.6rem)">
+          Dört stüdyo. <span class="text-inkv">Tek uygulama.</span>
+        </h2>
+      </div>
+      <p class="max-w-[40ch] text-inkv reveal" data-rv="up">Her satıcının ihtiyacı farklı. ListifyAI dört ayrı üretim hattını cebine sığdırır; istediğinden başla.</p>
+    </div>
+
+    <!-- asymmetric editorial layout -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 auto-rows-auto">
+      <!-- Moda - large feature -->
+      <article class="hub-card group relative md:col-span-7 md:row-span-2 rounded-[1.75rem] overflow-hidden hairline min-h-[360px] md:min-h-[560px] reveal" data-rv="up">
+        <video class="hub-media absolute inset-0 w-full h-full object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/fashion/gallery/09_street_motion_editorial.webp" aria-hidden="true">
+          <source src="../assets/video/hero_fashion.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-base via-base/30 to-transparent"></div>
+        <div class="relative h-full flex flex-col justify-end p-6 md:p-9">
+          <span class="mono text-[11px] text-sageb tracking-widest mb-3">HUB · MODA</span>
+          <h3 class="font-sans tracking-tight leading-[0.95]" style="font-size:clamp(2rem,4vw,3rem)"><span class="tnum">11</span> araçlık moda stüdyosu</h3>
+          <p class="mt-3 max-w-[42ch] text-ink/85 pretty">Lookbook, sanal deneme, eskizden kıyafet, kumaştan tasarım, video şablonları. Tek kıyafet karesinden eksiksiz moda içeriği.</p>
+        </div>
+      </article>
+
+      <!-- Ürün Çekim -->
+      <article class="hub-card group relative md:col-span-5 rounded-[1.75rem] overflow-hidden hairline min-h-[260px] reveal" data-rv="up">
+        <img class="hub-media absolute inset-0 w-full h-full object-cover" src="../assets/showcase/perfume_studio_showcase_scene.webp" alt="Parfüm ürününün profesyonel stüdyo sahnesinde çekilmiş hali" loading="lazy" decoding="async" />
+        <div class="absolute inset-0 bg-gradient-to-t from-base via-base/35 to-transparent"></div>
+        <div class="relative h-full flex flex-col justify-end p-6 md:p-7">
+          <span class="mono text-[11px] text-sageb tracking-widest mb-2">HUB · ÜRÜN ÇEKİM</span>
+          <h3 class="font-sans tracking-tight leading-tight" style="font-size:clamp(1.5rem,2.6vw,2rem)">Tek çekimden <span class="tnum">10</span> ürün fotoğrafı</h3>
+          <p class="mt-2 text-ink/80 text-sm md:text-base pretty">Aynı üründen farklı sahnelerde, farklı açılarda profesyonel kareler.</p>
+        </div>
+      </article>
+
+      <!-- Ürün Video -->
+      <article class="hub-card group relative md:col-span-5 rounded-[1.75rem] overflow-hidden hairline min-h-[260px] reveal" data-rv="up">
+        <img class="hub-media absolute inset-0 w-full h-full object-cover" src="../assets/showcase/watchbox_billboard_scene.webp" alt="Saat kutusu ürününün sinematik tanıtım sahnesi" loading="lazy" decoding="async" />
+        <div class="absolute inset-0 bg-gradient-to-t from-base via-base/35 to-transparent"></div>
+        <div class="relative h-full flex flex-col justify-end p-6 md:p-7">
+          <span class="mono text-[11px] text-sageb tracking-widest mb-2">HUB · ÜRÜN VİDEO</span>
+          <h3 class="font-sans tracking-tight leading-tight" style="font-size:clamp(1.5rem,2.6vw,2rem)">Sinematik ürün videosu</h3>
+          <p class="mt-2 text-ink/80 text-sm md:text-base pretty">Hareket ve efektle, ürününe özel akıcı tanıtım klibi.</p>
+        </div>
+      </article>
+
+      <!-- Moda Video - wide -->
+      <article class="hub-card group relative md:col-span-12 rounded-[1.75rem] overflow-hidden hairline min-h-[260px] md:min-h-[300px] reveal" data-rv="up">
+        <video class="hub-media absolute inset-0 w-full h-full object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/templates/W01.webp" aria-hidden="true">
+          <source src="../assets/app-showcase/video/fashion_showcase.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-base via-base/55 to-base/10"></div>
+        <div class="relative h-full flex flex-col justify-end md:justify-center p-6 md:p-9 max-w-[44ch]">
+          <span class="mono text-[11px] text-sageb tracking-widest mb-2">HUB · MODA VİDEO</span>
+          <h3 class="font-sans tracking-tight leading-tight" style="font-size:clamp(1.6rem,3vw,2.4rem)"><span class="tnum">99+</span> hazır video şablonu</h3>
+          <p class="mt-2 text-ink/85 pretty">Kıyafet fotoğrafından, otomatik manken ve sahne üretimiyle profesyonel moda videosu.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. MODA — 11 araç ===================== -->
+<section id="moda" class="relative cv-auto py-20 md:py-0 overflow-hidden" aria-label="Moda stüdyosu araçları">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10 md:pt-28 md:pb-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+      <div class="max-w-[26ch]">
+        <p class="mono text-xs text-sage tracking-[0.18em] mb-4 reveal" data-rv="up">MODA STÜDYOSU · <span class="tnum">11</span> ARAÇ</p>
+        <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5vw,3.4rem)">
+          Bir gardırop için ne lazımsa.
+        </h2>
+      </div>
+      <p class="max-w-[36ch] text-inkv reveal" data-rv="up" id="moda-hint">
+        <span class="hidden md:inline">Kaydırdıkça araçlar yatay akar.</span>
+        <span class="md:hidden">Yana kaydır, araçlar arasında gez.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- desktop: pinned horizontal; mobile: scroll-snap carousel -->
+  <div id="tool-pin" class="md:h-[100svh] md:flex md:items-center">
+    <div id="tool-track" class="flex md:flex-nowrap gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none no-bar px-5 md:px-10 pb-4 md:pb-0 md:will-change-transform" tabindex="0" aria-label="Moda araçları galerisi, yana kaydırarak gezin">
+      <!-- 1 Editöryal -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/11_editorial_portrait_mature.webp" alt="Editöryal sahne şablonuyla üretilmiş moda portresi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Editöryal Şablonlar</h3><span class="mono text-sage text-sm tnum">63</span></div><p class="mt-2 text-sm text-inkv pretty">Küratör seçimi editoryal sahne şablonu, hazır kompozisyonla.</p></div>
+      </article>
+      <!-- 2 Lookbook -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/07_lookbook_plaster_wall.webp" alt="Tek üründen üretilmiş AI Lookbook çoklu poz sahnesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">AI Lookbook</h3><span class="mono text-sage text-sm">P2M</span></div><p class="mt-2 text-sm text-inkv pretty">Tek ürün karesini gerçekçi AI mankene; çoklu poz ve sahne.</p></div>
+      </article>
+      <!-- 3 Moda Stüdyosu -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/04_studio_kombin_4piece.webp" alt="Moda Stüdyosu ile dört parçalı kombin lookbook" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Moda Stüdyosu</h3><span class="mono text-sage text-sm">YÜZ · POZ</span></div><p class="mt-2 text-sm text-inkv pretty">Yüz, arka plan ve pozu sen ayarla; tek kıyafetten lookbook.</p></div>
+      </article>
+      <!-- 4 Moda Video Şablon -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/app-showcase/templates/W08.webp" alt="Moda video şablonu önizleme karesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Moda Video Şablon</h3><span class="mono text-sage text-sm tnum">99+</span></div><p class="mt-2 text-sm text-inkv pretty">Hazır video şablonu; otomatik manken ve sahne üretimi.</p></div>
+      </article>
+      <!-- 5 Sanal Deneme -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/01_tryon_sage_wall.webp" alt="Sanal deneme ile mankene giydirilmiş kıyafet" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Sanal Deneme</h3><span class="mono text-sage text-sm">HIZLI</span></div><p class="mt-2 text-sm text-inkv pretty">Kıyafeti mevcut manken fotoğrafına giydir; yüz ve poz korunur.</p></div>
+      </article>
+      <!-- 6 Aksesuar Deneme -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/02_accessory_jewelry_flatlay.webp" alt="Aksesuar deneme için takı ürün düzenlemesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Aksesuar Deneme</h3><span class="mono text-sage text-sm tnum">14 tip</span></div><p class="mt-2 text-sm text-inkv pretty">Çanta, kolye, küpe, saat, şapka; tek aksesuar odaklı denemeler.</p></div>
+      </article>
+      <!-- 7 Sketch-to-Garment (DISTINCT) -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/05_pose_change_triptych.webp" alt="Stilist çiziminden giyilebilir kıyafete dönüşüm sonucu" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Stilist Çizimi → Elbise</h3><span class="mono text-sage text-sm">SKETCH</span></div><p class="mt-2 text-sm text-inkv pretty">Tasarım eskizini giyilebilir kıyafete çevirir; ayakkabı ve aksesuar da.</p></div>
+      </article>
+      <!-- 8 Fabric Vision (DISTINCT) -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/08_fabric_vision_texture.webp" alt="Kumaş dokusu fotoğrafından üretilmiş tam kıyafet tasarımı" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Kumaş → Kıyafet</h3><span class="mono text-sage text-sm">~15 sn</span></div><p class="mt-2 text-sm text-inkv pretty">Kumaş dokusu fotoğrafından komple kıyafet tasarımı, saniyeler içinde.</p></div>
+      </article>
+      <!-- 9 Video Stüdyosu -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/app-showcase/templates/W37.webp" alt="Video stüdyosuyla özel prompttan üretilmiş tanıtım karesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Video Stüdyosu</h3><span class="mono text-sage text-sm">PROMPT</span></div><p class="mt-2 text-sm text-inkv pretty">Moda ya da ürün görselini özel prompt'la tanıtım videosuna.</p></div>
+      </article>
+      <!-- 10 Hızlı Moda Video -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/app-showcase/templates/M07.webp" alt="Hızlı moda video pipeline çıktısı önizleme karesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">Hızlı Moda Video</h3><span class="mono text-sage text-sm">~3 dk</span></div><p class="mt-2 text-sm text-inkv pretty">Tek fotoğraftan 5 fazlı AI pipeline ile pro moda videosu.</p></div>
+      </article>
+      <!-- 11 AI Upscaler -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] overflow-hidden hairline bg-surf">
+        <div class="aspect-[3/4] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/fashion/gallery/06_model_diversity_row.webp" alt="AI Upscaler ile yüksek çözünürlüğe çıkarılmış model görseli" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><div class="flex items-baseline justify-between gap-2"><h3 class="font-sans text-lg font-medium">AI Upscaler</h3><span class="mono text-sage text-sm">2K · 4K</span></div><p class="mt-2 text-sm text-inkv pretty">Düşük çözünürlüğü 2K/4K'ya çıkar; detay kaybı olmadan.</p></div>
+      </article>
+      <!-- editing tools card -->
+      <article class="tool-card shrink-0 w-[78vw] sm:w-[58vw] md:w-[30vw] lg:w-[24vw] rounded-[1.5rem] hairline bg-gradient-to-br from-surf2 to-surf p-6 flex flex-col justify-center">
+        <span class="mono text-[11px] text-gold tracking-widest mb-4">SONUCU DÜZENLE</span>
+        <h3 class="font-sans text-xl font-medium mb-4">Beş hızlı düzenleme</h3>
+        <ul class="space-y-2.5 text-sm text-ink/85">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Model Değiştir</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Poz Değiştir</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Arka Plan Değiştir</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>AI Model Oluştur</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sage"></span>Hızlı Düzenleme (Reframe)</li>
+        </ul>
+        <p class="mt-5 text-xs text-inkv pretty">Ürettiğin her sonucu uygulama içinde anında elden geçir.</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- mobile dot indicator -->
+  <div class="md:hidden flex justify-center gap-1.5 mt-2" id="tool-dots" aria-hidden="true"></div>
+</section>
+
+<!-- ===================== 5. VİDEO EVRENİ ===================== -->
+<section id="video" class="relative cv-auto py-20 md:py-32 overflow-hidden" aria-label="Video evreni">
+  <div class="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 w-[70vw] h-[40vw] glow-sage -z-10" aria-hidden="true"></div>
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10 mb-10 md:mb-14">
+    <div class="max-w-[30ch]">
+      <p class="mono text-xs text-sage tracking-[0.18em] mb-4 reveal" data-rv="up">VİDEO EVRENİ</p>
+      <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5.5vw,3.6rem)">
+        <span class="tnum">99+</span> şablon, durmadan üretiyor.
+      </h2>
+      <p class="mt-5 text-inkv max-w-[44ch] pretty reveal" data-rv="up">Reels ve TikTok için dikey, 15 saniyelik moda videoları. Hazır şablonu seç, kıyafet karesini bırak, gerisini AI yapar.</p>
+    </div>
+  </div>
+
+  <!-- featured reel + marquee -->
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10 mb-10">
+    <div class="grid md:grid-cols-12 gap-5 items-stretch">
+      <figure class="md:col-span-5 rounded-[1.5rem] overflow-hidden hairline relative aspect-[9/16] md:aspect-auto md:min-h-[420px] reveal" data-rv="up">
+        <video class="absolute inset-0 w-full h-full object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/model_catwalk.webp" aria-label="Manken catwalk video önizlemesi">
+          <source src="../assets/app-showcase/video/model_catwalk.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-base to-transparent">
+          <span class="mono text-[11px] text-sageb tracking-widest">CANLI ÖRNEK · 15 sn dikey</span>
+        </div>
+      </figure>
+      <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 reveal" data-rv="up">
+        <video class="rounded-2xl hairline w-full aspect-[9/16] object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/model_360_turn.webp" aria-label="Manken 360 derece dönüş video önizlemesi"><source src="../assets/app-showcase/video/model_360_turn.mp4" type="video/mp4" /></video>
+        <video class="rounded-2xl hairline w-full aspect-[9/16] object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/model_skirt_twirl.webp" aria-label="Etek savurma video önizlemesi"><source src="../assets/app-showcase/video/model_skirt_twirl.mp4" type="video/mp4" /></video>
+        <video class="rounded-2xl hairline w-full aspect-[9/16] object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/model_outfit_reveal.webp" aria-label="Kombin açılış video önizlemesi"><source src="../assets/app-showcase/video/model_outfit_reveal.mp4" type="video/mp4" /></video>
+        <video class="rounded-2xl hairline w-full aspect-[9/16] object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/model_natural_walk.webp" aria-label="Doğal yürüyüş video önizlemesi"><source src="../assets/app-showcase/video/model_natural_walk.mp4" type="video/mp4" /></video>
+        <video class="rounded-2xl hairline w-full aspect-[9/16] object-cover" data-autovideo muted loop playsinline preload="none" poster="../assets/app-showcase/video-previews/cam_orbital_180.webp" aria-label="Kamera 180 derece yörünge video önizlemesi"><source src="../assets/app-showcase/video/cam_orbital_180.mp4" type="video/mp4" /></video>
+        <div class="rounded-2xl hairline bg-surf grid place-items-center p-4 text-center aspect-[9/16]">
+          <div>
+            <div class="font-sans text-3xl font-semibold tnum text-sage">99+</div>
+            <p class="mt-1 text-xs text-inkv">hazır şablon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dense marquee of all 56 thumbs, opposing rows -->
+  <div class="space-y-3 opacity-95">
+    <div class="overflow-hidden"><div class="marquee" data-mq="left"></div></div>
+    <div class="overflow-hidden"><div class="marquee" data-mq="right"></div></div>
+  </div>
+  <p class="mt-6 text-center text-xs text-inkm mono tracking-wider">YUKARIDA: UYGULAMADAKİ VİDEO ŞABLONLARINDAN BİR SEÇKİ</p>
+</section>
+
+<!-- ===================== 6. 600+ SAHNE ===================== -->
+<section id="sahne" class="relative cv-auto py-20 md:py-32" aria-label="600 artı sahne kütüphanesi">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10 mb-10 md:mb-14">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+      <h2 class="font-sans leading-[1.0] tracking-[-0.035em] balance reveal max-w-[14ch]" data-rv="up" style="font-size:clamp(2.2rem,6.5vw,4.2rem)">
+        <span class="tnum">600+</span> sahne, sınırsız atmosfer.
+      </h2>
+      <p class="max-w-[36ch] text-inkv reveal" data-rv="up">Lüks mermer, sanatsal stüdyo, sahil, orman, dağ, ev içi. Ürünün ya da kombinin için doğru atmosferi seç.</p>
+    </div>
+  </div>
+
+  <!-- parallax scene wall -->
+  <div class="mx-auto max-w-[1500px] px-3 md:px-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 md:gap-3.5" id="scene-grid"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10 mt-8 flex flex-wrap gap-2.5 justify-center">
+    <span class="mono text-[11px] tracking-wider text-inkv hairline rounded-full px-3.5 py-1.5">Lüks</span>
+    <span class="mono text-[11px] tracking-wider text-inkv hairline rounded-full px-3.5 py-1.5">Sanatsal</span>
+    <span class="mono text-[11px] tracking-wider text-inkv hairline rounded-full px-3.5 py-1.5">Doğa</span>
+    <span class="mono text-[11px] tracking-wider text-inkv hairline rounded-full px-3.5 py-1.5">Ev içi</span>
+    <span class="mono text-[11px] tracking-wider text-inkv hairline rounded-full px-3.5 py-1.5">Stüdyo</span>
+  </div>
+</section>
+
+<!-- ===================== 7. E-TİCARET PIPELINE ===================== -->
+<section id="eticaret" class="relative cv-auto py-20 md:py-32 bg-base2" aria-label="E-ticaret içerik hattı">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="max-w-[34ch] mb-12 md:mb-16">
+      <p class="mono text-xs text-gold tracking-[0.18em] mb-4 reveal" data-rv="up">E-TİCARET HATTI</p>
+      <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5.5vw,3.6rem)">
+        Tek üründen, satışa hazır listeleme.
+      </h2>
+      <p class="mt-5 text-inkv pretty reveal" data-rv="up">Fotoğraftan sahneye, başlığa, dosyaya. Dört adım, dört araç, tek akış.</p>
+    </div>
+
+    <!-- pipeline -->
+    <ol class="grid md:grid-cols-4 gap-5 md:gap-4 relative" aria-label="Dört adımlı e-ticaret içerik hattı">
+      <div class="hidden md:block absolute top-[42%] left-[12%] right-[12%] h-px pipe-line" aria-hidden="true"></div>
+
+      <li class="relative rounded-[1.5rem] overflow-hidden hairline bg-surf reveal" data-rv="up">
+        <div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/showcase/product_serum_cut.webp" alt="Serum ürününün arka planı temizlenmiş ham çekimi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><span class="mono text-[11px] text-sage">01</span><h3 class="font-sans text-lg font-medium mt-1">Ürün fotoğrafı</h3><p class="mt-1.5 text-sm text-inkv pretty">Telefonla çek, ürünü yükle. Tek kare yeter.</p></div>
+      </li>
+
+      <li class="relative rounded-[1.5rem] overflow-hidden hairline bg-surf reveal" data-rv="up">
+        <div class="aspect-[4/3] overflow-hidden"><img class="w-full h-full object-cover" src="../assets/showcase/serum_skincare_scene.webp" alt="Serumun profesyonel arka plana yerleştirilmiş sahnesi" loading="lazy" decoding="async" /></div>
+        <div class="p-5"><span class="mono text-[11px] text-sage">02 · ÜRÜN STÜDYO</span><h3 class="font-sans text-lg font-medium mt-1">Profesyonel arka plan</h3><p class="mt-1.5 text-sm text-inkv pretty"><span class="text-ink tnum">600+</span> sahne, toplu işlem.</p></div>
+      </li>
+
+      <li class="relative rounded-[1.5rem] overflow-hidden hairline bg-surf reveal" data-rv="up">
+        <div class="aspect-[4/3] relative bg-base p-5 flex flex-col justify-center">
+          <div class="mono text-[10px] text-inkm tracking-wider mb-2">SEO / GEO BAŞLIK</div>
+          <div class="text-ink text-sm font-medium leading-snug">Vitamin C Aydınlatıcı Yüz Serumu · 30 ml</div>
+          <div class="mt-3 flex flex-wrap gap-1.5">
+            <span class="text-[10px] mono text-sageb hairline rounded-full px-2 py-0.5">leke karşıtı</span>
+            <span class="text-[10px] mono text-sageb hairline rounded-full px-2 py-0.5">C vitamini</span>
+            <span class="text-[10px] mono text-sageb hairline rounded-full px-2 py-0.5">+ SSS</span>
+          </div>
+        </div>
+        <div class="p-5"><span class="mono text-[11px] text-sage">03 · ÜRÜN İÇERİĞİ</span><h3 class="font-sans text-lg font-medium mt-1">SEO/GEO metin</h3><p class="mt-1.5 text-sm text-inkv pretty">Başlık, açıklama, anahtar kelime, SSS otomatik.</p></div>
+      </li>
+
+      <li class="relative rounded-[1.5rem] overflow-hidden hairline bg-gradient-to-br from-surf2 to-surf reveal" data-rv="up">
+        <div class="aspect-[4/3] p-5 flex flex-col justify-center gap-1.5">
+          <span class="mono text-[10px] text-gold tracking-wider mb-1">CSV / XLSX DOSYA EXPORT</span>
+          <div class="grid grid-cols-2 gap-1.5 text-[11px] text-ink/85">
+            <span class="hairline rounded-md px-2 py-1">Trendyol</span>
+            <span class="hairline rounded-md px-2 py-1">Shopify</span>
+            <span class="hairline rounded-md px-2 py-1">Amazon</span>
+            <span class="hairline rounded-md px-2 py-1">Etsy</span>
+            <span class="hairline rounded-md px-2 py-1">Hepsiburada</span>
+            <span class="hairline rounded-md px-2 py-1">N11</span>
+            <span class="hairline rounded-md px-2 py-1 col-span-2">WooCommerce</span>
+          </div>
+        </div>
+        <div class="p-5"><span class="mono text-[11px] text-sage">04 · MARKETPLACE EXPORT</span><h3 class="font-sans text-lg font-medium mt-1"><span class="tnum">7</span> pazaryeri formatı</h3><p class="mt-1.5 text-sm text-inkv pretty">Platforma özel CSV/XLSX + sütun eşleme. Dosyayı indir, yükle.</p></div>
+      </li>
+    </ol>
+    <p class="mt-6 text-xs text-inkm pretty max-w-[58ch]">Marketplace Export, platforma uygun dosya (CSV/XLSX) üretir ve sütunları otomatik eşler. Doğrudan API bağlantısı değil, indirip yüklediğin bir dosyadır.</p>
+  </div>
+</section>
+
+<!-- ===================== 8. UGC ===================== -->
+<section id="ugc" class="relative cv-auto py-20 md:py-32" aria-label="UGC video avatarları">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+      <div class="md:col-span-5">
+        <p class="mono text-xs text-sage tracking-[0.18em] mb-4 reveal" data-rv="up">UGC VİDEO</p>
+        <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5vw,3.4rem)">
+          Senin yerine konuşan <span class="text-sage tnum">6</span> avatar.
+        </h2>
+        <p class="mt-5 text-inkv pretty reveal max-w-[42ch]" data-rv="up">Ürününü tanıtan sanal AI sunucular. Senaryoyu yaz, avatarı seç; kamera karşısına geçmeden samimi tanıtım videosu.</p>
+        <p class="mt-4 text-sm text-inkm reveal" data-rv="up">Ayrıca "Visia" AI yönetmen akışıyla özel ürün videosu üretimi.</p>
+      </div>
+      <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3 reveal" data-rv="up">
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/model_slow_pose.webp" alt="UGC avatar 1 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 01</figcaption></figure>
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/model_look_over_shoulder.webp" alt="UGC avatar 2 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 02</figcaption></figure>
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/model_hair_flip.webp" alt="UGC avatar 3 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 03</figcaption></figure>
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/model_sit_to_stand.webp" alt="UGC avatar 4 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 04</figcaption></figure>
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/model_walk_away.webp" alt="UGC avatar 5 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 05</figcaption></figure>
+        <figure class="rounded-2xl overflow-hidden hairline relative aspect-[3/4]"><img class="w-full h-full object-cover" src="../assets/app-showcase/video-previews/cam_push_in.webp" alt="UGC avatar 6 önizlemesi" loading="lazy" decoding="async" /><figcaption class="absolute bottom-2 left-2 mono text-[10px] bg-base/70 px-2 py-0.5 rounded-full">Avatar 06</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 9. SAYILAR BAND ===================== -->
+<section class="relative cv-auto py-16 md:py-24 hairline-t hairline-b" aria-label="Rakamlar">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-y-9 gap-x-4 md:gap-x-6">
+      <div class="text-center md:text-left min-w-0"><div class="font-sans tracking-tight tnum count" data-to="500" data-suffix="+" style="font-size:clamp(2.1rem,5vw,3.6rem)">0</div><p class="mt-1 text-xs md:text-sm text-inkv">aktif satıcı</p></div>
+      <div class="text-center md:text-left min-w-0"><div class="font-sans tracking-tight tnum count" data-to="28" style="font-size:clamp(2.1rem,5vw,3.6rem)">0</div><p class="mt-1 text-xs md:text-sm text-inkv">üretim aracı</p></div>
+      <div class="text-center md:text-left min-w-0"><div class="font-sans tracking-tight tnum count" data-to="99" data-suffix="+" style="font-size:clamp(2.1rem,5vw,3.6rem)">0</div><p class="mt-1 text-xs md:text-sm text-inkv">video şablonu</p></div>
+      <div class="text-center md:text-left min-w-0"><div class="font-sans tracking-tight tnum count" data-to="600" data-suffix="+" style="font-size:clamp(2.1rem,5vw,3.6rem)">0</div><p class="mt-1 text-xs md:text-sm text-inkv">ürün sahnesi</p></div>
+      <div class="text-center md:text-left col-span-2 md:col-span-1 min-w-0"><div class="font-sans tracking-tight tnum count" data-to="4.7" data-decimal="1" style="font-size:clamp(2.1rem,5vw,3.6rem)">0,0</div><p class="mt-1 text-xs md:text-sm text-inkv">store puanı · 45 yorum</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10. SOSYAL KANIT ===================== -->
+<section id="yorumlar" class="relative cv-auto py-20 md:py-32" aria-label="Kullanıcı yorumları">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
+      <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal max-w-[18ch]" data-rv="up" style="font-size:clamp(2rem,5vw,3.4rem)">
+        Satıcılar ne diyor?
+      </h2>
+      <div class="flex items-center gap-4 reveal" data-rv="up">
+        <div class="flex items-baseline gap-2">
+          <span class="font-sans text-4xl font-semibold tnum">4,7</span>
+          <span class="text-gold text-lg" aria-hidden="true">★★★★★</span>
+        </div>
+        <p class="text-sm text-inkv">App Store + Google Play<br/>45 değerlendirme</p>
+      </div>
+    </div>
+
+    <div class="flex gap-4 overflow-x-auto snap-x no-bar pb-3 -mx-1 px-1" tabindex="0" aria-label="Yorum kaydırıcı, yana kaydırarak gezin">
+      <blockquote class="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[30vw] rounded-[1.5rem] hairline bg-surf p-6 reveal" data-rv="up">
+        <p class="text-gold text-sm mb-3" aria-label="5 üzerinden 5">★★★★★</p>
+        <p class="text-ink/90 leading-relaxed">"Butik için çekim günü ayarlamak baş belasıydı. Artık yeni kombini akşam çekiyorum, sabaha Trendyol'a hazır görsellerim oluyor."</p>
+        <footer class="mt-4 text-sm text-inkv">Elif · kadın giyim butiği</footer>
+      </blockquote>
+      <blockquote class="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[30vw] rounded-[1.5rem] hairline bg-surf p-6 reveal" data-rv="up">
+        <p class="text-gold text-sm mb-3" aria-label="5 üzerinden 5">★★★★★</p>
+        <p class="text-ink/90 leading-relaxed">"Kumaş fotoğrafından tasarım çıkarması atölyede işimi değiştirdi. Müşteriye numune dikmeden görsel sunuyorum."</p>
+        <footer class="mt-4 text-sm text-inkv">Murat · terzi atölyesi</footer>
+      </blockquote>
+      <blockquote class="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[30vw] rounded-[1.5rem] hairline bg-surf p-6 reveal" data-rv="up">
+        <p class="text-gold text-sm mb-3" aria-label="5 üzerinden 5">★★★★★</p>
+        <p class="text-ink/90 leading-relaxed">"Etsy'de takı satıyorum, mankenli fotoğraf bütçemi aşıyordu. Aksesuar deneme aracıyla aynı işi telefondan hallediyorum."</p>
+        <footer class="mt-4 text-sm text-inkv">Selin · el yapımı takı, Etsy</footer>
+      </blockquote>
+      <blockquote class="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[30vw] rounded-[1.5rem] hairline bg-surf p-6 reveal" data-rv="up">
+        <p class="text-gold text-sm mb-3" aria-label="5 üzerinden 5">★★★★☆</p>
+        <p class="text-ink/90 leading-relaxed">"Reels için video şablonları beklediğimden iyi çıktı. Bir kıyafetten haftalık içerik üretiyorum, ekip tutmaya gerek kalmadı."</p>
+        <footer class="mt-4 text-sm text-inkv">Burak · Shopify mağazası</footer>
+      </blockquote>
+      <blockquote class="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[30vw] rounded-[1.5rem] hairline bg-surf p-6 reveal" data-rv="up">
+        <p class="text-gold text-sm mb-3" aria-label="5 üzerinden 5">★★★★★</p>
+        <p class="text-ink/90 leading-relaxed">"Toptan kataloğu güncellemek günler sürüyordu. Toplu işlemle bir öğleden sonrada bitirdim, pazaryeri dosyalarını da aldım."</p>
+        <footer class="mt-4 text-sm text-inkv">Ayşe · toptan tekstil</footer>
+      </blockquote>
+    </div>
+    <p class="mt-5 text-xs text-inkm">Yorumlar, kullanıcı geri bildirimlerinden örnek niteliğindedir.</p>
+  </div>
+</section>
+
+<!-- ===================== 11. FİYAT ===================== -->
+<section id="fiyat" class="relative cv-auto py-20 md:py-32 bg-base2" aria-label="Planlar">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="max-w-[30ch] mb-12 md:mb-16">
+      <p class="mono text-xs text-sage tracking-[0.18em] mb-4 reveal" data-rv="up">PLANLAR</p>
+      <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance reveal" data-rv="up" style="font-size:clamp(2rem,5.5vw,3.6rem)">
+        Hediye krediyle başla, ölçeklendir.
+      </h2>
+      <p class="mt-5 text-inkv pretty reveal" data-rv="up">Detaylı fiyatlandırma uygulamada. Kart bilgisi olmadan dene.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <article class="rounded-[1.5rem] hairline bg-surf p-7 flex flex-col reveal" data-rv="up">
+        <h3 class="font-sans text-2xl font-medium">Starter</h3>
+        <p class="mt-2 text-inkv text-sm">Yeni başlayan satıcı için temel üretim.</p>
+        <ul class="mt-6 space-y-3 text-sm text-ink/85 flex-1">
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Tüm temel araçlara erişim</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Görsel ve standart video üretimi</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Pazaryeri dosya export</li>
+        </ul>
+        <a href="#indir" class="mt-7 inline-flex items-center justify-center rounded-full border border-[var(--hair-strong)] px-5 py-3 text-sm font-medium hover:bg-surf2 transition-colors" style="min-height:44px">Ücretsiz dene</a>
+      </article>
+
+      <article class="relative rounded-[1.5rem] bg-surf2 p-7 flex flex-col reveal ring-1 ring-sage/40" data-rv="up">
+        <span class="absolute -top-3 left-7 mono text-[10px] tracking-widest bg-sage text-base px-3 py-1 rounded-full">EN POPÜLER</span>
+        <h3 class="font-sans text-2xl font-medium">Pro</h3>
+        <p class="mt-2 text-inkv text-sm">Düzenli içerik üreten satıcı için en iyi denge.</p>
+        <ul class="mt-6 space-y-3 text-sm text-ink/90 flex-1">
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>4K çıktı + AI upscale</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Kalite modu</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Auto video + yüz referansı</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Öncelikli üretim kuyruğu</li>
+        </ul>
+        <a href="#indir" class="mt-7 inline-flex items-center justify-center rounded-full bg-ink text-base px-5 py-3 text-sm font-semibold hover:bg-sageb transition-colors" style="min-height:44px">Pro'yu dene</a>
+      </article>
+
+      <article class="rounded-[1.5rem] hairline bg-surf p-7 flex flex-col reveal" data-rv="up">
+        <h3 class="font-sans text-2xl font-medium">Creator</h3>
+        <p class="mt-2 text-inkv text-sm">Yüksek hacimli atölye ve mağaza için.</p>
+        <ul class="mt-6 space-y-3 text-sm text-ink/85 flex-1">
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Maksimum kredi</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Toplu (bulk) export</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Kredi top-up</li>
+          <li class="flex gap-2.5"><span class="text-sage">✓</span>Pro'daki her şey</li>
+        </ul>
+        <a href="#indir" class="mt-7 inline-flex items-center justify-center rounded-full border border-[var(--hair-strong)] px-5 py-3 text-sm font-medium hover:bg-surf2 transition-colors" style="min-height:44px">Ücretsiz dene</a>
+      </article>
+    </div>
+    <p class="mt-6 text-sm text-inkv">Ekip / kurumsal plan için: <a class="text-sageb hover:underline" href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a></p>
+  </div>
+</section>
+
+<!-- ===================== 12. FAQ ===================== -->
+<section id="sss" class="relative cv-auto py-20 md:py-32" aria-label="Sık sorulan sorular">
+  <div class="mx-auto max-w-[860px] px-5 md:px-10">
+    <h2 class="font-sans leading-[1.02] tracking-[-0.03em] balance mb-10 md:mb-14 reveal" data-rv="up" style="font-size:clamp(2rem,5vw,3.2rem)">
+      Sık sorulanlar
+    </h2>
+    <div class="divide-y divide-[var(--hair)]">
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">Nasıl çalışır?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">Ürün ya da kıyafetinin tek bir fotoğrafını yükle, kullanmak istediğin aracı ve sahneyi seç. AI saniyeler ya da dakikalar içinde profesyonel görsel, video veya pazaryeri metnini üretir. Tüm akış mobil uygulamada.</p></div></div>
+      </details>
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">Sonuçların kalitesi nasıl?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">Çıktılar gerçekçi manken, doğru kumaş dokusu ve profesyonel sahne ışığı hedefler. Pro planda kalite modu ve 4K + AI upscale ile detay kaybı olmadan yüksek çözünürlük alırsın.</p></div></div>
+      </details>
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">Pazaryeri export nasıl çalışır?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">7 platform için (Trendyol, Shopify, Amazon, Etsy, Hepsiburada, N11, WooCommerce) platforma özel CSV/XLSX dosyası üretir ve sütunları otomatik eşler. Dosyayı indirip ilgili pazaryerine yüklersin; doğrudan API bağlantısı değildir.</p></div></div>
+      </details>
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">Görsellerim nerede saklanıyor?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">Görsellerin senin Firebase Storage alanında şifreli olarak tutulur ve model eğitiminde kullanılmaz. İçeriğin sana ait kalır.</p></div></div>
+      </details>
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">iOS ve Android'de var mı?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">Evet. ListifyAI hem App Store'da hem Google Play'de yayında. Hediye kredi ile ücretsiz başlarsın, kart bilgisi gerekmez.</p></div></div>
+      </details>
+      <details class="group py-5">
+        <summary class="flex items-center justify-between gap-4"><span class="font-sans text-lg md:text-xl font-medium">Kaç araç var?</span><span class="faq-icon text-sage text-2xl leading-none shrink-0" aria-hidden="true">+</span></summary>
+        <div class="faq-body"><div><p class="pt-4 text-inkv leading-relaxed pretty">Toplam 28 araç: 4 ana stüdyo (Ürün Çekim, Moda, Ürün Video, Moda Video), 11 moda aracı, 5 düzenleme aracı, e-ticaret için Ürün İçeriği / Ürün Stüdyo / Marketplace Export, bir de UGC ve özel ürün videosu.</p></div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 13. FINAL CTA ===================== -->
+<section id="indir" class="relative cv-auto py-24 md:py-36 overflow-hidden" aria-label="Uygulamayı indir">
+  <div class="pointer-events-none absolute inset-0 -z-10 opacity-30" aria-hidden="true">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[60vw] glow-sage"></div>
+  </div>
+  <div class="mx-auto max-w-[1000px] px-5 md:px-10 text-center">
+    <h2 class="font-sans leading-[0.98] tracking-[-0.04em] balance" style="font-size:clamp(2.6rem,8vw,5rem)">
+      <span class="kinetic" style="--w:300">Stüdyon</span> <span class="kinetic" style="--w:800">cebinde.</span>
+    </h2>
+    <p class="mt-6 text-lg text-ink/85 max-w-[44ch] mx-auto pretty">Tek fotoğrafı yükle, ilk profesyonel sonucunu birkaç dakikada al.</p>
+    <div class="mt-9 flex flex-col sm:flex-row sm:justify-center items-center gap-4">
+      <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener" aria-label="App Store'dan indir">
+        <img src="../assets/img/app-store-badge.svg" alt="App Store'dan indir" width="170" height="52" class="h-[52px] w-auto" decoding="async" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener" aria-label="Google Play'den indir">
+        <img src="../assets/img/google-play-badge.svg" alt="Google Play'den indir" width="170" height="52" class="h-[52px] w-auto" decoding="async" />
+      </a>
+    </div>
+    <p class="mt-5 text-sm text-sageb">Hediye kredi · Kart gerekmez</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="hairline-t bg-base2 pb-12 pt-16" aria-label="Alt bilgi">
+  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-4">
+        <div class="text-2xl font-semibold tracking-tight"><span class="text-ink">listify</span><span class="text-sage">ai</span></div>
+        <p class="mt-4 text-inkv max-w-[34ch] pretty">Moda ve e-ticaret satıcıları için mobil AI içerik stüdyosu. Tek fotoğraftan profesyonel görsel, video ve pazaryeri içeriği.</p>
+        <div class="mt-5 flex gap-3">
+          <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener" aria-label="App Store"><img src="../assets/img/app-store-badge.svg" alt="App Store" class="h-10 w-auto" decoding="async" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" target="_blank" rel="noopener" aria-label="Google Play"><img src="../assets/img/google-play-badge.svg" alt="Google Play" class="h-10 w-auto" decoding="async" /></a>
+        </div>
+      </div>
+      <nav class="md:col-span-2" aria-label="Moda">
+        <h3 class="mono text-xs text-inkm tracking-widest mb-4">MODA</h3>
+        <ul class="space-y-2.5 text-sm text-inkv">
+          <li><a href="#moda" class="hover:text-ink transition-colors">AI Lookbook</a></li>
+          <li><a href="#moda" class="hover:text-ink transition-colors">Sanal Deneme</a></li>
+          <li><a href="#moda" class="hover:text-ink transition-colors">Kumaş → Kıyafet</a></li>
+          <li><a href="#moda" class="hover:text-ink transition-colors">Editöryal Şablonlar</a></li>
+        </ul>
+      </nav>
+      <nav class="md:col-span-2" aria-label="E-ticaret">
+        <h3 class="mono text-xs text-inkm tracking-widest mb-4">E-TİCARET</h3>
+        <ul class="space-y-2.5 text-sm text-inkv">
+          <li><a href="#eticaret" class="hover:text-ink transition-colors">Ürün Stüdyo</a></li>
+          <li><a href="#eticaret" class="hover:text-ink transition-colors">Ürün İçeriği</a></li>
+          <li><a href="#eticaret" class="hover:text-ink transition-colors">Marketplace Export</a></li>
+          <li><a href="#hub" class="hover:text-ink transition-colors">Ürün Çekim</a></li>
+        </ul>
+      </nav>
+      <nav class="md:col-span-2" aria-label="Video">
+        <h3 class="mono text-xs text-inkm tracking-widest mb-4">VİDEO</h3>
+        <ul class="space-y-2.5 text-sm text-inkv">
+          <li><a href="#video" class="hover:text-ink transition-colors">Moda Video Şablon</a></li>
+          <li><a href="#video" class="hover:text-ink transition-colors">Hızlı Moda Video</a></li>
+          <li><a href="#ugc" class="hover:text-ink transition-colors">UGC Video</a></li>
+          <li><a href="#hub" class="hover:text-ink transition-colors">Ürün Video</a></li>
+        </ul>
+      </nav>
+      <div class="md:col-span-2">
+        <h3 class="mono text-xs text-inkm tracking-widest mb-4">İLETİŞİM</h3>
+        <ul class="space-y-2.5 text-sm text-inkv">
+          <li><a href="mailto:info@listifyai.com.tr" class="hover:text-ink transition-colors">info@listifyai.com.tr</a></li>
+          <li><a href="mailto:listifyaiapp@gmail.com" class="hover:text-ink transition-colors">listifyaiapp@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 hairline-t flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-inkm">
+      <p>© 2026 ListifyAI · listifyai.com.tr</p>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Yasal">
+        <a href="privacy-policy.html" class="hover:text-ink transition-colors">Gizlilik Politikası</a>
+        <a href="kvkk.html" class="hover:text-ink transition-colors">KVKK</a>
+        <a href="terms.html" class="hover:text-ink transition-colors">Kullanım Şartları</a>
+        <a href="support.html" class="hover:text-ink transition-colors">Destek</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== STICKY MOBILE DOWNLOAD BAR ===================== -->
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 bg-base/90 backdrop-blur-xl hairline-t" id="mobile-bar">
+  <div class="flex items-center gap-3">
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-medium text-ink leading-tight">Hediye krediyle dene</p>
+      <p class="text-[11px] text-inkv leading-tight">Kart yok · iOS + Android</p>
+    </div>
+    <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-ink text-base font-semibold text-sm px-5" style="min-height:44px" aria-label="Uygulamayı indir">İndir</a>
+  </div>
+</div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = (navigator.connection && navigator.connection.saveData) ||
+                 window.matchMedia('(prefers-reduced-data: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  var isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+  /* ---------- asset arrays ---------- */
+  var TEMPLATES = [
+    'A01','A02','A03','A04','A05','A06','A07','A08','A09','A10',
+    'B01','B02','B03','B04','B05',
+    'M01','M02','M03','M04','M05','M06','M07','M08','M09','M10','M11','M12','M13','M15','M20','M24','M28','M32','M34','M38',
+    'W01','W02','W03','W04','W05','W06','W07','W08','W09','W10','W11','W12','W13','W14','W18','W20','W24','W28','W32','W37','W41'
+  ];
+  var TPL_BASE = '../assets/app-showcase/templates/';
+
+  var SCENES = [
+    'luxmarble_background_0002','luxmarble_background_0004','luxmarble_background_0006','luxmarble_background_0009',
+    'luxhotel_background_0113','luxhotel_background_0156','luxhotel_background_0203','luxhotel_background_0240',
+    'artdram_background_0003','artdram_background_0007','artdram_background_0020','artdram_background_0022',
+    'artstudio_background_0016','artstudio_background_0035','artstudio_background_0037','artstudio_background_0071',
+    'artvivid_background_0010','artvivid_background_0021','artvivid_background_0023','artvivid_background_0047',
+    'beach_background_0001','beach_background_0030','beach_background_0034','beach_background_0057',
+    'forest_background_0005','forest_background_0011','forest_background_0024','forest_background_0064',
+    'mountain_background_0008','mountain_background_0014','mountain_background_0058','mountain_background_0070',
+    'garden_background_0015','garden_background_0017','garden_background_0027','garden_background_0052',
+    'living_background_0040','living_background_0091','living_background_0098','living_background_0214',
+    'bedroom_background_hi_bed_001','bedroom_background_hi_bed_002','bedroom_background_hi_bed_003','bedroom_background_hi_bed_004',
+    'studio_background_studio_white_001','studio_background_studio_white_002','studio_background_studio_white_003','studio_background_studio_white_004'
+  ];
+  var SCN_BASE = '../assets/app-showcase/scenes/';
+
+  /* ---------- build mobile hero imagery strip ---------- */
+  function buildHeroStrip() {
+    var strip = document.getElementById('hero-strip');
+    if (!strip) return;
+    var picks = ['W08', 'A03', 'W37'];
+    var html = '';
+    for (var i = 0; i < picks.length; i++) {
+      html += '<img src="' + TPL_BASE + picks[i] + '.webp" alt="" loading="eager" decoding="async" fetchpriority="high">';
+    }
+    strip.innerHTML = html;
+  }
+
+  /* ---------- build hero content walls ---------- */
+  function buildWalls() {
+    var walls = document.querySelectorAll('#hero-walls .wall-track');
+    if (!walls.length) return;
+    walls.forEach(function (track, wi) {
+      var set = TEMPLATES.slice();
+      // rotate each row so they differ
+      set = set.slice(wi * 8).concat(set.slice(0, wi * 8));
+      var html = '';
+      // duplicate for seamless loop
+      for (var dup = 0; dup < 2; dup++) {
+        for (var i = 0; i < set.length; i++) {
+          html += '<img src="' + TPL_BASE + set[i] + '.webp" alt="" loading="lazy" decoding="async" aria-hidden="true">';
+        }
+      }
+      track.innerHTML = html;
+    });
+  }
+
+  /* ---------- build video marquees ---------- */
+  function buildMarquees() {
+    var mqs = document.querySelectorAll('.marquee');
+    mqs.forEach(function (mq, idx) {
+      var set = TEMPLATES.slice();
+      if (idx === 1) set = set.slice().reverse();
+      var html = '';
+      for (var dup = 0; dup < 2; dup++) {
+        for (var i = 0; i < set.length; i++) {
+          html += '<img src="' + TPL_BASE + set[i] + '.webp" alt="ListifyAI video şablonu örneği ' + set[i] + '" loading="lazy" decoding="async">';
+        }
+      }
+      mq.innerHTML = html;
+    });
+  }
+
+  /* ---------- build scene grid ---------- */
+  function buildScenes() {
+    var grid = document.getElementById('scene-grid');
+    if (!grid) return;
+    var labels = { lux: 'lüks', art: 'sanatsal', bea: 'sahil', for: 'orman', mou: 'dağ', gar: 'bahçe', liv: 'salon', bed: 'yatak odası', stu: 'stüdyo' };
+    var html = '';
+    for (var i = 0; i < SCENES.length; i++) {
+      var name = SCENES[i];
+      var key = name.slice(0, 3);
+      var label = labels[key] || 'sahne';
+      var ratio = (i % 5 === 0) ? 'aspect-[3/4]' : 'aspect-[4/5]';
+      html += '<figure class="scene-item rounded-xl overflow-hidden hairline ' + ratio + '" data-depth="' + (0.04 + (i % 4) * 0.03).toFixed(2) + '">' +
+              '<img class="w-full h-full object-cover" src="' + SCN_BASE + name + '.webp" alt="ListifyAI ' + label + ' arka plan sahnesi" loading="lazy" decoding="async"></figure>';
+    }
+    grid.innerHTML = html;
+  }
+
+  buildHeroStrip();
+  buildWalls();
+  buildMarquees();
+  buildScenes();
+
+  /* ---------- before/after sliders ---------- */
+  document.querySelectorAll('[data-ba]').forEach(function (wrap) {
+    var clip = wrap.querySelector('.ba-after-clip');
+    var handle = wrap.querySelector('.ba-handle');
+    var knob = wrap.querySelector('.ba-knob');
+    var range = wrap.querySelector('.ba-range');
+    function set(v) {
+      v = Math.max(0, Math.min(100, v));
+      clip.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+      handle.style.left = v + '%';
+      knob.style.left = v + '%';
+      if (range && parseFloat(range.value) !== v) range.value = v;
+    }
+    if (range) {
+      range.addEventListener('input', function () { set(parseFloat(range.value)); });
+      range.addEventListener('keydown', function (e) {
+        var v = parseFloat(range.value);
+        if (e.key === 'ArrowLeft') { set(v - 4); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { set(v + 4); e.preventDefault(); }
+      });
+    }
+    set(50);
+  });
+
+  /* ---------- count-up ---------- */
+  function runCounts() {
+    document.querySelectorAll('.count').forEach(function (el) {
+      var to = parseFloat(el.getAttribute('data-to'));
+      var dec = parseInt(el.getAttribute('data-decimal') || '0', 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      function fmt(n) {
+        var s = dec ? n.toFixed(dec).replace('.', ',') : Math.round(n).toString();
+        return s + suffix;
+      }
+      if (prefersReduced) { el.textContent = fmt(to); return; }
+      var start = null, dur = 1400;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 4); // ease-out-quart
+        el.textContent = fmt(to * eased);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = fmt(to);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if (prefersReduced) {
+    // show final values immediately — no scroll/animation dependency
+    runCounts();
+  } else {
+    var countSection = document.querySelector('.count') && document.querySelector('.count').closest('section');
+    if (countSection) {
+      var co = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { runCounts(); co.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      co.observe(countSection);
+    }
+  }
+
+  /* ---------- mobile tool dots ---------- */
+  (function () {
+    var track = document.getElementById('tool-track');
+    var dotsWrap = document.getElementById('tool-dots');
+    if (!track || !dotsWrap) return;
+    var cards = track.querySelectorAll('.tool-card');
+    var dots = [];
+    cards.forEach(function (_, i) {
+      var d = document.createElement('span');
+      d.className = 'w-1.5 h-1.5 rounded-full bg-inkm transition-colors';
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    });
+    var raf = null;
+    track.addEventListener('scroll', function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var idx = Math.round(track.scrollLeft / (track.scrollWidth / cards.length));
+        idx = Math.max(0, Math.min(cards.length - 1, idx));
+        dots.forEach(function (d, i) {
+          d.className = 'w-1.5 h-1.5 rounded-full transition-colors ' + (i === idx ? 'bg-sage' : 'bg-inkm');
+        });
+      });
+    }, { passive: true });
+    if (dots[0]) dots[0].className = 'w-1.5 h-1.5 rounded-full bg-sage transition-colors';
+  })();
+
+  /* ---------- keyboard arrow scroll for horizontal carousels ---------- */
+  (function () {
+    function attachKeys(el) {
+      if (!el) return;
+      el.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        var card = el.querySelector('.tool-card, [class*="snap-start"], blockquote');
+        var step = card ? card.getBoundingClientRect().width + 16 : el.clientWidth * 0.8;
+        el.scrollBy({ left: e.key === 'ArrowRight' ? step : -step, behavior: 'smooth' });
+        e.preventDefault();
+      });
+    }
+    attachKeys(document.getElementById('tool-track'));
+    document.querySelectorAll('[aria-label="Yorum kaydırıcı, yana kaydırarak gezin"]').forEach(attachKeys);
+  })();
+
+  /* ---------- nav scroll state ---------- */
+  (function () {
+    var navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    function onScroll() {
+      if (window.scrollY > 40) {
+        navbar.style.background = 'rgba(12,12,16,0.82)';
+        navbar.style.borderColor = 'var(--hair-strong)';
+      } else {
+        navbar.style.background = 'rgba(12,12,16,0.55)';
+        navbar.style.borderColor = 'var(--hair)';
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  /* ---------- lazy video autoplay via IntersectionObserver (concurrency-capped) ---------- */
+  function setupVideos() {
+    var allVids = document.querySelectorAll('video');
+    if (prefersReduced || saveData) {
+      allVids.forEach(function (v) { v.removeAttribute('autoplay'); try { v.pause(); } catch (e) {} });
+      return;
+    }
+    // cap concurrent playback: 1 on mobile, 3 on desktop — pick the most-visible videos
+    var MAX_PLAYING = isMobile ? 1 : 3;
+    var ratios = new Map();
+    function reconcile() {
+      // rank in-view videos by visibility ratio, play top N, pause the rest
+      var inView = [];
+      ratios.forEach(function (r, v) { if (r > 0.25) inView.push({ v: v, r: r }); });
+      inView.sort(function (a, b) { return b.r - a.r; });
+      var keep = new Set();
+      for (var i = 0; i < inView.length && i < MAX_PLAYING; i++) keep.add(inView[i].v);
+      allVids.forEach(function (v) {
+        if (keep.has(v)) {
+          if (v.preload === 'none') v.preload = 'metadata';
+          if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        } else {
+          if (!v.paused) { try { v.pause(); } catch (e) {} }
+        }
+      });
+    }
+    var raf = null;
+    var vo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        ratios.set(en.target, en.isIntersecting ? en.intersectionRatio : 0);
+      });
+      if (raf) return;
+      raf = requestAnimationFrame(function () { raf = null; reconcile(); });
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+    allVids.forEach(function (v) { ratios.set(v, 0); vo.observe(v); });
+  }
+  setupVideos();
+
+  /* ====================================================================
+     REDUCED MOTION GATE — neutralize everything heavy
+  ==================================================================== */
+  if (prefersReduced) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = '1'; });
+    return; // skip Lenis, GSAP, canvas mesh entirely
+  }
+
+  /* ---------- Lenis smooth scroll (desktop / fine pointer only) ---------- */
+  var lenis = null;
+  if (!coarse && !isMobile && typeof Lenis !== 'undefined') {
+    lenis = new Lenis({ duration: 1.1, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+
+  /* ---------- GSAP setup ---------- */
+  if (typeof gsap === 'undefined') {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = '1'; });
+    return;
+  }
+  document.documentElement.classList.add('gsap-ready');
+  /* FOUC safety net: if anything stalls, force all reveals visible after 3s */
+  setTimeout(function () {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      if (parseFloat(getComputedStyle(el).opacity) < 1) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.filter = 'none';
+      }
+    });
+  }, 3000);
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+  }
+
+  /* reveal animations (selective, grouped per section — not uniform) */
+  function revealGroup(section) {
+    var els = section.querySelectorAll('.reveal');
+    gsap.fromTo(els,
+      { opacity: 0, y: 22, filter: 'blur(6px)' },
+      {
+        opacity: 1, y: 0, filter: 'blur(0px)',
+        duration: 0.7, ease: 'power3.out', stagger: 0.07,
+        scrollTrigger: { trigger: section, start: 'top 78%', once: true }
+      }
+    );
+  }
+  document.querySelectorAll('main section').forEach(function (sec) {
+    if (sec.querySelector('.reveal')) revealGroup(sec);
+  });
+  // ensure hero reveals fire immediately (above fold)
+  var hero = document.querySelector('main section');
+  if (hero) {
+    gsap.to(hero.querySelectorAll('.reveal'), { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out', stagger: 0.08, delay: 0.1 });
+  }
+
+  if (typeof ScrollTrigger !== 'undefined') {
+    /* hero content wall drift */
+    document.querySelectorAll('#hero-walls .wall-track').forEach(function (track, i) {
+      var dir = i % 2 === 0 ? -1 : 1;
+      gsap.to(track, {
+        xPercent: dir * 22,
+        ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1 }
+      });
+    });
+
+    /* MODA horizontal pin (desktop only) */
+    if (!coarse && !isMobile) {
+      var track = document.getElementById('tool-track');
+      var pin = document.getElementById('tool-pin');
+      if (track && pin) {
+        var getScroll = function () { return track.scrollWidth - window.innerWidth + 80; };
+        gsap.to(track, {
+          x: function () { return -getScroll(); },
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pin,
+            start: 'top top',
+            end: function () { return '+=' + getScroll(); },
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            anticipatePin: 1
+          }
+        });
+      }
+    }
+
+    /* video marquees */
+    document.querySelectorAll('.marquee').forEach(function (mq) {
+      var dir = mq.getAttribute('data-mq') === 'right' ? 1 : -1;
+      var w = mq.scrollWidth / 2;
+      gsap.set(mq, { x: dir === 1 ? -w : 0 });
+      gsap.to(mq, {
+        x: dir === 1 ? 0 : -w,
+        duration: 38,
+        ease: 'none',
+        repeat: -1
+      });
+    });
+
+    /* scene parallax (desktop only — depth) */
+    if (!coarse && !isMobile) {
+      document.querySelectorAll('.scene-item').forEach(function (item) {
+        var depth = parseFloat(item.getAttribute('data-depth') || '0.06');
+        gsap.fromTo(item, { y: 40 * (depth * 12) }, {
+          y: -40 * (depth * 12),
+          ease: 'none',
+          scrollTrigger: { trigger: '#scene-grid', start: 'top bottom', end: 'bottom top', scrub: 1 }
+        });
+      });
+    }
+
+    /* scroll cue subtle pulse via transform (not opacity loop on indicator) */
+    ScrollTrigger.refresh();
+  }
+
+  /* ---------- canvas gradient mesh (desktop fine-pointer only) ---------- */
+  if (!coarse && !isMobile) {
+    var canvas = document.getElementById('mesh');
+    if (canvas) {
+      var ctx = canvas.getContext('2d');
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      var blobs = [
+        { x: 0.25, y: 0.35, r: 0.42, c: [158, 176, 152], vx: 0.00006, vy: 0.00004 },
+        { x: 0.72, y: 0.55, r: 0.40, c: [201, 184, 138], vx: -0.00005, vy: 0.00006 },
+        { x: 0.55, y: 0.78, r: 0.36, c: [184, 205, 176], vx: 0.00004, vy: -0.00005 }
+      ];
+      var running = true;
+      function resize() {
+        canvas.width = canvas.offsetWidth * dpr;
+        canvas.height = canvas.offsetHeight * dpr;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      function draw() {
+        if (!running) return;
+        var w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'lighter';
+        for (var i = 0; i < blobs.length; i++) {
+          var b = blobs[i];
+          b.x += b.vx; b.y += b.vy;
+          if (b.x < 0.1 || b.x > 0.9) b.vx *= -1;
+          if (b.y < 0.1 || b.y > 0.9) b.vy *= -1;
+          var cx = b.x * w, cy = b.y * h, rad = b.r * Math.max(w, h);
+          var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+          g.addColorStop(0, 'rgba(' + b.c[0] + ',' + b.c[1] + ',' + b.c[2] + ',0.16)');
+          g.addColorStop(1, 'rgba(' + b.c[0] + ',' + b.c[1] + ',' + b.c[2] + ',0)');
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, w, h);
+        }
+        ctx.globalCompositeOperation = 'source-over';
+        requestAnimationFrame(draw);
+      }
+      // pause when hero offscreen
+      var heroEl = canvas.closest('section');
+      if (heroEl) {
+        var mo = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            running = en.isIntersecting;
+            if (running) requestAnimationFrame(draw);
+          });
+        }, { threshold: 0 });
+        mo.observe(heroEl);
+      }
+      requestAnimationFrame(draw);
+    }
+  }
+})();
+</script>
+</body>
+</html>

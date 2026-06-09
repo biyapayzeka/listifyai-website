@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ListifyAI — AI Moda Stüdyosu | Kıyafetini AI mankene giydir</title>
+  <meta name="description" content="ListifyAI, moda satıcıları için AI stüdyo. Kıyafetini AI mankene giydir, kombin sahnesi kur, 15 saniyelik Reels videosu üret, Trendyol ve Shopify'a aktar. iOS ve Android. Hediye kredi ile ücretsiz dene." />
+  <meta name="theme-color" content="#9EB098" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="ListifyAI" />
+  <meta property="og:title" content="ListifyAI — AI Moda Stüdyosu" />
+  <meta property="og:description" content="Kıyafetini AI mankene giydir, kombin kur, moda videosu üret, pazaryerine aktar. iOS ve Android." />
+  <meta property="og:url" content="https://listifyai.com.tr" />
+  <meta property="og:image" content="https://listifyai.com.tr/assets/fashion/fashion_studio/after_product.webp" />
+  <meta property="og:image:width" content="900" />
+  <meta property="og:image:height" content="657" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ListifyAI — AI Moda Stüdyosu" />
+  <meta name="twitter:description" content="Kıyafetini AI mankene giydir, kombin kur, moda videosu üret, pazaryerine aktar." />
+  <meta name="twitter:image" content="https://listifyai.com.tr/assets/fashion/fashion_studio/after_product.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: '#FBFAF8',
+            surface: '#FFFFFF',
+            ink: '#0E0E11',
+            inkSoft: '#3A3B40',
+            inkMute: '#5C5D63',
+            sage: '#9EB098',
+            sageDeep: '#5F6560',
+            sageDark: '#46503F',
+            sageWash: '#EAEFE7',
+            line: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['Alexandria', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: { xl2: '1.375rem' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --z-sticky: 40;
+      --z-nav: 50;
+      --z-menu: 60;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { background: #FBFAF8; color: #0E0E11; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+    .font-display { font-family: 'Alexandria', system-ui, sans-serif; }
+    .tnum { font-variant-numeric: tabular-nums; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+
+    /* Focus visibility */
+    a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+      outline: 2.5px solid #0E0E11;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .on-ink a:focus-visible, .on-ink button:focus-visible { outline-color: #9EB098; }
+
+    /* Reveal: enhance an already-visible default. Default = visible. */
+    .reveal { opacity: 0; transform: translateY(14px); filter: blur(5px); transition: opacity .6s var(--ease-out-quart), transform .6s var(--ease-out-quart), filter .6s var(--ease-out-quart); }
+    .reveal.is-in { opacity: 1; transform: none; filter: none; }
+
+    /* Press feedback */
+    .press { transition: transform .12s var(--ease-out-quart), box-shadow .2s var(--ease-out-quart); }
+    .press:active { transform: scale(.975); }
+
+    /* Phone frame */
+    .phone {
+      position: relative; border-radius: 2.6rem; background: #0E0E11;
+      padding: .55rem; box-shadow: 0 1px 1px rgba(0,0,0,.18), 0 30px 60px -22px rgba(14,14,17,.45), 0 12px 24px -16px rgba(14,14,17,.4);
+    }
+    .phone::before { content: ""; position: absolute; top: .95rem; left: 50%; transform: translateX(-50%); width: 38%; height: .42rem; background: #2a2b30; border-radius: 99px; z-index: 3; }
+    .phone-screen { position: relative; overflow: hidden; border-radius: 2.1rem; background: #1a1b20; aspect-ratio: 9 / 19.5; }
+    .phone-screen > img, .phone-screen > video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Feature card */
+    .fcard {
+      background: #fff; border: 1px solid #E6E4DE; border-radius: 1.375rem;
+      box-shadow: 0 0 0 1px rgba(14,14,17,.01), 0 1px 2px -1px rgba(14,14,17,.06), 0 8px 18px -14px rgba(14,14,17,.18);
+      transition: transform .28s var(--ease-out-quart), box-shadow .28s var(--ease-out-quart), border-color .28s var(--ease-out-quart);
+    }
+    @media (hover: hover) {
+      .fcard:hover { transform: translateY(-4px); border-color: #d2d6cc; box-shadow: 0 0 0 1px rgba(14,14,17,.02), 0 2px 4px -1px rgba(14,14,17,.08), 0 22px 40px -22px rgba(14,14,17,.28); }
+    }
+
+    /* Before/after slider */
+    .ba { position: relative; overflow: hidden; border-radius: 1.25rem; aspect-ratio: 4 / 5; background: #1a1b20; touch-action: none; user-select: none; cursor: ew-resize; }
+    .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ba .after-wrap { clip-path: inset(0 0 0 var(--pos, 50%)); }
+    .ba .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; background: #fff; transform: translateX(-50%); box-shadow: 0 0 0 1px rgba(14,14,17,.18); }
+    .ba .knob {
+      position: absolute; top: 50%; left: var(--pos, 50%); transform: translate(-50%,-50%);
+      width: 46px; height: 46px; border-radius: 99px; background: #fff; display: grid; place-items: center;
+      box-shadow: 0 4px 14px -2px rgba(14,14,17,.4); color: #0E0E11;
+    }
+    .ba .tag { position: absolute; bottom: .8rem; font-size: .72rem; font-weight: 600; letter-spacing: .04em; color: #fff; background: rgba(14,14,17,.62); backdrop-filter: blur(6px); padding: .28rem .6rem; border-radius: 99px; pointer-events: none; }
+
+    /* Pricing */
+    .ptier { background: #fff; border: 1px solid #E6E4DE; border-radius: 1.375rem; transition: transform .28s var(--ease-out-quart), box-shadow .28s var(--ease-out-quart); }
+    .ptier-pop { border-color: #0E0E11; box-shadow: 0 24px 50px -26px rgba(14,14,17,.5); }
+    @media (hover: hover) { .ptier:hover { transform: translateY(-3px); } }
+
+    /* Accordion */
+    .faq summary { list-style: none; cursor: pointer; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq .chev { transition: transform .28s var(--ease-out-quart); }
+    .faq details[open] .chev { transform: rotate(45deg); }
+    .faq .ans { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .32s var(--ease-out-quart); }
+    .faq details[open] .ans { grid-template-rows: 1fr; }
+    .faq .ans > div { overflow: hidden; }
+
+    /* Marquee for marketplace logos */
+    .mq { display: flex; gap: 2.5rem; width: max-content; animation: mq 26s linear infinite; }
+    @keyframes mq { to { transform: translateX(-50%); } }
+    .mq-wrap:hover .mq { animation-play-state: paused; }
+
+    .underline-grow { background-image: linear-gradient(#9EB098, #9EB098); background-size: 0% 38%; background-position: 0 92%; background-repeat: no-repeat; transition: background-size .3s var(--ease-out-quart); }
+    @media (hover:hover) { a.underline-grow:hover, .group:hover .underline-grow { background-size: 100% 38%; } }
+
+    /* Sticky download bar (mobile) */
+    .dlbar { transform: translateY(120%); transition: transform .4s var(--ease-out-expo); }
+    .dlbar.show { transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+      .mq { animation: none !important; }
+      .press:active { transform: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">İçeriğe geç</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="sticky top-0 z-[var(--z-nav)] bg-base/85 backdrop-blur-md border-b border-line">
+    <nav class="mx-auto max-w-7xl px-5 sm:px-7 h-16 flex items-center justify-between gap-4" aria-label="Ana menü">
+      <a href="#main" class="font-display text-xl font-700 tracking-tight text-ink flex items-center gap-2" aria-label="ListifyAI ana sayfa">
+        <span aria-hidden="true" class="inline-grid place-items-center w-8 h-8 rounded-[10px] bg-ink text-white text-sm font-700">L</span>
+        <span>listify<span class="text-sageDark">ai</span></span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-[0.94rem] font-500 text-inkSoft">
+        <a href="#ozellikler" class="underline-grow hover:text-ink transition-colors">Özellikler</a>
+        <a href="#nasil" class="underline-grow hover:text-ink transition-colors">Nasıl çalışır</a>
+        <a href="#pazaryeri" class="underline-grow hover:text-ink transition-colors">Pazaryeri</a>
+        <a href="#fiyatlandirma" class="underline-grow hover:text-ink transition-colors">Planlar</a>
+        <a href="#sss" class="underline-grow hover:text-ink transition-colors">SSS</a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="#indir" class="press hidden sm:inline-flex items-center gap-2 bg-ink text-white font-600 text-[0.92rem] px-4 py-2.5 rounded-full hover:bg-[#23242b] transition-colors">
+          Ücretsiz Başla
+        </a>
+        <button id="menuBtn" class="lg:hidden press inline-grid place-items-center w-11 h-11 rounded-full border border-line bg-surface" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[var(--z-menu)] hidden" role="dialog" aria-modal="true" aria-label="Mobil menü">
+    <div id="menuBackdrop" class="absolute inset-0 bg-ink/45 backdrop-blur-sm"></div>
+    <div id="menuPanel" class="absolute top-0 right-0 h-full w-[82%] max-w-sm bg-base shadow-2xl p-6 flex flex-col gap-1 translate-x-full transition-transform duration-300" style="transition-timing-function: var(--ease-out-expo);">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-display text-lg font-700">listify<span class="text-sageDark">ai</span></span>
+        <button id="menuClose" class="press inline-grid place-items-center w-10 h-10 rounded-full border border-line" aria-label="Menüyü kapat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <a href="#ozellikler" class="menu-link text-lg font-500 py-3 border-b border-line">Özellikler</a>
+      <a href="#nasil" class="menu-link text-lg font-500 py-3 border-b border-line">Nasıl çalışır</a>
+      <a href="#pazaryeri" class="menu-link text-lg font-500 py-3 border-b border-line">Pazaryeri</a>
+      <a href="#fiyatlandirma" class="menu-link text-lg font-500 py-3 border-b border-line">Planlar</a>
+      <a href="#sss" class="menu-link text-lg font-500 py-3 border-b border-line">SSS</a>
+      <a href="#indir" class="menu-link press mt-5 text-center bg-ink text-white font-600 py-3.5 rounded-full">Ücretsiz Başla</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+
+        <div class="reveal">
+          <span class="inline-flex items-center gap-2 bg-sageWash text-sageDark font-600 text-[0.82rem] px-3.5 py-1.5 rounded-full border border-[#d7e0d0]">
+            <span class="w-1.5 h-1.5 rounded-full bg-sageDark" aria-hidden="true"></span>
+            iOS ve Android · 500+ aktif satıcı
+          </span>
+
+          <h1 class="font-display font-800 text-ink mt-5 leading-[1.02] tracking-[-0.035em]" style="font-size: clamp(2.5rem, 7vw, 4.6rem);">
+            Kıyafetini AI mankene
+            giydir, dakikalar içinde
+            <span class="text-sageDark">satışa hazır.</span>
+          </h1>
+
+          <p class="mt-5 text-inkSoft text-lg leading-relaxed max-w-[46ch]">
+            Trendyol, Shopify, Etsy ve Instagram butiği için stüdyo kalitesinde ürün görseli ve moda videosu. Manken tut, kombin kur, pazaryerine aktar. Stüdyo kirası, fotoğrafçı, çekim günü yok.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <a href="#indir" class="press inline-flex items-center justify-center gap-2 bg-ink text-white font-600 text-base px-6 py-4 rounded-full hover:bg-[#23242b] transition-colors">
+              Ücretsiz Başla / İndir
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#nasil" class="press inline-flex items-center justify-center gap-2 bg-surface border border-line text-ink font-600 text-base px-6 py-4 rounded-full hover:border-ink/40 transition-colors">
+              Nasıl çalışır?
+            </a>
+          </div>
+          <p class="mt-3.5 text-sm text-inkMute flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+            Hediye kredi ile ücretsiz dene, kart gerekmez.
+          </p>
+
+          <!-- store rating inline -->
+          <div class="mt-8 flex items-center gap-4">
+            <div class="flex items-center gap-1.5" aria-label="Mağaza puanı 4,7 / 5">
+              <div class="flex" aria-hidden="true">
+                <!-- 4.7 stars -->
+                <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+                <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+                <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+                <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="half"><stop offset="70%" stop-color="#46503F"/><stop offset="70%" stop-color="#cfd3c9"/></linearGradient></defs><path fill="url(#half)" d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+              </div>
+              <span class="font-display font-700 tnum text-ink">4,7</span>
+            </div>
+            <span class="text-sm text-inkMute">App Store + Google Play · 45 yorum</span>
+          </div>
+        </div>
+
+        <!-- Hero phone -->
+        <div class="reveal justify-self-center w-full max-w-[330px]">
+          <div class="phone mx-auto">
+            <div class="phone-screen">
+              <video autoplay muted loop playsinline preload="metadata" poster="../assets/fashion/gallery/01_tryon_sage_wall.webp" aria-label="ListifyAI ile üretilmiş moda videosu önizlemesi">
+                <source src="../assets/video/hero_fashion.mp4" type="video/mp4" />
+              </video>
+              <!-- floating UI hint -->
+              <div class="absolute left-3 right-3 bottom-3 bg-white/92 backdrop-blur rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-lg">
+                <span class="inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg>
+                </span>
+                <div class="leading-tight">
+                  <div class="text-[0.8rem] font-700 text-ink">Moda videosu hazırlanıyor</div>
+                  <div class="text-[0.72rem] text-inkMute">~15 saniyelik dikey klip</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAT BAND (sage) ============ -->
+    <section class="on-ink bg-sage" aria-label="Öne çıkan rakamlar">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-9 sm:py-11">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-7 gap-x-4 text-center text-ink">
+          <div class="reveal">
+            <div class="font-display font-800 tnum leading-none" style="font-size: clamp(2.1rem, 5vw, 3.1rem);"><span class="count" data-to="500">0</span>+</div>
+            <div class="mt-1.5 text-[0.92rem] font-600 text-ink">aktif satıcı</div>
+          </div>
+          <div class="reveal">
+            <div class="font-display font-800 tnum leading-none" style="font-size: clamp(2.1rem, 5vw, 3.1rem);"><span class="count" data-to="11">0</span></div>
+            <div class="mt-1.5 text-[0.92rem] font-600 text-ink">moda modülü</div>
+          </div>
+          <div class="reveal">
+            <div class="font-display font-800 tnum leading-none" style="font-size: clamp(2.1rem, 5vw, 3.1rem);"><span class="count" data-to="90">0</span>+</div>
+            <div class="mt-1.5 text-[0.92rem] font-600 text-ink">video şablonu</div>
+          </div>
+          <div class="reveal">
+            <div class="font-display font-800 tnum leading-none" style="font-size: clamp(2.1rem, 5vw, 3.1rem);"><span class="count" data-to="4.7" data-dec="1">0,0</span></div>
+            <div class="mt-1.5 text-[0.92rem] font-600 text-ink">mağaza puanı</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BEFORE / AFTER ============ -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div class="reveal">
+          <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+            Düz ürün fotoğrafından, mankenli editoryal çekime.
+          </h2>
+          <p class="mt-4 text-inkSoft text-lg leading-relaxed max-w-[52ch]">
+            Kıyafetin tek karesini yükle. AI mankenin üzerine giydirsin, kumaş dokusunu ve kıvrımları korusun. Üst, alt, dış giyim, elbise ve ayakkabıda çalışır. Dengeli ya da kalite modu, 1 ila 4 varyasyon, 4K çözünürlük.
+          </p>
+          <p class="mt-4 text-inkSoft leading-relaxed max-w-[52ch]">
+            Tutamacı sürükleyerek aradaki farkı kendin gör.
+          </p>
+          <a href="#indir" class="press mt-7 inline-flex items-center gap-2 bg-ink text-white font-600 px-5 py-3.5 rounded-full hover:bg-[#23242b] transition-colors">
+            Kendi ürününle dene
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal">
+          <div class="ba" id="ba" role="slider" tabindex="0" aria-label="Önce ve sonra karşılaştırma kaydırıcısı. Sol-sağ ok tuşlarıyla kontrol edin." aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <img src="../assets/fashion/virtual_tryon/before_product.webp" alt="Önce: düz zeminde çekilmiş tek kareli ürün fotoğrafı" />
+            <div class="after-wrap" id="baAfter">
+              <img src="../assets/fashion/virtual_tryon/after_product.webp" alt="Sonra: aynı kıyafetin AI manken üzerinde editoryal sahnedeki hali" />
+            </div>
+            <span class="tag" style="left:.8rem;">ÖNCE</span>
+            <span class="tag" style="right:.8rem;">SONRA</span>
+            <div class="handle" aria-hidden="true"></div>
+            <div class="knob" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section id="ozellikler" class="bg-surface border-y border-line">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+        <div class="reveal max-w-2xl">
+          <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+            Tek uygulamada, 11 moda modülü.
+          </h2>
+          <p class="mt-4 text-inkSoft text-lg leading-relaxed">
+            Mankenden videoya, kumaştan aksesuara kadar bir koleksiyonu satışa hazırlamak için ihtiyacın olan her şey.
+          </p>
+        </div>
+
+        <!-- Bento-ish grid: two large + small cards -->
+        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- 1. Virtual Try-On (large) -->
+          <article class="fcard reveal md:col-span-2 lg:row-span-2 overflow-hidden flex flex-col">
+            <div class="relative aspect-[4/3] md:aspect-[16/10] lg:aspect-[4/5] overflow-hidden">
+              <img src="../assets/fashion/gallery/01_tryon_sage_wall.webp" alt="AI mankenin sage yeşili duvar önünde kıyafeti giydiği virtual try-on çekimi" class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-3.5 left-3.5 bg-ink text-white text-[0.72rem] font-600 px-2.5 py-1 rounded-full">~30 saniye</span>
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-xl text-ink">Virtual Try-On</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed">Kıyafeti AI mankenin üzerine giydir: üst, alt, dış giyim, elbise, ayakkabı. Kumaş dokusu ve kıvrımlar korunur. Dengeli/kalite modu, 1–4 varyasyon, 1K/2K/4K.</p>
+            </div>
+          </article>
+
+          <!-- 2. Aksesuar -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/10_accessory_watch_wrist.webp" alt="Bilekte saat aksesuarının AI ile denendiği yakın çekim" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Aksesuar Denemesi</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">Saat, çanta, gözlük, küpe, kolye dahil 14 aksesuar tipi. Luxury, Casual, Editorial, Minimal temaları, el tercihi, 9 aspect ratio.</p>
+            </div>
+          </article>
+
+          <!-- 3. Kombin Modu -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/04_studio_kombin_4piece.webp" alt="Dört parçalık kombinin tek sahnede AI ile kurulduğu Fashion Studio çekimi" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Kombin Modu</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">9 ürüne kadar tek sahnede birleştir. Hazır galeri, kendi fotoğrafın veya AI manken; stüdyo, iç mekân, outdoor ya da kendi arkaplanın. 1K/2K/4K.</p>
+            </div>
+          </article>
+
+          <!-- 4. Moda Auto Video (large) -->
+          <article class="fcard reveal md:col-span-2 overflow-hidden flex flex-col lg:flex-row">
+            <div class="relative lg:w-[44%] aspect-video lg:aspect-auto overflow-hidden">
+              <video autoplay muted loop playsinline preload="none" poster="../assets/fashion/auto_video_grid/thumb1.webp" class="w-full h-full object-cover" aria-label="Moda Auto Video ile üretilmiş dikey klip önizlemesi">
+                <source src="../assets/video/fashion_city_bike.mp4" type="video/mp4" />
+              </video>
+              <span class="absolute top-3.5 left-3.5 bg-ink text-white text-[0.72rem] font-600 px-2.5 py-1 rounded-full">90+ şablon</span>
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-xl text-ink">Moda Auto Video</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed">Ürün → manken → sahne → müzik → 15 saniyelik klip, otomatik. Reels ve TikTok için dikey. Catwalk, Try-On Loop, Fabric Close-Up, Editorial ve Street dahil 90+ şablon. Pro planda yüz referansı.</p>
+            </div>
+          </article>
+
+          <!-- 5. Editorial Lookbook -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/07_lookbook_plaster_wall.webp" alt="Sıva dokulu duvar önünde koleksiyonel lookbook kombini" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Editorial Lookbook</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">Koleksiyonel outfit kombinleri. Serbest metinle sahne yönergesi yaz, 1–4 varyasyon al.</p>
+            </div>
+          </article>
+
+          <!-- 6. Kumaş Vizyonu -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/08_fabric_vision_texture.webp" alt="Kumaş yakın çekiminin tam giysiye dönüştürüldüğü Kumaş Vizyonu örneği" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Kumaş Vizyonu</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">Kumaşın yakın çekiminden tam giysi render et: doku ve desen korunur. Elbise, gömlek, pantolon, etek.</p>
+            </div>
+          </article>
+
+          <!-- 7. Manken Sistemi -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/06_model_diversity_row.webp" alt="Farklı yaş ve ten tonlarında AI mankenlerin yan yana dizildiği görsel" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Manken Sistemi</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">Hazır galeri, kendi fotoğrafın ya da AI üret. 10+ editoryal poz; her yaş, her ten tonu.</p>
+            </div>
+          </article>
+
+          <!-- 8. Poz Değiştirme -->
+          <article class="fcard reveal overflow-hidden flex flex-col">
+            <div class="relative aspect-[16/11] overflow-hidden">
+              <img src="../assets/fashion/gallery/05_pose_change_triptych.webp" alt="Tek kareden üç ayrı poza çıkarılmış triptik poz değiştirme örneği" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1">
+              <h3 class="font-display font-700 text-lg text-ink">Poz Değiştirme</h3>
+              <p class="mt-2 text-inkSoft leading-relaxed text-[0.97rem]">Tek kareden çoklu poz üret: triptik düzende üç farklı duruş, tek tıkla.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS (1-2-3) ============ -->
+    <section id="nasil" class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+      <div class="reveal max-w-2xl">
+        <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+          Nasıl çalışır? Üç adım.
+        </h2>
+        <p class="mt-4 text-inkSoft text-lg leading-relaxed">Çekim günü, ekip, ekipman yok. Telefonundaki ürün fotoğrafıyla başla.</p>
+      </div>
+
+      <ol class="mt-10 grid md:grid-cols-3 gap-5">
+        <li class="reveal fcard p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-800 tnum text-sageDark text-3xl leading-none">01</span>
+            <span class="inline-grid place-items-center w-10 h-10 rounded-xl bg-sageWash text-sageDark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l2-2h6l2 2h4v12H3z"/><circle cx="12" cy="13" r="3.2"/></svg>
+            </span>
+          </div>
+          <h3 class="mt-4 font-display font-700 text-xl text-ink">Ürününü yükle</h3>
+          <p class="mt-2 text-inkSoft leading-relaxed">Kıyafetin, aksesuarın ya da kumaşın tek bir fotoğrafı yeterli. Manken hazır galeriden seç ya da kendi modelini kullan.</p>
+        </li>
+        <li class="reveal fcard p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-800 tnum text-sageDark text-3xl leading-none">02</span>
+            <span class="inline-grid place-items-center w-10 h-10 rounded-xl bg-sageWash text-sageDark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4.5"/></svg>
+            </span>
+          </div>
+          <h3 class="mt-4 font-display font-700 text-xl text-ink">Sahne ve modu seç</h3>
+          <p class="mt-2 text-inkSoft leading-relaxed">Stüdyo, iç mekân ya da outdoor. Dengeli veya kalite modu, çözünürlük ve varyasyon sayısı senin kontrolünde.</p>
+        </li>
+        <li class="reveal fcard p-7">
+          <div class="flex items-center gap-3">
+            <span class="font-display font-800 tnum text-sageDark text-3xl leading-none">03</span>
+            <span class="inline-grid place-items-center w-10 h-10 rounded-xl bg-sageWash text-sageDark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6M4 4v3M4 17v3"/></svg>
+            </span>
+          </div>
+          <h3 class="mt-4 font-display font-700 text-xl text-ink">İndir ve aktar</h3>
+          <p class="mt-2 text-inkSoft leading-relaxed">Görseli ve videoyu indir, ya da Trendyol, Shopify, Etsy gibi pazaryerleri için yüklemeye hazır CSV/XLSX dosyaları al.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ MARKETPLACE EXPORT (ink band) ============ -->
+    <section id="pazaryeri" class="on-ink bg-ink text-white">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+        <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 bg-white/10 text-[#B8CDB0] font-600 text-[0.82rem] px-3.5 py-1.5 rounded-full border border-white/15">
+              Marketplace Export
+            </span>
+            <h2 class="font-display font-700 leading-[1.06] tracking-[-0.03em] mt-5" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+              Görselin hazır olunca, listelemen de hazır.
+            </h2>
+            <p class="mt-4 text-white/75 text-lg leading-relaxed max-w-[50ch]">
+              Yedi platform için yüklemeye hazır CSV/XLSX dosyaları: Trendyol, Shopify, Amazon, Etsy, Hepsiburada, N11, WooCommerce. Sütunlar her pazaryerinin formatına otomatik eşlenir; dosyayı indirip yüklersin.
+            </p>
+
+            <ul class="mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3 text-white/85">
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-0.5 text-sage shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Otomatik sütun eşleme
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-0.5 text-sage shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                CSV ve XLSX desteği
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-0.5 text-sage shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Ürün fotoğrafı + SEO/GEO
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-0.5 text-sage shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+                Toplu (bulk) dışa aktarma
+              </li>
+            </ul>
+          </div>
+
+          <!-- marketplace chips + marquee -->
+          <div class="reveal">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">Trendyol</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">Shopify</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">Amazon</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">Etsy</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">Hepsiburada</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600">N11</div>
+              <div class="bg-white/[0.06] border border-white/12 rounded-2xl px-4 py-5 text-center font-600 col-span-2 sm:col-span-3">WooCommerce</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY STRIP ============ -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4 max-w-3xl">
+        <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+          Gerçek satıcıların ürettikleri.
+        </h2>
+      </div>
+      <p class="reveal mt-3 text-inkSoft text-lg max-w-[54ch]">Hepsi uygulamadan çıktı. Stüdyo çekimi gibi görünüyor çünkü artık stüdyon cebinde.</p>
+
+      <div class="mt-9 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/12_outdoor_golden_hour.webp" alt="Altın saat ışığında outdoor moda çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/02_accessory_jewelry_flatlay.webp" alt="Takı aksesuarlarının düz zemin (flatlay) çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/09_street_motion_editorial.webp" alt="Sokakta hareket halinde editoryal moda çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/11_editorial_portrait_mature.webp" alt="Olgun bir mankenin editoryal portre çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/03_accessory_bag_cafe.webp" alt="Kafede çanta aksesuarının yaşam tarzı çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/01_tryon_sage_wall.webp" alt="Sage yeşili duvar önünde virtual try-on çekimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/07_lookbook_plaster_wall.webp" alt="Sıva dokulu duvar önünde lookbook kombini" class="w-full h-full object-cover" loading="lazy" /></figure>
+        <figure class="reveal fcard overflow-hidden aspect-[3/4]"><img src="../assets/fashion/gallery/06_model_diversity_row.webp" alt="Farklı ten tonlarında mankenlerin yan yana dizilimi" class="w-full h-full object-cover" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO SHOWCASE ============ -->
+    <section class="bg-surface border-y border-line">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+        <div class="reveal max-w-2xl">
+          <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+            Reels ve TikTok'a hazır, dikey klipler.
+          </h2>
+          <p class="mt-4 text-inkSoft text-lg leading-relaxed">15 saniyelik moda videoları, otomatik müzikle. Sahneyi seç, gerisini ListifyAI üretsin.</p>
+        </div>
+        <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="reveal phone mx-auto w-full max-w-[230px]">
+            <div class="phone-screen">
+              <video autoplay muted loop playsinline preload="none" poster="../assets/fashion/auto_video_grid/thumb2.webp" aria-label="Kafe terası temalı moda videosu"><source src="../assets/video/fashion_cafe_terrace.mp4" type="video/mp4" /></video>
+            </div>
+          </div>
+          <div class="reveal phone mx-auto w-full max-w-[230px]">
+            <div class="phone-screen">
+              <video autoplay muted loop playsinline preload="none" poster="../assets/fashion/auto_video_grid/thumb3.webp" aria-label="Şehirde bisikletli moda videosu"><source src="../assets/video/fashion_city_bike.mp4" type="video/mp4" /></video>
+            </div>
+          </div>
+          <div class="reveal phone mx-auto w-full max-w-[230px]">
+            <div class="phone-screen">
+              <video autoplay muted loop playsinline preload="none" poster="../assets/fashion/auto_video_grid/thumb4.webp" aria-label="Gün batımında havuz başı moda videosu"><source src="../assets/video/fashion_pool_sunset.mp4" type="video/mp4" /></video>
+            </div>
+          </div>
+          <div class="reveal phone mx-auto w-full max-w-[230px]">
+            <div class="phone-screen">
+              <video autoplay muted loop playsinline preload="none" poster="../assets/fashion/auto_video_grid/thumb5.webp" aria-label="Mermer merdivenlerde editoryal moda videosu"><source src="../assets/video/fashion_marble_stairs.mp4" type="video/mp4" /></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+      <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-4xl">
+        <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+          Satıcılar ne diyor?
+        </h2>
+        <div class="flex items-center gap-2 text-inkSoft">
+          <div class="flex" aria-hidden="true">
+            <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-5 h-5 text-sageDark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-5 h-5" viewBox="0 0 24 24"><defs><linearGradient id="halfTesti"><stop offset="70%" stop-color="#46503F"/><stop offset="70%" stop-color="#cfd3c9"/></linearGradient></defs><path fill="url(#halfTesti)" d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+          </div>
+          <span class="font-display font-700 tnum text-ink">4,7</span>
+          <span class="text-sm">· 45 yorum</span>
+        </div>
+      </div>
+
+      <div class="mt-9 grid md:grid-cols-3 gap-5">
+        <figure class="reveal fcard p-6">
+          <blockquote class="text-ink leading-relaxed text-[1.02rem]">"Trendyol mağazamdaki her ürünü mankenle çekmek bütçemi aşıyordu. Artık akşam ürünü yüklüyorum, sabah listede mankenli görsel hazır."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3 text-sm">
+            <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-sageWash text-sageDark font-700" aria-hidden="true">EŞ</span>
+            <span><span class="block font-600 text-ink">Elif Ş.</span><span class="text-inkMute">Trendyol butik · İstanbul</span></span>
+          </figcaption>
+        </figure>
+        <figure class="reveal fcard p-6">
+          <blockquote class="text-ink leading-relaxed text-[1.02rem]">"Laleli'den toptan alıp Instagram'dan satıyorum. Kombin modunda dört parçayı tek sahnede gösterebilmek dönüşümümü ciddi artırdı."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3 text-sm">
+            <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-sageWash text-sageDark font-700" aria-hidden="true">MK</span>
+            <span><span class="block font-600 text-ink">Murat K.</span><span class="text-inkMute">Instagram butik · Laleli</span></span>
+          </figcaption>
+        </figure>
+        <figure class="reveal fcard p-6">
+          <blockquote class="text-ink leading-relaxed text-[1.02rem]">"Kendi tasarımlarımı üretiyorum, çekim için her seferinde model bulmak zordu. Auto Video ile Reels paylaşımım haftalık rutine döndü."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3 text-sm">
+            <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-sageWash text-sageDark font-700" aria-hidden="true">ZA</span>
+            <span><span class="block font-600 text-ink">Zeynep A.</span><span class="text-inkMute">Bağımsız tasarımcı · İzmir</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="fiyatlandirma" class="bg-sageWash border-y border-[#dde3d6]">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-16 sm:py-20">
+        <div class="reveal max-w-2xl">
+          <h2 class="font-display font-700 text-ink leading-[1.06] tracking-[-0.03em]" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+            Mağazanın büyüklüğüne göre üç plan.
+          </h2>
+          <p class="mt-4 text-inkSoft text-lg leading-relaxed">
+            Hediye kredi ile ücretsiz dene, kart gerekmez. Detaylı fiyatlandırma uygulamada.
+          </p>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-5 items-start">
+          <!-- Starter -->
+          <div class="ptier reveal p-7">
+            <h3 class="font-display font-700 text-2xl text-ink">Starter</h3>
+            <p class="mt-1.5 text-inkSoft">Yeni başlayan KOBİ satıcılar için.</p>
+            <ul class="mt-6 space-y-3 text-inkSoft">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Virtual Try-On ve aksesuar denemesi</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Kombin ve lookbook modülleri</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Pazaryeri CSV/XLSX dışa aktarma</li>
+            </ul>
+            <a href="#indir" class="press mt-7 inline-flex w-full items-center justify-center gap-2 bg-surface border border-ink text-ink font-600 px-5 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors">Ücretsiz Başla</a>
+          </div>
+
+          <!-- Pro (popular) -->
+          <div class="ptier ptier-pop reveal p-7 relative lg:-mt-3">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-ink text-white text-[0.78rem] font-600 px-3.5 py-1 rounded-full">En Popüler</span>
+            <h3 class="font-display font-700 text-2xl text-ink">Pro</h3>
+            <p class="mt-1.5 text-inkSoft">Düzenli içerik üreten mağazalar için.</p>
+            <ul class="mt-6 space-y-3 text-inkSoft">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><strong class="text-ink font-600">Starter'daki her şey</strong>, ayrıca:</span></li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>4K çözünürlük + upscale</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Kalite modu</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Auto Video + yüz referansı</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Öncelikli render kuyruğu</li>
+            </ul>
+            <a href="#indir" class="press mt-7 inline-flex w-full items-center justify-center gap-2 bg-ink text-white font-600 px-5 py-3.5 rounded-full hover:bg-[#23242b] transition-colors">Ücretsiz Başla</a>
+          </div>
+
+          <!-- Creator -->
+          <div class="ptier reveal p-7">
+            <h3 class="font-display font-700 text-2xl text-ink">Creator</h3>
+            <p class="mt-1.5 text-inkSoft">Yüksek hacim ve ekipler için.</p>
+            <ul class="mt-6 space-y-3 text-inkSoft">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><strong class="text-ink font-600">Pro'daki her şey</strong>, ayrıca:</span></li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Maksimum kredi paketi</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Toplu (bulk) dışa aktarma</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 text-sageDark shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Kredi top-up esnekliği</li>
+            </ul>
+            <a href="#indir" class="press mt-7 inline-flex w-full items-center justify-center gap-2 bg-surface border border-ink text-ink font-600 px-5 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors">Ücretsiz Başla</a>
+          </div>
+        </div>
+
+        <p class="reveal mt-7 text-center text-inkSoft">
+          Ekip ve kurumsal kullanım için: <a href="mailto:info@listifyai.com.tr" class="font-600 text-ink underline underline-offset-4 decoration-sageDark hover:decoration-ink">info@listifyai.com.tr</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY / TRUST ============ -->
+    <section class="mx-auto max-w-7xl px-5 sm:px-7 py-14 sm:py-16">
+      <div class="reveal fcard p-7 sm:p-9 grid md:grid-cols-[auto_1fr] gap-5 md:gap-7 items-center">
+        <span class="inline-grid place-items-center w-14 h-14 rounded-2xl bg-sageWash text-sageDark shrink-0" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V6z"/><path d="M9.5 12.2l1.8 1.8 3.4-3.6"/></svg>
+        </span>
+        <div>
+          <h2 class="font-display font-700 text-xl text-ink">Görsellerin senin, ve senin kalır.</h2>
+          <p class="mt-2 text-inkSoft leading-relaxed max-w-[64ch]">Yüklediğin tüm görseller Firebase Storage'da şifreli olarak saklanır ve model eğitiminde kullanılmaz. Verilerinin kontrolü sende.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="sss" class="bg-surface border-y border-line">
+      <div class="mx-auto max-w-3xl px-5 sm:px-7 py-16 sm:py-20">
+        <h2 class="reveal font-display font-700 text-ink leading-[1.06] tracking-[-0.03em] text-center" style="font-size: clamp(1.9rem, 4.4vw, 3rem);">
+          Sık sorulan sorular
+        </h2>
+
+        <div class="faq mt-9 space-y-3">
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Ücretsiz deneyebilir miyim?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">Evet. Hesabını açtığında hediye kredi tanımlanır, kart bilgisi istemeden ilk görsellerini ve videolarını üretebilirsin. Detaylı fiyatlandırma uygulama içinde.</div></div>
+          </details>
+
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Bir görsel ne kadar sürede hazır olur?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">Virtual Try-On çekimi tipik olarak yaklaşık 30 saniyede tamamlanır. Auto Video yaklaşık 15 saniyelik dikey bir klip üretir. Pro planda öncelikli kuyruk daha hızlı sonuç verir.</div></div>
+          </details>
+
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Hangi pazaryerlerine aktarabiliyorum?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">Trendyol, Shopify, Amazon, Etsy, Hepsiburada, N11 ve WooCommerce. CSV ve XLSX olarak dışa aktarırsın; sütunlar pazaryerinin formatına otomatik eşlenir.</div></div>
+          </details>
+
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Kendi mankenimi ya da modelimi kullanabilir miyim?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">Evet. Hazır manken galerisinden seçebilir, kendi fotoğrafını yükleyebilir ya da AI ile manken üretebilirsin. 10'dan fazla editoryal poz, her yaş ve her ten tonu mevcut.</div></div>
+          </details>
+
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Görsellerim güvende mi?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">Yüklediğin görseller Firebase Storage'da şifreli olarak saklanır ve model eğitiminde kullanılmaz. İçerik tamamen sana aittir.</div></div>
+          </details>
+
+          <details class="reveal fcard p-0 overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 sm:p-6">
+              <span class="font-600 text-ink text-[1.05rem]">Hangi cihazlarda çalışıyor?</span>
+              <span class="chev inline-grid place-items-center w-8 h-8 rounded-full bg-sageWash text-sageDark shrink-0" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </summary>
+            <div class="ans"><div class="px-5 sm:px-6 pb-5 sm:pb-6 text-inkSoft leading-relaxed">ListifyAI hem iOS hem de Android için mobil uygulama olarak sunulur. App Store ve Google Play'den ücretsiz indirebilirsin.</div></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA / DOWNLOAD (ink band) ============ -->
+    <section id="indir" class="on-ink bg-ink text-white">
+      <div class="mx-auto max-w-5xl px-5 sm:px-7 py-18 sm:py-24 text-center">
+        <h2 class="reveal font-display font-800 leading-[1.04] tracking-[-0.035em]" style="font-size: clamp(2.1rem, 5.5vw, 3.8rem);">
+          Stüdyon, cebinde başlasın.
+        </h2>
+        <p class="reveal mt-5 text-white/75 text-lg leading-relaxed max-w-[50ch] mx-auto">
+          ListifyAI'yi indir, hediye kredinle ilk mankenli görselini ve moda videonu bugün üret. Kart gerekmez.
+        </p>
+
+        <div class="reveal mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" class="press inline-block" aria-label="App Store'dan ListifyAI'yi indir">
+            <img src="../assets/img/app-store-badge.svg" alt="App Store'dan indir" class="h-[52px] w-auto" loading="lazy" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" class="press inline-block" aria-label="Google Play'den ListifyAI'yi indir">
+            <img src="../assets/img/google-play-badge.svg" alt="Google Play'den indir" class="h-[52px] w-auto" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="reveal mt-7 flex items-center justify-center gap-2 text-white/70 text-sm">
+          <div class="flex" aria-hidden="true">
+            <svg class="w-4 h-4 text-sage" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-4 h-4 text-sage" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-4 h-4 text-sage" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-4 h-4 text-sage" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24"><defs><linearGradient id="halfCta"><stop offset="70%" stop-color="#9EB098"/><stop offset="70%" stop-color="#52584e"/></linearGradient></defs><path fill="url(#halfCta)" d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.8 6.1 20.2l1.2-6.6L2.5 9l6.6-.9z"/></svg>
+          </div>
+          4,7 puan · 500+ aktif satıcı
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-base">
+      <div class="mx-auto max-w-7xl px-5 sm:px-7 py-12">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="sm:col-span-2 lg:col-span-1">
+            <span class="font-display text-xl font-700 tracking-tight text-ink">listify<span class="text-sageDark">ai</span></span>
+            <p class="mt-3 text-inkSoft leading-relaxed max-w-[34ch]">Moda satıcıları için AI stüdyo. Mankeni seç, kıyafetini giydir, satışa hazır görsel ve video üret.</p>
+          </div>
+          <nav aria-label="Ürün bağlantıları">
+            <h3 class="font-600 text-ink text-sm">Ürün</h3>
+            <ul class="mt-3 space-y-2 text-inkSoft text-[0.95rem]">
+              <li><a href="#ozellikler" class="hover:text-ink transition-colors">Özellikler</a></li>
+              <li><a href="#nasil" class="hover:text-ink transition-colors">Nasıl çalışır</a></li>
+              <li><a href="#pazaryeri" class="hover:text-ink transition-colors">Pazaryeri export</a></li>
+              <li><a href="#fiyatlandirma" class="hover:text-ink transition-colors">Planlar</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Yasal bağlantılar">
+            <h3 class="font-600 text-ink text-sm">Yasal</h3>
+            <ul class="mt-3 space-y-2 text-inkSoft text-[0.95rem]">
+              <li><a href="../privacy-policy.html" class="hover:text-ink transition-colors">Gizlilik Politikası</a></li>
+              <li><a href="../kvkk.html" class="hover:text-ink transition-colors">KVKK</a></li>
+              <li><a href="../terms.html" class="hover:text-ink transition-colors">Kullanım Koşulları</a></li>
+              <li><a href="../support.html" class="hover:text-ink transition-colors">Destek</a></li>
+            </ul>
+          </nav>
+          <div>
+            <h3 class="font-600 text-ink text-sm">İletişim</h3>
+            <ul class="mt-3 space-y-2 text-inkSoft text-[0.95rem]">
+              <li><a href="mailto:info@listifyai.com.tr" class="hover:text-ink transition-colors">info@listifyai.com.tr</a></li>
+              <li><a href="mailto:listifyaiapp@gmail.com" class="hover:text-ink transition-colors">listifyaiapp@gmail.com</a></li>
+            </ul>
+            <div class="mt-4 flex gap-3">
+              <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" class="press" aria-label="App Store'dan indir"><img src="../assets/img/app-store-badge.svg" alt="App Store'dan indir" class="h-10 w-auto" loading="lazy" /></a>
+              <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" class="press" aria-label="Google Play'den indir"><img src="../assets/img/google-play-badge.svg" alt="Google Play'den indir" class="h-10 w-auto" loading="lazy" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-inkMute">
+          <p>© <span id="yr">2026</span> ListifyAI · listifyai.com.tr</p>
+          <p>iOS ve Android için AI Moda Stüdyosu</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ============ STICKY MOBILE DOWNLOAD BAR ============ -->
+  <div id="dlbar" class="dlbar lg:hidden fixed bottom-0 inset-x-0 z-[var(--z-sticky)] bg-base/95 backdrop-blur-md border-t border-line px-4 py-3" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+    <div class="flex items-center gap-3">
+      <div class="flex-1 leading-tight">
+        <div class="font-600 text-ink text-[0.92rem]">Ücretsiz başla</div>
+        <div class="text-[0.78rem] text-inkMute">Hediye kredi · kart yok</div>
+      </div>
+      <a href="https://apps.apple.com/us/app/listify-ai/id6758052017" class="press inline-grid place-items-center w-11 h-11 rounded-full bg-ink text-white" aria-label="App Store'dan indir">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.4-.9-2.4-3.4zM14.3 5.4c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2z"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.listifyai.listifyai" class="press inline-grid place-items-center w-11 h-11 rounded-full bg-ink text-white" aria-label="Google Play'den indir">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.3v17.4c0 .5.5.8.9.5l9.6-8.7c.3-.3.3-.7 0-1L4.9 2.8c-.4-.3-.9 0-.9.5zm12.6 6.6l-2.2 2 2.2 2 3.1-1.8c.6-.4.6-1 0-1.4l-3.1-1.8zM6.4 2.1l8.3 7.5 1.9-1.7L6.9 1.7c-.2-.1-.4 0-.5.2v.2zm0 19.8v.2c.1.2.3.3.5.2l9.7-6.2-1.9-1.7-8.3 7.5z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- Reduced motion: stop autoplay videos (CSS can't pause <video autoplay>) ---- */
+    if (reduce) {
+      document.querySelectorAll('video[autoplay]').forEach(function (v) {
+        v.removeAttribute('autoplay');
+        try { v.pause(); } catch (e) {}
+      });
+    }
+
+    /* ---- Footer year ---- */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* ---- Reveal on scroll (enhances already-visible default) ---- */
+    var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (reduce || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('is-in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---- Count-up stats (once) ---- */
+    function animateCount(el) {
+      var to = parseFloat(el.getAttribute('data-to'));
+      var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+      if (reduce) { el.textContent = format(to, dec); return; }
+      var dur = 1100, start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 4); /* ease-out-quart */
+        el.textContent = format(to * eased, dec);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = format(to, dec);
+      }
+      requestAnimationFrame(step);
+    }
+    function format(n, dec) {
+      if (dec > 0) return n.toFixed(dec).replace('.', ',');
+      return Math.round(n).toString();
+    }
+    var counts = Array.prototype.slice.call(document.querySelectorAll('.count'));
+    if (!('IntersectionObserver' in window)) {
+      counts.forEach(function (el) { animateCount(el); });
+    } else {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      counts.forEach(function (el) { cio.observe(el); });
+    }
+
+    /* ---- Before / After slider ---- */
+    var ba = document.getElementById('ba');
+    if (ba) {
+      var dragging = false;
+      function setPos(clientX) {
+        var r = ba.getBoundingClientRect();
+        var pct = ((clientX - r.left) / r.width) * 100;
+        pct = Math.max(0, Math.min(100, pct));
+        ba.style.setProperty('--pos', pct + '%');
+        ba.setAttribute('aria-valuenow', Math.round(pct));
+      }
+      ba.addEventListener('pointerdown', function (e) { dragging = true; ba.setPointerCapture(e.pointerId); setPos(e.clientX); });
+      ba.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
+      ba.addEventListener('pointerup', function () { dragging = false; });
+      ba.addEventListener('pointercancel', function () { dragging = false; });
+      ba.addEventListener('keydown', function (e) {
+        var cur = parseFloat(ba.getAttribute('aria-valuenow')) || 50;
+        if (e.key === 'ArrowLeft') { cur = Math.max(0, cur - 4); }
+        else if (e.key === 'ArrowRight') { cur = Math.min(100, cur + 4); }
+        else if (e.key === 'Home') { cur = 0; }
+        else if (e.key === 'End') { cur = 100; }
+        else return;
+        e.preventDefault();
+        ba.style.setProperty('--pos', cur + '%');
+        ba.setAttribute('aria-valuenow', cur);
+      });
+    }
+
+    /* ---- Mobile menu ---- */
+    var menuBtn = document.getElementById('menuBtn');
+    var menu = document.getElementById('mobileMenu');
+    var panel = document.getElementById('menuPanel');
+    var backdrop = document.getElementById('menuBackdrop');
+    var closeBtn = document.getElementById('menuClose');
+    var lastFocus = null;
+
+    function openMenu() {
+      lastFocus = document.activeElement;
+      menu.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function () { panel.classList.remove('translate-x-full'); });
+      closeBtn.focus();
+    }
+    function closeMenu() {
+      panel.classList.add('translate-x-full');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      var done = function () { menu.classList.add('hidden'); panel.removeEventListener('transitionend', done); };
+      if (reduce) { done(); } else { panel.addEventListener('transitionend', done); }
+      if (lastFocus) lastFocus.focus();
+    }
+    if (menuBtn) {
+      menuBtn.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+      Array.prototype.slice.call(document.querySelectorAll('.menu-link')).forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) closeMenu();
+      });
+    }
+
+    /* ---- Sticky download bar: show after hero scrolls past ---- */
+    var dlbar = document.getElementById('dlbar');
+    var heroEnd = document.querySelector('section');
+    if (dlbar && heroEnd && 'IntersectionObserver' in window) {
+      var bio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting && e.boundingClientRect.top < 0) dlbar.classList.add('show');
+          else if (e.isIntersecting) dlbar.classList.remove('show');
+        });
+      }, { threshold: 0 });
+      bio.observe(heroEnd);
+    } else if (dlbar) {
+      dlbar.classList.add('show');
+    }
+  })();
+  </script>
+</body>
+</html>

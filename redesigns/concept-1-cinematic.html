@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>listifyai — Sinematik Film</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --base: #0A0A0C;
+    --text: #F5F5F0;
+    --sage: #9EB098;
+    --gold: #C9B88A;
+  }
+  * { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--base);
+    color: var(--text);
+    font-family: 'Alexandria', sans-serif;
+    overflow-x: hidden;
+  }
+  .font-alx { font-family: 'Alexandria', sans-serif; }
+
+  /* ---------- Hero scroll-driven video stage ---------- */
+  .hero-stage {
+    position: relative;
+    height: 300vh; /* tall scroll track for 3 scenes */
+  }
+  .hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .scene {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+  }
+  .scene.is-active { opacity: 1; }
+  .scene video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* slow ken-burns drift for film energy */
+    transform: scale(1.08);
+    animation: drift 24s ease-in-out infinite alternate;
+  }
+  @keyframes drift {
+    from { transform: scale(1.08) translate3d(0,0,0); }
+    to   { transform: scale(1.16) translate3d(-2%, -1.5%, 0); }
+  }
+  /* cinematic darkening + grade */
+  .grade {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 90% at 50% 35%, rgba(10,10,12,0.05) 0%, rgba(10,10,12,0.45) 60%, rgba(10,10,12,0.88) 100%),
+      linear-gradient(180deg, rgba(10,10,12,0.55) 0%, rgba(10,10,12,0.15) 30%, rgba(10,10,12,0.55) 100%);
+    pointer-events: none;
+  }
+  /* fine film grain */
+  .grain {
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grainShift 0.6s steps(3) infinite;
+    mix-blend-mode: overlay;
+  }
+  @keyframes grainShift {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-3%, 2%); }
+    100% { transform: translate(2%, -2%); }
+  }
+
+  /* ---------- Hero text ---------- */
+  .hero-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 clamp(1.5rem, 5vw, 6rem) clamp(3rem, 9vh, 7rem);
+  }
+  .headline {
+    position: relative;
+    height: clamp(7rem, 26vh, 17rem);
+  }
+  .hl-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.4rem, 7.2vw, 6.6rem);
+    max-width: 16ch;
+  }
+  .hl-line.is-active { opacity: 1; transform: translateY(0); }
+  .hl-line em { font-style: normal; font-weight: 600; color: var(--gold); }
+  .hl-line .sage { color: var(--sage); }
+
+  /* progress dots */
+  .dots {
+    position: absolute;
+    right: clamp(1.2rem, 4vw, 3.5rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 99px;
+    background: rgba(245,245,240,0.25);
+    transition: all 0.5s ease;
+  }
+  .dot.is-active { background: var(--sage); height: 26px; }
+
+  /* scroll cue */
+  .cue {
+    position: absolute;
+    left: 50%; bottom: 1.6rem;
+    transform: translateX(-50%);
+    z-index: 6;
+    font-size: 0.62rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: rgba(245,245,240,0.5);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .cue .bar {
+    width: 1px; height: 38px;
+    background: linear-gradient(var(--sage), transparent);
+    animation: cueDrop 2.2s ease-in-out infinite;
+  }
+  @keyframes cueDrop {
+    0%,100% { opacity: 0.2; transform: scaleY(0.4); transform-origin: top; }
+    50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  }
+
+  /* ---------- Full-bleed sections ---------- */
+  .bleed {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .bleed img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .bleed-grade {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,12,0.4) 0%, rgba(10,10,12,0) 35%, rgba(10,10,12,0.75) 100%);
+  }
+  .caption {
+    position: absolute;
+    left: clamp(1.5rem, 5vw, 6rem);
+    bottom: clamp(2.4rem, 7vh, 5rem);
+    max-width: 22ch;
+  }
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ---------- CTA ---------- */
+  .cta-btn {
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.4s ease, color 0.4s ease;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: var(--sage); color: var(--base); }
+
+  /* top wordmark */
+  .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; mix-blend-mode: difference; }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scene video { animation: none !important; transform: scale(1.04); }
+    .grain { animation: none; }
+    .cue .bar { animation: none; }
+    .scene { transition: opacity 0.4s linear; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Wordmark -->
+  <header class="topbar">
+    <div class="flex items-center justify-between px-6 md:px-12 py-5">
+      <a href="#top" class="font-alx text-lg md:text-xl font-semibold tracking-tight text-[#F5F5F0]" aria-label="listifyai ana sayfa">
+        listify<span style="color: var(--sage)">ai</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-xs tracking-[0.25em] uppercase text-[#F5F5F0]">
+        <a href="#film" class="hover:opacity-60 transition-opacity">Film</a>
+        <a href="#galeri" class="hover:opacity-60 transition-opacity">Galeri</a>
+        <a href="#cta" class="hover:opacity-60 transition-opacity">Başla</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO: scroll-driven cinematic film ============ -->
+  <section id="top" class="hero-stage" aria-label="Sinematik tanıtım filmi">
+    <div class="hero-sticky">
+
+      <!-- Scene 1 -->
+      <div class="scene is-active" data-scene="0">
+        <video autoplay muted loop playsinline preload="auto"
+               aria-label="Podyumda yürüyen moda modeli — yapay zeka ile üretilmiş defile görüntüsü">
+          <source src="../assets/app-showcase/video/model_catwalk.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Scene 2 -->
+      <div class="scene" data-scene="1">
+        <video muted loop playsinline preload="auto"
+               aria-label="Kıyafet dönüşümü reveal — tek fotoğraftan stüdyo çekimi">
+          <source src="../assets/app-showcase/video/model_outfit_reveal.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Scene 3 -->
+      <div class="scene" data-scene="2">
+        <video muted loop playsinline preload="auto"
+               aria-label="Mermer merdivenlerde moda çekimi — sinematik editöryal sahne">
+          <source src="../assets/video/fashion_marble_stairs.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="grade"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <!-- progress dots -->
+      <div class="dots" aria-hidden="true">
+        <span class="dot is-active" data-dot="0"></span>
+        <span class="dot" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+      </div>
+
+      <!-- headline narrative -->
+      <div class="hero-copy">
+        <div class="headline">
+          <h1 class="hl-line is-active font-alx" data-line="0">
+            Tek fotoğraf.<br /><em>Bir stüdyo dolusu</em> sonuç.
+          </h1>
+          <p class="hl-line font-alx" data-line="1" aria-hidden="true">
+            Podyum değil,<br /><span class="sage">telefonun.</span>
+          </p>
+          <p class="hl-line font-alx" data-line="2" aria-hidden="true">
+            Çekim ekibi yok.<br /><em>Sadece sonuç var.</em>
+          </p>
+        </div>
+        <p class="mt-7 max-w-md text-sm md:text-base font-light text-[#F5F5F0]/70 leading-relaxed">
+          ListifyAI, ürün fotoğrafını sinematik moda çekimine çevirir. Model, sahne, ışık — hepsi yapay zekâ.
+        </p>
+      </div>
+
+      <div class="cue" aria-hidden="true">
+        <span>Kaydır</span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION: full-bleed shot 1 ============ -->
+  <section id="film" class="bleed" aria-label="Editöryal sokak çekimi">
+    <img src="../assets/fashion/gallery/09_street_motion_editorial.webp"
+         alt="Sokakta hareket halindeki editöryal moda çekimi — yapay zeka ile üretilmiş" loading="lazy" />
+    <div class="bleed-grade"></div>
+    <div class="caption reveal">
+      <p class="text-xs tracking-[0.4em] uppercase text-[var(--sage)] mb-4">01 — Editöryal</p>
+      <p class="font-alx text-2xl md:text-4xl font-light leading-tight">
+        Bir sezonun ruhu, <em style="font-style:normal;color:var(--gold)">tek karede</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SECTION: full-bleed shot 2 ============ -->
+  <section id="galeri" class="bleed" aria-label="Altın saat dış mekan çekimi">
+    <img src="../assets/fashion/gallery/12_outdoor_golden_hour.webp"
+         alt="Altın saat ışığında dış mekan moda çekimi — yapay zeka ile üretilmiş" loading="lazy" />
+    <div class="bleed-grade"></div>
+    <div class="caption reveal">
+      <p class="text-xs tracking-[0.4em] uppercase text-[var(--sage)] mb-4">02 — Işık</p>
+      <p class="font-alx text-2xl md:text-4xl font-light leading-tight">
+        Stüdyo ışığını <span style="color:var(--sage)">kiralamadan</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="cta" class="relative min-h-[88vh] flex flex-col items-center justify-center text-center px-6 py-28 overflow-hidden">
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(80% 60% at 50% 40%, rgba(158,176,152,0.10), transparent 70%);"></div>
+    <p class="reveal text-xs tracking-[0.45em] uppercase text-[#F5F5F0]/50 mb-8">listify<span style="color:var(--sage)">ai</span> stüdyosu</p>
+    <h2 class="reveal font-alx font-extralight leading-[0.95] tracking-tight" style="font-size: clamp(2.6rem, 9vw, 7rem); transition-delay: 0.1s;">
+      Çekim bugün<br /><em style="font-style:normal; font-weight:600; color:var(--gold)">başlasın.</em>
+    </h2>
+    <p class="reveal mt-8 max-w-lg text-base md:text-lg font-light text-[#F5F5F0]/65" style="transition-delay: 0.2s;">
+      İlk koleksiyonunu dakikalar içinde üret. Kredi kartı yok, taahhüt yok.
+    </p>
+    <a href="#top" class="cta-btn reveal mt-12 inline-flex items-center gap-3 border border-[#F5F5F0]/30 rounded-full px-10 py-4 text-sm tracking-[0.25em] uppercase text-[#F5F5F0]"
+       style="transition-delay: 0.3s;">
+      Ücretsiz dene
+      <span aria-hidden="true">→</span>
+    </a>
+    <footer class="reveal mt-24 text-xs text-[#F5F5F0]/30 tracking-wider" style="transition-delay: 0.4s;">
+      © listify<span style="color:var(--sage)">ai</span> — AI moda &amp; e-ticaret stüdyosu
+    </footer>
+  </section>
+
+<script>
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.hl-line'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
+  var stage = document.querySelector('.hero-stage');
+  var current = -1;
+
+  function setScene(idx) {
+    if (idx === current) return;
+    current = idx;
+    scenes.forEach(function (s, i) {
+      var on = i === idx;
+      s.classList.toggle('is-active', on);
+      var v = s.querySelector('video');
+      if (!v) return;
+      if (on) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else if (!reduced) {
+        // keep first playing for instant feel; pause others to save resources
+        try { v.pause(); } catch (e) {}
+      }
+    });
+    lines.forEach(function (l, i) { l.classList.toggle('is-active', i === idx); });
+    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+  }
+
+  setScene(0);
+
+  if (!reduced) {
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var rect = stage.getBoundingClientRect();
+        var track = stage.offsetHeight - window.innerHeight;
+        // progress 0..1 through the sticky track
+        var prog = track > 0 ? Math.min(1, Math.max(0, -rect.top / track)) : 0;
+        var idx = Math.min(scenes.length - 1, Math.floor(prog * scenes.length + 0.0001));
+        setScene(idx);
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+  } else {
+    // reduced motion: show first frame, pause everything, reveal all lines statically
+    scenes.forEach(function (s) {
+      var v = s.querySelector('video');
+      if (v) { try { v.pause(); } catch (e) {} v.removeAttribute('autoplay'); }
+    });
+  }
+
+  // reveal-on-view for sections + captions
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
