@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["D2SBZFU5RK.com.listifyai.listifyai"],
+        "components": [
+          { "/": "/app/*", "comment": "Uygulama içi derin linkler (e-posta/push CTA: /app/paywall, /app/...)" },
+          { "/": "/r/*", "comment": "Kısa yönlendirme linkleri" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["D2SBZFU5RK.com.listifyai.listifyai"]
+  }
+}
