@@ -7,6 +7,9 @@
 <meta name="description" content="Ürün fotoğrafını yükle; yapay zekâ mankene giydirsin, sahneye koysun, Reels videosunu ve Trendyol ilanını hazırlasın. Butik, toptancı ve atölyeler için.">
 <meta name="theme-color" content="#08080B">
 <link rel="canonical" href="https://listifyai.com.tr/">
+<link rel="alternate" hreflang="tr" href="https://listifyai.com.tr/">
+<link rel="alternate" hreflang="en" href="https://listifyai.com.tr/en/">
+<link rel="alternate" hreflang="x-default" href="https://listifyai.com.tr/">
 <link rel="icon" href="https://listifyai.com.tr/assets/favicon.png" type="image/png">
 <meta name="facebook-domain-verification" content="rof70sbcbzs1w87o1ro89tbrtiq5le">
 <meta name="google-site-verification" content="JpQeO1SkG53elbc8UT6LBn3dcokGjeDOORuuv8QUzBg">
@@ -26,7 +29,7 @@
 </script>
 <!-- Meta Pixel: yalnız canlı alan adının ana sayfasında çalışır; yerel önizleme ve /redesigns/ ölçümü kirletmez -->
 <script>
-if (/^(www\.)?listifyai\.com\.tr$/.test(location.hostname) && (location.pathname === '/' || location.pathname === '/index.html')) {
+if (/^(www\.)?listifyai\.com\.tr$/.test(location.hostname) && /^\/(en\/)?(index\.html)?$/.test(location.pathname)) {
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','2729736380696002');fbq('track','PageView');
 }
@@ -88,14 +91,16 @@ section{padding-block:clamp(72px,9vw,128px)}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:12px}
 .lang{display:flex;border:1px solid var(--border-hi);border-radius:var(--pill);padding:3px;font-family:var(--mono);font-size:11px}
-.lang span{padding:5px 10px;border-radius:var(--pill);color:var(--text3)}
-.lang span.on{background:var(--text);color:var(--bg)}
+.lang a{padding:5px 10px;border-radius:var(--pill);color:var(--text3)}
+.lang a:hover{color:var(--text)}
+.lang a.on{background:var(--text);color:var(--bg)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--pill);font-weight:500;font-size:14px;transition:transform .25s var(--ease),background .2s}
 .btn:hover{transform:translateY(-1px)}
 .btn-sage{background:var(--sage);color:var(--ink)}
 .btn-ghost{border:1px solid var(--border-hi);color:var(--text)}
 .burger{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border-hi);border-radius:var(--pill)}
 @media(min-width:900px){.nav-links{display:flex}.burger{display:none}}
+@media(max-width:380px){.nav .wrap{gap:8px}.nav-right{gap:6px}.nav .btn{padding:9px 12px}.lang a{padding:5px 8px}}
 .menu{position:fixed;inset:64px 0 auto 0;z-index:var(--z-menu);background:var(--bg2);border-bottom:1px solid var(--border);padding:16px var(--gutter) 24px;display:none;flex-direction:column;gap:4px}
 .menu.open{display:flex}
 .menu a{padding:12px 4px;border-bottom:1px solid var(--border);font-size:17px}
@@ -301,13 +306,14 @@ html.gs .rv{opacity:0;transform:translateY(22px)}
       <a href="#studyo">Stüdyo</a><a href="#video">Video</a><a href="#moda">Moda</a><a href="#kategori">Kategoriler</a><a href="#sss">SSS</a>
     </nav>
     <div class="nav-right">
+      <div class="lang" aria-label="Dil / Language"><a href="./" class="on" hreflang="tr" lang="tr" aria-current="true">TR</a><a href="en/" hreflang="en" lang="en">EN</a></div>
       <a class="btn btn-sage" href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener">İndir</a>
       <button class="burger" aria-label="Menü" aria-expanded="false" id="burger">☰</button>
     </div>
   </div>
 </header>
 <nav class="menu" id="menu" aria-label="Mobil menü">
-  <a href="#studyo">Stüdyo</a><a href="#video">Video</a><a href="#moda">Moda</a><a href="#kategori">Kategoriler</a><a href="#sss">SSS</a>
+  <a href="#studyo">Stüdyo</a><a href="#video">Video</a><a href="#moda">Moda</a><a href="#kategori">Kategoriler</a><a href="#sss">SSS</a><a href="en/" hreflang="en" lang="en">English</a>
 </nav>
 
 <!-- HERO -->

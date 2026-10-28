@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Fashion Model & Product Photo Studio | ListifyAI</title>
+<meta name="description" content="Upload a product photo; AI dresses it on a model, places it in a scene and prepares your Reels video and marketplace listing. For boutiques, wholesalers and ateliers.">
+<meta name="theme-color" content="#08080B">
+<link rel="canonical" href="https://listifyai.com.tr/en/">
+<link rel="alternate" hreflang="tr" href="https://listifyai.com.tr/">
+<link rel="alternate" hreflang="en" href="https://listifyai.com.tr/en/">
+<link rel="alternate" hreflang="x-default" href="https://listifyai.com.tr/">
+<link rel="icon" href="https://listifyai.com.tr/assets/favicon.png" type="image/png">
+<meta name="facebook-domain-verification" content="rof70sbcbzs1w87o1ro89tbrtiq5le">
+<meta name="google-site-verification" content="JpQeO1SkG53elbc8UT6LBn3dcokGjeDOORuuv8QUzBg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ListifyAI">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:title" content="AI Fashion Model & Product Photo Studio | ListifyAI">
+<meta property="og:description" content="Upload one photo, the studio does the rest: model, scene, Reels video and marketplace listing. For boutiques, wholesalers and ateliers.">
+<meta property="og:url" content="https://listifyai.com.tr/en/">
+<meta property="og:image" content="https://listifyai.com.tr/assets/fashion/gallery/01_tryon_sage_wall.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Fashion Model & Product Photo Studio | ListifyAI">
+<meta name="twitter:description" content="Upload one photo, the studio does the rest: model, scene, Reels video and marketplace listing.">
+<meta name="twitter:image" content="https://listifyai.com.tr/assets/fashion/gallery/01_tryon_sage_wall.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"ListifyAI","applicationCategory":"LifestyleApplication","operatingSystem":"iOS, Android","description":"AI fashion and e-commerce studio. Generates models, scenes, videos and marketplace content from a single product or garment photo.","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","ratingCount":"45","bestRating":"5"}}
+</script>
+<!-- Meta Pixel: yalnız canlı alan adının ana sayfasında çalışır; yerel önizleme ve /redesigns/ ölçümü kirletmez -->
+<script>
+if (/^(www\.)?listifyai\.com\.tr$/.test(location.hostname) && /^\/(en\/)?(index\.html)?$/.test(location.pathname)) {
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2729736380696002');fbq('track','PageView');
+}
+window.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"], a[href*="play.google.com"], a[href*="sng.link"]');
+  if(a&&window.fbq){fbq('track','Lead',{content_name:'app_download'});}
+},true);
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2729736380696002&ev=PageView&noscript=1"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- Belirteçler: ana sayfa v4 (design_tokens.dart) ile hizalı ---------- */
+:root{
+  --bg:#08080B; --bg2:#0E0E12; --surface:#15151A; --surface2:#1C1C22;
+  --border:rgba(245,245,240,.08); --border-hi:rgba(245,245,240,.14);
+  --text:#F5F5F0; --text2:rgba(245,245,240,.72); --text3:rgba(245,245,240,.56);
+  --sage:#9EB098; --sage-text:#8FA69F; --sage-tint:rgba(124,136,112,.18); --sage-dark:#5B6B5A;
+  --gold:#E8C9A0; --ink:#12140F;
+  --r-sm:10px; --r-md:12px; --r-lg:16px; --r-xl:20px; --r-xxl:24px; --pill:999px;
+  --display:'Alexandria',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,56px); --max:1240px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --z-sticky:20; --z-menu:30;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:var(--display);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--sage);color:var(--ink)}
+
+.wrap{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text3)}
+.eyebrow b{color:var(--sage-text);font-weight:500}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1;text-wrap:balance}
+h2{font-size:clamp(32px,4.2vw,54px);margin-top:12px}
+h2 em,h1 em{font-style:normal;font-weight:300}
+h1 .gold{color:var(--gold)}
+.lead{color:var(--text2);font-size:clamp(16px,1.3vw,18px);max-width:52ch;text-wrap:pretty}
+section{padding-block:clamp(72px,9vw,128px)}
+.sec-head{display:grid;grid-template-columns:1fr;gap:20px;align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+@media(min-width:900px){.sec-head{grid-template-columns:1.3fr 1fr}.sec-head .lead{justify-self:end;max-width:42ch}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-size:12.5px;padding:7px 12px;border:1px solid var(--border-hi);border-radius:var(--pill);color:var(--text2)}
+.chip.on{background:var(--sage);color:var(--ink);border-color:var(--sage);font-weight:500}
+.mono{font-family:var(--mono)}
+.hr{height:1px;background:var(--border)}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:var(--z-sticky);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(8,8,11,.72);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.03em}
+.logo span{color:var(--sage)}
+.nav-links{display:none;gap:26px;font-size:14px;color:var(--text2)}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--border-hi);border-radius:var(--pill);padding:3px;font-family:var(--mono);font-size:11px}
+.lang a{padding:5px 10px;border-radius:var(--pill);color:var(--text3)}
+.lang a:hover{color:var(--text)}
+.lang a.on{background:var(--text);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:var(--pill);font-weight:500;font-size:14px;transition:transform .25s var(--ease),background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-sage{background:var(--sage);color:var(--ink)}
+.btn-ghost{border:1px solid var(--border-hi);color:var(--text)}
+.burger{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border-hi);border-radius:var(--pill)}
+@media(min-width:900px){.nav-links{display:flex}.burger{display:none}}
+@media(max-width:380px){.nav .wrap{gap:8px}.nav-right{gap:6px}.nav .btn{padding:9px 12px}.lang a{padding:5px 8px}}
+.menu{position:fixed;inset:64px 0 auto 0;z-index:var(--z-menu);background:var(--bg2);border-bottom:1px solid var(--border);padding:16px var(--gutter) 24px;display:none;flex-direction:column;gap:4px}
+.menu.open{display:flex}
+.menu a{padding:12px 4px;border-bottom:1px solid var(--border);font-size:17px}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(56px,7vw,96px) 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;background:radial-gradient(60% 60% at 70% 50%,rgba(124,136,112,.22),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
+.hero h1{font-size:clamp(40px,6vw,78px);margin-top:20px;line-height:.98}
+.hero .lead{margin-top:24px}
+.stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.stores img{height:44px;width:auto}
+.stores a{transition:transform .25s var(--ease)}
+.stores a:hover{transform:translateY(-2px)}
+.trust{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--text2)}
+.trust b{color:var(--gold);font-weight:500}
+.tiny{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--text3);margin-top:14px}
+
+/* 3D halka — konteyner genişliğine göre ölçeklenir, taşmaz */
+.ring-wrap{position:relative;aspect-ratio:16/10;max-width:560px;width:100%;margin-inline:auto;perspective:1100px;container-type:inline-size}
+@media(min-width:960px){.ring-wrap{aspect-ratio:1/1}}
+.ring{position:absolute;inset:0;transform-style:preserve-3d;animation:orbit 48s linear infinite}
+.ring img{position:absolute;left:50%;top:50%;width:21cqw;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--border-hi);box-shadow:0 20px 50px rgba(0,0,0,.5);backface-visibility:hidden}
+@keyframes orbit{to{transform:rotateY(360deg)}}
+.ring-wrap::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(8,8,11,.9),transparent 55%);pointer-events:none}
+@media(prefers-reduced-motion:reduce){.ring{animation:none;transform:rotateY(20deg)}}
+
+/* ---------- Kanıt şeridi ---------- */
+.proof{border-block:1px solid var(--border);background:var(--bg2);padding-block:0}
+.proof .wrap{display:grid;gap:0}
+@media(min-width:800px){.proof .wrap{grid-template-columns:repeat(3,1fr)}}
+.proof-item{padding:28px 0;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;border-bottom:1px solid var(--border)}
+@media(min-width:800px){.proof-item{padding:28px 24px;border-bottom:0;border-right:1px solid var(--border)}.proof-item:first-child{padding-left:0}.proof-item:last-child{border-right:0}}
+.proof-item:last-child{border-bottom:0}
+.ba{display:flex;align-items:center;gap:10px}
+.ba img{width:58px;height:74px;object-fit:cover;border-radius:8px;border:1px solid var(--border-hi)}
+.ba .arrow{font-family:var(--mono);font-size:10.5px;color:var(--text3);text-align:center;line-height:1.3}
+.proof-item p{font-size:14px;color:var(--text2);text-wrap:pretty}
+.proof-item .eyebrow{margin-bottom:6px}
+
+/* ---------- Sana göre ---------- */
+.personas{display:grid;gap:0;border-top:1px solid var(--border)}
+.persona{display:grid;gap:12px;padding:32px 0;border-bottom:1px solid var(--border)}
+@media(min-width:900px){.persona{grid-template-columns:160px 1fr 1fr;gap:32px;align-items:start}}
+.persona h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
+.persona p{color:var(--text2);font-size:15px}
+.persona .tools{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--sage-text);line-height:1.9}
+
+/* ---------- Kategori ---------- */
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:720px){.cats{grid-template-columns:repeat(5,1fr)}}
+.cat{position:relative;aspect-ratio:3/4.2;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border)}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.cat:hover img{transform:scale(1.05)}
+.cat .cap{position:absolute;inset:auto 0 0 0;padding:16px 14px;background:linear-gradient(transparent,rgba(8,8,11,.92))}
+.cat h3{font-size:18px}
+.cat p{font-size:12.5px;color:var(--text2);margin-top:4px}
+.cat .tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;padding:5px 9px;border-radius:var(--pill);background:rgba(8,8,11,.7);border:1px solid var(--border-hi)}
+
+/* ---------- Dört stüdyo bento ---------- */
+.bento{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:860px){.bento{grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:300px 300px}.bento .big{grid-row:span 2}}
+.tile{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:280px;border:1px solid var(--border);background:var(--surface)}
+.tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .cap{position:absolute;inset:auto 0 0 0;padding:22px;background:linear-gradient(transparent,rgba(8,8,11,.94) 70%)}
+.tile .cap h3{font-size:clamp(22px,2.2vw,30px)}
+.tile .cap p{color:var(--text2);font-size:14px;margin-top:6px;max-width:34ch}
+.badge{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;padding:5px 9px;border-radius:var(--pill);background:var(--sage-tint);color:var(--sage-text);border:1px solid rgba(158,176,152,.3);margin-bottom:10px}
+.tile .strip{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.tile .strip img{position:static;height:100%}
+
+/* ---------- Video: 4 güç, sekmeli tek panel ---------- */
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:28px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:10px 16px;border-radius:var(--pill);border:1px solid var(--border-hi);font-size:13px;color:var(--text2);white-space:nowrap;display:flex;gap:10px;align-items:center}
+.tab .n{font-family:var(--mono);font-size:10.5px;color:var(--text3)}
+.tab.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.tab.on .n{color:var(--sage-dark)}
+.panel{display:none;grid-template-columns:1fr;gap:32px;align-items:center;border:1px solid var(--border);border-radius:var(--r-xxl);background:var(--surface);padding:clamp(20px,3vw,40px)}
+.panel.on{display:grid}
+@media(min-width:900px){.panel{grid-template-columns:1fr 1fr}}
+.panel h3{font-size:clamp(28px,3.2vw,42px)}
+.panel .lead{margin-top:16px;font-size:16px}
+.stage{position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--bg2);border:1px solid var(--border)}
+.stage img,.stage video{width:100%;height:100%;object-fit:cover}
+.stage .lbl{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;padding:5px 9px;border-radius:var(--pill);background:rgba(8,8,11,.75);border:1px solid var(--border-hi)}
+.timeline{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;margin-top:14px}
+.timeline i{height:26px;border-radius:4px;background:var(--surface2)}
+.timeline i.sel{background:var(--sage-dark)}
+.tl-cap{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--text3);margin-top:6px}
+.rates{display:flex;gap:8px;margin-top:14px}
+.faces{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid transparent}
+.faces img.on{border-color:var(--sage)}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.pair .stage{aspect-ratio:3/4}
+.pair .plus{font-size:26px;font-weight:200;color:var(--text3)}
+.steps{counter-reset:s;margin-top:20px;display:grid;gap:8px;font-size:14px;color:var(--text2)}
+.steps li{list-style:none;display:flex;gap:12px;align-items:baseline}
+.steps li::before{counter-increment:s;content:counter(s);font-family:var(--mono);font-size:11px;color:var(--sage-text)}
+
+/* ---------- Şablon şeritleri ---------- */
+.marquee{overflow:hidden;mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:10px;width:max-content;animation:scroll 46s linear infinite}
+.marquee.rev .track{animation-direction:reverse;animation-duration:58s}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}.marquee{overflow-x:auto;mask:none}}
+.card9{position:relative;flex:none;width:150px;aspect-ratio:9/16;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border)}
+.card9 img{width:100%;height:100%;object-fit:cover}
+.card9 .id{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:10.5px;padding:3px 7px;border-radius:4px;background:rgba(8,8,11,.75)}
+.card9 .new{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;padding:3px 7px;border-radius:var(--pill);background:var(--gold);color:var(--ink);font-weight:500}
+.strip-head{display:flex;justify-content:space-between;align-items:center;margin:28px 0 12px}
+.note{font-size:13px;color:var(--text3);margin-top:18px}
+
+/* ---------- Marka koleksiyonu ---------- */
+.collection{display:grid;gap:32px;align-items:center;border:1px solid var(--border);border-radius:var(--r-xxl);background:var(--surface);padding:clamp(20px,3vw,40px)}
+@media(min-width:900px){.collection{grid-template-columns:1fr 1.15fr}}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grid6 img{aspect-ratio:3/4;object-fit:cover;border-radius:var(--r-sm);width:100%}
+
+/* ---------- Araç kaydırıcı ---------- */
+.scroller{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none;margin-inline:calc(-1*var(--gutter));padding-inline:var(--gutter)}
+.scroller::-webkit-scrollbar{display:none}
+.tool{flex:none;width:min(72vw,250px);scroll-snap-align:start;position:relative;aspect-ratio:3/4.3;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border)}
+.tool img{width:100%;height:100%;object-fit:cover}
+.tool .cap{position:absolute;inset:auto 0 0 0;padding:16px;background:linear-gradient(transparent,rgba(8,8,11,.94))}
+.tool h3{font-size:17px}
+.tool p{font-size:12.5px;color:var(--text2);margin-top:4px}
+.tool .k{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;padding:4px 8px;border-radius:var(--pill);background:rgba(8,8,11,.7);border:1px solid var(--border-hi)}
+.tool .n{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10.5px;color:var(--text3)}
+.angles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(min-width:760px){.angles{grid-template-columns:repeat(8,1fr)}}
+.angle{position:relative;aspect-ratio:3/4;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border)}
+.angle img{width:100%;height:100%;object-fit:cover}
+.angle span{position:absolute;inset:auto 0 0 0;padding:8px 6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-align:center;line-height:1.2;background:linear-gradient(transparent,rgba(8,8,11,.9))}
+
+/* ---------- Çocuk + Ürün ---------- */
+.split{display:grid;gap:12px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
+.block{border:1px solid var(--border);border-radius:var(--r-xxl);background:var(--surface);padding:clamp(22px,3vw,36px)}
+.block h3{font-size:clamp(24px,2.6vw,32px);margin-top:10px}
+.block p{color:var(--text2);font-size:15px;margin-top:14px;max-width:48ch}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:22px}
+.thumbs img{aspect-ratio:1;object-fit:cover;border-radius:8px;width:100%}
+.thumbs.four{grid-template-columns:repeat(4,1fr)}
+.markets{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--text3)}
+.ugc{display:grid;gap:24px;align-items:center;margin-top:12px;border:1px solid var(--border);border-radius:var(--r-xxl);padding:clamp(22px,3vw,36px)}
+@media(min-width:900px){.ugc{grid-template-columns:auto 1fr}}
+.avatars{display:flex}
+.avatars img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid var(--bg);margin-left:-14px}
+.avatars img:first-child{margin-left:0}
+
+/* ---------- Sayılar + yorumlar ---------- */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-block:1px solid var(--border)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(5,1fr)}}
+.stat{padding:28px 8px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--text3);display:block;margin-top:8px}
+.quotes{display:grid;gap:12px}
+@media(min-width:760px){.quotes{grid-template-columns:repeat(2,1fr)}}
+.quote{border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;background:var(--surface)}
+.quote .stars{color:var(--gold);font-size:13px;letter-spacing:2px}
+.quote p{font-size:16px;margin-top:12px;text-wrap:pretty}
+.quote footer{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:16px;letter-spacing:.06em}
+
+/* ---------- SSS ---------- */
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:17px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:300;font-size:22px;color:var(--text3);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--text2);padding:0 0 20px;max-width:70ch;font-size:15px}
+
+/* ---------- CTA + footer ---------- */
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 100%,rgba(124,136,112,.25),transparent 70%);pointer-events:none}
+.cta h2{font-size:clamp(40px,6vw,78px)}
+.cta .stores{justify-content:center}
+footer{border-top:1px solid var(--border);padding:48px 0 32px;font-size:14px;color:var(--text2)}
+.fgrid{display:grid;gap:28px}
+@media(min-width:760px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.fgrid h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--text3);margin-bottom:12px;font-weight:400}
+.fgrid a{display:block;padding:4px 0}
+.fgrid a:hover{color:var(--text)}
+.fbottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text3)}
+
+/* ---------- Giriş animasyonu (GSAP yoksa görünür kalır) ---------- */
+.rv{opacity:1}
+html.gs .rv{opacity:0;transform:translateY(22px)}
+@media(prefers-reduced-motion:reduce){html.gs .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#">listify<span>ai</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#studyo">Studio</a><a href="#video">Video</a><a href="#moda">Fashion</a><a href="#kategori">Categories</a><a href="#sss">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" aria-label="Dil / Language"><a href="../" hreflang="tr" lang="tr">TR</a><a href="./" class="on" hreflang="en" lang="en" aria-current="true">EN</a></div>
+      <a class="btn btn-sage" href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener">Download</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false" id="burger">☰</button>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Mobile menu">
+  <a href="#studyo">Studio</a><a href="#video">Video</a><a href="#moda">Fashion</a><a href="#kategori">Categories</a><a href="#sss">FAQ</a><a href="../" hreflang="tr" lang="tr">Türkçe</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv">AI studio for boutiques · wholesalers · ateliers</div>
+      <h1 class="rv"><em>Upload one photo.</em><br>The studio does<br><span class="gold">the rest.</span></h1>
+      <p class="lead rv">Women, men, kids — shoot the product on your rack with your phone and upload it. Model, scene, video and listing copy are ready in seconds. No shoot day, no model fees, no studio rent.</p>
+      <div class="stores rv">
+        <a href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener"><img src="../assets/img/app-store-badge.svg" alt="Download on the App Store"></a>
+        <a href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener"><img src="../assets/img/google-play-badge.svg" alt="Get it on Google Play"></a>
+      </div>
+      <div class="tiny rv">Gift credits · No card · iOS &amp; Android</div>
+      <div class="trust rv"><span><b>★ 4.7</b> · App Store &amp; Google Play</span><span>1000+ users</span><span>28 tools</span></div>
+    </div>
+    <div class="ring-wrap" aria-hidden="true">
+      <div class="ring" id="ring">
+        <img src="../assets/site/59a02cc9.webp" alt=""><img src="../assets/site/39a51d1c.webp" alt=""><img src="../assets/site/0a7efdb2.webp" alt=""><img src="../assets/site/2db39b84.webp" alt="">
+        <img src="../assets/site/5e2029de.webp" alt=""><img src="../assets/site/1c662477.webp" alt=""><img src="../assets/site/43560360.webp" alt=""><img src="../assets/site/132058da.webp" alt="">
+        <img src="../assets/site/d53b42d2.webp" alt=""><img src="../assets/site/110cdf1c.webp" alt=""><img src="../assets/site/e3f38d23.webp" alt=""><img src="../assets/site/02517aa4.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KANIT -->
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-item rv">
+      <div class="ba"><img loading="lazy" decoding="async" src="../assets/site/0f444348.webp" alt="Outfit shot on the floor"><div class="arrow">→<br>~15 SEC</div><img loading="lazy" decoding="async" src="../assets/site/6af7d9bb.webp" alt="Outfit on a model"></div>
+      <div><div class="eyebrow">Proof 01 · <b>Women</b></div><p>An outfit shot on the floor, now on a model in the studio.</p></div>
+    </div>
+    <div class="proof-item rv">
+      <div class="ba"><img loading="lazy" decoding="async" src="../assets/site/b598dadb.webp" alt="Kids T-shirt on a hanger"><div class="arrow">→<br>~15 SEC</div><img loading="lazy" decoding="async" src="../assets/site/01855ac5.webp" alt="On a child model"></div>
+      <div><div class="eyebrow">Proof 02 · <b>Kids</b></div><p>From the hanger to a child model; safe generation.</p></div>
+    </div>
+    <div class="proof-item rv">
+      <div class="ba"><img loading="lazy" decoding="async" src="../assets/site/bcf89833.webp" alt="Raw product shot"><div class="arrow">→<br>600+</div><img loading="lazy" decoding="async" src="../assets/site/f4c51f83.webp" alt="Four different scenes"></div>
+      <div><div class="eyebrow">Proof 03 · <b>Product</b></div><p>A raw shot, placed in one of 600+ scenes; listing copy included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SANA GÖRE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">Made for you</div><h2 class="rv">From rack to storefront, <em>same day.</em></h2></div></div>
+    <div class="personas">
+      <div class="persona rv"><div class="eyebrow">Boutique owner</div><div><h3>Every new arrival, online the same day.</h3><p>Shoot it on a hanger or the floor; dress it on a model, turn it into a Reel, write the listing. One phone, one lunch break.</p></div><div class="tools">Virtual Try-On · Video Templates · Dress My Video</div></div>
+      <div class="persona rv"><div class="eyebrow">Wholesaler</div><div><h3>Hundreds of styles, one afternoon.</h3><p>Brand Collection keeps the same model and the same light all season. Batch processing; files ready for your catalogue and marketplaces.</p></div><div class="tools">Brand Collection · Lookbook · Batch export</div></div>
+      <div class="persona rv"><div class="eyebrow">Atelier &amp; agency</div><div><h3>Show the collection before it's sewn.</h3><p>Visuals from fabric and sketches, no samples needed; client presentations in a day, no shoot crew.</p></div><div class="tools">Fabric → Garment · Sketch → Garment · Editorial Templates</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORİ -->
+<section id="kategori" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Every category</div><h2 class="rv">Whatever rack you sell, <em>the right model.</em></h2></div>
+      <p class="lead rv">Women, men, kids, lingerie and modest wear — a model pool and scenes for every category. Modest models and safe generation for sensitive categories.</p>
+    </div>
+    <div class="cats">
+      <a class="cat rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/c3b7a118.webp" alt=""><div class="cap"><h3>Women</h3><p>Outfits, dresses, eveningwear; editorial and catalogue.</p></div></a>
+      <a class="cat rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/7a7e55d3.webp" alt=""><div class="cap"><h3>Men</h3><p>Suits, denim, sportswear; a male model pool.</p></div></a>
+      <a class="cat rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/01855ac5.webp" alt=""><div class="cap"><h3>Kids</h3><p>Child model pool, 48 scenes, extra moderation.</p></div></a>
+      <a class="cat rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/f6ce0b10.webp" alt=""><span class="tag">LINGERIE ⇄ SWIMWEAR</span><div class="cap"><h3>Lingerie &amp; swimwear</h3><p>Sensitive category: modest models, safe generation.</p></div></a>
+      <a class="cat rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/d53b42d2.webp" alt=""><div class="cap"><h3>Modest wear</h3><p>Shawls, turbans, voluminous styles; a modest model set.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- DÖRT STÜDYO -->
+<section id="studyo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">One app · 28 tools</div><h2 class="rv">Four studios. <em>One pocket.</em></h2></div></div>
+    <div class="bento">
+      <a class="tile big rv" href="#moda"><img loading="lazy" decoding="async" src="../assets/site/132058da.webp" alt=""><div class="cap"><span class="badge">11 TOOLS</span><h3>Fashion</h3><p>From try-on to video, a full fashion studio in one flow.</p></div></a>
+      <a class="tile rv" href="#sahne"><img loading="lazy" decoding="async" src="../assets/site/c85c042e.webp" alt=""><div class="cap"><span class="badge">10 PHOTOS</span><h3>Product Shoot</h3><p>Ten professional shots from one photo.</p></div></a>
+      <a class="tile rv" href="#video"><img loading="lazy" decoding="async" src="../assets/site/0d423e0d.webp" alt=""><div class="cap"><span class="badge">CINEMATIC</span><h3>Product Video</h3><p>"Visia", the AI director flow.</p></div></a>
+      <a class="tile rv" href="#modavideo" style="grid-column:span 2"><div class="strip"><img loading="lazy" decoding="async" src="../assets/site/5bc9a5ba.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/b72767f6.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/95f6ab23.webp" alt=""></div><div class="cap"><span class="badge">99+ TEMPLATES · NEW S SERIES</span><h3>Fashion Video</h3><p>A runway video from a garment photo; vertical for Reels and TikTok.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- VİDEO: 4 GÜÇ -->
+<section id="video" style="background:var(--bg2);border-block:1px solid var(--border)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Video studio · <b>4 new powers</b></div><h2 class="rv">You direct <em>the video.</em></h2></div>
+      <p class="lead rv">Don't settle for a template. Slow down the moment, reshoot a cut you like with your own product, dress your product onto your own video, swap the model.</p>
+    </div>
+    <div class="tabs rv" role="tablist">
+      <button class="tab on" role="tab" data-t="0"><span class="n">01</span>Slow-Motion Moment</button>
+      <button class="tab" role="tab" data-t="1"><span class="n">02</span>Make One Like It</button>
+      <button class="tab" role="tab" data-t="2"><span class="n">03</span>Dress My Video</button>
+      <button class="tab" role="tab" data-t="3"><span class="n">04</span>Swap Model &amp; Outfit</button>
+    </div>
+
+    <div class="panel on rv" data-p="0">
+      <div>
+        <div class="eyebrow">01 · Slow-motion moment</div>
+        <h3>Slow down the second <em>that sells.</em></h3>
+        <p class="lead">Mark any part of the video; the drape of the fabric, the swing of a skirt, the glint of an accessory plays at 0.5× or 0.25×. The rest stays at normal speed.</p>
+        <div class="chips"><span class="chip">Pick a section</span><span class="chip">0.5× / 0.25×</span><span class="chip">In template videos</span></div>
+      </div>
+      <div>
+        <div class="stage" style="aspect-ratio:4/5;max-width:360px;margin-inline:auto">
+          <video id="slow" muted loop playsinline autoplay preload="metadata" poster="../assets/site/a0d41711.webp" src="../assets/app-showcase/video/model_catwalk.mp4"></video>
+          <span class="lbl" id="rateLbl">● 1× NORMAL</span>
+        </div>
+        <div class="eyebrow" style="margin-top:18px">Timeline</div>
+        <div class="timeline"><i></i><i></i><i></i><i></i><i class="sel"></i><i class="sel"></i><i class="sel"></i><i class="sel"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="tl-cap"><span>0:00</span><span>0:04 – 0:07 SELECTED</span><span>0:15</span></div>
+        <div class="rates" id="rates"><button class="chip on" data-r="1">1×</button><button class="chip" data-r="0.5">0.5×</button><button class="chip" data-r="0.25">0.25×</button></div>
+        <p class="note">Tap a button; the preview slows down in real time. In the app, only the selected section changes.</p>
+      </div>
+    </div>
+
+    <div class="panel" data-p="1">
+      <div class="pair">
+        <div><div class="eyebrow" style="margin-bottom:8px">1 · A template you like</div><div class="stage"><img loading="lazy" decoding="async" src="../assets/site/b72767f6.webp" alt="Template B01"></div></div>
+        <div class="plus">+</div>
+        <div><div class="eyebrow" style="margin-bottom:8px">Your product</div><div class="stage" style="background:#F5F5F0"><img loading="lazy" decoding="async" src="../assets/site/a81283fb.webp" alt="Pink blazer" style="object-fit:contain"></div></div>
+      </div>
+      <div>
+        <div class="eyebrow">02 · Make one like it</div>
+        <h3>Recreate the template <em>you love.</em></h3>
+        <p class="lead">Spotted a video or editorial shot in the gallery? Same cut, same camera, same scene — with your product. Save it to "My Templates" and reuse it every season.</p>
+        <div class="chips"><span class="chip">Cut preserved</span><span class="chip">Camera preserved</span><span class="chip">My Templates</span></div>
+      </div>
+    </div>
+
+    <div class="panel" data-p="2">
+      <div>
+        <div class="eyebrow">03 · Dress my video</div>
+        <h3>Your own video, <em>with your product.</em></h3>
+        <p class="lead">Upload a video you already have — your own footage, an influencer clip, last season's campaign. Dress your product onto the person in it; motion, camera and light stay the same. A season of content from one shoot.</p>
+        <div class="chips"><span class="chip">Upload your video</span><span class="chip">Pick the product</span><span class="chip">Motion preserved</span></div>
+        <ul class="steps"><li>Upload your video</li><li>Pick the product photo</li><li>Download and share the dressed video</li></ul>
+      </div>
+      <div>
+        <div class="stage" style="max-width:360px;margin-inline:auto"><img loading="lazy" decoding="async" src="../assets/site/bb9c138a.webp" alt="Dress My Video example"><span class="lbl">YOUR VIDEO</span></div>
+        <p class="note" style="text-align:center">Real example: Dress My Video output from the app.</p>
+      </div>
+    </div>
+
+    <div class="panel" data-p="3">
+      <div>
+        <div class="stage" style="max-width:300px;margin-inline:auto"><img loading="lazy" decoding="async" src="../assets/site/46a7b263.webp" alt="Selected model"><span class="lbl">SELECTED MODEL · DEFNE</span></div>
+        <div class="eyebrow" style="margin-top:18px">Model face · 60+ references</div>
+        <div class="faces" id="faces"><img loading="lazy" decoding="async" src="../assets/site/5cf18176.webp" class="on" alt=""><img loading="lazy" decoding="async" src="../assets/site/7962b690.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/8a1cce9b.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/a77133e4.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/80cd4285.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/46d74bbd.webp" alt=""></div>
+        <p class="note">Face, hair and hijab style are selectable; motion and camera are preserved. Preview is illustrative.</p>
+      </div>
+      <div>
+        <div class="eyebrow">04 · Swap model &amp; outfit</div>
+        <h3>Same video, <em>new model.</em></h3>
+        <p class="lead">Swap the person in your uploaded video: 60+ face references, hair and hijab styles, a male and female model pool. Change the outfit too — one video, different versions for different audiences.</p>
+        <div class="chips"><span class="chip">Face reference</span><span class="chip">Hair &amp; hijab</span><span class="chip">Outfit swap</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODA VİDEO ŞABLONLARI -->
+<section id="modavideo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Fashion video · 99+ templates</div><h2 class="rv">New templates <em>on stage.</em></h2></div>
+      <p class="lead rv">Product → model → scene → music, automatically. Vertical for Reels and TikTok. Hover to watch.</p>
+    </div>
+    <div class="chips rv" style="margin:0 0 20px"><span class="chip on">NEW · S SERIES</span><span class="chip">MOST GENERATED</span><span class="chip">MOTION &amp; CAMERA · 90 PRESETS</span><span class="chip">REELS</span><span class="chip">TIKTOK</span></div>
+  </div>
+  <div class="marquee rv">
+    <div class="track" id="track1"></div>
+  </div>
+  <div class="wrap"><div class="strip-head"><div class="eyebrow">Image to video · <b>Motion &amp; camera presets</b></div></div></div>
+  <div class="marquee rev rv">
+    <div class="track" id="track2"></div>
+  </div>
+  <div class="wrap"><p class="note">Three steps: product photo → template → a 15-second vertical video with music, ready to download and share. Quick Fashion Video runs a five-stage pipeline in ~3 minutes.</p></div>
+</section>
+
+<!-- MARKA KOLEKSİYONU -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="collection rv">
+      <div>
+        <div class="eyebrow">Brand collection · <b>Wholesalers &amp; brands</b></div>
+        <h2 style="font-size:clamp(30px,3.6vw,46px)">One model, <em>the whole collection.</em></h2>
+        <p class="lead" style="margin-top:16px;font-size:16px">Choose the model, face and scene theme once; generate hundreds of products with the same face, the same light, the same world. Catalogue consistency, marketplace storefronts and lookbooks — in one go. 44 brand themes, 24 camera angles, catalogue or editorial.</p>
+        <div class="chips"><span class="chip">Consistent face</span><span class="chip">Batch generation</span><span class="chip">44 themes</span></div>
+      </div>
+      <div class="grid6">
+        <img loading="lazy" decoding="async" src="../assets/site/0a7efdb2.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/268e2e3d.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/87a94b47.webp" alt="">
+        <img loading="lazy" decoding="async" src="../assets/site/be4f3416.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/cf4fa852.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/c2c6e217.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODA STÜDYOSU -->
+<section id="moda" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Fashion studio · 11 tools</div><h2 class="rv">Everything <em>a wardrobe needs.</em></h2></div>
+      <div class="eyebrow rv" style="justify-self:end">Scroll →</div>
+    </div>
+    <div class="scroller rv" id="tools"></div>
+    <div class="chips rv"><span class="eyebrow" style="align-self:center">+ Editing</span><span class="chip">Swap Model</span><span class="chip">Change Pose</span><span class="chip">Change Background</span><span class="chip">Create AI Model</span><span class="chip">Quick Edit</span></div>
+
+    <div class="sec-head" style="margin-top:72px">
+      <div><div class="eyebrow rv">Camera angles · 24 angles × 2 styles</div><h2 class="rv" style="font-size:clamp(28px,3.4vw,44px)">Catalogue or editorial? <em>Both.</em></h2></div>
+      <p class="lead rv" style="font-size:15px">Front, full length, shoulder-up, profile, runway walk, magazine cover… Every angle in two styles: clean catalogue or cinematic editorial. With male and female models.</p>
+    </div>
+    <div class="angles rv">
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/b2317305.webp" alt=""><span>FRONT · CATALOGUE</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/7a7e55d3.webp" alt=""><span>FRONT · EDITORIAL</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/fd12fac0.webp" alt=""><span>FULL · CATALOGUE</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/82ef787b.webp" alt=""><span>FULL · EDITORIAL</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/5cf18176.webp" alt=""><span>MAGAZINE COVER</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/46d74bbd.webp" alt=""><span>MAGAZINE COVER</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/e14be2ad.webp" alt=""><span>PROFILE SILHOUETTE</span></div>
+      <div class="angle"><img loading="lazy" decoding="async" src="../assets/site/c3b7a118.webp" alt=""><span>RUNWAY WALK</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÇOCUK + ÜRÜN + UGC -->
+<section id="sahne" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+      <div class="block rv">
+        <div class="eyebrow">Kidswear</div>
+        <h3>A separate world <em>for kids' products.</em></h3>
+        <p>A child model pool and 48 kids' scenes — playground, birthday, beach, kindergarten — plus extra moderation before generation. Safe, charming, built to sell.</p>
+        <div class="thumbs"><img loading="lazy" decoding="async" src="../assets/site/3f68282d.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/6084cdb7.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/f0b60c4a.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/318530c9.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/81778149.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/d779d4d6.webp" alt=""></div>
+      </div>
+      <div class="block rv">
+        <div class="eyebrow">Product studio &amp; listings</div>
+        <h3>600+ scenes; <em>listing copy and files ready.</em></h3>
+        <p>Batch backgrounds with Product Studio; SEO-friendly titles, descriptions and FAQs with Product Content. Marketplace files download as XML / CSV / XLSX for seven platforms.</p>
+        <div class="markets"><span>TRENDYOL</span><span>HEPSİBURADA</span><span>N11</span><span>SHOPIFY</span><span>AMAZON</span><span>ETSY</span><span>WOOCOMMERCE</span></div>
+        <div class="thumbs four"><img loading="lazy" decoding="async" src="../assets/site/1a1ff72d.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/42c5e5ca.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/a48f93bb.webp" alt=""><img loading="lazy" decoding="async" src="../assets/site/d434d0dd.webp" alt=""></div>
+      </div>
+    </div>
+    <div class="ugc rv">
+      <div class="avatars"><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/zeynep.webp" alt=""><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/kaan.webp" alt=""><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/elif.webp" alt=""><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/emre.webp" alt=""><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/defne.webp" alt=""><img loading="lazy" decoding="async" src="../assets/app-showcase/ugc-avatars/burak.webp" alt=""></div>
+      <div><div class="eyebrow">UGC video</div><h3 style="font-size:clamp(22px,2.4vw,30px);margin-top:8px">Six faces that talk for you.</h3><p style="color:var(--text2);margin-top:8px;font-size:15px;max-width:60ch">Six virtual AI presenters; authentic product intros without stepping in front of a camera. Daily content for boutiques, product walkthroughs for wholesalers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAYILAR + YORUMLAR -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><b data-count="1000" data-suffix="+">1000+</b><span>Users</span></div>
+      <div class="stat"><b data-count="28">28</b><span>Tools</span></div>
+      <div class="stat"><b data-count="99" data-suffix="+">99+</b><span>Video templates</span></div>
+      <div class="stat"><b data-count="600" data-suffix="+">600+</b><span>Scenes</span></div>
+      <div class="stat"><b>4.7</b><span>Store rating</span></div>
+    </div>
+    <div class="sec-head" style="margin-top:72px">
+      <div><div class="eyebrow rv">What users say</div><h2 class="rv">1000+ users. <em>4.7 stars.</em></h2></div>
+      <p class="lead rv" style="font-size:15px">4.7 on the App Store and Google Play · 45 ratings</p>
+    </div>
+    <div class="quotes">
+      <div class="quote rv"><div class="stars">★★★★★</div><p>I now shoot my boutique's products with my phone and dress them on models. No more studio hassle; listing takes half a day.</p><footer>ELİF · WOMENSWEAR BOUTIQUE</footer></div>
+      <div class="quote rv"><div class="stars">★★★★★</div><p>We have a lot of products; the whole collection on one model plus ready marketplace files cut my listing workload dramatically.</p><footer>HAKAN · TEXTILE WHOLESALER, LALELİ</footer></div>
+      <div class="quote rv"><div class="stars">★★★★★</div><p>I build lookbooks without sending pieces to a shoot. Fabric-to-garment is my favourite tool.</p><footer>SELİN · DESIGN ATELIER</footer></div>
+      <div class="quote rv"><div class="stars">★★★★★</div><p>The range of scenes for my storefront was exactly what I needed. One product, dozens of different moods.</p><footer>MURAT · TRENDYOL SELLER</footer></div>
+    </div>
+  </div>
+</section>
+
+<!-- SSS -->
+<section id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Frequently asked</div><h2 class="rv">Questions <em>answered.</em></h2></div>
+      <p class="lead rv" style="font-size:15px">Didn't find your answer? <a href="mailto:info@listifyai.com.tr" style="color:var(--sage-text)">info@listifyai.com.tr</a></p>
+    </div>
+    <div class="faq rv">
+      <details open><summary>How does it work? Do I need technical skills?</summary><p>No. Upload a product or garment photo, pick a tool, answer a few questions; the AI does the rest.</p></details>
+      <details><summary>Does it work for menswear, kidswear and lingerie?</summary><p>Yes. There are male and female model pools, a child model pool and 48 kids' scenes. Lingerie and swimwear are handled as sensitive categories with modest models in a safe generation flow; for modest wear you can choose shawl, turban and voluminous styles.</p></details>
+      <details><summary>Can I upload my own video?</summary><p>Yes. With Dress My Video you dress your product onto the person in the video; you can swap the model, slow down any section with Slow-Motion Moment, and recreate a template you like with your own product using Make One Like It.</p></details>
+      <details><summary>Are the results photoshoot quality?</summary><p>Every tool — virtual try-on, lookbook, accessories, editorial, fabric vision and video — targets studio quality; 4K output and upscaling are available.</p></details>
+      <details><summary>How do I export to marketplaces?</summary><p>It gives you XML / CSV / XLSX files with columns mapped for Trendyol, Shopify, Amazon, Etsy, Hepsiburada, N11 and WooCommerce; you download and upload them. It is not a direct API connection.</p></details>
+      <details><summary>Where are my photos stored?</summary><p>Images are stored encrypted in storage tied to your account and are never used for model training.</p></details>
+      <details><summary>Is it the same on iOS and Android?</summary><p>Yes. All tools are identical on both platforms; generation runs on our servers, so your device's power doesn't matter.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="indir">
+  <div class="wrap">
+    <h2 class="rv">Your studio, <span class="gold" style="color:var(--gold)">in your pocket.</span></h2>
+    <p class="lead rv" style="margin:20px auto 0">Try it free — no card, gift credits are waiting for you.</p>
+    <div class="stores rv">
+      <a href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="../assets/img/app-store-badge.svg" alt="Download on the App Store"></a>
+      <a href="https://listifyai.sng.link/Eyfry/n4e3g?_dl=listifyai%3A%2F%2Fhome&pcn=web_hero&_smtype=3" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="../assets/img/google-play-badge.svg" alt="Get it on Google Play"></a>
+    </div>
+    <div class="tiny rv" style="margin-top:22px">Your images are encrypted · Never used for model training</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><div class="logo">listify<span>ai</span></div><p style="margin-top:10px;max-width:30ch">AI fashion &amp; e-commerce studio. iOS and Android.</p></div>
+      <div><h4>FASHION</h4><a href="#moda">Virtual Try-On</a><a href="#moda">Lookbook</a><a href="#moda">Fabric → Garment</a><a href="#moda">Brand Collection</a></div>
+      <div><h4>VIDEO &amp; PRODUCT</h4><a href="#video">Dress My Video</a><a href="#video">Slow-Motion Moment</a><a href="#sahne">UGC Video</a><a href="#sahne">Product Studio</a></div>
+      <div><h4>COMPANY</h4><a href="../privacy-policy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../kvkk.html">KVKK (Turkish data law)</a><a href="../support.html">Support</a><a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a></div>
+    </div>
+    <div class="fbottom"><span>© 2026 ListifyAI</span><span>Try free · No card · gift credits</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // Halka: 12 kart, 30° aralık
+  document.querySelectorAll('#ring img').forEach(function(im,i){
+    im.style.transform='rotateY('+(i*30)+'deg) translateZ(44cqw) translate(-50%,-50%)';
+  });
+
+  // Mobil menü
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
+
+  // Sekmeler
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});t.classList.add('on');
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.dataset.p===t.dataset.t)});
+  })});
+
+  // Ağır çekim hızı
+  var v=document.getElementById('slow'),lbl=document.getElementById('rateLbl');
+  document.querySelectorAll('#rates .chip').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('#rates .chip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+    var r=parseFloat(b.dataset.r);if(v){v.playbackRate=r;v.defaultPlaybackRate=r}
+    lbl.textContent='● '+b.textContent+(r===1?' NORMAL':' SLOW MOTION');
+  })});
+
+  // Yüz seçimi
+  document.querySelectorAll('#faces img').forEach(function(f){f.addEventListener('click',function(){
+    document.querySelectorAll('#faces img').forEach(function(x){x.classList.remove('on')});f.classList.add('on');
+  })});
+
+  // Şablon şeritleri (çift kopya = kesintisiz kayma)
+  var tpls=[['be3e9dfe','S35','Shattered Window',1],['01c3c2dc','S31','Fan Swap',1],['c86bc733','W01'],['342698f3','W09'],['59a02cc9','B07'],['6de9147b','W08'],['bc70c337','W02'],['95f6ab23','B04'],['f05df3dc','W24'],['5bc9a5ba','A01']];
+  var presets=[['46a7b263','Runway walk'],['9f9f86a5','360° turn'],['63f9aa57','Skirt twirl'],['4c8e9210','Orbit camera 180°'],['a0d41711','Outfit reveal'],['79921436','Skirt swish'],['9ee24476','Hair flip'],['a0d41711','Cinematic slow motion']];
+  function fill(id,list,isTpl){
+    var t=document.getElementById(id),h='';
+    [0,1].forEach(function(){list.forEach(function(x){
+      h+='<div class="card9"><img loading="lazy" src="../assets/site/'+x[0]+'.webp" alt="">'+(x[3]?'<span class="new">NEW</span>':'')+'<span class="id">'+(isTpl?x[1]+(x[2]?' · '+x[2]:''):x[1])+'</span></div>';
+    })});
+    t.innerHTML=h;
+  }
+  fill('track1',tpls,true);fill('track2',presets,false);
+
+  // Araç kaydırıcı
+  var tools=[['01','Virtual Try-On','Dress a garment on an existing model; face and pose are preserved.','SECONDS','43560360'],['02','Lookbook · Product → Model','One product photo, a realistic AI model, multiple poses and scenes.','MULTI-POSE','d6509dcd'],['03','Fashion Studio','You pick the face, scene and pose; a photoshoot from one garment.','CONFIGURE','2b9bf112'],['04','Video Templates','Model and scene are automatic; vertical and ready to share.','99+ TEMPLATES','6f6c3118'],['05','Accessory Studio','Bags, watches, earrings, necklaces on a model; 14 accessory types.','14 TYPES','1c662477'],['06','Sketch → Garment','Turn a design sketch into a wearable piece.','SKETCH','ebad7135'],['07','Fabric → Garment','A full garment design from a fabric texture.','~15 SEC','6ecc2e4e'],['08','Editorial Templates','Magazine cover, runway, campaign shot.','EDITORIAL','988921cc'],['09','Brand Collection','Same face, same light, all season.','44 THEMES','36ff287a'],['10','Quick Fashion Video','Five-stage pipeline, ~3 minutes.','~3 MIN','3b6708ff'],['11','Camera Angles','24 angles × 2 styles; catalogue or editorial.','24 ANGLES','9ee24476']];
+  document.getElementById('tools').innerHTML=tools.map(function(t){return '<div class="tool"><img loading="lazy" src="../assets/site/'+t[4]+'.webp" alt=""><span class="n">'+t[0]+'</span><span class="k">'+t[3]+'</span><div class="cap"><h3>'+t[1]+'</h3><p>'+t[2]+'</p></div></div>'}).join('');
+
+  // Giriş hareketi (GSAP). Azaltılmış hareket: anında görünür.
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(window.gsap&&window.ScrollTrigger&&!rm){
+    document.documentElement.classList.add('gs');
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('section, footer').forEach(function(sec){
+      var items=sec.querySelectorAll('.rv');if(!items.length)return;
+      gsap.to(items,{opacity:1,y:0,duration:.9,ease:'expo.out',stagger:.07,scrollTrigger:{trigger:sec,start:'top 82%',once:true}});
+    });
+    gsap.utils.toArray('[data-count]').forEach(function(el){
+      var n=+el.dataset.count,s=el.dataset.suffix||'',o={v:0};
+      gsap.to(o,{v:n,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true},onUpdate:function(){el.textContent=Math.round(o.v)+s}});
+    });
+  }
+})();
+</script>
+</body>
+</html>
