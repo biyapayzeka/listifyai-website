@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /redesigns/
+Disallow: /index.prev
+Disallow: /index.legacy.html
+Disallow: /index.backup
+Disallow: /index.stryds-backup.html
 
 Sitemap: https://listifyai.com.tr/sitemap.xml
