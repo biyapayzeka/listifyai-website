@@ -9,22 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Meta Pixel -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2729736380696002');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2729736380696002&ev=PageView&noscript=1"
-    /></noscript>
+    <!-- Çerez onayı: Meta Pixel yalnız "Kabul et" sonrası yüklenir -->
+    <script src="assets/js/consent.js" defer></script>
     <link rel="stylesheet" href="assets/css/shared.css">
     <link rel="stylesheet" href="assets/css/legal.css">
 </head>
@@ -39,7 +25,7 @@
     <div class="legal-container">
         <h1>KVKK Aydınlatma Metni</h1>
         <p class="subtitle">6698 Sayılı Kişisel Verilerin Korunması Kanunu Kapsamında</p>
-        <p class="last-updated">Son güncelleme: 28 Eylül 2026</p>
+        <p class="last-updated">Son güncelleme: 16 Kasım 2026</p>
 
         <p>
             Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") m.10
@@ -115,6 +101,11 @@
                     <td>İletişim tercihleri</td>
                     <td>Kampanya ve duyurular (izne tabi)</td>
                 </tr>
+                <tr>
+                    <td><strong>Web Sitesi Çerezleri</strong></td>
+                    <td>Meta Pixel çerezleri ve sayfa/tıklama olayları (yalnızca çerez bandında "Kabul et" seçilirse)</td>
+                    <td>Reklam etkisinin ölçülmesi; açık rızaya dayanır, <a href="privacy-policy.html#cerezler">ayrıntılar</a></td>
+                </tr>
             </tbody>
         </table>
 
@@ -130,6 +121,9 @@
         </ul>
 
         <h3>4.2 Yurt Dışı Aktarım</h3>
+        <!-- TODO (BEKLETİLİYOR): giriş paragrafı ve "Güvence" sütunu, KVKK standart sözleşmeleri imzalanıp Kuruma
+             bildirilince güncellenecek. Bkz. TASLAK_GIZLILIK_ALT_ISLEYICI_20261116.md §3.7–3.8 ve
+             TASLAK_KVKK_STANDART_SOZLESME_20261116.md. Yeni satırlarda güvence o zamana kadar "—". -->
         <p>
             Fotoğraflarınızın yapay zeka ile işlenmesi amacıyla verileriniz yurt dışındaki
             sunuculara aktarılabilir. Bu aktarımlar KVKK madde 9 kapsamında açık rızanıza
@@ -147,16 +141,40 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Google LLC (Gemini, Imagen)</td>
+                    <td>Google LLC / Google Cloud (Vertex AI, Gemini API)</td>
                     <td>ABD</td>
-                    <td>Yapay zeka ile görsel işleme, analiz, upscale</td>
+                    <td>Ürün görseli analizi, görsel ve metin üretimi, upscale</td>
                     <td>SCC, EU-US DPF</td>
                 </tr>
                 <tr>
-                    <td>FASHN Inc.</td>
+                    <td>KIE (kie.ai)</td>
+                    <td>Yurt dışı</td>
+                    <td>Görsel ve video üretimi</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>PiAPI (piapi.ai)</td>
+                    <td>Yurt dışı</td>
+                    <td>Görsel ve video üretimi</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Replicate, Inc.</td>
                     <td>ABD</td>
-                    <td>Sanal kıyafet deneme, model oluşturma</td>
-                    <td>SCC</td>
+                    <td>Görsel ve video üretimi, dudak senkronu</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>OpenRouter, Inc. (aracı; model sağlayıcıları: Anthropic PBC, Microsoft Azure)</td>
+                    <td>ABD</td>
+                    <td>Sohbet asistanı (Lifi) ve Reklam Yönetmeni metin/görsel istekleri</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>ElevenLabs Inc.</td>
+                    <td>ABD</td>
+                    <td>Video seslendirme (yalnızca metin)</td>
+                    <td>—</td>
                 </tr>
                 <tr>
                     <td>Firebase (Google Cloud)</td>
@@ -173,6 +191,8 @@
         </p>
 
         <h2>5. Veri Saklama Süreleri</h2>
+        <!-- TODO (BEKLETİLİYOR): saklama süreleri hesap silme/saklama işi bitince güncellenecek
+             ("İşlenmiş görseller: 30 gün" gerçeği yansıtmıyor; taslak §9.3). -->
         <ul>
             <li><strong>Hesap bilgileri:</strong> Hesap silinene kadar + 1 yıl (hukuki süre)</li>
             <li><strong>İşlenmiş görseller:</strong> 30 gün</li>
@@ -264,7 +284,7 @@
     </div>
 
     <footer class="legal-footer">
-        <p>&copy; 2026 ListifyAI. Tüm hakları saklıdır.</p>
+        <p>&copy; 2026 ListifyAI. Tüm hakları saklıdır. · <a href="#" data-consent-open>Çerez tercihleri</a></p>
     </footer>
 </body>
 </html>

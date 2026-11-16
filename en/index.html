@@ -28,18 +28,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MobileApplication","name":"ListifyAI","applicationCategory":"LifestyleApplication","operatingSystem":"iOS, Android","description":"AI fashion and e-commerce studio. Generates models, scenes, videos and marketplace content from a single product or garment photo.","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","ratingCount":"45","bestRating":"5"}}
 </script>
-<!-- Meta Pixel: yalnız canlı alan adının ana sayfasında çalışır; yerel önizleme ve /redesigns/ ölçümü kirletmez -->
-<script>
-if (/^(www\.)?listifyai\.com\.tr$/.test(location.hostname) && /^\/(en\/)?(index\.html)?$/.test(location.pathname)) {
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','2729736380696002');fbq('track','PageView');
-}
-window.addEventListener('click',function(e){
-  var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"], a[href*="play.google.com"], a[href*="sng.link"]');
-  if(a&&window.fbq){fbq('track','Lead',{content_name:'app_download'});}
-},true);
-</script>
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2729736380696002&ev=PageView&noscript=1"></noscript>
+<!-- Çerez onayı: Meta Pixel yalnız "Kabul et" sonrası yüklenir -->
+<script src="../assets/js/consent.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -630,7 +620,7 @@ html.gs .rv{opacity:0;transform:translateY(22px)}
       <div><div class="logo">listify<span>ai</span></div><p style="margin-top:10px;max-width:30ch">AI fashion &amp; e-commerce studio. iOS and Android.</p></div>
       <div><h4>FASHION</h4><a href="#moda">Virtual Try-On</a><a href="#moda">Lookbook</a><a href="#moda">Fabric → Garment</a><a href="#moda">Brand Collection</a></div>
       <div><h4>VIDEO &amp; PRODUCT</h4><a href="#video">Dress My Video</a><a href="#video">Slow-Motion Moment</a><a href="#sahne">UGC Video</a><a href="#sahne">Product Studio</a></div>
-      <div><h4>COMPANY</h4><a href="../privacy-policy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../kvkk.html">KVKK (Turkish data law)</a><a href="../support.html">Support</a><a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a></div>
+      <div><h4>COMPANY</h4><a href="privacy-policy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../kvkk.html">KVKK (Turkish data law)</a><a href="#" data-consent-open>Cookie preferences</a><a href="../support.html">Support</a><a href="mailto:info@listifyai.com.tr">info@listifyai.com.tr</a></div>
     </div>
     <div class="fbottom"><span>© 2026 ListifyAI</span><span>Try free · No card · gift credits</span></div>
   </div>
